@@ -686,20 +686,312 @@ HOW IT WORKS
 NAME CHECKER
 ================================= */
 
+.checker-section {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom,
+            hsl(0, 0%, 98%),
+            hsl(45, 10%, 96%));
+}
 
+.dark .checker-section {
+    background: linear-gradient(to bottom,
+            hsl(0, 0%, 8%),
+            hsl(45, 5%, 10%));
+}
 
+.checker-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.checker-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: hsl(0, 0%, 10%);
+}
+
+.dark .checker-heading {
+    color: hsl(0, 0%, 98%);
+}
+
+.checker-subtitle {
+    font-size: 1rem;
+    color: hsl(0, 0%, 50%);
+    margin-bottom: 40px;
+}
+
+.dark .checker-subtitle {
+    color: hsl(0, 0%, 60%);
+}
+
+.checker-input-wrapper {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: stretch;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.checker-input {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 2px solid hsl(45, 25%, 80%);
+    border-radius: 12px;
+    background: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 10%);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.dark .checker-input {
+    background: hsl(0, 0%, 12%);
+    border-color: hsl(45, 15%, 25%);
+    color: hsl(0, 0%, 98%);
+}
+
+.checker-input:focus {
+    border-color: hsl(45, 70%, 55%);
+    box-shadow: 0 0 0 3px hsla(45, 70%, 55%, 0.1);
+}
+
+.checker-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.checker-button {
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, hsl(45, 70%, 55%), hsl(45, 80%, 60%));
+    color: hsl(0, 0%, 10%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.checker-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, hsl(45, 80%, 60%), hsl(45, 90%, 65%));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -5px rgba(212, 175, 55, 0.4);
+}
+
+.checker-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.checker-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Result Styles */
+.checker-result {
+    margin-top: 40px;
+    padding: 24px;
+    border-radius: 16px;
+    border: 2px solid;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.checker-result-success {
+    background: linear-gradient(135deg,
+            hsla(120, 50%, 95%, 0.95),
+            hsla(120, 45%, 93%, 0.9));
+    border-color: hsl(120, 50%, 70%);
+}
+
+.dark .checker-result-success {
+    background: linear-gradient(135deg,
+            hsla(120, 30%, 15%, 0.95),
+            hsla(120, 25%, 12%, 0.9));
+    border-color: hsl(120, 40%, 35%);
+}
+
+.checker-result-error {
+    background: linear-gradient(135deg,
+            hsla(0, 50%, 95%, 0.95),
+            hsla(0, 45%, 93%, 0.9));
+    border-color: hsl(0, 50%, 70%);
+}
+
+.dark .checker-result-error {
+    background: linear-gradient(135deg,
+            hsla(0, 30%, 15%, 0.95),
+            hsla(0, 25%, 12%, 0.9));
+    border-color: hsl(0, 40%, 35%);
+}
+
+.checker-result-warning {
+    background: linear-gradient(135deg,
+            hsla(40, 50%, 95%, 0.95),
+            hsla(40, 45%, 93%, 0.9));
+    border-color: hsl(40, 50%, 70%);
+}
+
+.dark .checker-result-warning {
+    background: linear-gradient(135deg,
+            hsla(40, 30%, 15%, 0.95),
+            hsla(40, 25%, 12%, 0.9));
+    border-color: hsl(40, 40%, 35%);
+}
+
+.checker-result-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.checker-result-icon {
+    font-size: 2rem;
+}
+
+.checker-result-success .checker-result-icon {
+    color: hsl(120, 50%, 45%);
+}
+
+.dark .checker-result-success .checker-result-icon {
+    color: hsl(120, 50%, 60%);
+}
+
+.checker-result-error .checker-result-icon {
+    color: hsl(0, 50%, 50%);
+}
+
+.dark .checker-result-error .checker-result-icon {
+    color: hsl(0, 50%, 60%);
+}
+
+.checker-result-warning .checker-result-icon {
+    color: hsl(40, 70%, 50%);
+}
+
+.dark .checker-result-warning .checker-result-icon {
+    color: hsl(40, 70%, 60%);
+}
+
+.checker-result-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: hsl(0, 0%, 10%);
+}
+
+.dark .checker-result-title {
+    color: hsl(0, 0%, 98%);
+}
+
+.checker-result-description {
+    margin: 0 0 16px 0;
+    color: hsl(0, 0%, 30%);
+    font-size: 0.95rem;
+}
+
+.dark .checker-result-description {
+    color: hsl(0, 0%, 75%);
+}
+
+.checker-companies {
+    margin-top: 20px;
+}
+
+.checker-company-card {
+    background: linear-gradient(135deg,
+            hsla(45, 30%, 97%, 0.95),
+            hsla(45, 25%, 95%, 0.9));
+    border: 1px solid hsl(45, 25%, 80%);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 12px 0;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.dark .checker-company-card {
+    background: linear-gradient(135deg,
+            hsla(0, 0%, 15%, 0.95),
+            hsla(45, 10%, 12%, 0.9));
+    border-color: hsl(45, 15%, 25%);
+}
+
+.checker-company-card:hover {
+    border-color: hsl(45, 70%, 55%);
+    transform: translateX(4px);
+}
+
+.checker-company-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: hsl(0, 0%, 10%);
+    margin-bottom: 8px;
+}
+
+.dark .checker-company-name {
+    color: hsl(0, 0%, 98%);
+}
+
+.checker-company-details {
+    font-size: 0.9rem;
+    color: hsl(0, 0%, 40%);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.dark .checker-company-details {
+    color: hsl(0, 0%, 70%);
+}
+
+.checker-company-separator {
+    color: hsl(45, 70%, 55%);
+}
+
+.checker-result-note {
+    margin-top: 16px;
+    padding: 12px;
+    background: hsla(45, 70%, 50%, 0.1);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: hsl(0, 0%, 30%);
+}
+
+.dark .checker-result-note {
+    background: hsla(45, 70%, 50%, 0.15);
+    color: hsl(0, 0%, 75%);
+}
+
+/* Old checker styles - keeping for backward compatibility */
 .checker {
     padding: 80px 20px;
     text-align: center;
 }
 
-
-
 .checker-box {
     margin-top: 30px;
 }
-
-
 
 #companyName {
     width: 70%;
@@ -710,8 +1002,6 @@ NAME CHECKER
     outline: none;
     font-size: 16px;
 }
-
-
 
 .checker button {
     padding: 14px 25px;
@@ -725,13 +1015,9 @@ NAME CHECKER
     transition: 0.3s;
 }
 
-
-
 .checker button:hover {
     background: #f2d37a;
 }
-
-
 
 #checkerResult {
     margin-top: 25px;

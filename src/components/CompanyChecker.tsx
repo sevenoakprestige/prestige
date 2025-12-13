@@ -1,10 +1,22 @@
 'use client';
 
 import { useState } from 'react';
+import { FaCheckCircle, FaTimesCircle, FaExclamationTriangle, FaSpinner } from 'react-icons/fa';
+
+interface CompanyResult {
+    title: string;
+    company_number: string;
+    company_status: string;
+}
 
 export default function CompanyChecker() {
     const [companyName, setCompanyName] = useState('');
-    const [resultHtml, setResultHtml] = useState('');
+    const [result, setResult] = useState<{
+        type: 'success' | 'error' | 'warning' | 'info' | null;
+        message: string;
+        companies?: CompanyResult[];
+        totalResults?: number;
+    }>({ type: null, message: '' });
     const [isLoading, setIsLoading] = useState(false);
 
     // Helper function to normalize company names for better matching
@@ -25,12 +37,15 @@ export default function CompanyChecker() {
 
     const handleCheckAvailability = async () => {
         if (!companyName.trim()) {
-            setResultHtml("<span style='color:#ff5555;'>❌ Please enter a company name.</span>");
+            setResult({
+                type: 'error',
+                message: 'Please enter a company name.',
+            });
             return;
         }
 
         setIsLoading(true);
-        setResultHtml('⏳ Checking availability...');
+        setResult({ type: null, message: '' });
 
         try {
             const url = `/api/check-company?name=${encodeURIComponent(companyName)}`;
@@ -59,46 +74,32 @@ export default function CompanyChecker() {
 
                 if (exactMatch || normalizedMatch) {
                     const matchedCompany = exactMatch || normalizedMatch;
-                    setResultHtml(`
-            <div style="color:#ff3b3b;">
-              <strong>❌ Name already taken</strong><br/>
-              Registered as: <strong>${matchedCompany.title}</strong><br/>
-              <small>Company No: ${matchedCompany.company_number} | Status: ${matchedCompany.company_status}</small>
-            </div>
-          `);
+                    setResult({
+                        type: 'error',
+                        message: 'Name already taken',
+                        companies: [matchedCompany],
+                    });
                 } else {
                     // No exact match, but show similar results as warning
-                    const similarHtml = topMatches
-                        .map(
-                            (item: any) =>
-                                `<div style="padding:8px; margin:5px 0; background:#2a2a2a; border-radius:4px;">
-                  <strong>${item.title}</strong><br/>
-                  <small>No: ${item.company_number} | ${item.company_status}</small>
-                </div>`
-                        )
-                        .join('');
-
-                    setResultHtml(`
-            <div style="color:#ffa500;">
-              <strong>⚠️ No exact match found</strong><br/>
-              <small>However, ${data.total_results} similar name(s) exist. Review carefully:</small>
-              ${similarHtml}
-              <small style="color:#888; display:block; margin-top:10px;">
-                ℹ️ If these are too similar, Companies House may reject your application.
-              </small>
-            </div>
-          `);
+                    setResult({
+                        type: 'warning',
+                        message: 'No exact match found',
+                        companies: topMatches,
+                        totalResults: data.total_results,
+                    });
                 }
             } else {
                 // No companies found
-                setResultHtml(
-                    `<span style="color:#37d45f;">✅ Available! No company found with this name.</span>`
-                );
+                setResult({
+                    type: 'success',
+                    message: 'Available! No company found with this name.',
+                });
             }
         } catch (error) {
-            setResultHtml(
-                "<span style='color:#ff5555;'>❌ Error while checking. Please try again.</span>"
-            );
+            setResult({
+                type: 'error',
+                message: 'Error while checking. Please try again.',
+            });
             console.error('Checker Error:', error);
         } finally {
             setIsLoading(false);
@@ -106,24 +107,81 @@ export default function CompanyChecker() {
     };
 
     return (
-        <section id="checker" className="checker">
-            <h2>Check Your Company Name Availability</h2>
+        <section id="checker" className="checker-section">
+            <div className="checker-container">
+                <h2 className="checker-heading">Check Your Company Name Availability</h2>
+                <p className="checker-subtitle">Instant check with the UK database</p>
 
-            <div className="checker-box">
-                <input
-                    type="text"
-                    id="companyName"
-                    placeholder="Enter company name"
-                    value={companyName}
-                    onChange={(e) => setCompanyName(e.target.value)}
-                    onKeyPress={(e) => e.key === 'Enter' && handleCheckAvailability()}
-                />
-                <button onClick={handleCheckAvailability} disabled={isLoading} id="checkButton">
-                    {isLoading ? 'Checking...' : 'Check Availability'}
-                </button>
+                <div className="checker-input-wrapper">
+                    <input
+                        type="text"
+                        className="checker-input"
+                        placeholder="Enter company name"
+                        value={companyName}
+                        onChange={(e) => setCompanyName(e.target.value)}
+                        onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleCheckAvailability()}
+                        disabled={isLoading}
+                    />
+                    <button
+                        onClick={handleCheckAvailability}
+                        disabled={isLoading}
+                        className="checker-button"
+                    >
+                        {isLoading ? (
+                            <>
+                                <FaSpinner className="checker-spinner" />
+                                Checking...
+                            </>
+                        ) : (
+                            'Check Availability'
+                        )}
+                    </button>
+                </div>
+
+                {/* Results */}
+                {result.type && (
+                    <div className={`checker-result checker-result-${result.type}`}>
+                        <div className="checker-result-header">
+                            {result.type === 'success' && <FaCheckCircle className="checker-result-icon" />}
+                            {result.type === 'error' && <FaTimesCircle className="checker-result-icon" />}
+                            {result.type === 'warning' && <FaExclamationTriangle className="checker-result-icon" />}
+                            <h3 className="checker-result-title">{result.message}</h3>
+                        </div>
+
+                        {result.companies && result.companies.length > 0 && (
+                            <div className="checker-companies">
+                                {result.type === 'error' && (
+                                    <p className="checker-result-description">
+                                        This name is already registered:
+                                    </p>
+                                )}
+                                {result.type === 'warning' && (
+                                    <p className="checker-result-description">
+                                        However, {result.totalResults} similar name(s) exist. Review carefully:
+                                    </p>
+                                )}
+
+                                {result.companies.map((company, index) => (
+                                    <div key={index} className="checker-company-card">
+                                        <div className="checker-company-name">{company.title}</div>
+                                        <div className="checker-company-details">
+                                            {/* <span>No: {company.company_number}</span> */}
+                                            <span className="checker-company-separator">•</span>
+                                            <span>Status: {company.company_status}</span>
+                                        </div>
+                                    </div>
+                                ))}
+
+                                {result.type === 'warning' && (
+                                    <p className="checker-result-note">
+                                        If these are too similar, Companies House may reject your application.
+                                    </p>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                )}
             </div>
-
-            <div id="checkerResult" dangerouslySetInnerHTML={{ __html: resultHtml }} />
         </section>
     );
 }
