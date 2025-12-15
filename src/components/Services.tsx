@@ -25,7 +25,7 @@ const servicesData: Record<Country, Service[]> = {
         {
             icon: <FaUniversity className="h-8 w-8" />,
             title: "Fintech Account Setup",
-            description: "Guidance for approvals with Wise, Payoneer, Stripe, Revolut Business, and WorldFirst. (Final approval is always decided by the fintech provider.)",
+            description: "Approval guidance for Wise, Revolut Business, WorldFirst, Payoneer & Stripe. (Final approval is always decided by the fintech provider.)",
         },
         {
             icon: <FaFileInvoiceDollar className="h-8 w-8" />,

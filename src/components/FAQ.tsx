@@ -51,7 +51,7 @@ const faqData: FAQSection[] = [
             },
             {
                 question: "Can I use the address for banks and fintechs?",
-                answer: "Yes. Compatible with Wise, Revolut, Airwallex, Payoneer, Stripe.",
+                answer: "We help you apply to UK-friendly banking platforms like Wise, Revolut, WorldFirst, and Payoneer. While we maximize your approval chances, the final decision lies with the bank.",
             },
         ],
     },

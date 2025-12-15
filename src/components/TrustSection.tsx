@@ -7,7 +7,7 @@ const paymentProviders = [
     { name: "Stripe", logo: "/assets/stripe.svg" },
     { name: "Wise", logo: "/assets/wise.svg" },
     { name: "Payoneer", logo: "/assets/payoneer.svg" },
-    // { name: "Airwallex", logo: "/assets/airwallaex.svg" },
+    { name: "WorldFirst", logo: "/assets/worldfirst.png" },
     { name: "Revolut", logo: "/assets/revolut.svg" },
 ];
 

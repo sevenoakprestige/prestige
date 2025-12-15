@@ -72,21 +72,16 @@ const successStoriesData: CountryStories[] = [
         subtitle: "Real client results — professionally curated",
         stories: [
             {
-                title: "Delaware LLC — Non-US Founder",
-                quote: "Formed my Delaware LLC entirely online without needing a US address. EIN obtained in 5 days, and my company was ready to open bank accounts immediately.",
-                status: "0% US tax exposure confirmed",
+                title: "USA LLC — African Founder",
+                quote: "Seamless Delaware LLC setup for international operations.",
+                status: "Operational globally",
+                location: "Malik O., Dubai",
             },
             {
-                title: "Delaware LLC — Tech Startup Founder",
-                quote: "The entire process was seamless. My Delaware LLC was set up with registered agent service, and I was able to connect to Stripe and Mercury within days.",
-                status: "Payment processing ready",
-                location: "Maria L., São Paulo, Brazil",
-            },
-            {
-                title: "Delaware LLC — Digital Nomad",
-                quote: "I needed a US business structure while traveling. The team handled everything remotely, and my LLC was approved in 48 hours with full compliance support.",
-                status: "Business operational worldwide",
-                location: "James T., Dubai, UAE",
+                title: "USA Fintech Approval",
+                quote: "My LLC structure was accepted by Stripe and Mercury without issues.",
+                status: "Stripe & Mercury verified",
+                location: "Daniel R., Kenya",
             },
         ],
         reviews: [
@@ -181,8 +176,8 @@ export default function SuccessStories() {
                             key={index}
                             onClick={() => setSelectedCountry(section.country as Country)}
                             className={`flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold transition-all sm:px-6 sm:text-base ${activeIndex === index
-                                    ? "bg-gradient-to-r from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30"
-                                    : "border border-border/40 bg-background/50 text-foreground/70 hover:border-[#d4af37]/50 hover:text-foreground"
+                                ? "bg-gradient-to-r from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30"
+                                : "border border-border/40 bg-background/50 text-foreground/70 hover:border-[#d4af37]/50 hover:text-foreground"
                                 }`}
                         >
                             <span className="text-xl sm:text-2xl">{section.flag}</span>

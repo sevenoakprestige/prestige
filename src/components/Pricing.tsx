@@ -31,13 +31,13 @@ const pricingData: Record<Country, PricingTier[]> = {
         {
             name: "Prestige",
             price: "£199",
-            description: "For business owners who want privacy & fintech approval.",
+            description: "Most chosen by non-resident founders.",
             features: [
                 "Everything in the Starter, plus:",
                 "Registered office",
                 "Director service address",
                 "Mail scanning",
-                "Fintech application support (Wise, Revolut, Airwallex, Payoneer, Stripe)",
+                "Fintech application support (Wise, Revolut, WorldFirst, Payoneer, Stripe)",
             ],
             cta: "Start Your Company",
             featured: true,
@@ -60,25 +60,24 @@ const pricingData: Record<Country, PricingTier[]> = {
         {
             name: "Starter",
             price: "$199",
-            description: "Essential LLC formation.",
+            description: "Perfect for new founders.",
             features: [
                 "Delaware LLC formation",
-                "Registered agent (1 year)",
-                "EIN registration",
-                "Operating agreement",
+                "Digital documents",
+                "Registered Agent (1 year)",
+                "Operating Agreement",
             ],
             cta: "Start Now",
         },
         {
-            name: "Premium",
+            name: "Prestige",
             price: "$399",
             description: "Complete business setup.",
             features: [
-                "Everything in Starter, plus:",
-                "US business address",
-                "Mail forwarding",
-                "Bank account guidance",
-                "Payment processor setup",
+                "Everything in Starter",
+                "EIN application",
+                "Fintech application support (Stripe, Payoneer, Mercury, PayPal)",
+                "Compliance reminders",
             ],
             cta: "Get Started",
             featured: true,
@@ -88,11 +87,10 @@ const pricingData: Record<Country, PricingTier[]> = {
             price: "$699",
             description: "Full-service package.",
             features: [
-                "Everything in Premium, plus:",
-                "Tax consultation",
-                "Compliance calendar",
-                "Ongoing support",
-                "Priority service",
+                "Everything in Prestige",
+                "Full US tax guidance introduction",
+                "Accounting onboarding",
+                "Priority formation service",
             ],
             cta: "Go Elite",
         },
@@ -205,7 +203,9 @@ export default function Pricing() {
 
                             {/* Description */}
                             <p className="pricing-description mb-6 text-sm">
-                                {tier.description}
+                                <span className="text-[#d4af37]">
+                                    ★
+                                </span> {tier.description}
                             </p>
 
                             {/* Features */}

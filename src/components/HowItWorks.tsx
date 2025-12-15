@@ -40,23 +40,23 @@ const howItWorksData: Record<Country, { steps: Step[]; footer: string }> = {
         steps: [
             {
                 icon: <FaEdit className="h-10 w-10" />,
-                title: "Submit Your Application",
-                description: "Select your package and provide necessary information. We handle all Delaware filings and documentation.",
+                title: "Step 1: Choose Your Package",
+                description: "Provide basic details to form your Delaware LLC.",
             },
             {
                 icon: <FaShieldAlt className="h-10 w-10" />,
-                title: "Compliance Setup",
-                description: "We ensure your LLC meets all Delaware regulations and obtain your EIN without requiring an SSN.",
+                title: "Step 2: LLC Filing",
+                description: "Your company is filed with Delaware Division of Corporations.",
             },
             {
                 icon: <FaRocket className="h-10 w-10" />,
-                title: "Launch Your LLC",
-                description: "Your Delaware LLC is formed with registered agent service. Start operating your US business.",
+                title: "Step 3: EIN Application",
+                description: "We obtain the EIN necessary for business banking and fintech onboarding.",
             },
             {
                 icon: <FaCheck className="h-10 w-10" />,
-                title: "OPTIONAL FINTECH SUPPORT",
-                description: "Prestige & Elite clients receive guidance for fintech applications (Wise, Revolut, Payoneer, Stripe).",
+                title: "Step 4: Fintech Support (Optional)",
+                description: "Guidance to apply for Stripe, Mercury, Payoneer, or PayPal Business.",
             },
         ],
         footer: "Your US LLC, ready to operate — hassle-free formation.",
@@ -65,23 +65,23 @@ const howItWorksData: Record<Country, { steps: Step[]; footer: string }> = {
         steps: [
             {
                 icon: <FaEdit className="h-10 w-10" />,
-                title: "Submit Your Application",
-                description: "Choose your incorporation package and provide required details. We handle federal and provincial filings.",
+                title: "Step 1: Select Federal or Provincial Incorporation",
+                description: "We advise based on your business activity.",
             },
             {
                 icon: <FaShieldAlt className="h-10 w-10" />,
-                title: "Compliance & Registration",
-                description: "We ensure full compliance with Canadian regulations and complete NUANS name search and registration.",
+                title: "Step 2: File Incorporation Documents",
+                description: "Your corporation is registered and official documents issued.",
             },
             {
                 icon: <FaRocket className="h-10 w-10" />,
-                title: "Launch Your Corporation",
-                description: "Your Canadian corporation is ready with registered office and all necessary documents.",
+                title: "Step 3: Registered Address Setup",
+                description: "Digital mail system activated.",
             },
             {
                 icon: <FaCheck className="h-10 w-10" />,
-                title: "OPTIONAL FINTECH SUPPORT",
-                description: "Prestige & Elite clients receive guidance for fintech applications (Wise, Revolut, Payoneer, Stripe).",
+                title: "Step 4: Optional Fintech Assistance",
+                description: "Guidance for Payoneer, Stripe, business verification, etc.",
             },
         ],
         footer: "Your Canadian corporation, professionally established.",

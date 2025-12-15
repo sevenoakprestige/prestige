@@ -1,7 +1,7 @@
 "use client";
 
 import CountrySelector, { Country } from "./CountrySelector";
-import { FaShieldAlt, FaClock, FaDollarSign, FaHeadset, FaUserTie, FaCheckCircle, FaBuilding } from "react-icons/fa";
+import { FaShieldAlt, FaClock, FaDollarSign, FaHeadset, FaUserTie, FaCheckCircle, FaBuilding, FaPassport } from "react-icons/fa";
 import { useCountry } from "@/contexts/CountryContext";
 
 interface Reason {
@@ -18,22 +18,27 @@ const whyChooseData: Record<Country, { subtitle: string; icon: React.ReactNode; 
             {
                 icon: <FaUserTie className="h-8 w-8" />,
                 title: "UK Experts for Non-Residents",
-                description: "We specialise exclusively in UK company formation for international clients, providing clear guidance even if you have no UK documents.",
+                description: "Specialised in serving international founders with no UK documents or proof of address.",
             },
             {
                 icon: <FaClock className="h-8 w-8" />,
                 title: "Fast 24-Hour Incorporation",
-                description: "Your LTD is formed within 24 hours, fully compliant, with the correct SIC, shareholders structure & legal documents.",
+                description: "Optimised SIC codes, shareholder structure, and fully compliant documents.",
             },
             {
                 icon: <FaShieldAlt className="h-8 w-8" />,
                 title: "Premium Confidential Addresses",
-                description: "Protect your privacy with a registered office + director service address that keeps your residential information completely hidden.",
+                description: "Registered office + director service address to keep residential details off the public register.",
             },
             {
                 icon: <FaCheckCircle className="h-8 w-8" />,
                 title: "Fintech-Ready Structures",
-                description: "We optimise your company so fintechs like Wise, Revolut, Airwallex, Payoneer & Stripe approve your application without issues.",
+                description: "Structured for smooth onboarding with Wise, Payoneer, Stripe, Revolut Business, and WorldFirst.",
+            },
+            {
+                icon: <FaPassport className="h-8 w-8" />,
+                title: "No UK Documents Required",
+                description: "Only a valid passport is required. No UK proof of address.",
             },
         ],
     },
@@ -43,23 +48,28 @@ const whyChooseData: Record<Country, { subtitle: string; icon: React.ReactNode; 
         reasons: [
             {
                 icon: <FaUserTie className="h-8 w-8" />,
-                title: "Support for Non-US Residents",
-                description: "Expertise in forming Delaware LLCs for global clients.",
+                title: "Experts in Non-Resident LLC Formation",
+                description: "We structure US LLCs specifically for foreign founders with no SSN, no ITIN, and no US residency.",
             },
             {
-                icon: <FaShieldAlt className="h-8 w-8" />,
-                title: "Full Compliance Handled",
-                description: "We ensure your LLC meets all Delaware regulations.",
+                icon: <FaClock className="h-8 w-8" />,
+                title: "Fast Formation",
+                description: "Your Delaware LLC is formed quickly with fully compliant documents and Registered Agent service.",
             },
             {
                 icon: <FaDollarSign className="h-8 w-8" />,
-                title: "No Hidden Fees",
-                description: "Transparent pricing. No surprises.",
+                title: "EIN Assistance",
+                description: "We handle the EIN process, even for non-US residents without Social Security Numbers.",
             },
             {
-                icon: <FaHeadset className="h-8 w-8" />,
-                title: "Priority Support",
-                description: "Fast, responsive assistance anytime.",
+                icon: <FaCheckCircle className="h-8 w-8" />,
+                title: "Fintech-Ready Structure",
+                description: "LLC is structured to meet expectations of US fintech platforms like Stripe, PayPal, Mercury, and Payoneer.",
+            },
+            {
+                icon: <FaPassport className="h-8 w-8" />,
+                title: "No US Documents Required",
+                description: "Only a valid passport is required. No SSN, no ITIN, no US address needed.",
             },
         ],
     },
