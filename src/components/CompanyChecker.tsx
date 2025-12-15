@@ -121,7 +121,7 @@ export default function CompanyChecker() {
                 <p className="checker-subtitle">Instant check with the UK database</p>
 
                 <div className="mx-auto max-w-2xl bg-black/5 dark:bg-white/5 p-6 rounded-xl border border-black/10 dark:border-white/10 backdrop-blur-md transition-colors">
-                    <label className="mb-2 block text-left text-sm font-medium text-foreground/80">
+                    <label className="mb-2 block text-left text-md font-semibold text-foreground/80">
                         Company name
                     </label>
 
@@ -143,7 +143,7 @@ export default function CompanyChecker() {
                                 disabled={isLoading}
                             />
                             {/* Vertical Divider */}
-                            <div className="h-6 w-[1px] bg-border/60"></div>
+                            <div className="h-6 w-[1px] dark:bg-white/40 bg-black/40"></div>
 
                             {/* Suffix Select Custom Wrapper */}
                             <div className="relative">
@@ -169,8 +169,8 @@ export default function CompanyChecker() {
                             onClick={handleCheckAvailability}
                             disabled={isLoading}
                             className={`min-w-[170px] rounded-lg px-6 py-3 font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed ${result.type === 'success'
-                                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-green-500/20 hover:shadow-green-500/30'
-                                    : 'bg-gradient-to-r from-[#d4af37] to-[#f3d066] text-black shadow-[#d4af37]/20 hover:shadow-[#d4af37]/30'
+                                ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-green-500/20 hover:shadow-green-500/30'
+                                : 'bg-gradient-to-r from-[#d4af37] to-[#f3d066] text-black shadow-[#d4af37]/20 hover:shadow-[#d4af37]/30'
                                 }`}
                         >
                             {isLoading ? (
