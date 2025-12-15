@@ -3,8 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import * as React from "react";
+import { usePathname } from "next/navigation";
 import { TbMenu3 } from "react-icons/tb";
 import { FaWhatsapp } from "react-icons/fa";
+import { MdArrowOutward } from "react-icons/md";
 import {
     Sheet,
     SheetContent,
@@ -25,6 +27,7 @@ const links = [
 
 export default function Navbar() {
     const { theme, resolvedTheme } = useTheme();
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = React.useState(false);
     const [isVisible, setIsVisible] = React.useState(true);
     const [lastScrollY, setLastScrollY] = React.useState(0);
@@ -33,6 +36,11 @@ export default function Navbar() {
     React.useEffect(() => {
         setMounted(true);
     }, []);
+
+    // Close sheet when route changes
+    React.useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -124,7 +132,7 @@ export default function Navbar() {
                             <FaWhatsapp className="h-4 w-4" />
                         </Link>
                         <ModeToggle />
-                        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                        <Sheet key={pathname} open={isOpen} onOpenChange={setIsOpen}>
                             <SheetTrigger asChild>
                                 <button
                                     className="rounded-lg p-2 text-foreground transition-colors hover:bg-foreground/5 hover:text-[#d4af37] focus:outline-none focus:ring-2 focus:ring-[#d4af37]/20"
@@ -160,7 +168,10 @@ export default function Navbar() {
                                                 }
                                             }}
                                         >
-                                            <span className="relative z-10">{link.name}</span>
+                                            <div className="flex items-center justify-between">
+                                                <span className="relative z-10">{link.name}</span>
+                                                <MdArrowOutward className="h-3 w-3 text-[#d4af37] opacity-60 group-hover:opacity-100 transition-opacity" />
+                                            </div>
                                             <span className="absolute inset-y-0 left-0 w-1 origin-left scale-y-0 bg-gradient-to-b from-[#d4af37] to-[#f3d066] transition-transform group-hover:scale-y-100" />
                                         </Link>
                                     ))}
