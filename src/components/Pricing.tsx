@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import CountrySelector, { Country } from "./CountrySelector";
+import UKComparisonTable from "./UKComparisonTable";
 import { FaCheck } from "react-icons/fa";
 import { useCountry } from "@/contexts/CountryContext";
 
@@ -242,6 +243,13 @@ export default function Pricing() {
                         </div>
                     ))}
                 </div>
+
+                {/* UK Comparison Table */}
+                {selectedCountry === 'UK' && (
+                    <div className="mt-16">
+                        <UKComparisonTable />
+                    </div>
+                )}
             </div>
         </section>
     );
