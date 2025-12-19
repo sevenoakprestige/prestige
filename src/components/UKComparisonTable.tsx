@@ -21,9 +21,9 @@ export default function UKComparisonTable() {
     ];
 
     return (
-        <div className="w-full overflow-hidden rounded-xl bg-black text-white border border-[#d4af37]/30 shadow-2xl">
+        <div className="w-full overflow-hidden rounded-xl bg-white dark:bg-black text-gray-900 dark:text-white border border-[#d4af37]/30 shadow-2xl">
             {/* Header Title */}
-            <div className="bg-black py-6 text-center border-b border-[#d4af37]/30">
+            <div className="bg-white dark:bg-black py-6 text-center border-b border-[#d4af37]/30">
                 <h3 className="text-2xl font-serif text-[#d4af37] tracking-wide uppercase">Compare Our UK Packages</h3>
             </div>
 
@@ -32,8 +32,8 @@ export default function UKComparisonTable() {
                 {/* Table grid */}
                 <div className="w-full min-w-[800px]"> {/* Ensure min width for scrolling on mobile */}
                     {/* Header Row */}
-                    <div className="grid grid-cols-4 bg-black/50">
-                        <div className="sticky left-0 z-10 bg-black p-4 flex items-center justify-center border-b border-r border-[#d4af37]/20 shadow-[2px_0_10px_rgba(0,0,0,0.5)]">
+                    <div className="grid grid-cols-4 bg-gray-50 dark:bg-black/50">
+                        <div className="sticky left-0 z-10 bg-white dark:bg-black p-4 flex items-center justify-center border-b border-r border-[#d4af37]/20 shadow-[2px_0_10px_rgba(0,0,0,0.1)] dark:shadow-[2px_0_10px_rgba(0,0,0,0.5)]">
                             <div className="flex flex-col items-center">
                                 {/* <span className="text-xl font-serif text-[#d4af37]">Starter</span> */}
                                 {/* <span className="text-2xl font-bold">£99</span> */}
@@ -64,9 +64,9 @@ export default function UKComparisonTable() {
 
                     {/* Rows */}
                     {features.map((row, idx) => (
-                        <div key={idx} className={`grid grid-cols-4 border-b border-[#d4af37]/10 ${idx % 2 === 0 ? "bg-white/5" : "bg-transparent"} hover:bg-[#d4af37]/5 transition-colors`}>
+                        <div key={idx} className={`grid grid-cols-4 border-b border-[#d4af37]/10 ${idx % 2 === 0 ? "bg-gray-50 dark:bg-white/5" : "bg-transparent"} hover:bg-[#d4af37]/5 transition-colors`}>
                             {/* Feature Name */}
-                            <div className={`sticky left-0 z-10 p-4 flex items-center text-xs sm:text-sm font-medium text-gray-200 border-r border-[#d4af37]/20 shadow-[2px_0_10px_rgba(0,0,0,0.5)] ${idx % 2 === 0 ? "bg-[#111]" : "bg-black"}`}>
+                            <div className={`sticky left-0 z-10 p-4 flex items-center text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200 border-r border-[#d4af37]/20 shadow-[2px_0_10px_rgba(0,0,0,0.1)] dark:shadow-[2px_0_10px_rgba(0,0,0,0.5)] ${idx % 2 === 0 ? "bg-gray-50 dark:bg-[#111]" : "bg-white dark:bg-black"}`}>
                                 {row.name}
                             </div>
 
@@ -81,8 +81,8 @@ export default function UKComparisonTable() {
                             </div>
 
                             {/* Elite */}
-                            <div className="p-4 flex items-center justify-center text-white bg-white/5">
-                                {row.elite ? <FaCheck className="w-5 h-5 text-[#d4af37]" /> : <div className="w-4 h-1 bg-white/30 rounded-full" />}
+                            <div className="p-4 flex items-center justify-center text-gray-900 dark:text-white bg-[#d4af37]/10 dark:bg-white/5">
+                                {row.elite ? <FaCheck className="w-5 h-5 text-[#d4af37]" /> : <div className="w-4 h-1 bg-gray-300 dark:bg-white/30 rounded-full" />}
                             </div>
                         </div>
                     ))}
