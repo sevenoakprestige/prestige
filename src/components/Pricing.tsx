@@ -13,7 +13,10 @@ interface PricingTier {
     features: string[];
     cta: string;
     featured?: boolean;
+    link: string;
 }
+
+
 
 const pricingData: Record<Country, PricingTier[]> = {
     UK: [
@@ -30,6 +33,7 @@ const pricingData: Record<Country, PricingTier[]> = {
                 "Ready in 24h",
             ],
             cta: "Start Now",
+            link: "https://buy.stripe.com/cNi7sD58A6rzdAx9Nyfw400"
         },
         {
             name: "Prestige",
@@ -45,6 +49,7 @@ const pricingData: Record<Country, PricingTier[]> = {
             ],
             cta: "Start Your Company",
             featured: true,
+            link: "https://buy.stripe.com/8x200basU2bj0NLbVGfw401"
         },
         {
             name: "Elite",
@@ -60,6 +65,7 @@ const pricingData: Record<Country, PricingTier[]> = {
                 "Annual Review Call",
             ],
             cta: "Become Elite",
+            link: "https://buy.stripe.com/9B6fZ958AbLT5417Fqfw402"
         },
     ],
     USA: [
@@ -74,6 +80,7 @@ const pricingData: Record<Country, PricingTier[]> = {
                 "Operating Agreement",
             ],
             cta: "Start Now",
+            link: "https://wa.me/447447488755"
         },
         {
             name: "Prestige",
@@ -87,6 +94,7 @@ const pricingData: Record<Country, PricingTier[]> = {
             ],
             cta: "Get Started",
             featured: true,
+            link: "https://wa.me/447447488755"
         },
         {
             name: "Elite",
@@ -101,6 +109,7 @@ const pricingData: Record<Country, PricingTier[]> = {
                 "Full business setup",
             ],
             cta: "Go Elite",
+            link: "https://wa.me/447447488755"
         },
     ],
     Canada: [
@@ -114,6 +123,7 @@ const pricingData: Record<Country, PricingTier[]> = {
                 "Basic Compliance Setup",
             ],
             cta: "Start Now",
+            link: "https://wa.me/447447488755"
         },
         {
             name: "Premium",
@@ -127,6 +137,7 @@ const pricingData: Record<Country, PricingTier[]> = {
             ],
             cta: "Get Started",
             featured: true,
+            link: "https://wa.me/447447488755"
         },
         {
             name: "Elite",
@@ -140,6 +151,7 @@ const pricingData: Record<Country, PricingTier[]> = {
                 "Compliance + Annual Reminders",
             ],
             cta: "Become Elite",
+            link: "https://wa.me/447447488755"
         },
     ],
 };
@@ -229,7 +241,7 @@ export default function Pricing() {
 
                             {/* CTA Button */}
                             <Link
-                                href="https://wa.me/447447488755"
+                                href={tier.link}
                                 className={`block w-full rounded-xl py-3 text-center text-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95 ${tier.featured
                                     ? "bg-gradient-to-r from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30"
                                     : "border-2 border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black"
