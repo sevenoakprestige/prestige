@@ -2042,6 +2042,211 @@ CTA SECTION (After FAQ)
 
 
 /* ================================
+STRATEGIC ADVISORY SECTION
+================================= */
+
+/* Strategic Heading */
+.strategic-heading {
+    color: hsl(0, 0%, 10%);
+}
+
+.dark .strategic-heading {
+    color: hsl(0, 0%, 98%);
+}
+
+/* Strategic Subtitle */
+.strategic-subtitle {
+    color: hsl(0, 0%, 40%);
+    line-height: 1.6;
+}
+
+.dark .strategic-subtitle {
+    color: hsl(0, 0%, 70%);
+}
+
+/* Strategic Button */
+.strategic-button {
+    background: transparent;
+    color: hsl(45, 70%, 50%);
+    border: 2px solid hsl(45, 70%, 50%);
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.dark .strategic-button {
+    color: hsl(45, 70%, 60%);
+    border-color: hsl(45, 70%, 60%);
+}
+
+.strategic-button:hover {
+    color: hsl(0, 0%, 100%);
+    background: hsl(45, 70%, 50%);
+    border-color: hsl(45, 70%, 50%);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+}
+
+.dark .strategic-button:hover {
+    color: hsl(0, 0%, 10%);
+    background: hsl(45, 70%, 60%);
+    border-color: hsl(45, 70%, 60%);
+}
+
+/* Button hover background */
+.strategic-button-bg {
+    background: hsl(45, 70%, 50%);
+    transform-origin: left;
+}
+
+.dark .strategic-button-bg {
+    background: hsl(45, 70%, 60%);
+}
+
+.strategic-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ================================
+ADVISORY SERVICES SECTION
+================================= */
+
+/* Advisory Heading */
+.advisory-heading {
+    color: hsl(0, 0%, 10%);
+}
+
+.dark .advisory-heading {
+    color: hsl(0, 0%, 98%);
+}
+
+/* Advisory Card Background - Theme Aware */
+.advisory-card {
+    background: linear-gradient(135deg,
+            hsla(45, 30%, 97%, 0.95) 0%,
+            hsla(45, 25%, 95%, 0.9) 50%,
+            hsla(45, 30%, 97%, 0.95) 100%);
+    border-color: hsl(45, 25%, 80%);
+    box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.15),
+        0 5px 20px -5px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.dark .advisory-card {
+    background: linear-gradient(135deg,
+            hsla(0, 0%, 15%, 0.95) 0%,
+            hsla(45, 10%, 12%, 0.9) 50%,
+            hsla(0, 0%, 15%, 0.95) 100%);
+    border-color: hsl(45, 15%, 25%);
+    box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.2),
+        0 5px 20px -5px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(212, 175, 55, 0.1);
+}
+
+.advisory-card:hover {
+    border-color: hsl(45, 70%, 55%);
+    box-shadow: 0 20px 50px -10px rgba(212, 175, 55, 0.25),
+        0 10px 30px -5px rgba(212, 175, 55, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+.dark .advisory-card:hover {
+    border-color: hsl(45, 70%, 55%);
+    box-shadow: 0 20px 50px -10px rgba(212, 175, 55, 0.3),
+        0 10px 30px -5px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Advisory Card Text */
+.advisory-title {
+    color: hsl(0, 0%, 10%);
+}
+
+.dark .advisory-title {
+    color: hsl(0, 0%, 98%);
+}
+
+.advisory-description {
+    color: hsl(0, 0%, 40%);
+}
+
+.dark .advisory-description {
+    color: hsl(0, 0%, 70%);
+}
+
+/* Advisory Card Animation */
+.advisory-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+
+/* ================================
+WHO THIS IS FOR SECTION
+================================= */
+
+/* Who Heading */
+.who-heading {
+    color: hsl(0, 0%, 10%);
+}
+
+.dark .who-heading {
+    color: hsl(0, 0%, 98%);
+}
+
+/* Who List Items */
+.who-list-item {
+    color: hsl(0, 0%, 20%);
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.dark .who-list-item {
+    color: hsl(0, 0%, 90%);
+}
+
+/* Who Tagline */
+.who-tagline {
+    color: hsl(0, 0%, 40%);
+}
+
+.dark .who-tagline {
+    color: hsl(0, 0%, 70%);
+}
+
+/* Who Button */
+.who-button {
+    background: transparent;
+    border-color: hsl(45, 70%, 55%);
+    color: hsl(0, 0%, 10%);
+    border-radius: 0.5rem;
+}
+
+.dark .who-button {
+    color: hsl(0, 0%, 98%);
+}
+
+.who-button-bg {
+    background: hsl(45, 70%, 55%);
+}
+
+.dark .who-button-bg {
+    background: hsl(45, 70%, 60%);
+}
+
+.who-button:hover {
+    border-color: hsl(45, 70%, 60%);
+    box-shadow: 0 10px 30px -5px rgba(212, 175, 55, 0.4);
+}
+
+.who-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+
+/* ================================
 FOOTER
 ================================= */
 
