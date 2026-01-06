@@ -1,12 +1,9 @@
 "use client";
 
+import Link from "next/link";
+
 export default function WhoThisIsFor() {
-    const handleRequestSession = () => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+
 
     const targetAudience = [
         "Founders & CEOs",
@@ -33,17 +30,20 @@ export default function WhoThisIsFor() {
                 </div>
 
                 {/* Target Audience List */}
-                <ul className="who-list mb-8 space-y-4 text-left sm:text-center">
+                <ul className="who-list mx-auto mb-8 max-w-md space-y-4">
                     {targetAudience.map((item, index) => (
                         <li
                             key={index}
-                            className="who-list-item flex items-start justify-start text-lg sm:justify-center sm:text-xl"
+                            className="who-list-item flex items-start text-lg sm:text-xl"
                             style={{
                                 animationDelay: `${index * 100}ms`,
                             }}
                         >
-                            <span className="mr-3 mt-1 text-[#d4af37]">•</span>
-                            <span>{item}</span>
+                            <div className="text-left">
+
+                                <span className="mr-2 mt-1 flex-shrink-0 text-[#d4af37]">•</span>
+                                <span className="">{item}</span>
+                            </div>
                         </li>
                     ))}
                 </ul>
@@ -56,14 +56,14 @@ export default function WhoThisIsFor() {
                 </p>
 
                 {/* CTA Button */}
-                <button
-                    onClick={handleRequestSession}
+                <Link
+                    href="https://calendly.com/sevenoakprestige/30min"
                     className="who-button group relative overflow-hidden border-2 px-8 py-4 text-base font-medium tracking-wide transition-all duration-300 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
                 >
                     <span className="relative z-10">Request a Private Strategy Session</span>
                     {/* Hover effect background */}
                     <div className="who-button-bg absolute inset-0 -z-0 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
-                </button>
+                </Link>
             </div>
         </section>
     );

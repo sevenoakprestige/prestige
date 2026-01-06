@@ -1,12 +1,9 @@
 "use client";
 
+import Link from "next/link";
+
 export default function StrategicAdvisorySection() {
-    const handleRequestSession = () => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+
 
     return (
         <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
@@ -35,14 +32,14 @@ export default function StrategicAdvisorySection() {
                 </p>
 
                 {/* CTA Button */}
-                <button
-                    onClick={handleRequestSession}
+                <Link
+                    href="https://calendly.com/sevenoakprestige/30min"
                     className="strategic-button group relative overflow-hidden border-2 px-8 py-4 text-base font-medium tracking-wide transition-all duration-300 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
                 >
                     <span className="relative z-10">Request a Private Strategy Session</span>
                     {/* Hover effect background */}
                     <div className="strategic-button-bg absolute inset-0 -z-0 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
-                </button>
+                </Link>
             </div>
         </section>
     );
