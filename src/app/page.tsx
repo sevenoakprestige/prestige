@@ -3,9 +3,6 @@
 import './globals.css';
 import Hero from '../components/Hero';
 import TrustSection from '../components/TrustSection';
-import StrategicAdvisorySection from '../components/StrategicAdvisorySection';
-import AdvisoryServices from '../components/AdvisoryServices';
-import WhoThisIsFor from '../components/WhoThisIsFor';
 import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
 import HowItWorks from '../components/HowItWorks';
@@ -24,9 +21,6 @@ export default function Home() {
         <CountryProvider>
             <Hero />
             <TrustSection />
-            <StrategicAdvisorySection />
-            <AdvisoryServices />
-            <WhoThisIsFor />
             <Services />
             <WhyChooseUs />
             <HowItWorks />

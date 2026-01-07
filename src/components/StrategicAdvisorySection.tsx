@@ -6,7 +6,7 @@ export default function StrategicAdvisorySection() {
 
 
     return (
-        <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28 mt-10">
             {/* Background decoration */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute left-1/3 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
@@ -34,9 +34,9 @@ export default function StrategicAdvisorySection() {
                 {/* CTA Button */}
                 <Link
                     href="https://calendly.com/sevenoakprestige/30min"
-                    className="strategic-button group relative overflow-hidden border-2 px-8 py-4 text-base font-medium tracking-wide transition-all duration-300 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
+                    className="strategic-button group relative inline-block overflow-hidden rounded-lg border-2 px-4 py-3 text-sm font-medium tracking-wide transition-all duration-300 hover:scale-105 sm:px-8 sm:py-4 sm:text-base md:px-10 md:text-lg"
                 >
-                    <span className="relative z-10">Request a Private Strategy Session</span>
+                    <span className="relative z-10 whitespace-nowrap">Request a Private Strategy Session</span>
                     {/* Hover effect background */}
                     <div className="strategic-button-bg absolute inset-0 -z-0 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
                 </Link>

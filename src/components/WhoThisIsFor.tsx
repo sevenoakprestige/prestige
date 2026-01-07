@@ -58,11 +58,11 @@ export default function WhoThisIsFor() {
                 {/* CTA Button */}
                 <Link
                     href="https://calendly.com/sevenoakprestige/30min"
-                    className="who-button group relative overflow-hidden border-2 px-8 py-4 text-base font-medium tracking-wide transition-all duration-300 hover:scale-105 sm:px-10 sm:py-4 sm:text-lg"
+                    className="strategic-button group relative inline-block overflow-hidden rounded-lg border-2 px-4 py-3 text-sm font-medium tracking-wide transition-all duration-300 hover:scale-105 sm:px-8 sm:py-4 sm:text-base md:px-10 md:text-lg"
                 >
-                    <span className="relative z-10">Request a Private Strategy Session</span>
+                    <span className="relative z-10 whitespace-nowrap">Request a Private Strategy Session</span>
                     {/* Hover effect background */}
-                    <div className="who-button-bg absolute inset-0 -z-0 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
+                    <div className="strategic-button-bg absolute inset-0 -z-0 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
                 </Link>
             </div>
         </section>
