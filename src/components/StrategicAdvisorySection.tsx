@@ -27,7 +27,7 @@ export default function StrategicAdvisorySection() {
                 {/* Subtitle */}
                 <p className="strategic-subtitle mx-auto mb-10 max-w-3xl text-base leading-relaxed sm:text-lg">
                     For founders, investors & international entrepreneurs navigating
-                    <br className="hidden sm:block" />
+                    <br />
                     banking, compliance, expansion and fundraising.
                 </p>
 
