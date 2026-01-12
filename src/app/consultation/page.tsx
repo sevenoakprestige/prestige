@@ -1,11 +1,11 @@
 'use client';
 
-import StrategicAdvisorySection from '@/components/StrategicAdvisorySection';
-import AdvisoryServices from '@/components/AdvisoryServices';
-import HowEngagementWorks from '@/components/HowEngagementWorks';
-import WhatYouWillGet from '@/components/WhatYouWillGet';
-import WhoThisIsFor from '@/components/WhoThisIsFor';
-import WhoThisIsNotFor from '@/components/WhoThisIsNotFor';
+import StrategicAdvisorySection from '@/components/consultation/StrategicAdvisorySection';
+import AdvisoryServices from '@/components/consultation/AdvisoryServices';
+import HowEngagementWorks from '@/components/consultation/HowEngagementWorks';
+import WhatYouWillGet from '@/components/consultation/WhatYouWillGet';
+import WhoThisIsFor from '@/components/consultation/WhoThisIsFor';
+import WhoThisIsNotFor from '@/components/consultation/WhoThisIsNotFor';
 
 export default function ConsultationPage() {
     return (
