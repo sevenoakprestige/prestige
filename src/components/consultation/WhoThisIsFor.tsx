@@ -6,10 +6,10 @@ export default function WhoThisIsFor() {
 
 
     const targetAudience = [
-        "Founders & CEOs",
-        "International entrepreneurs",
-        "Non-resident business owners",
-        "Investors & high-growth startups",
+        "Founders & CEOs.",
+        "International entrepreneurs.",
+        "Non-resident business owners.",
+        "Investors & high-growth startups.",
     ];
 
     return (

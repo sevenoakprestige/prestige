@@ -2,10 +2,10 @@
 
 export default function WhoThisIsNotFor() {
     const exclusions = [
-        "Guaranteed bank account or payment platform approvals",
-        "Quick company formation without compliance",
-        "Marketing or social media services",
-        "Shortcut solutions without proper structure",
+        "Guaranteed bank account or payment platform approvals.",
+        "Quick company formation without compliance.",
+        "Marketing or social media services.",
+        "Shortcut solutions without proper structure.",
     ];
 
     return (
@@ -40,10 +40,10 @@ export default function WhoThisIsNotFor() {
                                 animationDelay: `${index * 100}ms`,
                             }}
                         >
-                            <div className="text-left">
-                                <span className="mr-2 mt-1 flex-shrink-0 text-[#d4af37]">•</span>
-                                <span className="">{item}</span>
-                            </div>
+
+                            <span className="mr-2 mt-1 flex-shrink-0 text-[#d4af37]">•</span>
+                            <span className="text-left">{item}</span>
+
                         </li>
                     ))}
                 </ul>

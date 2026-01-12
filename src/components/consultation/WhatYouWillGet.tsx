@@ -2,12 +2,12 @@
 
 export default function WhatYouWillGet() {
     const deliverables = [
-        "Business and corporate structuring recommendations",
-        "Market entry and expansion strategy",
-        "Banking and fintech readiness checklist",
-        "Fundraising readiness assessment",
-        "Financial and KPI framework direction",
-        "Partner and jurisdiction strategy",
+        "Business and corporate structuring recommendations.",
+        "Market entry and expansion strategy.",
+        "Banking and fintech readiness checklist.",
+        "Fundraising readiness assessment.",
+        "Financial and KPI framework direction.",
+        "Partner and jurisdiction strategy.",
     ];
 
     return (
