@@ -5,6 +5,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import CookieConsent from "@/components/CookieConsent";
 import JsonLd from "@/components/JsonLd";
+import { GoogleTagManager } from "@next/third-parties/google";
+import Footer from "@/components/Footer";
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -101,6 +105,14 @@ export const metadata: Metadata = {
     },
 };
 
+
+const gtmId = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID as string;
+
+if (!gtmId) {
+    throw new Error("NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID is not defined");
+}
+
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -108,6 +120,8 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+
+            <GoogleTagManager gtmId={gtmId} />
             <body className={inter.className}>
                 <ThemeProvider
                     attribute="class"
@@ -117,6 +131,7 @@ export default function RootLayout({
                 >
                     <Navbar />
                     {children}
+                    <Footer />
                     <CookieConsent />
                     <JsonLd />
                 </ThemeProvider>

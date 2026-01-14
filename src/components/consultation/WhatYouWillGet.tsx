@@ -8,6 +8,7 @@ export default function WhatYouWillGet() {
         "Fundraising readiness assessment.",
         "Financial and KPI framework direction.",
         "Partner and jurisdiction strategy.",
+        "Delivered as a concise PDF summary + checklist (within 24–48h depending on scope)",
     ];
 
     return (
