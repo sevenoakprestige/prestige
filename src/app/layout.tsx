@@ -131,7 +131,7 @@ export default function RootLayout({
                 >
                     <Navbar />
                     {children}
-                    <Footer />
+                    {/* <Footer /> */}
                     <CookieConsent />
                     <JsonLd />
                 </ThemeProvider>

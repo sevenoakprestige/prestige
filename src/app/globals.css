@@ -2418,6 +2418,22 @@ WHO THIS IS NOT FOR SECTION
 
 
 /* ================================
+CONSULTATION FOOTER
+================================= */
+
+.consultation-footer-content {
+    justify-content: center;
+}
+
+.consultation-footer-section {
+    text-align: center;
+    align-items: center;
+    flex: none;
+    min-width: auto;
+}
+
+
+/* ================================
 FOOTER
 ================================= */
 

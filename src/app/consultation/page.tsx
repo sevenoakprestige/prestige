@@ -6,6 +6,7 @@ import HowEngagementWorks from '@/components/consultation/HowEngagementWorks';
 import WhatYouWillGet from '@/components/consultation/WhatYouWillGet';
 import WhoThisIsFor from '@/components/consultation/WhoThisIsFor';
 import WhoThisIsNotFor from '@/components/consultation/WhoThisIsNotFor';
+import ConsultationFooter from '@/components/consultation/ConsultationFooter';
 
 export default function ConsultationPage() {
     return (
@@ -16,6 +17,7 @@ export default function ConsultationPage() {
             <WhatYouWillGet />
             <WhoThisIsFor />
             <WhoThisIsNotFor />
+            <ConsultationFooter />
         </>
     );
 }

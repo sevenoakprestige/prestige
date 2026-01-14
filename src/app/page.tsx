@@ -31,7 +31,7 @@ export default function Home() {
             <FAQ />
             <CTASection />
             <Contact />
-            {/* <Footer /> */}
+            <Footer />
         </CountryProvider>
     );
 }
