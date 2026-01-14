@@ -21,7 +21,7 @@ const advisoryServices = [
     {
         icon: <FaGlobeAmericas className="h-10 w-10" />,
         title: "Market Entry Strategy",
-        description: "U/K, Europe, AfRICA, Middle East",
+        description: "U/K, Europe, Africa, Middle East",
     },
     {
         icon: <FaExpand className="h-10 w-10" />,
