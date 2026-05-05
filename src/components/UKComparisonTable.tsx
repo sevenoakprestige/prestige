@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { 
-    FaCheck, FaBuilding, FaClock, FaFileAlt, FaUserTie, 
-    FaMapMarkerAlt, FaBriefcase, FaUniversity, 
-    FaCheckCircle, FaAmazon, FaHeadset, FaStar, FaRocket, 
-    FaCrown, FaGem, FaArrowRight, FaShieldAlt, FaLock, FaMedal 
+import {
+    FaCheck, FaBuilding, FaClock, FaFileAlt, FaUserTie,
+    FaMapMarkerAlt, FaBriefcase, FaUniversity,
+    FaCheckCircle, FaAmazon, FaHeadset, FaStar, FaRocket,
+    FaCrown, FaGem, FaArrowRight, FaShieldAlt, FaLock, FaMedal
 } from "react-icons/fa";
 
 export default function UKComparisonTable() {
@@ -15,7 +15,7 @@ export default function UKComparisonTable() {
         { name: "Digital Company Document", starter: true, prestige: true, elite: true, icon: <FaFileAlt className="text-[#d4af37]" /> },
         { name: "DSA (Director Service Address for 12 months)", starter: false, prestige: true, elite: true, icon: <FaUserTie className="text-[#d4af37]" /> },
         { name: "RO (Registered Office for 12 months)", starter: false, prestige: true, elite: true, icon: <FaBuilding className="text-[#d4af37]" /> },
-        { name: "VBA (Virtual Business Address for 12 months)", starter: false, prestige: true, elite: true, icon: <FaMapMarkerAlt className="text-[#d4af37]" /> },
+        { name: "VBA (Virtual Business Address for 12 months)", starter: false, prestige: false, elite: true, icon: <FaMapMarkerAlt className="text-[#d4af37]" /> },
         { name: "Company Formation", starter: true, prestige: true, elite: true, icon: <FaBriefcase className="text-[#d4af37]" /> },
         { name: "VAT Assistance", starter: false, prestige: false, elite: true, icon: <span className="text-[#d4af37] text-[10px] font-bold border border-[#d4af37] rounded-full px-1 py-0.5">VAT</span> },
         { name: "Fintechs Set Up Assistance", starter: false, prestige: false, elite: true, icon: <FaUniversity className="text-[#d4af37]" /> },
@@ -33,11 +33,11 @@ export default function UKComparisonTable() {
             <div className="max-w-7xl mx-auto overflow-x-auto scrollbar-hide pb-8">
                 {/* Main Grid container */}
                 <div className="min-w-[768px] lg:min-w-full grid grid-cols-[1.3fr_1fr_1fr_1fr] gap-x-2 md:gap-x-4 pt-6">
-                    
+
                     {/* Header Row */}
                     <div className="flex flex-col justify-end pb-4 md:pb-6 px-2">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif leading-tight">
-                            <span className="text-foreground uppercase">Compare</span><br/>
+                            <span className="text-foreground uppercase">Compare</span><br />
                             <span className="text-[#d4af37] uppercase">Our Packages</span>
                         </h2>
                         <p className="text-xs md:text-sm mt-2 md:mt-4 text-muted-foreground pr-2 md:pr-4">Choose the perfect package to start, grow and scale your business with confidence.</p>
@@ -102,17 +102,17 @@ export default function UKComparisonTable() {
                                 <div className="w-5 md:w-6 flex justify-center mr-2 md:mr-3 shrink-0">{row.icon}</div>
                                 <span>{row.name}</span>
                             </div>
-                            
+
                             {/* Starter */}
                             <div className="flex items-center justify-center border-l border-r border-[#d4af37] border-b border-b-gray-300 dark:border-b-gray-800/50 bg-transparent">
                                 {row.starter ? <FaCheck className="text-[#d4af37] w-3 h-3 md:w-4 md:h-4" /> : <div className="w-2 h-[1px] md:w-3 md:h-0.5 bg-gray-500 rounded-full"></div>}
                             </div>
-                            
+
                             {/* Prestige */}
                             <div className="flex items-center justify-center border-l border-r border-[#d4af37] border-b border-b-gray-300 dark:border-b-gray-800/50 bg-transparent">
                                 {row.prestige ? <FaCheck className="text-[#d4af37] w-3 h-3 md:w-4 md:h-4" /> : <div className="w-2 h-[1px] md:w-3 md:h-0.5 bg-gray-500 rounded-full"></div>}
                             </div>
-                            
+
                             {/* Elite */}
                             <div className="flex items-center justify-center border-l border-r border-[#d4af37] border-b border-b-gray-300 dark:border-b-gray-800/50 bg-transparent">
                                 {row.elite ? <FaCheck className="text-[#d4af37] w-3 h-3 md:w-4 md:h-4" /> : <div className="w-2 h-[1px] md:w-3 md:h-0.5 bg-gray-500 rounded-full"></div>}
@@ -122,21 +122,21 @@ export default function UKComparisonTable() {
 
                     {/* Bottom Buttons Row */}
                     <div></div>
-                    
+
                     {/* Starter Button */}
                     <div className="border-b border-l border-r border-[#d4af37] rounded-b-xl pb-6 md:pb-8 pt-4 md:pt-6 flex justify-center bg-transparent">
                         <a href="https://buy.stripe.com/eVqcMXgRig29685e3Ofw409" target="_blank" rel="noopener noreferrer" className="border border-[#d4af37] text-foreground pl-3 md:pl-5 pr-1 md:pr-1.5 py-1 md:py-1.5 rounded-full font-bold uppercase text-[9px] md:text-[11px] tracking-wide hover:bg-[#d4af37] hover:text-black transition-colors flex items-center gap-2 md:gap-3">
                             Start Now <span className="bg-[#d4af37] text-black rounded-full p-1 md:p-1.5"><FaArrowRight className="w-2 h-2 md:w-3 md:h-3" /></span>
                         </a>
                     </div>
-                    
+
                     {/* Prestige Button */}
                     <div className="border-b border-l border-r border-[#d4af37] rounded-b-xl pb-6 md:pb-8 pt-4 md:pt-6 flex justify-center bg-transparent">
                         <a href="https://buy.stripe.com/aFa6ozbwY5nv3ZX8Jufw40a" target="_blank" rel="noopener noreferrer" className="bg-[#d4af37] text-black pl-3 md:pl-5 pr-1 md:pr-1.5 py-1 md:py-1.5 rounded-full font-bold uppercase text-[9px] md:text-[11px] tracking-wide hover:bg-[#bfa040] transition-colors flex items-center gap-2 md:gap-3">
                             Start Your Company <span className="bg-black text-[#d4af37] rounded-full p-1 md:p-1.5"><FaArrowRight className="w-2 h-2 md:w-3 md:h-3" /></span>
                         </a>
                     </div>
-                    
+
                     {/* Elite Button */}
                     <div className="border-b border-l border-r border-[#d4af37] rounded-b-xl pb-6 md:pb-8 pt-4 md:pt-6 flex justify-center bg-transparent">
                         <a href="https://buy.stripe.com/9B6fZ958AbLT5417Fqfw402" target="_blank" rel="noopener noreferrer" className="bg-[#d4af37] text-black pl-3 md:pl-5 pr-1 md:pr-1.5 py-1 md:py-1.5 rounded-full font-bold uppercase text-[9px] md:text-[11px] tracking-wide hover:bg-[#bfa040] transition-colors flex items-center gap-2 md:gap-3">
