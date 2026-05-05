@@ -42,13 +42,13 @@ export default function UKComparisonTable() {
                         <div className="p-4 flex items-center justify-center border-b border-r border-[#d4af37]/20">
                             <div className="flex flex-col items-center">
                                 <span className="text-xl font-serif text-[#d4af37]">Starter</span>
-                                <span className="text-2xl font-bold">£99</span>
+                                <span className="text-2xl font-bold">£149</span>
                             </div>
                         </div>
                         <div className="p-4 flex items-center justify-center border-b border-r border-[#d4af37]/20">
                             <div className="flex flex-col items-center">
                                 <span className="text-xl font-serif text-[#d4af37]">Prestige</span>
-                                <span className="text-2xl font-bold">£230</span>
+                                <span className="text-2xl font-bold">£299</span>
                             </div>
                         </div>
                         <div className="relative p-4 flex items-center justify-center bg-gradient-to-b from-[#d4af37] to-[#bfa040] text-black">

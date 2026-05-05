@@ -23,7 +23,7 @@ const pricingData: Record<Country, PricingTier[]> = {
     UK: [
         {
             name: "Starter",
-            price: "£99",
+            price: "£149",
             description: "Perfect for new entrepreneurs.",
             features: [
                 "UK Company Formation",
@@ -34,11 +34,11 @@ const pricingData: Record<Country, PricingTier[]> = {
                 "Ready in 24h",
             ],
             cta: "Start Now",
-            link: "https://buy.stripe.com/cNi7sD58A6rzdAx9Nyfw400"
+            link: "https://buy.stripe.com/eVqcMXgRig29685e3Ofw409"
         },
         {
             name: "Prestige",
-            price: "£230",
+            price: "£299",
             description: "Most chosen by non-resident founders.",
             features: [
                 "Everything in Starter",
@@ -50,7 +50,7 @@ const pricingData: Record<Country, PricingTier[]> = {
             ],
             cta: "Start Your Company",
             featured: true,
-            link: "https://buy.stripe.com/8x200basU2bj0NLbVGfw401"
+            link: "https://buy.stripe.com/aFa6ozbwY5nv3ZX8Jufw40a"
         },
         {
             name: "Elite",
