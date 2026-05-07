@@ -231,7 +231,7 @@ export default function RefundPolicy() {
 
                         {/* Contact */}
                         <section className="rounded-xl border border-[#d4af37]/40 bg-gradient-to-br from-[#d4af37]/5 to-transparent p-6 backdrop-blur-sm">
-                            <h2 className="mb-3 text-2xl font-bold text-foreground">7. Contact</h2>
+                            <h2 className="mb-3 text-2xl font-bold text-foreground">Contact</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 For any questions regarding this Refund Policy, please contact us at:{' '}
                                 <a href="mailto:contact@sevenoakprestige.com" className="font-semibold text-[#d4af37] hover:underline">
