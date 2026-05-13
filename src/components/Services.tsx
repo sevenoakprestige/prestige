@@ -22,11 +22,11 @@ const servicesData: Record<Country, Service[]> = {
             title: "Premium UK Addresses",
             description: "Registered office and director service address to protect privacy and keep personal details confidential.",
         },
-        {
-            icon: <FaUniversity className="h-8 w-8" />,
-            title: "Fintech Account Setup",
-            description: "Approval guidance for Wise, Revolut Business, WorldFirst, Payoneer & Stripe. (Final approval is always decided by the fintech provider.)",
-        },
+        // {
+        //     icon: <FaUniversity className="h-8 w-8" />,
+        //     title: "Fintech Account Setup",
+        //     description: "Approval guidance for Wise, Revolut Business, WorldFirst, Payoneer & Stripe. (Final approval is always decided by the fintech provider.)",
+        // },
         {
             icon: <FaFileInvoiceDollar className="h-8 w-8" />,
             title: "Mail Scanning & Digital Documents",

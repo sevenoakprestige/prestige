@@ -23,7 +23,7 @@ const testimonialsData: Record<Country, Testimonial[]> = {
             location: "Sydney, Australia",
         },
         {
-            quote: "My UK LTD was structured for fintech approval. Wise and Stripe approved quickly.",
+            quote: "My UK company setup process was smooth and well-structured for business operations.",
             name: "Mark D.",
             location: "Nairobi, Kenya",
         },
@@ -92,8 +92,8 @@ export default function Testimonials() {
                         <div
                             key={index}
                             className={`testimonial-card group relative flex flex-col overflow-hidden rounded-2xl border p-8 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl ${activeTestimonials.length === 2 && index === 0
-                                    ? "md:col-start-1" // If 2 items, simple grid behavior
-                                    : ""
+                                ? "md:col-start-1" // If 2 items, simple grid behavior
+                                : ""
                                 }`}
                             // Center the 2 cards if needed? 
                             // Grid col-1 md:col-3 implies 3 columns. If 2 items, they will be left-aligned by default. 

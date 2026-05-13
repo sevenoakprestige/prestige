@@ -4,7 +4,7 @@ import Link from "next/link";
 import CountrySelector, { Country } from "./CountrySelector";
 import UKComparisonTable from "./UKComparisonTable";
 import UKAddressServices from "./UKAddressServices";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaLock, FaCreditCard } from "react-icons/fa";
 import { useCountry } from "@/contexts/CountryContext";
 
 interface PricingTier {
@@ -58,8 +58,8 @@ const pricingData: Record<Country, PricingTier[]> = {
             description: "Premium done-for-you setup.",
             features: [
                 "Everything in Prestige",
-                "Banking Assistance",
-                "(Wise, Revolut, Payoneer, etc.)",
+                // "Banking Assistance",
+                // "(Wise, Revolut, Payoneer, etc.)",
                 "VAT Registration (optional)",
                 "Full Compliance Review",
                 "KYC Support",
@@ -255,6 +255,19 @@ export default function Pricing() {
                             <div className="absolute right-0 top-0 h-20 w-20 translate-x-10 -translate-y-10 rounded-full bg-[#d4af37]/10 blur-2xl transition-transform duration-300 group-hover:translate-x-5 group-hover:-translate-y-5"></div>
                         </div>
                     ))}
+                </div>
+
+                {/* Payment Methods Notice */}
+                <div className="mx-auto mt-12 max-w-2xl text-center">
+                    <div className="inline-flex flex-col items-center justify-center gap-3 rounded-2xl border border-[#d4af37]/30 bg-gradient-to-r from-[#d4af37]/5 via-[#d4af37]/10 to-[#d4af37]/5 px-6 py-4 shadow-[0_0_15px_rgba(212,175,55,0.1)] backdrop-blur-sm sm:flex-row">
+                        <div className="flex items-center gap-2">
+                            <FaLock className="h-4 w-4 text-[#d4af37]" />
+                            <FaCreditCard className="h-4 w-4 text-[#d4af37]" />
+                        </div>
+                        <p className="text-sm font-medium text-gray-300">
+                            We accept payments via <span className="text-white">supported global payment methods</span> and <span className="text-white">bank transfers</span>.
+                        </p>
+                    </div>
                 </div>
 
                 {/* UK Comparison Table */}

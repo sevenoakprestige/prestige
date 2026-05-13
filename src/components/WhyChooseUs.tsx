@@ -30,11 +30,11 @@ const whyChooseData: Record<Country, { subtitle: string; icon: React.ReactNode; 
                 title: "Premium Confidential Addresses",
                 description: "Registered office + director service address to keep residential details off the public register.",
             },
-            {
-                icon: <FaCheckCircle className="h-8 w-8" />,
-                title: "Fintech-Ready Structures",
-                description: "Structured for smooth onboarding with Wise, Payoneer, Stripe, Revolut Business, and WorldFirst.",
-            },
+            // {
+            //     icon: <FaCheckCircle className="h-8 w-8" />,
+            //     title: "Fintech-Ready Structures",
+            //     description: "Structured for smooth onboarding with Wise, Payoneer, Stripe, Revolut Business, and WorldFirst.",
+            // },
             {
                 icon: <FaPassport className="h-8 w-8" />,
                 title: "No UK Documents Required",
