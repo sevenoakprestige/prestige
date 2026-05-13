@@ -51,7 +51,7 @@ const faqData: FAQSection[] = [
             },
             {
                 question: "Can be used as a registered office for company formation and general correspondence? ",
-                answer: "We provide general guidance on preparing documentation and business information that may be required when applying to regulated financial institutions such as Wise, Revolut, WorldFirst, and Payoneer. Approval decisions remain entirely at the discretion of each provider.",
+                answer: "Banking & Fintech Application Support. We provide administrative guidance relating to business documentation and information preparation for applications submitted to third-party financial institutions and payment platforms, including providers such as Wise, Revolut, WorldFirst, and Payoneer. All onboarding, compliance reviews, and approval decisions are conducted independently at the sole discretion of each provider.",
             },
         ],
     },
