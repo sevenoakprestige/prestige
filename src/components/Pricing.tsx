@@ -60,10 +60,11 @@ const pricingData: Record<Country, PricingTier[]> = {
                 "Everything in Prestige",
                 // "Banking Assistance",
                 // "(Wise, Revolut, Payoneer, etc.)",
-                "VAT Registration (optional)",
-                "Full Compliance Review",
-                "KYC Support",
-                "Annual Review Call",
+                "Advanced Business Structuring Advisory (International Operations)",
+                "High Level Operational Readiness Consultation",
+                "KYC Documentation Readiness Support (Enhanced Review)",
+                "Annual Strategic 1:1 Review Session",
+                "Priority Advisory Support Access"
             ],
             cta: "Become Elite",
             link: "https://buy.stripe.com/9B6fZ958AbLT5417Fqfw402"
