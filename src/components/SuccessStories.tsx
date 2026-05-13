@@ -45,8 +45,8 @@ const successStoriesData: CountryStories[] = [
             },
             {
                 title: "UK LTD — E-commerce Entrepreneur",
-                quote: "My company structure was completed quickly and fully prepared for global payment gateways. I was able to operate internationally the same day.",
-                status: "Business ready to operate",
+                quote: "The process was professional, efficient, and clearly managed from start to finish. My business structure was established smoothly, and I was able to begin international operations without delays.",
+                status: "Company incorporated and operational",
                 location: "Daniel K., Accra, Ghana",
             },
         ],
