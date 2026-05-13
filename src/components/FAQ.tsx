@@ -50,8 +50,8 @@ const faqData: FAQSection[] = [
                 answer: "Valid passport or ID card. Translation provided if necessary.",
             },
             {
-                question: "Can I use the address for banks and fintechs?",
-                answer: "We help you apply to UK-friendly banking platforms like Wise, Revolut, WorldFirst, and Payoneer. While we maximize your approval chances, the final decision lies with the bank.",
+                question: "Can be used as a registered office for company formation and general correspondence? ",
+                answer: "We provide general guidance on preparing documentation and business information that may be required when applying to regulated financial institutions such as Wise, Revolut, WorldFirst, and Payoneer. Approval decisions remain entirely at the discretion of each provider.",
             },
         ],
     },

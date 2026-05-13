@@ -36,8 +36,7 @@ export default function Hero() {
 
                 {/* Subheading */}
                 <p className="hero-text mx-auto mb-10 max-w-2xl text-lg leading-relaxed sm:text-xl md:text-2xl">
-                    Premium UK company formation for non-residents. Confidential address, fintech approval
-                    support, global business structuring.
+                    Premium UK company formation for non-residents, registered office solutions, and compliance-focused business structuring for international operations.
                 </p>
 
                 {/* CTA Buttons */}

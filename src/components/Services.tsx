@@ -15,7 +15,7 @@ const servicesData: Record<Country, Service[]> = {
         {
             icon: <FaBuilding className="h-8 w-8" />,
             title: "UK Company Formation",
-            description: "Non-resident LTD incorporation in 24 hours, including full compliance documents and a fintech-ready structure.",
+            description: "Non-resident UK LTD incorporation with standard processing timelines, including preparation of incorporation documents and general compliance support for business setup.",
         },
         {
             icon: <FaMapMarkerAlt className="h-8 w-8" />,

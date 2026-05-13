@@ -39,8 +39,8 @@ const successStoriesData: CountryStories[] = [
             },
             {
                 title: "UK LTD — International Consultant",
-                quote: "Clear guidance from start to finish. The registered office and director service address were set up perfectly, and my structure was accepted by Wise & Stripe",
-                status: "Fintech-ready structure",
+                quote: "Professional support throughout the incorporation process, including registered office setup and company structure preparation aligned with standard compliance requirements.",
+                status: "Business setup completed",
                 location: "Ade S, Sydney, Australia",
             },
             {
@@ -61,7 +61,7 @@ const successStoriesData: CountryStories[] = [
             },
             {
                 stars: 5,
-                text: "Well-structured and compliant-focused. Exactly what is required for fintech onboarding.",
+                text: "Structured and compliance-focused approach to business setup. Designed to align with general onboarding requirements of regulated financial institutions.",
             },
         ],
     },
@@ -255,8 +255,7 @@ export default function SuccessStories() {
 
                 {/* Disclaimer */}
                 <p className="success-story-description text-center text-xs italic sm:text-sm">
-                    Client results may vary. Timelines and third-party approvals are subject to
-                    regulatory and provider requirements.
+                    Client results may vary. Timelines and third-party approvals are subject to regulatory and provider requirements.
                 </p>
             </div>
         </section>
