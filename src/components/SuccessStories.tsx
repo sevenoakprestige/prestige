@@ -30,7 +30,7 @@ const successStoriesData: CountryStories[] = [
         country: "UK",
         flag: "🇬🇧",
         title: "UK SUCCESS STORIES",
-        subtitle: "Real client results — professionally curated",
+        subtitle: "Client results, professionally curated",
         stories: [
             {
                 title: "UK LTD — Non-Resident Founder",
@@ -202,30 +202,54 @@ export default function SuccessStories() {
                     {activeData.stories.map((story, index) => (
                         <div
                             key={index}
-                            className="success-story-card overflow-hidden rounded-xl border p-6 transition-all duration-300 hover:shadow-lg sm:p-8"
+                            className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]"
                             style={{
                                 animationDelay: `${index * 100}ms`,
                             }}
                         >
-                            <h4 className="success-story-subtitle mb-4 text-lg font-bold sm:text-xl">
-                                {story.title}
-                            </h4>
-                            <p className="success-story-description mb-4 text-base leading-relaxed sm:text-lg">
-                                "{story.quote}"
-                            </p>
-                            <div className="flex flex-wrap items-center gap-2 text-sm sm:gap-4 sm:text-base">
-                                <span className="success-story-subtitle font-semibold">
-                                    Status: {story.status}
-                                </span>
-                                {story.location && (
-                                    <>
-                                        <span className="success-story-description hidden sm:inline">•</span>
-                                        <span className="success-story-description italic">
-                                            {story.location}
-                                        </span>
-                                    </>
-                                )}
+                            {/* Verified Badge */}
+                            <div className="mb-8 flex justify-end">
+                                <div className="inline-flex items-center gap-1.5 rounded-full border border-[#d4af37]/20 bg-gradient-to-r from-[#d4af37]/10 to-transparent px-3 py-1 shadow-sm">
+                                    <svg className="h-3 w-3 text-[#d4af37]" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l5-5z" clipRule="evenodd" />
+                                    </svg>
+                                    <span className="text-[9px] uppercase font-bold tracking-widest text-[#d4af37]">
+                                        Verified
+                                    </span>
+                                </div>
                             </div>
+
+                            {/* Content Section with Elegant Depth */}
+                            <div className="relative mb-8 flex-grow">
+                                <h4 className="success-story-subtitle mb-5 text-lg font-bold sm:text-xl font-serif text-foreground leading-snug">
+                                    {story.title}
+                                </h4>
+                                <p className="font-serif italic text-base md:text-lg leading-relaxed text-foreground/80 relative z-10 pl-3 border-l-2 border-[#d4af37]/30">
+                                    "{story.quote}"
+                                </p>
+                            </div>
+
+                            {/* Status Information */}
+                            <div className="mt-auto border-t border-border/10 pt-6 flex items-center gap-4">
+                                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#d4af37]/30 bg-background/50 p-0.5 shadow-sm group-hover:border-[#d4af37]/60 transition-colors duration-500">
+                                    <svg className="h-5 w-5 text-[#d4af37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 className="font-serif text-sm sm:text-base font-bold text-foreground tracking-wide">
+                                        Status: <span className="font-sans font-normal text-muted-foreground">{story.status}</span>
+                                    </h4>
+                                    {story.location && (
+                                        <p className="text-[10px] text-[#d4af37]/80 uppercase tracking-[0.2em] font-semibold mt-1">
+                                            {story.location}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Decorative corner accent light */}
+                            <div className="absolute right-0 top-0 h-24 w-24 translate-x-12 -translate-y-12 rounded-full bg-[#d4af37]/10 blur-2xl transition-transform duration-700 group-hover:translate-x-4 group-hover:-translate-y-4 pointer-events-none"></div>
                         </div>
                     ))}
                 </div>
@@ -235,19 +259,20 @@ export default function SuccessStories() {
                     {activeData.reviews.map((review, index) => (
                         <div
                             key={index}
-                            className="success-story-card rounded-lg border p-6 text-center transition-all duration-300 hover:shadow-lg"
+                            className="group relative flex flex-col items-center justify-center overflow-hidden rounded-xl border border-border/20 bg-background/30 p-6 text-center backdrop-blur-sm transition-all duration-500 hover:border-[#d4af37]/30 hover:bg-card/40"
                         >
                             {/* Stars */}
-                            <div className="mb-3 flex justify-center gap-1 text-2xl">
+                            <div className="mb-4 flex justify-center gap-1.5 text-lg">
                                 {Array.from({ length: review.stars }).map((_, i) => (
-                                    <span key={i} className="text-[#d4af37]">
-                                        ★
-                                    </span>
+                                    <svg key={i} className="h-4 w-4 text-[#d4af37] fill-current drop-shadow-sm" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
                                 ))}
                             </div>
+
                             {/* Review text */}
-                            <p className="success-story-description text-sm leading-relaxed">
-                                {review.text}
+                            <p className="font-serif italic text-sm leading-relaxed text-foreground/80">
+                                "{review.text}"
                             </p>
                         </div>
                     ))}
