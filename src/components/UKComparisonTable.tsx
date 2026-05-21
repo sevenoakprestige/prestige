@@ -5,7 +5,7 @@ import {
     FaCheck, FaBuilding, FaClock, FaFileAlt, FaUserTie,
     FaMapMarkerAlt, FaBriefcase, FaUniversity,
     FaCheckCircle, FaAmazon, FaHeadset, FaStar, FaRocket,
-    FaCrown, FaGem, FaArrowRight, FaShieldAlt, FaLock, FaMedal
+    FaCrown, FaGem, FaArrowRight, FaShieldAlt, FaLock, FaMedal, FaWhatsapp
 } from "react-icons/fa";
 
 export default function UKComparisonTable() {
@@ -124,23 +124,32 @@ export default function UKComparisonTable() {
                     <div></div>
 
                     {/* Starter Button */}
-                    <div className="border-b border-l border-r border-[#d4af37] rounded-b-xl pb-6 md:pb-8 pt-4 md:pt-6 flex justify-center bg-transparent">
+                    <div className="border-b border-l border-r border-[#d4af37] rounded-b-xl pb-6 md:pb-8 pt-4 md:pt-6 flex flex-col items-center gap-3 bg-transparent">
                         <a href="https://buy.stripe.com/eVqcMXgRig29685e3Ofw409" target="_blank" rel="noopener noreferrer" className="border border-[#d4af37] text-foreground pl-3 md:pl-5 pr-1 md:pr-1.5 py-1 md:py-1.5 rounded-full font-bold uppercase text-[9px] md:text-[11px] tracking-wide hover:bg-[#d4af37] hover:text-black transition-colors flex items-center gap-2 md:gap-3">
                             Start Now <span className="bg-[#d4af37] text-black rounded-full p-1 md:p-1.5"><FaArrowRight className="w-2 h-2 md:w-3 md:h-3" /></span>
+                        </a>
+                        <a href="https://wa.me/447447488755" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-bold uppercase tracking-wider text-emerald-500 hover:text-emerald-400 transition-colors">
+                            <FaWhatsapp className="w-3.5 h-3.5" /> Talk to an expert
                         </a>
                     </div>
 
                     {/* Prestige Button */}
-                    <div className="border-b border-l border-r border-[#d4af37] rounded-b-xl pb-6 md:pb-8 pt-4 md:pt-6 flex justify-center bg-transparent">
+                    <div className="border-b border-l border-r border-[#d4af37] rounded-b-xl pb-6 md:pb-8 pt-4 md:pt-6 flex flex-col items-center gap-3 bg-transparent">
                         <a href="https://buy.stripe.com/aFa6ozbwY5nv3ZX8Jufw40a" target="_blank" rel="noopener noreferrer" className="bg-[#d4af37] text-black pl-3 md:pl-5 pr-1 md:pr-1.5 py-1 md:py-1.5 rounded-full font-bold uppercase text-[9px] md:text-[11px] tracking-wide hover:bg-[#bfa040] transition-colors flex items-center gap-2 md:gap-3">
                             Start Your Company <span className="bg-black text-[#d4af37] rounded-full p-1 md:p-1.5"><FaArrowRight className="w-2 h-2 md:w-3 md:h-3" /></span>
+                        </a>
+                        <a href="https://wa.me/447447488755" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-bold uppercase tracking-wider text-emerald-500 hover:text-emerald-400 transition-colors">
+                            <FaWhatsapp className="w-3.5 h-3.5" /> Talk to an expert
                         </a>
                     </div>
 
                     {/* Elite Button */}
-                    <div className="border-b border-l border-r border-[#d4af37] rounded-b-xl pb-6 md:pb-8 pt-4 md:pt-6 flex justify-center bg-transparent">
+                    <div className="border-b border-l border-r border-[#d4af37] rounded-b-xl pb-6 md:pb-8 pt-4 md:pt-6 flex flex-col items-center gap-3 bg-transparent">
                         <a href="https://buy.stripe.com/9B6fZ958AbLT5417Fqfw402" target="_blank" rel="noopener noreferrer" className="bg-[#d4af37] text-black pl-3 md:pl-5 pr-1 md:pr-1.5 py-1 md:py-1.5 rounded-full font-bold uppercase text-[9px] md:text-[11px] tracking-wide hover:bg-[#bfa040] transition-colors flex items-center gap-2 md:gap-3">
                             Become Elite <span className="bg-black text-[#d4af37] rounded-full p-1 md:p-1.5"><FaArrowRight className="w-2 h-2 md:w-3 md:h-3" /></span>
+                        </a>
+                        <a href="https://wa.me/447447488755" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-bold uppercase tracking-wider text-emerald-500 hover:text-emerald-400 transition-colors">
+                            <FaWhatsapp className="w-3.5 h-3.5" /> Talk to an expert
                         </a>
                     </div>
 

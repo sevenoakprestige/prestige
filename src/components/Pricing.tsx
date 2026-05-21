@@ -4,7 +4,7 @@ import Link from "next/link";
 import CountrySelector, { Country } from "./CountrySelector";
 import UKComparisonTable from "./UKComparisonTable";
 import UKAddressServices from "./UKAddressServices";
-import { FaCheck, FaLock, FaCreditCard } from "react-icons/fa";
+import { FaCheck, FaLock, FaCreditCard, FaWhatsapp } from "react-icons/fa";
 import { useCountry } from "@/contexts/CountryContext";
 
 interface PricingTier {
@@ -252,6 +252,19 @@ export default function Pricing() {
                                 {tier.cta}
                             </Link>
 
+                            {/* Talk to an Expert Button */}
+                            {tier.link.startsWith("https://buy.stripe.com") && (
+                                <Link
+                                    href="https://wa.me/447447488755"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-3 flex items-center justify-center gap-2 w-full rounded-xl py-3 text-center text-sm font-bold border border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 hover:bg-[#25D366] hover:text-white dark:hover:text-black hover:border-transparent transition-all duration-300 hover:scale-105 active:scale-95"
+                                >
+                                    <FaWhatsapp className="h-4 w-4" />
+                                    Talk to an Expert
+                                </Link>
+                            )}
+
                             {/* Decorative corner accent */}
                             <div className="absolute right-0 top-0 h-20 w-20 translate-x-10 -translate-y-10 rounded-full bg-[#d4af37]/10 blur-2xl transition-transform duration-300 group-hover:translate-x-5 group-hover:-translate-y-5"></div>
                         </div>
@@ -265,8 +278,8 @@ export default function Pricing() {
                             <FaLock className="h-4 w-4 text-[#d4af37]" />
                             <FaCreditCard className="h-4 w-4 text-[#d4af37]" />
                         </div>
-                        <p className="text-sm font-medium text-gray-300">
-                            We accept payments via <span className="text-white">supported global payment methods</span> and <span className="text-white">bank transfers</span>.
+                        <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                            We accept payments via <span className="font-semibold text-gray-900 dark:text-white">supported global payment methods</span> and <span className="font-semibold text-gray-900 dark:text-white">bank transfers</span>.
                         </p>
                     </div>
                 </div>
