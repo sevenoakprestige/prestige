@@ -48,75 +48,80 @@ export default function UKAddressServices() {
     ];
 
     return (
-        <div className="mt-16 w-full">
-            {/* Header */}
-            <div className="text-center mb-12">
-                <h3 className="text-4xl md:text-5xl font-serif text-[#d4af37] mb-2">Address Services</h3>
-                <p className="text-sm font-bold tracking-[0.2em] text-gray-600 dark:text-gray-400 uppercase mb-2">
-                    Optional Add-ons
-                </p>
-                <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
-                <p className="text-gray-600 dark:text-gray-300 font-light mt-4">
-                    Enhance your UK company setup with professional address services.
-                </p>
+        <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+            {/* Background decoration — same as Testimonials */}
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+                <div className="absolute left-1/4 top-10 h-[500px] w-[500px] rounded-full bg-[#d4af37]/3 blur-[120px] dark:bg-[#d4af37]/5"></div>
+                <div className="absolute right-1/4 bottom-10 h-[500px] w-[500px] rounded-full bg-[#d4af37]/3 blur-[120px] dark:bg-[#d4af37]/5"></div>
             </div>
 
-            {/* Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
-                {services.map((service, idx) => (
-                    <div
-                        key={idx}
-                        className="pricing-card group relative overflow-hidden rounded-2xl border p-8 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl"
-                        style={{
-                            animationDelay: `${idx * 100}ms`,
-                        }}
-                    >
-                        {/* Glow effect */}
-                        <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent"></div>
+            <div className="mx-auto max-w-7xl">
+                {/* Header — same as Testimonials */}
+                <div className="mb-16 text-center">
+                    <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">
+                        OPTIONAL ADD-ONS
+                    </span>
+                    <h2 className="mb-4 font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl uppercase">
+                        Address Services
+                    </h2>
+                    <div className="mx-auto h-[1px] w-20 bg-[#d4af37]/50"></div>
+                    <p className="mt-4 text-muted-foreground">
+                        Enhance your UK company setup with professional address services.
+                    </p>
+                </div>
+
+                {/* Cards Grid — same card classes as Testimonials */}
+                <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
+                    {services.map((service, idx) => (
+                        <div
+                            key={idx}
+                            className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]"
+                            style={{ animationDelay: `${idx * 100}ms` }}
+                        >
+                            {/* Corner accent — same as Testimonials */}
+                            <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
+
+                            {/* Icon */}
+                            <div className="mb-6 flex justify-center">
+                                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30">
+                                    <service.icon className="h-6 w-6" />
+                                </div>
+                            </div>
+
+                            {/* Title */}
+                            <h3 className="pricing-tier-name mb-2 text-2xl font-bold text-center">
+                                {service.title}
+                            </h3>
+
+                            {/* Price */}
+                            <div className="mb-6 text-center">
+                                <span className="pricing-price text-4xl font-bold text-[#d4af37]">
+                                    {service.price}
+                                </span>
+                                <span className="ml-1 text-sm opacity-70">{service.period}</span>
+                            </div>
+
+                            {/* Features */}
+                            <ul className="mb-8 flex-grow space-y-3">
+                                {service.features.map((feature, fIdx) => (
+                                    <li key={fIdx} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/85">
+                                        <FaCheck className="mt-1 h-3.5 w-3.5 flex-shrink-0 text-[#d4af37]" />
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            {/* CTA Button */}
+                            <Link
+                                href={service.link}
+                                className="block w-full rounded-xl border-2 border-[#d4af37] py-3 text-center text-sm font-bold text-[#d4af37] transition-all duration-300 hover:bg-[#d4af37] hover:text-black hover:scale-105 active:scale-95"
+                            >
+                                {service.cta}
+                            </Link>
                         </div>
-                        {/* Corner accent */}
-                        <div className="absolute right-0 top-0 h-20 w-20 translate-x-10 -translate-y-10 rounded-full bg-[#d4af37]/10 blur-2xl transition-transform duration-300 group-hover:translate-x-5 group-hover:-translate-y-5"></div>
-
-                        {/* Icon */}
-                        <div className="mb-6 text-[#d4af37] flex justify-center">
-                            <service.icon className="w-12 h-12" />
-                        </div>
-
-                        {/* Title */}
-                        <h4 className="text-xl font-bold mb-4 min-h-[56px] flex items-center justify-center text-center">
-                            {service.title}
-                        </h4>
-
-                        {/* Features */}
-                        <ul className="mb-8 space-y-3 text-left">
-                            {service.features.map((feature, fIdx) => (
-                                <li key={fIdx} className="flex items-start gap-3 text-sm">
-                                    <FaCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#d4af37]" />
-                                    <span>
-                                        {feature}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
-
-                        {/* Price */}
-                        <div className="mb-6 text-center">
-                            <span className="text-4xl font-bold text-[#d4af37]">
-                                {service.price}
-                            </span>
-                            <span className="text-sm ml-1 opacity-80">
-                                {service.period}
-                            </span>
-                        </div>
-
-                        {/* CTA Button */}
-                        <Link href={service.link} className="block w-full rounded-xl border-2 border-[#d4af37] py-3 text-center text-sm font-bold text-[#d4af37] transition-all duration-300 hover:bg-[#d4af37] hover:text-black hover:scale-105 active:scale-95">
-                            {service.cta}
-                        </Link>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
+        </section>
     );
 }

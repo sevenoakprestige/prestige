@@ -190,7 +190,7 @@ export default function Pricing() {
                     {tiers.map((tier, index) => (
                         <div
                             key={index}
-                            className={`pricing-card group relative overflow-hidden rounded-2xl border p-8 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl ${tier.featured
+                            className={`pricing-card group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-2xl ${tier.featured
                                 ? "border-[#d4af37] shadow-xl shadow-[#d4af37]/20 md:scale-105 md:py-12"
                                 : "md:mt-8"
                                 }`}
@@ -207,10 +207,8 @@ export default function Pricing() {
                                 </div>
                             )}
 
-                            {/* Card glow effect on hover */}
-                            <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent"></div>
-                            </div>
+                            {/* Decorative corner accent light */}
+                            <div className="absolute right-0 top-0 -z-10 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4 pointer-events-none"></div>
 
                             {/* Tier Name */}
                             <h3 className="pricing-tier-name mb-2 text-2xl font-bold">
@@ -232,7 +230,7 @@ export default function Pricing() {
                             </p>
 
                             {/* Features */}
-                            <ul className="mb-8 space-y-3">
+                            <ul className="mb-8 flex-grow space-y-3">
                                 {tier.features.map((feature, i) => (
                                     <li key={i} className="flex items-start gap-3 text-sm">
                                         <FaCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#d4af37]" />

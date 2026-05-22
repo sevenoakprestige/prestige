@@ -155,19 +155,22 @@ export default function FAQ() {
 
     return (
         <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-            {/* Background decoration */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute left-1/3 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
-                <div className="absolute bottom-0 right-1/3 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
+            {/* Background decoration — same as Testimonials */}
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+                <div className="absolute left-1/4 top-10 h-[500px] w-[500px] rounded-full bg-[#d4af37]/3 blur-[120px] dark:bg-[#d4af37]/5"></div>
+                <div className="absolute right-1/4 bottom-10 h-[500px] w-[500px] rounded-full bg-[#d4af37]/3 blur-[120px] dark:bg-[#d4af37]/5"></div>
             </div>
 
             <div className="mx-auto max-w-4xl">
-                {/* Header */}
-                <div className="mb-12 text-center lg:mb-16">
-                    <h2 className="faq-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                {/* Header — same as Testimonials */}
+                <div className="mb-16 text-center">
+                    <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">
+                        COMMON QUESTIONS
+                    </span>
+                    <h2 className="faq-heading mb-4 font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl uppercase">
                         FAQ
                     </h2>
-                    <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
+                    <div className="mx-auto h-[1px] w-20 bg-[#d4af37]/50"></div>
                 </div>
 
                 {/* Tabs */}
@@ -199,7 +202,7 @@ export default function FAQ() {
                         return (
                             <div
                                 key={itemIndex}
-                                className="faq-item overflow-hidden rounded-lg border transition-all duration-300"
+                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45"
                             >
                                 {/* Question Button */}
                                 <button
