@@ -1,13 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { FaWhatsapp, FaSearch } from "react-icons/fa";
 
 export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
-            {/* Animated background elements */}
-            <div className="absolute inset-0 overflow-hidden">
+            {/* ── Background image (Dark mode only) ── */}
+            <div className="absolute inset-0 -z-20 hidden dark:block">
+                <Image
+                    src="/assets/seven_oak_prestise.png"
+                    alt="London skyline with global network — Seven Oak Prestige"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                    quality={90}
+                />
+                {/* Dark overlay — strong enough for dark mode */}
+                <div className="absolute inset-0 bg-black/65"></div>
+                {/* Bottom vignette fading to black */}
+                <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/80 to-transparent"></div>
+            </div>
+
+            {/* Animated gold orbs */}
+            <div className="absolute inset-0 overflow-hidden -z-10">
                 <div className="hero-circle-1 absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#d4af37]/10 blur-3xl"></div>
                 <div className="hero-circle-2 absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[#d4af37]/10 blur-3xl"></div>
             </div>

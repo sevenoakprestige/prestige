@@ -20,7 +20,7 @@ export default function Home() {
     return (
         <CountryProvider>
             <Hero />
-            {/* <TrustSection /> */}
+            <TrustSection />
             <Services />
             <WhyChooseUs />
             <HowItWorks />
