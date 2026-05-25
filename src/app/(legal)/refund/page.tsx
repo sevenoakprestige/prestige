@@ -1,7 +1,17 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FaArrowLeft } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+    title: 'Refund & Cancellation Policy – Seven Oak Prestige',
+    description: 'Read the Seven Oak Prestige Refund and Cancellation Policy. Understand our service terms, non-refundable services, and eligibility conditions before purchasing.',
+    openGraph: {
+        title: 'Refund & Cancellation Policy – Seven Oak Prestige',
+        description: 'Refund and cancellation terms for Seven Oak Prestige Ltd company formation and business services.',
+        url: 'https://www.sevenoakprestige.com/refund',
+    },
+    robots: { index: false, follow: false },
+};
 
 export default function RefundPolicy() {
     return (

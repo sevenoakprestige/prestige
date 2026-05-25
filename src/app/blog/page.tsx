@@ -1,7 +1,19 @@
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getSortedPostsData } from '@/lib/posts';
 import { FaCalendar, FaUser, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+    title: 'Blog – UK Company Formation Guides & Resources',
+    description: 'Expert guides on UK company formation for non-residents, fintech banking setup, global business structuring, and international entrepreneur resources.',
+    openGraph: {
+        title: 'Blog – Seven Oak Prestige',
+        description: 'Expert guides on UK company formation for non-residents, fintech banking setup, and global business structuring.',
+        url: 'https://www.sevenoakprestige.com/blog',
+        type: 'website',
+    },
+};
 
 export default function BlogHome() {
     const allPostsData = getSortedPostsData();
