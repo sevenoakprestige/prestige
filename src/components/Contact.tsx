@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 
 export default function Contact() {
     const cards = [
@@ -20,6 +20,14 @@ export default function Contact() {
             heading: "WHATSAPP",
             link: { href: "https://wa.me/447447488755", label: "+44 7447 488755", external: true },
             desc: "Chat with our team instantly for quick guidance.",
+        },
+        {
+            icon: (
+                <FaPhoneAlt className="w-6 h-6 md:w-8 md:h-8" />
+            ),
+            heading: "CALL US",
+            link: { href: "tel:+442045780726", label: "+44 20 4578 0726", external: false },
+            desc: "UK-based support for business enquiries.",
         },
     ];
 
@@ -47,7 +55,7 @@ export default function Contact() {
                 </div>
 
                 {/* Cards Grid — same card classes as Testimonials */}
-                <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto lg:gap-10">
+                <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3 max-w-6xl mx-auto lg:gap-10">
                     {cards.map((card, index) => (
                         <div
                             key={index}

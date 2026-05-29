@@ -23,28 +23,27 @@ const pricingData: Record<Country, PricingTier[]> = {
     UK: [
         {
             name: "Starter",
-            price: "£149",
-            description: "Perfect for new entrepreneurs.",
+            price: "£199",
+            description: "Perfect for each Entrepreneur",
             features: [
-                "UK Company Formation",
-                "(Limited by Shares)",
+                "UK Company Formation (Limited by Shares)",
                 "Digital Company Documents",
                 "Companies House Filing",
                 "Compliance Reminders",
                 "Ready in 24h",
             ],
             cta: "Start Now",
-            link: "https://buy.stripe.com/eVqcMXgRig29685e3Ofw409"
+            link: "https://buy.stripe.com/9B65kvcB217f3ZX2l6fw40i"
         },
         {
             name: "Prestige",
             price: "£299",
-            description: "Most chosen by non-resident founders.",
+            description: "Most chosen by non-residents founders",
             features: [
                 "Everything in Starter",
                 "Registered Office Address",
                 "Director Service Address",
-                "Free Mail Scanning",
+                "Mail Handling & Scanning Services",
                 "Annual Compliance Support",
                 "Priority Support",
             ],
@@ -55,15 +54,16 @@ const pricingData: Record<Country, PricingTier[]> = {
         {
             name: "Elite",
             price: "£399",
-            description: "Premium done-for-you setup.",
+            description: "For founders who want beyond registration",
             features: [
                 "Everything in Prestige",
                 // "Banking Assistance",
                 // "(Wise, Revolut, Payoneer, etc.)",
-                "Advanced Business Structuring Advisory (International Operations)",
-                "High Level Operational Readiness Consultation",
-                "KYC Documentation Readiness Support (Enhanced Review)",
-                "Annual Strategic 1:1 Review Session",
+                "Advanced UK & International Structuring Guidance",
+                "VBA Address (UK)",
+                "Business Credibility & Operational Readiness Review",
+                "Enhanced Compliance & KYC Documentation Support",
+                "Annual Strategic Business Reveiw (1:1)",
                 "Priority Advisory Support Access"
             ],
             cta: "Become Elite",
