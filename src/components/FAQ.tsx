@@ -50,7 +50,7 @@ const faqData: FAQSection[] = [
                 answer: "Valid passport or ID card. Translation provided if necessary.",
             },
             {
-                question: "Can be used as a registered office for company formation and general correspondence? ",
+                question: "Do you assist with business banking and fintech applications?",
                 answer: "Banking & Fintech Application Support. We provide administrative guidance relating to business documentation and information preparation for applications submitted to third-party financial institutions and payment platforms, including providers such as Wise, Revolut, WorldFirst, and Payoneer. All onboarding, compliance reviews, and approval decisions are conducted independently at the sole discretion of each provider.",
             },
         ],
