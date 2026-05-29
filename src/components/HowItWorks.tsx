@@ -184,7 +184,7 @@ export default function HowItWorks() {
                             <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
                                 Subject to{" "}
                                 <span className="font-semibold text-gray-900 dark:text-white">Companies House</span>{" "}
-                                processing times (policy should be same with other).
+                                processing times.
                             </p>
                         </div>
                     ) : (
