@@ -19,7 +19,7 @@ export default function Contact() {
             ),
             heading: "WHATSAPP",
             link: { href: "https://wa.me/447447488755", label: "+44 7447 488755", external: true },
-            desc: "Chat with our team instantly for quick guidance.",
+            desc: "Chat with our team instantly for quick guidance. Available 24/7.",
         },
         {
             icon: (

@@ -62,6 +62,7 @@ const pricingData: Record<Country, PricingTier[]> = {
                 "Advanced UK & International Structuring Guidance",
                 "VBA Address (UK)",
                 "Business Credibility & Operational Readiness Review",
+                "Banking & Fintechs Readiness Support",
                 "Enhanced Compliance & KYC Documentation Support",
                 "Annual Strategic Business Reveiw (1:1)",
                 "Priority Advisory Support Access"

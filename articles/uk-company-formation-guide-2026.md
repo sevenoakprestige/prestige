@@ -282,7 +282,7 @@ The key is choosing the right structure, maintaining compliance, and working wit
 
 Ready to get started? Here are the services we offer to help you form and run a UK company from abroad:
 
-* [UK Company Formation](/#pricing) — Register your UK LTD company fully remotely, starting from £149.
+* [UK Company Formation](/#pricing) — Register your UK LTD company fully remotely, starting from £199.
 * [Registered Office Address](/#pricing) — Every UK company requires a UK registered office. We provide a fully compliant address.
 * [Director Service Address](/#pricing) — Keep your personal home address off public records with our director service address.
 * [Virtual Business Address](/#pricing) — A professional London trading address for your business correspondence and clients.

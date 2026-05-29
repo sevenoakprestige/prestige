@@ -2,6 +2,7 @@
 
 import CountrySelector, { Country } from "./CountrySelector";
 import { useCountry } from "@/contexts/CountryContext";
+import { FaClock } from "react-icons/fa";
 
 interface Step {
     icon: React.ReactNode;
@@ -143,7 +144,7 @@ export default function HowItWorks() {
                             <div className="absolute right-4 top-4 select-none font-serif text-[120px] font-black leading-none text-foreground/[0.03] transition-all duration-500 group-hover:text-[#d4af37]/[0.05]">
                                 0{index + 1}
                             </div>
-                            
+
                             {/* Icon Container */}
                             <div className="relative z-10 mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-[#d4af37]/30 bg-gradient-to-br from-[#d4af37]/10 to-transparent text-[#d4af37] shadow-sm transition-transform duration-500 group-hover:scale-110">
                                 {step.icon}
@@ -157,11 +158,11 @@ export default function HowItWorks() {
                                         Phase 0{index + 1}
                                     </span>
                                 </div>
-                                
+
                                 <h3 className="mb-4 font-serif text-xl font-bold leading-tight text-foreground sm:text-2xl">
                                     {step.title}
                                 </h3>
-                                
+
                                 <p className="text-sm leading-relaxed text-foreground/70 sm:text-base">
                                     {step.description}
                                 </p>
@@ -173,11 +174,24 @@ export default function HowItWorks() {
                     ))}
                 </div>
 
-                {/* Footer Text */}
-                <div className="mt-12 text-center">
-                    <p className="how-it-works-footer text-lg font-medium italic sm:text-xl">
-                        {data.footer}
-                    </p>
+                {/* Footer Notice */}
+                <div className="mx-auto mt-12 max-w-2xl text-center">
+                    {data.footer.startsWith("*") ? (
+                        <div className="inline-flex flex-col items-center justify-center gap-3 rounded-2xl border border-[#d4af37]/30 bg-gradient-to-r from-[#d4af37]/5 via-[#d4af37]/10 to-[#d4af37]/5 px-6 py-4 shadow-[0_0_15px_rgba(212,175,55,0.1)] backdrop-blur-sm sm:flex-row">
+                            <div className="flex items-center gap-2">
+                                <FaClock className="h-4 w-4 text-[#d4af37]" />
+                            </div>
+                            <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                                Subject to{" "}
+                                <span className="font-semibold text-gray-900 dark:text-white">Companies House</span>{" "}
+                                processing times (policy should be same with other).
+                            </p>
+                        </div>
+                    ) : (
+                        <p className="how-it-works-footer text-lg font-medium italic sm:text-xl">
+                            {data.footer}
+                        </p>
+                    )}
                 </div>
             </div>
         </section>

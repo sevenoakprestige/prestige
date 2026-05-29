@@ -52,7 +52,7 @@ export default function UKComparisonTable() {
                             <FaStar className="text-[#d4af37] text-[8px] md:text-[10px]" />
                             <div className="w-2 md:w-3 h-[1px] bg-[#d4af37]"></div>
                         </div>
-                        <span className="text-3xl md:text-5xl font-bold text-[#d4af37] mt-1 md:mt-2">£149</span>
+                        <span className="text-3xl md:text-5xl font-bold text-[#d4af37] mt-1 md:mt-2">£199</span>
                     </div>
 
                     {/* Prestige Header */}

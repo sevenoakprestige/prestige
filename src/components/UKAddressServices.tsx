@@ -2,10 +2,38 @@
 
 import Link from "next/link";
 import React from "react";
-import { FaLandmark, FaLock, FaMapMarkerAlt, FaCheck } from "react-icons/fa";
+import { FaLandmark, FaLock, FaMapMarkerAlt, FaCheck, FaUserCheck, FaBolt } from "react-icons/fa";
 
 export default function UKAddressServices() {
     const services = [
+        {
+            title: "The Standard Plan",
+            price: "£59",
+            period: "",
+            icon: FaUserCheck,
+            features: [
+                "Companies House identity verification",
+                "Director onboarding support",
+                "Verification submission assistance",
+                "Estimated processing time: up to 4 working days"
+            ],
+            cta: "Add to Order",
+            link: "https://buy.stripe.com/14A7sD6cEaHP1RP6Bmfw40g"
+        },
+        {
+            title: "The Priority Plan",
+            price: "£74",
+            period: "",
+            icon: FaBolt,
+            features: [
+                "Priority verification handling",
+                "Faster onboarding review",
+                "Assisted compliance support",
+                "Estimated processing time: up to 2 working days"
+            ],
+            cta: "Add to Order",
+            link: "https://buy.stripe.com/bJe8wHbwY5nv8gde3Ofw40h"
+        },
         {
             title: "Registered Office Address",
             price: "£59",
@@ -71,7 +99,7 @@ export default function UKAddressServices() {
                 </div>
 
                 {/* Cards Grid — same card classes as Testimonials */}
-                <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
+                <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto lg:gap-10">
                     {services.map((service, idx) => (
                         <div
                             key={idx}
@@ -82,7 +110,7 @@ export default function UKAddressServices() {
                             <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
 
                             {/* Icon */}
-                            <div className="mb-6 flex justify-center">
+                            <div className="mb-6 flex justify-start">
                                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30">
                                     <service.icon className="h-6 w-6" />
                                 </div>
@@ -113,7 +141,7 @@ export default function UKAddressServices() {
 
                             {/* CTA Button */}
                             <Link
-                                href={service.link}
+                                href={service.link || "#"}
                                 className="block w-full rounded-xl border-2 border-[#d4af37] py-3 text-center text-sm font-bold text-[#d4af37] transition-all duration-300 hover:bg-[#d4af37] hover:text-black hover:scale-105 active:scale-95"
                             >
                                 {service.cta}
