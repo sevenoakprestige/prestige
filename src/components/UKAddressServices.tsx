@@ -7,7 +7,7 @@ import { FaLandmark, FaLock, FaMapMarkerAlt, FaCheck, FaUserCheck, FaBolt } from
 export default function UKAddressServices() {
     const services = [
         {
-            title: "The Standard Plan",
+            title: "(PVC) The Standard Plan",
             price: "£59",
             period: "",
             icon: FaUserCheck,
@@ -21,7 +21,7 @@ export default function UKAddressServices() {
             link: "https://buy.stripe.com/14A7sD6cEaHP1RP6Bmfw40g"
         },
         {
-            title: "The Priority Plan",
+            title: "(PVC) The Priority Plan",
             price: "£74",
             period: "",
             icon: FaBolt,
