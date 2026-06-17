@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Static routes
     const routes = [
         '',
+        '/uk-company-formation-for-non-residents',
         '/blog',
         '/terms',
         '/privacy',
@@ -15,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
-        priority: route === '' ? 1 : 0.8,
+        priority: route === '' ? 1 : route === '/uk-company-formation-for-non-residents' ? 0.9 : 0.8,
     }));
 
     // Dynamic blog post routes
