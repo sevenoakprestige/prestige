@@ -11,6 +11,7 @@ export interface Post {
     excerpt: string;
     content: string;
     tags?: string[];
+    keywords?: string[];
     author?: string;
 }
 
@@ -35,7 +36,7 @@ export function getSortedPostsData(): Post[] {
         return {
             slug,
             content: matterResult.content,
-            ...(matterResult.data as { title: string; date: string; excerpt: string; tags?: string[]; author?: string }),
+            ...(matterResult.data as { title: string; date: string; excerpt: string; tags?: string[]; keywords?: string[]; author?: string }),
         };
     });
 
@@ -74,7 +75,7 @@ export function getPostData(slug: string): Post | null {
         return {
             slug,
             content: matterResult.content,
-            ...(matterResult.data as { title: string; date: string; excerpt: string; tags?: string[]; author?: string }),
+            ...(matterResult.data as { title: string; date: string; excerpt: string; tags?: string[]; keywords?: string[]; author?: string }),
         };
     } catch (error) {
         return null;
