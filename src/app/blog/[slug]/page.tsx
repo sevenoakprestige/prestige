@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getPostData, getAllPostSlugs } from '@/lib/posts';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { FaArrowLeft, FaCalendar, FaUser, FaTag } from 'react-icons/fa';
 
 export async function generateStaticParams() {
@@ -97,6 +98,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <div className="prose prose-lg dark:prose-invert max-w-none">
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
                         components={{
                             h1: ({ node, ...props }) => (
                                 <h1 className="mb-4 mt-8 text-3xl font-bold" {...props} />
