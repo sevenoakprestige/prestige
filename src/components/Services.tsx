@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useCountry } from "@/contexts/CountryContext";
 
 // UK-specific static services matching the image layout
 const ukServices = [
     {
         title: "UK Company\nFormation",
+        href: "/uk-company-formation",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -14,6 +16,7 @@ const ukServices = [
     },
     {
         title: "Registered\nOffice Service (RO)",
+        href: "/registered-office-service",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
@@ -23,6 +26,7 @@ const ukServices = [
     },
     {
         title: "Director Service\nAddress (DSA)",
+        href: "/director-service-address",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <circle cx="12" cy="8" r="4" />
@@ -33,6 +37,7 @@ const ukServices = [
     },
     {
         title: "Virtual Business\nAddress (VBA)",
+        href: "/virtual-business-address",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <circle cx="12" cy="10" r="3" />
@@ -42,6 +47,7 @@ const ukServices = [
     },
     {
         title: "VAT\nRegistration",
+        href: "/vat-registration-uk",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -51,6 +57,7 @@ const ukServices = [
     },
     {
         title: "EORI\nRegistration",
+        href: "/eori-registration-uk",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <circle cx="12" cy="12" r="10" />
@@ -60,11 +67,22 @@ const ukServices = [
     },
     {
         title: "Fintech & Payment\nGuidance",
+        href: "/fintech-banking-guidance",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
                 <path d="M12 6v6l4 2" />
                 <path d="M8 14s1 2 4 2 4-2 4-2" />
+            </svg>
+        ),
+    },
+    {
+        title: "Companies House\nVerification",
+        href: "/companies-house-verification",
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
             </svg>
         ),
     },
@@ -165,7 +183,13 @@ const canadaServices = [
     },
 ];
 
-const allServices: Record<string, typeof ukServices> = {
+type ServiceItem = {
+    title: string;
+    icon: React.ReactNode;
+    href?: string;
+};
+
+const allServices: Record<string, ServiceItem[]> = {
     UK: ukServices,
     USA: usaServices,
     Canada: canadaServices,
@@ -193,22 +217,43 @@ export default function Services() {
 
                 {/* Services Row — single scrollable row of square cards */}
                 <div className="mt-10 flex flex-wrap justify-center gap-5">
-                    {services.map((service, index) => (
-                        <div
-                            key={index}
-                            className="group flex h-[160px] w-[150px] flex-col items-center justify-center gap-5 rounded-2xl border border-[#d4af37]/25 bg-transparent p-5 text-center transition-all duration-300 hover:border-[#d4af37]/60 hover:bg-[#d4af37]/[0.04] hover:shadow-[0_0_20px_rgba(212,175,55,0.07)] sm:h-[170px] sm:w-[160px]"
-                        >
-                            {/* Icon */}
-                            <div className="text-[#d4af37] transition-transform duration-300 group-hover:scale-110">
-                                {service.icon}
-                            </div>
+                    {services.map((service, index) => {
+                        const hasLink = 'href' in service && service.href;
+                        const cardContent = (
+                            <>
+                                {/* Icon */}
+                                <div className="text-[#d4af37] transition-transform duration-300 group-hover:scale-110">
+                                    {service.icon}
+                                </div>
 
-                            {/* Title */}
-                            <p className="whitespace-pre-line text-sm font-medium leading-snug text-foreground/80">
-                                {service.title}
-                            </p>
-                        </div>
-                    ))}
+                                {/* Title */}
+                                <p className="whitespace-pre-line text-sm font-medium leading-snug text-foreground/80">
+                                    {service.title}
+                                </p>
+                            </>
+                        );
+
+                        if (hasLink) {
+                            return (
+                                <Link
+                                    key={index}
+                                    href={(service as any).href}
+                                    className="group flex h-[160px] w-[150px] flex-col items-center justify-center gap-5 rounded-2xl border border-[#d4af37]/25 bg-transparent p-5 text-center transition-all duration-300 hover:border-[#d4af37]/60 hover:bg-[#d4af37]/[0.04] hover:shadow-[0_0_20px_rgba(212,175,55,0.07)] sm:h-[170px] sm:w-[160px]"
+                                >
+                                    {cardContent}
+                                </Link>
+                            );
+                        }
+
+                        return (
+                            <div
+                                key={index}
+                                className="group flex h-[160px] w-[150px] flex-col items-center justify-center gap-5 rounded-2xl border border-[#d4af37]/25 bg-transparent p-5 text-center transition-all duration-300 hover:border-[#d4af37]/60 hover:bg-[#d4af37]/[0.04] hover:shadow-[0_0_20px_rgba(212,175,55,0.07)] sm:h-[170px] sm:w-[160px]"
+                            >
+                                {cardContent}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
