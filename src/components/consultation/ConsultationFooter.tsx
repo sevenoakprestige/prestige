@@ -41,11 +41,11 @@ export default function ConsultationFooter() {
 
                         <p className="text-sm pt-1">
                             <a
-                                href="mailto:consulting@sevenoakprestige.com"
+                                href="mailto:contact@sevenoakprestige.com"
                                 className="footer-link hover:text-[#d4af37] transition-colors inline-flex items-center gap-2"
                             >
                                 <span className="text-[#d4af37]">✉</span>
-                                consulting@sevenoakprestige.com
+                                contact@sevenoakprestige.com
                             </a>
                         </p>
                     </div>

@@ -92,7 +92,7 @@ export default function Footer() {
                         </Link>
                         <span className="text-muted-foreground">•</span>
                         <Link href="/refund" className="footer-link hover:text-[#d4af37] transition-colors">
-                            Refund
+                            Refund Policy
                         </Link>
                         <span className="text-muted-foreground">•</span>
                         <Link href="/privacy" className="footer-link hover:text-[#d4af37] transition-colors">
