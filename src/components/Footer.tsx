@@ -98,6 +98,10 @@ export default function Footer() {
                         <Link href="/privacy" className="footer-link hover:text-[#d4af37] transition-colors">
                             Privacy
                         </Link>
+                        <span className="text-muted-foreground">•</span>
+                        <Link href="/site-map" className="footer-link hover:text-[#d4af37] transition-colors">
+                            Sitemap
+                        </Link>
                     </div>
                 </div>
 

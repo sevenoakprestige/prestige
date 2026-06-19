@@ -3,50 +3,154 @@ import { getAllPostSlugs } from '@/lib/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.sevenoakprestige.com';
+    const now = new Date().toISOString();
 
-    // Service page routes with high priority
-    const serviceRoutes = [
-        '/uk-company-formation',
-        '/uk-company-formation-non-residents',
-        '/uk-company-formation-for-non-residents',
-        '/registered-office-service',
-        '/director-service-address',
-        '/virtual-business-address',
-        '/vat-registration-uk',
-        '/eori-registration-uk',
-        '/fintech-banking-guidance',
-        '/companies-house-verification',
+    // ── HOMEPAGE ──
+    const homepage: MetadataRoute.Sitemap = [
+        {
+            url: baseUrl,
+            lastModified: now,
+            changeFrequency: 'daily',
+            priority: 1.0,
+        },
     ];
 
-    // Static routes
-    const routes = [
-        '',
-        '/blog',
-        '/terms',
-        '/privacy',
-        '/refund',
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: route === '' ? 1 : 0.8,
-    }));
+    // ── CORE SERVICE PAGES (highest commercial value) ──
+    const coreServices: MetadataRoute.Sitemap = [
+        {
+            url: `${baseUrl}/uk-company-formation`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.95,
+        },
+        {
+            url: `${baseUrl}/uk-company-formation-for-non-residents`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.95,
+        },
+        {
+            url: `${baseUrl}/uk-company-formation-non-residents`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.90,
+        },
+    ];
 
-    // Service pages
-    const servicePages = serviceRoutes.map((route) => ({
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: 0.9,
-    }));
+    // ── COMPLIANCE & REGISTRATION SERVICES ──
+    const complianceServices: MetadataRoute.Sitemap = [
+        {
+            url: `${baseUrl}/vat-registration-uk`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.90,
+        },
+        {
+            url: `${baseUrl}/eori-registration-uk`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.90,
+        },
+        {
+            url: `${baseUrl}/companies-house-verification`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.85,
+        },
+    ];
 
-    // Dynamic blog post routes
-    const blogRoutes = getAllPostSlugs().map(({ slug }) => ({
+    // ── BUSINESS ADDRESS & OFFICE SERVICES ──
+    const addressServices: MetadataRoute.Sitemap = [
+        {
+            url: `${baseUrl}/registered-office-service`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/director-service-address`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/virtual-business-address`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.85,
+        },
+    ];
+
+    // ── BANKING & FINTECH ──
+    const bankingServices: MetadataRoute.Sitemap = [
+        {
+            url: `${baseUrl}/fintech-banking-guidance`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.85,
+        },
+    ];
+
+    // ── KEY LANDING PAGES ──
+    const landingPages: MetadataRoute.Sitemap = [
+        {
+            url: `${baseUrl}/consultation`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.80,
+        },
+        {
+            url: `${baseUrl}/blog`,
+            lastModified: now,
+            changeFrequency: 'daily',
+            priority: 0.80,
+        },
+        {
+            url: `${baseUrl}/site-map`,
+            lastModified: now,
+            changeFrequency: 'monthly',
+            priority: 0.30,
+        },
+    ];
+
+    // ── LEGAL / POLICY PAGES ──
+    const legalPages: MetadataRoute.Sitemap = [
+        {
+            url: `${baseUrl}/terms`,
+            lastModified: now,
+            changeFrequency: 'yearly',
+            priority: 0.30,
+        },
+        {
+            url: `${baseUrl}/privacy`,
+            lastModified: now,
+            changeFrequency: 'yearly',
+            priority: 0.30,
+        },
+        {
+            url: `${baseUrl}/refund`,
+            lastModified: now,
+            changeFrequency: 'yearly',
+            priority: 0.30,
+        },
+    ];
+
+    // ── DYNAMIC BLOG POSTS ──
+    const blogPosts: MetadataRoute.Sitemap = getAllPostSlugs().map(({ slug }) => ({
         url: `${baseUrl}/blog/${slug}`,
-        lastModified: new Date(),
+        lastModified: now,
         changeFrequency: 'monthly' as const,
-        priority: 0.7,
+        priority: 0.70,
     }));
 
-    return [...routes, ...servicePages, ...blogRoutes];
+    return [
+        ...homepage,
+        ...coreServices,
+        ...complianceServices,
+        ...addressServices,
+        ...bankingServices,
+        ...landingPages,
+        ...legalPages,
+        ...blogPosts,
+    ];
 }
