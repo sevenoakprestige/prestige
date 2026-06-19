@@ -47,7 +47,7 @@ export default function Footer() {
 
                     {/* Company Details */}
                     <div className="text-sm text-muted-foreground space-y-1">
-                        <p className="font-medium text-foreground">© 2025 Seven Oak Prestige Ltd</p>
+                        <p className="font-medium text-foreground">© {new Date().getFullYear()} Seven Oak Prestige Ltd</p>
                         <p>Company No. 16903092</p>
                         <p>124 City Road, London EC1V 2NX, United Kingdom</p>
                         <p className="italic">Visits by appointment only</p>
