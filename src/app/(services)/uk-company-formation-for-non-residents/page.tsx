@@ -188,7 +188,7 @@ export default function UKCompanyFormationForNonResidents() {
                         fill
                         className="object-cover object-center"
                         priority
-                        quality={90}
+                        quality={100}
                     />
                     <div className="absolute inset-0 bg-black/65"></div>
                     <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/80 to-transparent"></div>

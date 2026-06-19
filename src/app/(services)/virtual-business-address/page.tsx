@@ -11,7 +11,7 @@ export default function VirtualBusinessAddress() {
             {/* ── HERO SECTION ── */}
             <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
                 <div className="absolute inset-0 -z-20 hidden dark:block">
-                    <Image src="/assets/seven_oak_prestise.png" alt="Virtual Business Address UK" fill className="object-cover object-center" priority quality={90} />
+                    <Image src="/assets/seven_oak_prestise.png" alt="Virtual Business Address UK" fill className="object-cover object-center" priority quality={100} />
                     <div className="absolute inset-0 bg-black/65"></div>
                     <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>

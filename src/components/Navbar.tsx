@@ -18,6 +18,7 @@ import { ModeToggle } from "./mode-toggle";
 import { useTheme } from "next-themes";
 
 const links = [
+    { name: "Homepage", href: "/uk-company-formation-for-non-residents" },
     { name: "Services", href: "#services" },
     { name: "Company Checker", href: "#checker" },
     { name: "Pricing", href: "#pricing" },
