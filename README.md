@@ -16,14 +16,12 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-create a ```.env``` file in the root directory and add the following variables:
+create a `.env` file in the root directory and add the following variables:
 
 ```bash
-API_KEY=your_api_key
-``` 
-
-
-
+API_KEY=your_api_key,
+NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID=your_google_tag_manager_id
+```
 
 ## Deploy on Vercel
 

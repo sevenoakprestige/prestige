@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
-import { FaLandmark, FaLock, FaMapMarkerAlt, FaCheck, FaUserCheck, FaBolt } from "react-icons/fa";
+import { FaLandmark, FaLock, FaMapMarkerAlt, FaCheck, FaUserCheck, FaBolt, FaFileInvoice, FaGlobe } from "react-icons/fa";
 
 export default function UKAddressServices() {
     const services = [
@@ -72,6 +72,32 @@ export default function UKAddressServices() {
             ],
             cta: "Add to Order",
             link: "https://buy.stripe.com/28EdR1asU8zHfIFf7Sfw405"
+        },
+        {
+            title: "VAT Registration",
+            price: "£144",
+            period: "",
+            icon: FaFileInvoice,
+            features: [
+                "UK VAT number application",
+                "HMRC correspondence handling",
+                "Expert compliance support"
+            ],
+            cta: "Add to Order",
+            link: "https://buy.stripe.com/aFafZ9bwY5nvdAx3pafw40o"
+        },
+        {
+            title: "EORI Registration",
+            price: "£60",
+            period: "",
+            icon: FaGlobe,
+            features: [
+                "UK EORI number application",
+                "Customs clearance preparation",
+                "Fast processing times"
+            ],
+            cta: "Add to Order",
+            link: "https://buy.stripe.com/dRm28j58A5nveEBe3Ofw40n"
         }
     ];
 

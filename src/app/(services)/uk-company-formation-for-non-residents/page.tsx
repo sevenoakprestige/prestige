@@ -564,6 +564,28 @@ export default function UKCompanyFormationForNonResidents() {
                 </div>
             </section>
 
+            {/* ── BANKING & COMPLIANCE ── */}
+            <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+                <div className="absolute inset-0 -z-10">
+                    <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
+                    <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
+                </div>
+                <div className="mx-auto max-w-4xl">
+                    <div className="mb-12 text-center">
+                        <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">BANKING READY</span>
+                        <h2 className="hero-heading mb-4 font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Banking & Compliance Support</h2>
+                        <div className="mx-auto h-[1px] w-20 bg-[#d4af37]/50"></div>
+                    </div>
+                    <div className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 sm:p-10">
+                        <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#d4af37]/10 blur-3xl transition-all duration-500 group-hover:bg-[#d4af37]/20 pointer-events-none"></div>
+                        <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                            <p>We provide guidance and assistance for fintech onboarding and business verification readiness. This includes preparation for platforms such as Stripe, Wise, Revolut Business, and other UK-compatible payment providers.</p>
+                            <p>Our team helps ensure your company structure and documentation meet the compliance requirements of modern financial platforms, giving you the best chance of a smooth approval process.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* ── WHY CHOOSE SEVEN OAK PRESTIGE ── */}
             <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
                 <div className="absolute inset-0 -z-10">
@@ -651,6 +673,38 @@ export default function UKCompanyFormationForNonResidents() {
                                 </div>
                             );
                         })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ── SEO INTERNAL LINKS ── */}
+            <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+                <div className="mx-auto max-w-4xl">
+                    <div className="mb-10 text-center">
+                        <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">RELATED SERVICES</span>
+                        <h2 className="hero-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+                            Explore Our Other Services
+                        </h2>
+                        <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
+                    </div>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                        {[
+                            { title: "Virtual Business Address", href: "/virtual-business-address", description: "Premium London trading address and mail forwarding." },
+                            { title: "VAT Registration", href: "/vat-registration-uk", description: "Register for UK VAT with HMRC compliance support." },
+                            { title: "Registered Office Service", href: "/registered-office-service", description: "Professional London address for your company." },
+                        ].map((link, index) => (
+                            <Link
+                                key={index}
+                                href={link.href}
+                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#d4af37]/45 hover:bg-card/40"
+                            >
+                                <h3 className="mb-2 text-base font-bold text-[#d4af37]">{link.title}</h3>
+                                <p className="text-sm text-muted-foreground">{link.description}</p>
+                                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[#d4af37]">
+                                    Learn more →
+                                </span>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </section>
