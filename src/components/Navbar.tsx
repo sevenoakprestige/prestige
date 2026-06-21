@@ -5,8 +5,8 @@ import Image from "next/image";
 import * as React from "react";
 import { usePathname } from "next/navigation";
 import { TbMenu3 } from "react-icons/tb";
-import { FaWhatsapp } from "react-icons/fa";
-import { MdArrowOutward } from "react-icons/md";
+import { FaWhatsapp, FaBuilding, FaMapMarkerAlt, FaUserTie, FaCity, FaShieldAlt, FaUniversity } from "react-icons/fa";
+import { MdArrowOutward, MdKeyboardArrowDown } from "react-icons/md";
 import {
     Sheet,
     SheetContent,
@@ -19,12 +19,34 @@ import { useTheme } from "next-themes";
 
 const links = [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Services", href: "#services" },
     { name: "Company Checker", href: "#checker" },
     { name: "Pricing", href: "#pricing" },
     { name: "Consultation", href: "/consultation" },
     { name: "Blogs", href: "/blog" },
     { name: "Contact", href: "#contact" },
+];
+
+const menuCategories = [
+    {
+        title: "Address Services",
+        links: [
+            { name: "UK Registered Office", href: "/registered-office-service" },
+            { name: "UK Service Address", href: "/director-service-address" },
+            { name: "UK Business Address", href: "/virtual-business-address" },
+        ]
+    },
+    {
+        title: "Company Services",
+        links: [
+            { name: "UK Company Formation", href: "/uk-company-formation" },
+            { name: "Companies House Verification", href: "/companies-house-verification" },
+            { name: "VAT Registration", href: "/vat-registration-uk" },
+            { name: "EORI Registration", href: "/eori-registration-uk" },
+            { name: "Fintech & Payment Guidance", href: "/fintech-banking-guidance" },
+        ]
+    }
 ];
 
 export default function Navbar() {
@@ -100,13 +122,50 @@ export default function Navbar() {
                         <ul className="flex items-center gap-1">
                             {links.map((link) => (
                                 <li key={link.href}>
-                                    <Link
-                                        href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
-                                        className="group relative block px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
-                                    >
-                                        <span className="relative z-10">{link.name}</span>
-                                        <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-[#d4af37] to-[#f3d066] transition-transform group-hover:scale-x-100" />
-                                    </Link>
+                                    {link.name === "Services" ? (
+                                        <div className="group relative">
+                                            <Link
+                                                href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
+                                                className="relative flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+                                            >
+                                                <span className="relative z-10">{link.name}</span>
+                                                <MdKeyboardArrowDown className="relative z-10 h-4 w-4 transition-transform group-hover:rotate-180" />
+                                                <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-[#d4af37] to-[#f3d066] transition-transform group-hover:scale-x-100" />
+                                            </Link>
+                                            
+                                            {/* Dropdown Mega Menu */}
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full hidden w-[600px] pt-4 group-hover:block opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50">
+                                                <div className="rounded-2xl border border-[#d4af37]/20 bg-background p-8 shadow-2xl backdrop-blur-2xl supports-[backdrop-filter]:bg-background/95 grid grid-cols-2 gap-12">
+                                                    {menuCategories.map((category) => (
+                                                        <div key={category.title}>
+                                                            <h3 className="mb-5 text-lg font-bold text-foreground">{category.title}</h3>
+                                                            <ul className="flex flex-col gap-3.5">
+                                                                {category.links.map((link) => (
+                                                                    <li key={link.href}>
+                                                                        <Link
+                                                                            href={link.href}
+                                                                            className="group/link flex items-center gap-2.5 text-sm text-foreground/80 transition-colors hover:text-foreground"
+                                                                        >
+                                                                            <span className="text-foreground/40 font-medium transition-transform group-hover/link:translate-x-1 group-hover/link:text-[#d4af37]">›</span>
+                                                                            <span className="group-hover/link:text-[#d4af37] transition-colors">{link.name}</span>
+                                                                        </Link>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <Link
+                                            href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
+                                            className="group relative block px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+                                        >
+                                            <span className="relative z-10">{link.name}</span>
+                                            <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-[#d4af37] to-[#f3d066] transition-transform group-hover:scale-x-100" />
+                                        </Link>
+                                    )}
                                 </li>
                             ))}
                             <li>

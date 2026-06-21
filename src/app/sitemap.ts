@@ -94,6 +94,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── KEY LANDING PAGES ──
     const landingPages: MetadataRoute.Sitemap = [
         {
+            url: `${baseUrl}/about`,
+            lastModified: now,
+            changeFrequency: 'monthly',
+            priority: 0.90,
+        },
+        {
             url: `${baseUrl}/consultation`,
             lastModified: now,
             changeFrequency: 'weekly',

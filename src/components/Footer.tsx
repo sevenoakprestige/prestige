@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
@@ -86,7 +86,11 @@ export default function Footer() {
                     </div>
 
                     {/* Legal Links */}
-                    <div className="footer-links flex items-center gap-2 text-sm md:justify-left md:text-left">
+                    <div className="footer-links flex flex-wrap items-center gap-2 text-sm md:justify-left md:text-left">
+                        <Link href="/about" className="footer-link hover:text-[#d4af37] transition-colors font-medium">
+                            About Us
+                        </Link>
+                        <span className="text-muted-foreground">•</span>
                         <Link href="/terms" className="footer-link hover:text-[#d4af37] transition-colors">
                             Terms
                         </Link>
@@ -108,16 +112,42 @@ export default function Footer() {
                 {/* Vertical Separator - Hidden on mobile */}
                 <div className="footer-separator hidden md:block"></div>
 
-                {/* Right Section: WhatsApp CTA */}
-                <div className="footer-section footer-cta">
-                    <p className="footer-cta-text mb-3">Still have questions?</p>
-                    <button
-                        onClick={handleWhatsAppClick}
-                        className="footer-whatsapp-btn flex items-center justify-center gap-2 w-full md:w-auto"
-                    >
-                        <FaWhatsapp size={18} />
-                        WhatsApp Now
-                    </button>
+                {/* Right Section: WhatsApp CTA & Socials */}
+                <div className="footer-section flex !flex-col items-center md:items-start md:ml-auto w-full md:w-auto gap-8">
+                    <div>
+                        <p className="footer-cta-text mb-3 text-center md:text-left">Still have questions?</p>
+                        <button
+                            onClick={handleWhatsAppClick}
+                            className="footer-whatsapp-btn flex items-center justify-center gap-2 w-full md:w-auto"
+                        >
+                            <FaWhatsapp size={18} />
+                            WhatsApp Now
+                        </button>
+                    </div>
+
+                    <div className="mt-8">
+                        <p className="text-sm font-semibold text-foreground mb-3 text-center md:text-left">Find Us On</p>
+                        <div className="flex items-center justify-center md:justify-start gap-4">
+                            <Link 
+                                href="https://www.facebook.com/sevenoakprestige" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-muted-foreground hover:text-[#1877F2] transition-colors"
+                            >
+                                <FaFacebook size={24} />
+                                <span className="sr-only">Facebook</span>
+                            </Link>
+                            <Link 
+                                href="https://www.linkedin.com/company/sevenoakprestige" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-muted-foreground hover:text-[#0A66C2] transition-colors"
+                            >
+                                <FaLinkedin size={24} />
+                                <span className="sr-only">LinkedIn</span>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
