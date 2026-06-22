@@ -10,6 +10,8 @@ featuredImageAlt: "Start a UK Company from UAE"
 
 # How to Start a UK Company from UAE
 
+![Start a UK Company from UAE](/assets/blog/uae/uae_uk_company_hero.png)
+
 Many entrepreneurs based in the UAE, especially in Dubai, Abu Dhabi, and Sharjah, are expanding internationally by registering UK Limited Companies.
 
 A UK company is widely used by UAE-based business owners to build global credibility, work with international clients, and expand beyond the GCC market.
@@ -33,6 +35,8 @@ Most entrepreneurs can:
 - Be sole director
 - Operate remotely from UAE
 - Work with global clients
+
+![UAE Entrepreneurs](/assets/blog/uae/uae_uk_company.png)
 
 ---
 

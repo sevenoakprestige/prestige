@@ -77,8 +77,8 @@ export default function RegisteredOfficeService() {
                     <div className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 sm:p-10">
                         <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#d4af37]/10 blur-3xl transition-all duration-500 group-hover:bg-[#d4af37]/20 pointer-events-none"></div>
                         <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                            <p>Every UK company is required to have a registered office address that appears on the public Companies House register. Using your personal home address means your private details are visible to anyone.</p>
-                            <p>Our Registered Office Service provides a professional London business address that meets all Companies House requirements while keeping your personal address off public records.</p>
+                            <p>Every UK limited company and LLP must have an official registered office address recorded with Companies House. This address is used by Companies House, HMRC, and other government bodies to send statutory correspondence and official notices.</p>
+                            <p>Our prestigious London EC1 registered office address fully satisfies this legal requirement, helps keep your home address off the public register, and ensures important official mail is securely forwarded to you.</p>
                         </div>
                     </div>
                 </div>

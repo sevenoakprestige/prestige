@@ -10,6 +10,8 @@ featuredImageAlt: "Start a UK Company from Pakistan"
 
 # How to Start a UK Company from Pakistan
 
+![Start a UK Company from Pakistan](/assets/blog/pakistan/pakistan_uk_compay_hero.webp)
+
 Many entrepreneurs in Pakistan are now building international businesses in freelancing, IT services, e-commerce, software development, consulting, and export industries.
 
 A UK Limited Company is one of the most effective ways to operate globally, build trust with international clients, and access foreign markets.
