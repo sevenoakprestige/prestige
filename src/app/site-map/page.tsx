@@ -8,9 +8,9 @@ const sitemapSections = [
         icon: <FaBuilding className="h-5 w-5" />,
         description: "Register your UK limited company with ease",
         links: [
-            { name: "UK Company Formation", href: "/uk-company-formation", description: "Fast Companies House registration for UK residents" },
-            { name: "UK Company Formation for Non-Residents", href: "/uk-company-formation-for-non-residents", description: "Start a UK company from anywhere in the world" },
-            { name: "Non-Resident Company Formation", href: "/uk-company-formation-non-residents", description: "International entrepreneurs & overseas businesses" },
+            { name: "UK Company Formation", href: "/services/uk-company-formation", description: "Fast Companies House registration for UK residents" },
+            { name: "UK Company Formation for Non-Residents", href: "/services/uk-company-formation-for-non-residents", description: "Start a UK company from anywhere in the world" },
+            { name: "Non-Resident Company Formation", href: "/services/uk-company-formation-non-residents", description: "International entrepreneurs & overseas businesses" },
         ],
     },
     {
@@ -18,9 +18,9 @@ const sitemapSections = [
         icon: <FaShieldAlt className="h-5 w-5" />,
         description: "Stay compliant with UK regulations",
         links: [
-            { name: "VAT Registration UK", href: "/vat-registration-uk", description: "HMRC VAT registration & compliance guidance" },
-            { name: "EORI Registration UK", href: "/eori-registration-uk", description: "EORI number for UK import & export trading" },
-            { name: "Companies House Verification", href: "/companies-house-verification", description: "Verify your company details with Companies House" },
+            { name: "VAT Registration UK", href: "/services/vat-registration-uk", description: "HMRC VAT registration & compliance guidance" },
+            { name: "EORI Registration UK", href: "/services/eori-registration-uk", description: "EORI number for UK import & export trading" },
+            { name: "Companies House Verification", href: "/services/companies-house-verification", description: "Verify your company details with Companies House" },
         ],
     },
     {
@@ -28,9 +28,9 @@ const sitemapSections = [
         icon: <FaFileAlt className="h-5 w-5" />,
         description: "Professional UK business addresses",
         links: [
-            { name: "Registered Office Service", href: "/registered-office-service", description: "Official UK registered office address" },
-            { name: "Director Service Address", href: "/director-service-address", description: "Protect your personal address from public records" },
-            { name: "Virtual Business Address", href: "/virtual-business-address", description: "Premium UK business address for your company" },
+            { name: "Registered Office Service", href: "/services/registered-office-service", description: "Official UK registered office address" },
+            { name: "Director Service Address", href: "/services/director-service-address", description: "Protect your personal address from public records" },
+            { name: "Virtual Business Address", href: "/services/virtual-business-address", description: "Premium UK business address for your company" },
         ],
     },
     {
@@ -38,7 +38,7 @@ const sitemapSections = [
         icon: <FaCreditCard className="h-5 w-5" />,
         description: "Business banking & payment solutions",
         links: [
-            { name: "Fintech & Banking Guidance", href: "/fintech-banking-guidance", description: "Guidance on Stripe, Wise, Revolut & UK business banking" },
+            { name: "Fintech & Banking Guidance", href: "/services/fintech-banking-guidance", description: "Guidance on Stripe, Wise, Revolut & UK business banking" },
         ],
     },
     {

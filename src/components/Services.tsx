@@ -7,7 +7,7 @@ import { useCountry } from "@/contexts/CountryContext";
 const ukServices = [
     {
         title: "UK Company\nFormation",
-        href: "/uk-company-formation-for-non-residents",
+        href: "/services/uk-company-formation-for-non-residents",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -16,7 +16,7 @@ const ukServices = [
     },
     {
         title: "Registered\nOffice Service (RO)",
-        href: "/registered-office-service",
+        href: "/services/registered-office-service",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
@@ -26,7 +26,7 @@ const ukServices = [
     },
     {
         title: "Director Service\nAddress (DSA)",
-        href: "/director-service-address",
+        href: "/services/director-service-address",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <circle cx="12" cy="8" r="4" />
@@ -37,7 +37,7 @@ const ukServices = [
     },
     {
         title: "Virtual Business\nAddress (VBA)",
-        href: "/virtual-business-address",
+        href: "/services/virtual-business-address",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <circle cx="12" cy="10" r="3" />
@@ -47,7 +47,7 @@ const ukServices = [
     },
     {
         title: "VAT\nRegistration",
-        href: "/vat-registration-uk",
+        href: "/services/vat-registration-uk",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -57,7 +57,7 @@ const ukServices = [
     },
     {
         title: "EORI\nRegistration",
-        href: "/eori-registration-uk",
+        href: "/services/eori-registration-uk",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <circle cx="12" cy="12" r="10" />
@@ -67,7 +67,7 @@ const ukServices = [
     },
     {
         title: "Fintech & Payment\nGuidance",
-        href: "/fintech-banking-guidance",
+        href: "/services/fintech-banking-guidance",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
@@ -78,7 +78,7 @@ const ukServices = [
     },
     {
         title: "Companies House\nVerification",
-        href: "/companies-house-verification",
+        href: "/services/companies-house-verification",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />

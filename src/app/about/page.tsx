@@ -10,37 +10,37 @@ const services = [
         icon: <FaBuilding className="h-7 w-7" />,
         title: "UK Company Formation",
         description: "Fast, compliant company incorporation with Companies House for UK residents and non-residents alike.",
-        href: "/uk-company-formation",
+        href: "/services/uk-company-formation",
     },
     {
         icon: <FaMapMarkerAlt className="h-7 w-7" />,
         title: "Registered Office Address",
         description: "A professional UK registered office address at 124 City Road, London — fully compliant with Companies House requirements.",
-        href: "/registered-office-service",
+        href: "/services/registered-office-service",
     },
     {
         icon: <FaUserTie className="h-7 w-7" />,
         title: "Director Service Address",
         description: "Protect your personal address with a professional director service address for Companies House filings.",
-        href: "/director-service-address",
+        href: "/services/director-service-address",
     },
     {
         icon: <FaCity className="h-7 w-7" />,
         title: "Virtual Business Address",
         description: "A prestigious London business address for your correspondence, giving your company a professional UK presence.",
-        href: "/virtual-business-address",
+        href: "/services/virtual-business-address",
     },
     {
         icon: <FaShieldAlt className="h-7 w-7" />,
         title: "Compliance Support",
         description: "Expert guidance on Companies House compliance, identity verification, and ongoing regulatory requirements.",
-        href: "/companies-house-verification",
+        href: "/services/companies-house-verification",
     },
     {
         icon: <FaUniversity className="h-7 w-7" />,
         title: "Banking Assistance",
         description: "Practical support preparing for UK business banking applications and fintech account setup.",
-        href: "/fintech-banking-guidance",
+        href: "/services/fintech-banking-guidance",
     },
 ];
 
@@ -320,39 +320,18 @@ export default function AboutPage() {
                 <div className="mx-auto max-w-7xl">
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
                         {/* Left: Globe visual */}
-                        <div className="relative order-2 lg:order-1">
-                            <div className="relative overflow-hidden rounded-3xl border border-[#d4af37]/20 shadow-2xl shadow-[#d4af37]/10 bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm p-10">
-                                {/* World map visual representation */}
-                                <div className="text-center mb-8">
-                                    <div className="inline-flex items-center justify-center h-28 w-28 rounded-full bg-gradient-to-br from-[#d4af37]/20 to-[#d4af37]/5 border border-[#d4af37]/30 text-[#d4af37] mb-4 mx-auto">
-                                        <FaGlobe className="h-14 w-14" />
-                                    </div>
-                                    <p className="text-[#d4af37] font-bold text-lg tracking-wide">Global Reach</p>
-                                    <p className="text-muted-foreground text-sm mt-2 font-medium">Serving entrepreneurs in 190+ countries</p>
-                                </div>
-
-                                {/* Country pills */}
-                                <div className="flex flex-wrap justify-center gap-3">
-                                    {["🇬🇧 United Kingdom", "🇺🇸 United States", "🇦🇪 UAE", "🇮🇳 India", "🇵🇰 Pakistan", "🇳🇬 Nigeria", "🇬🇭 Ghana", "🇧🇩 Bangladesh", "🇨🇦 Canada", "🇦🇺 Australia", "🇰🇪 Kenya", "🇹🇿 Tanzania"].map((country) => (
-                                        <div
-                                            key={country}
-                                            className="rounded-full border border-[#d4af37]/25 bg-[#d4af37]/10 px-4 py-2 text-sm font-medium text-foreground/80 transition-all duration-300 hover:border-[#d4af37]/50 hover:bg-[#d4af37]/20 hover:text-foreground"
-                                        >
-                                            {country}
-                                        </div>
-                                    ))}
-                                </div>
-
-                                {/* Decorative connector lines */}
-                                <div className="mt-8 text-center">
-                                    <div className="inline-flex items-center gap-2 text-[#d4af37]/70 text-sm">
-                                        <div className="h-px w-12 bg-[#d4af37]/40" />
-                                        <span>Connected to London</span>
-                                        <div className="h-px w-12 bg-[#d4af37]/40" />
-                                    </div>
-                                </div>
+                        <div className="relative order-2 lg:order-1 h-full w-full">
+                            <div className="relative h-full w-full min-h-[400px] lg:min-h-[600px] overflow-hidden rounded-3xl border border-[#d4af37]/20 shadow-2xl shadow-[#d4af37]/10">
+                                <Image
+                                    src="/assets/aboutus/gobal_support.webp"
+                                    alt="Global Reach and Support"
+                                    fill
+                                    className="object-cover object-center"
+                                    quality={95}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 via-transparent to-transparent pointer-events-none" />
                             </div>
-                            <div className="absolute -bottom-6 -left-6 h-32 w-32 rounded-full bg-[#d4af37]/10 blur-2xl pointer-events-none" />
+                            <div className="absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-[#d4af37]/15 blur-3xl pointer-events-none" />
                         </div>
 
                         {/* Right: Text */}
@@ -369,25 +348,47 @@ export default function AboutPage() {
                             <div className="mb-8 h-1 w-20 bg-gradient-to-r from-[#d4af37] to-[#f3d066]" />
 
                             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                                <p className="text-xl font-medium text-foreground">
+                                    Connecting global entrepreneurs to opportunities in the United Kingdom.
+                                </p>
                                 <p>
                                     The United Kingdom remains one of the world&apos;s most recognised business environments. We work with entrepreneurs from a wide range of countries who wish to establish a UK company and build credibility within international markets.
                                 </p>
-                                <p>
-                                    Our experience supporting international clients allows us to understand the importance of professionalism, preparation, and compliance throughout the business setup journey.
-                                </p>
-                                <p>
-                                    Whether you are based in Asia, Africa, the Middle East, or anywhere in the world, Seven Oak Prestige LTD is equipped to help you establish a credible UK business presence efficiently.
-                                </p>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
+                                    <div className="flex items-center gap-4">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37]">
+                                            <FaGlobe className="h-5 w-5" />
+                                        </div>
+                                        <span className="font-semibold text-foreground text-sm uppercase tracking-wide">Global<br />Entrepreneurs</span>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37]">
+                                            <FaBuilding className="h-5 w-5" />
+                                        </div>
+                                        <span className="font-semibold text-foreground text-sm uppercase tracking-wide">UK Business<br />Expertise</span>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37]">
+                                            <FaShieldAlt className="h-5 w-5" />
+                                        </div>
+                                        <span className="font-semibold text-foreground text-sm uppercase tracking-wide">Trusted &<br />Compliant</span>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37]">
+                                            <FaHandshake className="h-5 w-5" />
+                                        </div>
+                                        <span className="font-semibold text-foreground text-sm uppercase tracking-wide">Long-term<br />Partnership</span>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div className="mt-8">
+                            <div className="mt-10">
                                 <Link
                                     href="https://wa.me/447447488755"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-lg shadow-[#d4af37]/30 transition-all duration-300 hover:scale-105 hover:shadow-[#d4af37]/50 active:scale-95"
                                 >
-                                    {/* <FaWhatsapp className="h-5 w-5 transition-transform group-hover:rotate-12" /> */}
                                     <span>Enquire Now</span>
                                 </Link>
                             </div>

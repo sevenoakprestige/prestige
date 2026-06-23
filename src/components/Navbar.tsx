@@ -32,19 +32,19 @@ const menuCategories = [
     {
         title: "Address Services",
         links: [
-            { name: "UK Registered Office", href: "/registered-office-service" },
-            { name: "UK Service Address", href: "/director-service-address" },
-            { name: "UK Business Address", href: "/virtual-business-address" },
+            { name: "UK Registered Office", href: "/services/registered-office-service" },
+            { name: "UK Service Address", href: "/services/director-service-address" },
+            { name: "UK Business Address", href: "/services/virtual-business-address" },
         ]
     },
     {
         title: "Company Services",
         links: [
-            { name: "UK Company Formation", href: "/uk-company-formation" },
-            { name: "Companies House Verification", href: "/companies-house-verification" },
-            { name: "VAT Registration", href: "/vat-registration-uk" },
-            { name: "EORI Registration", href: "/eori-registration-uk" },
-            { name: "Fintech & Payment Guidance", href: "/fintech-banking-guidance" },
+            { name: "UK Company Formation", href: "/services/uk-company-formation" },
+            { name: "Companies House Verification", href: "/services/companies-house-verification" },
+            { name: "VAT Registration", href: "/services/vat-registration-uk" },
+            { name: "EORI Registration", href: "/services/eori-registration-uk" },
+            { name: "Fintech & Payment Guidance", href: "/services/fintech-banking-guidance" },
         ]
     }
 ];
