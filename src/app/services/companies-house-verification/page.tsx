@@ -9,42 +9,45 @@ export default function CompaniesHouseVerification() {
     return (
         <>
             {/* ── HERO SECTION ── */}
-            <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
+            <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-32 pb-0 sm:pt-40 lg:pt-48">
+                {/* Background Image */}
                 <div className="absolute inset-0 -z-20 hidden dark:block">
-                    <Image src="/assets/seven_oak_prestise.png" alt="Companies House Verification Service" fill className="object-cover object-center" priority quality={100} />
-                    <div className="absolute inset-0 bg-black/65"></div>
-                    <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/80 to-transparent"></div>
-                </div>
-                <div className="absolute inset-0 overflow-hidden -z-10">
-                    <div className="hero-circle-1 absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#d4af37]/10 blur-3xl"></div>
-                    <div className="hero-circle-2 absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[#d4af37]/10 blur-3xl"></div>
+                    <Image src="/assets/services/pvc.webp" alt="Companies House Verification Service" fill className="object-cover object-center" priority quality={100} />
+                    {/* Gradient overlay to make left text readable */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/20"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
                 </div>
 
-                <div className="relative z-10 mx-auto max-w-5xl text-center">
-                    <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-4 py-2 backdrop-blur-sm">
-                        <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#d4af37] opacity-75"></span>
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#d4af37]"></span>
-                        </span>
-                        <span className="hero-text text-sm font-medium">Identity Verification</span>
-                    </div>
+                <div className="relative z-10 w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-8 mb-20">
+                    <div className="max-w-2xl text-left">
+                        {/* Badge */}
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-4 py-2 backdrop-blur-sm">
+                            <span className="relative flex h-2 w-2">
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#d4af37] opacity-75"></span>
+                                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#d4af37]"></span>
+                            </span>
+                            <span className="hero-text text-sm font-medium">Identity Verification</span>
+                        </div>
 
-                    <h1 className="hero-heading mb-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                        Companies House{" "}
-                        <span className="bg-gradient-to-r from-[#d4af37] via-[#f3d066] to-[#d4af37] bg-clip-text text-transparent">Verification</span>
-                    </h1>
+                        <h1 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                            Companies House{" "}
+                            <span className="bg-gradient-to-r from-[#d4af37] via-[#f3d066] to-[#d4af37] bg-clip-text text-transparent">Verification</span>
+                        </h1>
+                        
+                        <div className="h-[2px] w-12 bg-[#d4af37] mb-6"></div>
 
-                    <p className="hero-text mx-auto mb-10 max-w-2xl text-lg leading-relaxed sm:text-xl md:text-2xl">
-                        PVC / ACSP Identity & Compliance Support
-                    </p>
+                        <p className="mb-10 text-lg leading-relaxed text-muted-foreground sm:text-xl font-light">
+                            PVC / ACSP Identity & Compliance Support
+                        </p>
 
-                    <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-                        <Link href="https://wa.me/447447488755" className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md border border-[#d4af37] bg-[#d4af37]/10 px-8 py-3 text-base font-medium text-[#d4af37] transition-all duration-300 hover:bg-[#d4af37]/20 hover:shadow-lg hover:shadow-[#d4af37]/20 sm:text-lg backdrop-blur-sm">
-                            <span>Get in Touch</span>
-                        </Link>
-                        <Link href="https://buy.stripe.com/14A7sD6cEaHP1RP6Bmfw40g" target="_blank" className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-3 text-base font-bold text-black transition-all duration-300 hover:shadow-lg hover:shadow-[#d4af37]/30 hover:scale-105 active:scale-95 sm:text-lg">
-                            <span>Add to Order</span>
-                        </Link>
+                        <div className="flex flex-col gap-4 sm:flex-row">
+                            <Link href="https://wa.me/447447488755" className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md border border-[#d4af37] bg-[#d4af37]/10 px-8 py-3 text-base font-medium text-[#d4af37] transition-all duration-300 hover:bg-[#d4af37]/20 hover:shadow-lg hover:shadow-[#d4af37]/20 sm:text-lg backdrop-blur-sm">
+                                <span>Get in Touch</span>
+                            </Link>
+                            <Link href="https://buy.stripe.com/14A7sD6cEaHP1RP6Bmfw40g" target="_blank" className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-3 text-base font-bold text-black transition-all duration-300 hover:shadow-lg hover:shadow-[#d4af37]/30 hover:scale-105 active:scale-95 sm:text-lg">
+                                <span>Add to Order</span>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
