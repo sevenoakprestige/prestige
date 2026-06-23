@@ -42,7 +42,10 @@ export default function VATRegistration() {
 
                         <div className="flex flex-col gap-4 sm:flex-row">
                             <Link href="https://wa.me/447447488755" className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md border border-[#d4af37] bg-[#d4af37]/10 px-8 py-3 text-base font-medium text-[#d4af37] transition-all duration-300 hover:bg-[#d4af37]/20 hover:shadow-lg hover:shadow-[#d4af37]/20 sm:text-lg backdrop-blur-sm">
-                                <span>Get Started</span>
+                                <span>Get in Touch</span>
+                            </Link>
+                            <Link href="https://buy.stripe.com/aFafZ9bwY5nvdAx3pafw40o" target="_blank" className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-3 text-base font-bold text-black transition-all duration-300 hover:shadow-lg hover:shadow-[#d4af37]/30 hover:scale-105 active:scale-95 sm:text-lg">
+                                <span>Add to Order</span>
                             </Link>
                         </div>
                     </div>

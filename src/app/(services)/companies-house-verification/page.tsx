@@ -39,10 +39,11 @@ export default function CompaniesHouseVerification() {
                     </p>
 
                     <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-                        <Link href="https://wa.me/447447488755" className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-2xl shadow-[#d4af37]/30 transition-all duration-300 hover:scale-105 hover:shadow-[#d4af37]/50 active:scale-95 sm:text-lg">
-                            <FaWhatsapp className="h-5 w-5 transition-transform group-hover:rotate-12" />
-                            <span>Get Verification Support</span>
-                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#f3d066] to-[#d4af37] opacity-0 transition-opacity group-hover:opacity-100"></div>
+                        <Link href="https://wa.me/447447488755" className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md border border-[#d4af37] bg-[#d4af37]/10 px-8 py-3 text-base font-medium text-[#d4af37] transition-all duration-300 hover:bg-[#d4af37]/20 hover:shadow-lg hover:shadow-[#d4af37]/20 sm:text-lg backdrop-blur-sm">
+                            <span>Get in Touch</span>
+                        </Link>
+                        <Link href="https://buy.stripe.com/14A7sD6cEaHP1RP6Bmfw40g" target="_blank" className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-3 text-base font-bold text-black transition-all duration-300 hover:shadow-lg hover:shadow-[#d4af37]/30 hover:scale-105 active:scale-95 sm:text-lg">
+                            <span>Add to Order</span>
                         </Link>
                     </div>
                 </div>
