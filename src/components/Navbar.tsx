@@ -23,7 +23,7 @@ const links = [
     { name: "Services", href: "#services" },
     { name: "Company Checker", href: "#checker" },
     { name: "Pricing", href: "#pricing" },
-    { name: "Consultation", href: "/consultation" },
+    // { name: "Consultation", href: "/consultation" },
     { name: "Blogs", href: "/blog" },
     { name: "Contact", href: "#contact" },
 ];
