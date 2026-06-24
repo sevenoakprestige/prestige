@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPostData, getAllPostSlugs } from '@/lib/posts';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -94,6 +95,19 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         </div>
                     )}
                 </div>
+
+                {/* Hero Image */}
+                {post.heroImage && (
+                    <div className="relative mb-10 h-64 sm:h-80 md:h-96 w-full overflow-hidden rounded-2xl shadow-lg border border-border/50">
+                        <Image 
+                            src={post.heroImage} 
+                            alt={post.title} 
+                            fill 
+                            className="object-cover object-center" 
+                            priority 
+                        />
+                    </div>
+                )}
 
                 {/* Content */}
                 <div className="prose prose-lg dark:prose-invert max-w-none">
