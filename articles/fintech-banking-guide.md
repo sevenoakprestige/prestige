@@ -4,6 +4,7 @@ date: "2024-03-20"
 excerpt: "How to secure business bank accounts with Wise, Revolut, and Airwallex for your UK company."
 author: "Seven Oak Prestige"
 tags: ["Fintech", "Banking"]
+heroImage: "/assets/blog/ultimate_fintech_guidance.jpeg"
 ---
 
 One of the biggest challenges for international entrepreneurs is setting up a business bank account. Traditional high street banks often require physical presence, which isn't always feasible.

@@ -14,6 +14,7 @@ keywords:
     "UK company for SaaS France founders",
   ]
 featuredImageAlt: "Start a UK Company from France"
+heroImage: "/assets/blog/blog_uk_company_france.jpeg"
 ---
 
 # How to Start a UK Company from France

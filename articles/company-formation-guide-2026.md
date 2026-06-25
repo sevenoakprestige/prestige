@@ -5,8 +5,8 @@ excerpt: "Learn how to register a UK company as a non-resident in 2026. Step-by-
 author: "Seven Oak Prestige"
 tags: ["UK Company Formation", "Non-Resident", "Business Setup", "2026 Guide"]
 featuredImageAlt: "How to Start a UK Company from Anywhere in the World"
+heroImage: "/assets/blog/uk_company_non_residents_guide.jpeg"
 ---
-
 # UK Company Formation for Non-Residents: Complete 2026 Guide
 Starting a UK company as a non-resident has become one of the most popular ways for entrepreneurs worldwide to access global markets, payment gateways, and international business opportunities.
 

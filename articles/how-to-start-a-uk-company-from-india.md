@@ -6,6 +6,7 @@ author: "Seven Oak Prestige"
 tags: ["UK Company Formation", "Non-Resident", "India", "SaaS"]
 keywords: ["UK company for SaaS founders India", "UK company for software startups India", "UK company for IT services India", "UK company for Indian consultants", "UK company for export business India", "UK trading company setup from India", "UK company for digital marketing agency India", "UK company for freelancers India"]
 featuredImageAlt: "Start a UK Company from India"
+heroImage: "/assets/blog/blog_uk_company_india.webp"
 ---
 
 # How to Start a UK Company from India
