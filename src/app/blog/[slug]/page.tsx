@@ -98,13 +98,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
                 {/* Hero Image */}
                 {post.heroImage && (
-                    <div className="relative mb-10 h-64 sm:h-80 md:h-96 w-full overflow-hidden rounded-2xl shadow-lg border border-border/50">
+                    <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl shadow-lg border border-border/50 bg-muted/20">
                         <Image 
                             src={post.heroImage} 
                             alt={post.title} 
                             fill 
-                            className="object-cover object-center" 
+                            className="object-stretch object-center" 
                             priority 
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 896px"
                         />
                     </div>
                 )}

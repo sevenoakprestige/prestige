@@ -49,6 +49,7 @@ const sitemapSections = [
             { name: "Blog", href: "/blog", description: "Latest articles and guides on UK company formation" },
             { name: "Company Formation Guide 2026", href: "/blog/company-formation-guide-2026", description: "Complete guide to forming a UK company" },
             { name: "UK Company Formation Guide 2026", href: "/blog/uk-company-formation-guide-2026", description: "Step-by-step UK company formation walkthrough" },
+            { name: "London Business Address Guide", href: "/blog/uk-company-formation-london-business-address", description: "The Complete Guide for International Entrepreneurs" },
             { name: "Fintech Banking Guide", href: "/blog/fintech-banking-guide", description: "Guide to UK business banking & fintech platforms" },
             { name: "Starting a Business in the UK", href: "/blog/starting-a-business-uk", description: "Essential steps to start your UK business" },
             { name: "Start a UK Company from India", href: "/blog/how-to-start-a-uk-company-from-india", description: "Indian entrepreneurs — form a UK company" },

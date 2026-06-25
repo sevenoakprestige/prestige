@@ -18,19 +18,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── CORE SERVICE PAGES (highest commercial value) ──
     const coreServices: MetadataRoute.Sitemap = [
         {
-            url: `${baseUrl}/uk-company-formation`,
+            url: `${baseUrl}/services/uk-company-formation`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.95,
         },
         {
-            url: `${baseUrl}/uk-company-formation-for-non-residents`,
+            url: `${baseUrl}/services/uk-company-formation-for-non-residents`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.95,
         },
         {
-            url: `${baseUrl}/uk-company-formation-non-residents`,
+            url: `${baseUrl}/services/uk-company-formation-non-residents`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.90,
@@ -40,19 +40,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── COMPLIANCE & REGISTRATION SERVICES ──
     const complianceServices: MetadataRoute.Sitemap = [
         {
-            url: `${baseUrl}/vat-registration-uk`,
+            url: `${baseUrl}/services/vat-registration-uk`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.90,
         },
         {
-            url: `${baseUrl}/eori-registration-uk`,
+            url: `${baseUrl}/services/eori-registration-uk`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.90,
         },
         {
-            url: `${baseUrl}/companies-house-verification`,
+            url: `${baseUrl}/services/companies-house-verification`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.85,
@@ -62,19 +62,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── BUSINESS ADDRESS & OFFICE SERVICES ──
     const addressServices: MetadataRoute.Sitemap = [
         {
-            url: `${baseUrl}/registered-office-service`,
+            url: `${baseUrl}/services/registered-office-service`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.85,
         },
         {
-            url: `${baseUrl}/director-service-address`,
+            url: `${baseUrl}/services/director-service-address`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.85,
         },
         {
-            url: `${baseUrl}/virtual-business-address`,
+            url: `${baseUrl}/services/virtual-business-address`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.85,
@@ -84,7 +84,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── BANKING & FINTECH ──
     const bankingServices: MetadataRoute.Sitemap = [
         {
-            url: `${baseUrl}/fintech-banking-guidance`,
+            url: `${baseUrl}/services/fintech-banking-guidance`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.85,

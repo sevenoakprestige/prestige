@@ -4,6 +4,7 @@ date: "2024-03-15"
 excerpt: "A comprehensive guide to registering a UK Limited company from anywhere in the world."
 author: "Seven Oak Prestige"
 tags: ["Business Setup", "UK Guide"]
+heroImage: "/assets/blog/uk_company_non_residents_guide.jpeg"
 ---
 
 Starting a business in the UK as a non-resident is simpler than you might think. With the right guidance, you can have your UK Limited Company up and running in as little as 24 hours.

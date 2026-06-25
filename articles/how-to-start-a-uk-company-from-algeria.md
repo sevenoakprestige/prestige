@@ -5,6 +5,7 @@ excerpt: "This guide explains how Algerian residents can start a UK company remo
 author: "Seven Oak Prestige"
 tags: ["UK Company Formation", "Non-Resident", "Algeria"]
 featuredImageAlt: "Start a UK Company from Algeria"
+heroImage: "/assets/blog/algeria_uk_company.webp"
 ---
 
 # How to Start a UK Company from Algeria
