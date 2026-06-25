@@ -5,6 +5,7 @@ excerpt: "A complete step-by-step guide to registering a UK Limited Company from
 author: "Seven Oak Prestige"
 tags: ["UK Company Formation", "Non-Resident", "Start a Business", "2026 Guide"]
 featuredImageAlt: "How to Start a UK Company From Anywhere in the World"
+heroImage: "/assets/blog/uk_company_abroad.jpeg"
 ---
 
 # How to Start a UK Company From Abroad in 2026

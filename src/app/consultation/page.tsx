@@ -24,9 +24,9 @@ export default function ConsultationPage() {
             <StrategicAdvisorySection />
             <AdvisoryServices />
             <HowEngagementWorks />
-            {/* <WhatYouWillGet /> */}
+            <WhatYouWillGet />
             <WhoThisIsFor />
-            <WhoThisIsNotFor />
+            {/* <WhoThisIsNotFor /> */}
             <ConsultationFooter />
         </>
     );
