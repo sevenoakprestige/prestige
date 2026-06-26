@@ -18,7 +18,7 @@ A UK company is widely used by UAE-based business owners to build global credibi
 
 The process can be completed remotely without requiring UK residency.
 
-> **Need expert assistance?** Explore our dedicated [UK Company Formation for Non-Residents](/uk-company-formation-for-non-residents) services.
+> **Need expert assistance?** Explore our dedicated [UK Company Formation for Non-Residents](/services/uk-company-formation-for-non-residents) services.
 
 ---
 
@@ -94,4 +94,4 @@ No.
 
 **Start your UK company from UAE today with Seven Oak Prestige.**
 
-<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> [View our UK Company Formation for Non-Residents page to learn more](/uk-company-formation-for-non-residents).
+<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> [View our UK Company Formation for Non-Residents page to learn more](/services/uk-company-formation-for-non-residents).

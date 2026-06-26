@@ -25,7 +25,7 @@ A UK company offers a flexible structure for freelancers, consultants, online bu
 
 The entire process can be completed remotely.
 
-> **Need expert assistance?** Explore our dedicated [UK Company Formation for Non-Residents](/uk-company-formation-for-non-residents) services.
+> **Need expert assistance?** Explore our dedicated [UK Company Formation for Non-Residents](/services/uk-company-formation-for-non-residents) services.
 
 ---
 
@@ -101,4 +101,4 @@ Yes.
 
 **Start your UK company from France with Seven Oak Prestige today.**
 
-<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> [View our UK Company Formation for Non-Residents page to learn more](/uk-company-formation-for-non-residents).
+<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> [View our UK Company Formation for Non-Residents page to learn more](/services/uk-company-formation-for-non-residents).

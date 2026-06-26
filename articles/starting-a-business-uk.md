@@ -13,7 +13,7 @@ Starting a business in the UK as a non-resident is simpler than you might think.
 
 The UK offers one of the most stable and prestigious business environments in the world. It is a global financial hub with a transparent legal system and a business-friendly tax regime.
 
-> **Ready to get started?** Explore our dedicated [UK Company Formation for Non-Residents](/uk-company-formation-for-non-residents) services.
+> **Ready to get started?** Explore our dedicated [UK Company Formation for Non-Residents](/services/uk-company-formation-for-non-residents) services.
 
 ## Key Requirements
 
@@ -32,4 +32,4 @@ Our streamlined process handles everything for you:
 
 Get started today and launch your global business journey.
 
-<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> [View our UK Company Formation for Non-Residents page to learn more](/uk-company-formation-for-non-residents).
+<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> [View our UK Company Formation for Non-Residents page to learn more](/services/uk-company-formation-for-non-residents).

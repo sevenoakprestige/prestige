@@ -16,7 +16,7 @@ Whether you are running a digital agency, eCommerce store, SaaS startup, consult
 
 In this guide, we explain exactly how to start a UK company from abroad in 2026.
 
-> **Prefer a done-for-you service?** Explore our dedicated [UK Company Formation for Non-Residents](/uk-company-formation-for-non-residents) package.
+> **Prefer a done-for-you service?** Explore our dedicated [UK Company Formation for Non-Residents](/services/uk-company-formation-for-non-residents) package.
 
 ---
 
@@ -290,6 +290,6 @@ Ready to get started? Here are the services we offer to help you form and run a 
 * [Director Service Address](/#pricing) — Keep your personal home address off public records with our director service address.
 * [Virtual Business Address](/#pricing) — A professional London trading address for your business correspondence and clients.
 
-<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> **[View our full UK Company Formation for Non-Residents guide and packages](/uk-company-formation-for-non-residents)**
+<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> **[View our full UK Company Formation for Non-Residents guide and packages](/services/uk-company-formation-for-non-residents)**
 
 ---

@@ -17,7 +17,7 @@ A UK Limited Company is one of the most preferred structures for Indian founders
 
 The UK allows non-residents to register and own a company remotely, making it a strong jurisdiction for international business expansion.
 
-> **Need expert assistance?** Explore our dedicated [UK Company Formation for Non-Residents](/uk-company-formation-for-non-residents) services.
+> **Need expert assistance?** Explore our dedicated [UK Company Formation for Non-Residents](/services/uk-company-formation-for-non-residents) services.
 
 ---
 
@@ -116,4 +116,4 @@ We support Indian entrepreneurs in SaaS, IT, consulting, and export industries t
 
 **Start your UK company from India today with Seven Oak Prestige.**
 
-<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> [View our UK Company Formation for Non-Residents page to learn more](/uk-company-formation-for-non-residents).
+<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> [View our UK Company Formation for Non-Residents page to learn more](/services/uk-company-formation-for-non-residents).

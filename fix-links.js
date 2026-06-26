@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = './src';
+const dirs = ['./src', './articles'];
 const routes = [
     'uk-company-formation',
     'uk-company-formation-for-non-residents',
@@ -37,8 +37,24 @@ function processDir(directory) {
                 fs.writeFileSync(fullPath, content);
                 console.log(`Updated ${fullPath}`);
             }
+        } else if (fullPath.endsWith('.md')) {
+            let content = fs.readFileSync(fullPath, 'utf8');
+            let originalContent = content;
+            
+            for (const route of routes) {
+                const regex = new RegExp(`\\]\\(/${route}\\)`, 'g');
+                content = content.replace(regex, `](/services/${route})`);
+            }
+
+            if (content !== originalContent) {
+                fs.writeFileSync(fullPath, content);
+                console.log(`Updated markdown file ${fullPath}`);
+            }
         }
     }
 }
 
-processDir(dir);
+for (const dir of dirs) {
+    processDir(dir);
+}
+

@@ -14,7 +14,7 @@ Whether you are a freelancer, agency owner, Amazon seller, SaaS founder, or eCom
 
 In this guide, we will explain everything you need to know about UK company formation for non-residents in 2026.
 
-> **Prefer a done-for-you service?** Explore our dedicated [UK Company Formation for Non-Residents](/uk-company-formation-for-non-residents) package.
+> **Prefer a done-for-you service?** Explore our dedicated [UK Company Formation for Non-Residents](/services/uk-company-formation-for-non-residents) package.
 
 ---
 
@@ -252,6 +252,6 @@ Ready to get started? Here are the services we offer to help non-residents regis
 * [Virtual Business Address](/#pricing) — A professional London trading address for your business correspondence.
 * [Director Service Address](/#pricing) — Keep your personal address off public records with a dedicated director service address.
 
-<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> **[View our full UK Company Formation for Non-Residents guide and packages](/uk-company-formation-for-non-residents)**
+<span class="inline-block animate-bounce-right text-[#d4af37] font-bold mr-2">➔</span> **[View our full UK Company Formation for Non-Residents guide and packages](/services/uk-company-formation-for-non-residents)**
 
 ---
