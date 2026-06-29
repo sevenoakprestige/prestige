@@ -2446,203 +2446,322 @@ CONSULTATION FOOTER
 
 
 /* ================================
-FOOTER
+FOOTER — REDESIGNED
 ================================= */
 
-.footer {
-    background: linear-gradient(to bottom,
-            hsl(0, 0%, 98%),
-            hsl(45, 10%, 96%));
-    padding: 40px 20px;
+.footer-redesigned {
+    background: hsl(0, 0%, 97%);
     border-top: 2px solid hsl(45, 25%, 80%);
 }
 
-.dark .footer {
-    background: linear-gradient(to bottom,
-            hsl(0, 0%, 8%),
-            hsl(45, 5%, 10%));
-    border-top-color: hsl(45, 15%, 25%);
+.dark .footer-redesigned {
+    background: hsl(0, 0%, 7%);
+    border-top-color: hsl(45, 15%, 20%);
 }
 
-.footer-content {
+/* --- Main Footer Area --- */
+.footer-main {
+    padding: 48px 24px 40px;
+}
+
+.footer-main-inner {
     max-width: 1400px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 0.8fr 1fr;
     gap: 40px;
-    flex-wrap: wrap;
 }
 
-/* Footer Sections */
-.footer-section {
+/* --- Column Base --- */
+.footer-col {
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
-/* Company Information */
-.footer-company {
-    flex: 1;
-    min-width: 200px;
+/* --- Brand Name --- */
+.footer-brand-name {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #d4af37;
 }
 
-.footer-copyright,
-.footer-company-number {
-    margin: 0;
-    font-size: 14px;
-    color: hsl(0, 0%, 40%);
-    line-height: 1.6;
+/* --- Company Details --- */
+.footer-company-details {
+    font-size: 13px;
+    line-height: 1.7;
+    color: hsl(0, 0%, 45%);
 }
 
-.footer-company-address {
-    margin: 0;
-    font-size: 14px;
-    color: hsl(0, 0%, 40%);
-    line-height: 1.6;
-}
-
-.dark .footer-copyright,
-.dark .footer-company-number {
-    color: hsl(0, 0%, 70%);
-}
-
-.dark .footer-company-address {
-    color: hsl(0, 0%, 70%);
-}
-
-.footer-disclaimer {
-    margin: 0;
-    font-size: 10px;
-    color: hsl(0, 0%, 50%);
-}
-
-.dark .footer-disclaimer {
+.dark .footer-company-details {
     color: hsl(0, 0%, 60%);
 }
 
-.footer-badges {
+/* --- Contact Info --- */
+.footer-contact-info {
+    margin-top: 16px;
     display: flex;
-    gap: 12px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 13px;
-    font-weight: 500;
     color: hsl(0, 0%, 40%);
-    flex-wrap: wrap;
-}
-
-.dark .footer-badges {
-    color: hsl(0, 0%, 70%);
-}
-
-.footer-copyright {
-    font-weight: 600;
-}
-
-/* Vertical Separator */
-.footer-separator {
-    width: 2px;
-    height: 60px;
-    background: linear-gradient(to bottom,
-            transparent,
-            hsl(45, 25%, 70%),
-            transparent);
-}
-
-.dark .footer-separator {
-    background: linear-gradient(to bottom,
-            transparent,
-            hsl(45, 15%, 30%),
-            transparent);
-}
-
-/* Page Links */
-.footer-links {
-    flex-direction: row;
-    gap: 24px;
-    flex: 1;
-    justify-content: center;
-}
-
-.footer-link {
-    font-size: 14px;
-    font-weight: 500;
-    color: hsl(0, 0%, 30%);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
+}
+
+.dark .footer-contact-item {
+    color: hsl(0, 0%, 62%);
+}
+
+a.footer-contact-item:hover {
+    color: #d4af37;
+}
+
+.footer-contact-icon {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    color: #d4af37;
+    opacity: 0.8;
+}
+
+/* --- Column Titles --- */
+.footer-col-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: hsl(0, 0%, 20%);
+    margin-bottom: 16px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: linear-gradient(to right, #d4af37, #f3d066);
+    border-radius: 2px;
+}
+
+.dark .footer-col-title {
+    color: hsl(0, 0%, 92%);
+}
+
+/* --- Column Subtitles --- */
+.footer-col-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: hsl(0, 0%, 30%);
+}
+
+.dark .footer-col-subtitle {
+    color: hsl(0, 0%, 80%);
+}
+
+/* --- Navigation Lists --- */
+.footer-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-nav-list li a {
+    font-size: 13.5px;
+    color: hsl(0, 0%, 38%);
+    text-decoration: none;
+    transition: color 0.25s ease, padding-left 0.25s ease;
+    display: inline-block;
     position: relative;
 }
 
-.footer-link:hover {
-    color: hsl(45, 70%, 45%);
+.dark .footer-nav-list li a {
+    color: hsl(0, 0%, 65%);
 }
 
-.dark .footer-link {
-    color: hsl(0, 0%, 75%);
+.footer-nav-list li a:hover {
+    color: #d4af37;
+    padding-left: 4px;
 }
 
-.dark .footer-link:hover {
-    color: hsl(45, 70%, 60%);
+/* --- CTA Description --- */
+.footer-cta-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: hsl(0, 0%, 45%);
+    margin-bottom: 16px;
 }
 
-.footer-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: hsl(45, 70%, 50%);
-    transition: width 0.3s ease;
+.dark .footer-cta-desc {
+    color: hsl(0, 0%, 60%);
 }
 
-.footer-link:hover::after {
-    width: 100%;
-}
-
-/* CTA Section */
-.footer-cta {
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-    flex: 1;
-    justify-content: flex-end;
-    min-width: 250px;
-}
-
-.footer-cta-text {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 500;
-    color: hsl(0, 0%, 30%);
-    white-space: nowrap;
-}
-
-.dark .footer-cta-text {
-    color: hsl(0, 0%, 75%);
-}
-
+/* --- WhatsApp Button --- */
 .footer-whatsapp-btn {
     background: linear-gradient(135deg, hsl(45, 70%, 50%), hsl(45, 80%, 60%));
     color: hsl(0, 0%, 10%);
     font-size: 14px;
     font-weight: 600;
-    padding: 10px 24px;
+    padding: 11px 28px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
-    box-shadow: 0 4px 16px -1px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 4px 16px -1px rgba(212, 175, 55, 0.45);
+    width: fit-content;
 }
 
 .footer-whatsapp-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px 0px rgba(212, 175, 55, 0.7);
+    box-shadow: 0 6px 24px 0px rgba(212, 175, 55, 0.65);
     background: linear-gradient(135deg, hsl(45, 80%, 55%), hsl(45, 90%, 65%));
 }
 
 .footer-whatsapp-btn:active {
     transform: translateY(0);
+}
+
+/* --- Social Links --- */
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 35%);
+    transition: all 0.3s ease;
+}
+
+.dark .footer-social-link {
+    background: hsl(0, 0%, 18%);
+    color: hsl(0, 0%, 70%);
+}
+
+.footer-social-link:hover {
+    background: #d4af37;
+    color: hsl(0, 0%, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+/* --- Badges Bar --- */
+.footer-badges-bar {
+    border-top: 1px solid hsl(0, 0%, 88%);
+    border-bottom: 1px solid hsl(0, 0%, 88%);
+    padding: 24px;
+    background: hsl(0, 0%, 95%);
+}
+
+.dark .footer-badges-bar {
+    border-top-color: hsl(0, 0%, 16%);
+    border-bottom-color: hsl(0, 0%, 16%);
+    background: hsl(0, 0%, 9%);
+}
+
+.footer-badges-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-badges-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.footer-badge-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.55;
+    transition: opacity 0.3s ease;
+    filter: grayscale(30%);
+}
+
+.dark .footer-badge-item {
+    opacity: 0.6;
+}
+
+.footer-badge-item:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.footer-badge-img {
+    object-fit: contain;
+    height: auto;
+}
+
+/* In light mode invert white logos so they're visible */
+.footer-badge-img {
+    filter: invert(1);
+}
+
+.dark .footer-badge-img {
+    filter: invert(0);
+}
+
+/* --- Bottom Bar --- */
+.footer-bottom {
+    padding: 20px 24px;
+    background: hsl(0, 0%, 94%);
+}
+
+.dark .footer-bottom {
+    background: hsl(0, 0%, 6%);
+}
+
+.footer-bottom-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-text {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: hsl(0, 0%, 45%);
+    margin: 0;
+}
+
+.dark .footer-bottom-text {
+    color: hsl(0, 0%, 58%);
+}
+
+.footer-bottom-disclaimer {
+    font-size: 11px;
+    color: hsl(0, 0%, 55%);
+    margin: 0;
+    max-width: 600px;
+    text-align: right;
+}
+
+.dark .footer-bottom-disclaimer {
+    color: hsl(0, 0%, 48%);
 }
 
 
@@ -2671,6 +2790,16 @@ RESPONSIVE DESIGN
 
     .price-card {
         max-width: 90%;
+    }
+
+    /* Footer Responsive (1024px) */
+    .footer-main-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+
+    .footer-col-company {
+        grid-column: 1 / -1;
     }
 }
 
@@ -2777,6 +2906,26 @@ RESPONSIVE DESIGN
     #checkerResult {
         font-size: 16px;
         padding: 0 10px;
+    }
+
+    /* Footer Responsive (768px) */
+    .footer-main-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+
+    .footer-col-company {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .footer-bottom-disclaimer {
+        text-align: center;
     }
 }
 
@@ -2914,32 +3063,31 @@ RESPONSIVE DESIGN
         padding: 14px 30px;
     }
 
-    .footer {
-        padding: 30px 20px;
+    /* Footer Responsive (480px) */
+    .footer-main {
+        padding: 32px 20px 28px;
     }
 
-    .footer-content {
+    .footer-main-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footer-badges-row {
+        gap: 20px;
+    }
+
+    .footer-badge-item img {
+        max-height: 36px;
+    }
+
+    .footer-bottom-inner {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
+        text-align: center;
     }
 
-    .footer-separator {
-        display: none;
-    }
-
-    .footer-links {
-        justify-content: flex-start;
-        gap: 16px;
-    }
-
-    .footer-cta {
-        justify-content: flex-start;
-        width: 100%;
-    }
-
-    .footer-whatsapp-btn {
-        flex: 1;
+    .footer-bottom-disclaimer {
+        text-align: center;
     }
 }
 
