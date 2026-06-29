@@ -66,7 +66,7 @@ export default async function BlogHome() {
                                 <div className="flex flex-1 flex-col p-6">
                                     {/* Tags */}
                                     <div className="mb-4 flex flex-wrap gap-2">
-                                        {tags?.map(tag => (
+                                        {tags?.map((tag: string) => (
                                             <span key={tag} className="rounded-full bg-[#d4af37]/10 px-3 py-1 text-xs font-medium text-[#d4af37]">
                                                 {tag}
                                             </span>
