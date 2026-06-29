@@ -1,8 +1,9 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getSortedPostsData } from '@/lib/posts';
 import { FaCalendar, FaUser, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import { client } from "@/sanity/client";
+import { defineQuery, type SanityDocument } from "next-sanity";
 
 export const metadata: Metadata = {
     title: 'Blog – UK Company Formation Guides & Resources',
@@ -15,8 +16,14 @@ export const metadata: Metadata = {
     },
 };
 
-export default function BlogHome() {
-    const allPostsData = getSortedPostsData();
+const POSTS_QUERY = defineQuery(
+  `*[_type == "post" && defined(slug.current)] | order(date desc){ _id, title, "slug": slug.current, date, excerpt, tags }`
+);
+
+const options = { next: { revalidate: 30 } };
+
+export default async function BlogHome() {
+    const allPostsData = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
 
     return (
         <main className="min-h-screen pt-24 pb-16">

@@ -83,6 +83,10 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
 
+    if (pathname.startsWith("/studio")) {
+        return null;
+    }
+
     return (
         <header
             className={cn(

@@ -1,14 +1,21 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getPostData, getAllPostSlugs } from '@/lib/posts';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
+import { client, urlFor } from '@/sanity/client';
+import { defineQuery, type SanityDocument } from 'next-sanity';
+import { PortableText } from '@portabletext/react';
 import { FaArrowLeft, FaCalendar, FaUser, FaTag } from 'react-icons/fa';
 
+const POST_QUERY = defineQuery(
+    `*[_type == "post" && slug.current == $slug][0]{ title, "slug": slug.current, excerpt, date, author, tags, keywords, mainImage, body }`
+);
+
+const POSTS_SLUG_QUERY = defineQuery(
+    `*[_type == "post" && defined(slug.current)]{ "slug": slug.current }`
+);
+
 export async function generateStaticParams() {
-    const posts = getAllPostSlugs();
+    const posts = await client.fetch<SanityDocument[]>(POSTS_SLUG_QUERY, {}, { next: { revalidate: 30 } });
     return posts.map((post) => ({
         slug: post.slug,
     }));
@@ -16,7 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = getPostData(slug);
+    const post = await client.fetch<SanityDocument>(POST_QUERY, { slug });
 
     if (!post) {
         return { title: 'Post Not Found' };
@@ -41,9 +48,60 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
 }
 
+const portableTextComponents = {
+    block: {
+        h1: ({ children }: any) => <h1 className="mb-4 mt-8 text-3xl font-bold">{children}</h1>,
+        h2: ({ children }: any) => <h2 className="mb-3 mt-6 text-2xl font-bold text-[#d4af37]">{children}</h2>,
+        h3: ({ children }: any) => <h3 className="mb-2 mt-4 text-xl font-semibold">{children}</h3>,
+        normal: ({ children }: any) => <p className="mb-4 leading-relaxed text-foreground/90">{children}</p>,
+        blockquote: ({ children }: any) => (
+            <blockquote className="border-l-4 border-[#d4af37] pl-4 italic text-muted-foreground">{children}</blockquote>
+        ),
+    },
+    list: {
+        bullet: ({ children }: any) => <ul className="mb-4 ml-6 list-disc space-y-2">{children}</ul>,
+        number: ({ children }: any) => <ol className="mb-4 ml-6 list-decimal space-y-2">{children}</ol>,
+    },
+    listItem: {
+        bullet: ({ children }: any) => <li className="leading-relaxed">{children}</li>,
+        number: ({ children }: any) => <li className="leading-relaxed">{children}</li>,
+    },
+    marks: {
+        link: ({ children, value }: any) => (
+            <a
+                href={value.href}
+                className="font-medium text-[#d4af37] underline decoration-[#d4af37]/30 underline-offset-2 transition-colors hover:decoration-[#d4af37]"
+                target={value.blank ? '_blank' : undefined}
+                rel={value.blank ? 'noopener noreferrer' : undefined}
+            >
+                {children}
+            </a>
+        ),
+        code: ({ children }: any) => (
+            <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">{children}</code>
+        ),
+    },
+    types: {
+        image: ({ value }: any) => {
+            if (!value?.asset?._ref) return null;
+            return (
+                <div className="relative my-8 aspect-video w-full overflow-hidden rounded-xl bg-muted/10 border border-border/20">
+                    <Image
+                        src={urlFor(value).url()}
+                        alt={value.alt || 'Blog Image'}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 896px"
+                    />
+                </div>
+            );
+        },
+    },
+};
+
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = getPostData(slug);
+    const post = await client.fetch<SanityDocument>(POST_QUERY, { slug }, { next: { revalidate: 30 } });
 
     if (!post) {
         notFound();
@@ -65,7 +123,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 {/* Tags */}
                 {post.tags && post.tags.length > 0 && (
                     <div className="mb-4 flex flex-wrap gap-2">
-                        {post.tags.map((tag) => (
+                        {post.tags.map((tag: string) => (
                             <span
                                 key={tag}
                                 className="inline-flex items-center gap-1 rounded-full bg-[#d4af37]/10 px-3 py-1 text-xs font-medium text-[#d4af37]"
@@ -97,13 +155,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 </div>
 
                 {/* Hero Image */}
-                {post.heroImage && (
+                {post.mainImage?.asset && (
                     <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-2xl shadow-lg border border-border/50 bg-muted/20">
                         <Image 
-                            src={post.heroImage} 
+                            src={urlFor(post.mainImage).url()} 
                             alt={post.title} 
                             fill 
-                            className="object-stretch object-center" 
+                            className="object-cover object-center" 
                             priority 
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 896px"
                         />
@@ -112,59 +170,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
                 {/* Content */}
                 <div className="prose prose-lg dark:prose-invert max-w-none">
-                    <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
-                        rehypePlugins={[rehypeRaw]}
-                        components={{
-                            h1: ({ node, ...props }) => (
-                                <h1 className="mb-4 mt-8 text-3xl font-bold" {...props} />
-                            ),
-                            h2: ({ node, ...props }) => (
-                                <h2 className="mb-3 mt-6 text-2xl font-bold text-[#d4af37]" {...props} />
-                            ),
-                            h3: ({ node, ...props }) => (
-                                <h3 className="mb-2 mt-4 text-xl font-semibold" {...props} />
-                            ),
-                            p: ({ node, ...props }) => (
-                                <p className="mb-4 leading-relaxed text-foreground/90" {...props} />
-                            ),
-                            ul: ({ node, ...props }) => (
-                                <ul className="mb-4 ml-6 list-disc space-y-2" {...props} />
-                            ),
-                            ol: ({ node, ...props }) => (
-                                <ol className="mb-4 ml-6 list-decimal space-y-2" {...props} />
-                            ),
-                            li: ({ node, ...props }) => (
-                                <li className="leading-relaxed" {...props} />
-                            ),
-                            a: ({ node, ...props }) => (
-                                <a
-                                    className="font-medium text-[#d4af37] underline decoration-[#d4af37]/30 underline-offset-2 transition-colors hover:decoration-[#d4af37]"
-                                    {...props}
-                                />
-                            ),
-                            blockquote: ({ node, ...props }) => (
-                                <blockquote
-                                    className="border-l-4 border-[#d4af37] pl-4 italic text-muted-foreground"
-                                    {...props}
-                                />
-                            ),
-                            code: ({ node, inline, ...props }: any) =>
-                                inline ? (
-                                    <code
-                                        className="rounded bg-muted px-1.5 py-0.5 font-mono text-sm"
-                                        {...props}
-                                    />
-                                ) : (
-                                    <code
-                                        className="block rounded-lg bg-muted p-4 font-mono text-sm"
-                                        {...props}
-                                    />
-                                ),
-                        }}
-                    >
-                        {post.content}
-                    </ReactMarkdown>
+                    <PortableText value={post.body} components={portableTextComponents} />
                 </div>
 
                 {/* Back to Blog Link */}
