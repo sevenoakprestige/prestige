@@ -130,7 +130,7 @@ export default function Footer() {
                                 <Link href="/blog">Blog</Link>
                             </li>
                             <li>
-                                <Link href="/consultation">Free Consultation</Link>
+                                <Link href="/consultation">Book Consultation</Link>
                             </li>
                             <li>
                                 <Link href="/site-map">Sitemap</Link>
