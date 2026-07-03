@@ -4,6 +4,7 @@ import './globals.css';
 import Hero from '../components/Hero';
 import TrustSection from '../components/TrustSection';
 import Services from '../components/Services';
+import CompanyFormationVideo from '../components/CompanyFormationVideo';
 import WhyChooseUs from '../components/WhyChooseUs';
 import HowItWorks from '../components/HowItWorks';
 import CompanyChecker from '../components/CompanyChecker';
@@ -22,6 +23,7 @@ export default function Home() {
             <Hero />
             <TrustSection />
             <Services />
+            <CompanyFormationVideo />
             <WhyChooseUs />
             <HowItWorks />
             <CompanyChecker />
