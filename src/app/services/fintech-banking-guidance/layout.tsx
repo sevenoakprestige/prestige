@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         title: "UK Business Banking Support | Fintech Account Setup Guidance",
         description:
             "Get expert guidance for UK fintech accounts, Stripe, Wise, and business banking compliance.",
-        url: "https://www.sevenoakprestige.com/fintech-banking-guidance",
+        url: "https://www.sevenoakprestige.com/services/fintech-banking-guidance",
         type: "website",
     },
     twitter: {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
             "Expert guidance for UK fintech accounts and business banking compliance.",
     },
     alternates: {
-        canonical: "https://www.sevenoakprestige.com/fintech-banking-guidance",
+        canonical: "https://www.sevenoakprestige.com/services/fintech-banking-guidance",
     },
 };
 

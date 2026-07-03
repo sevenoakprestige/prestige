@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         title: "UK Company Formation for Non-Residents | Start a UK Company Remotely",
         description:
             "Register a UK Limited Company from anywhere in the world. Professional UK company formation services for non-residents with address solutions and expert support.",
-        url: "https://www.sevenoakprestige.com/uk-company-formation-for-non-residents",
+        url: "https://www.sevenoakprestige.com/services/uk-company-formation-for-non-residents",
         type: "website",
     },
     twitter: {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
             "Register a UK Limited Company from anywhere in the world. Professional UK company formation services for non-residents.",
     },
     alternates: {
-        canonical: "https://www.sevenoakprestige.com/uk-company-formation-for-non-residents",
+        canonical: "https://www.sevenoakprestige.com/services/uk-company-formation-for-non-residents",
     },
 };
 

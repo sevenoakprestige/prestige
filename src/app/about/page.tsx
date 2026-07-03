@@ -10,7 +10,7 @@ const services = [
         icon: <FaBuilding className="h-7 w-7" />,
         title: "UK Company Formation",
         description: "Fast, compliant company incorporation with Companies House for UK residents and non-residents alike.",
-        href: "/services/uk-company-formation",
+        href: "/services/uk-company-formation-for-non-residents",
     },
     {
         icon: <FaMapMarkerAlt className="h-7 w-7" />,

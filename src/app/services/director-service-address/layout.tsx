@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         title: "Director Service Address UK | Privacy Protection for Company Directors",
         description:
             "Use a UK director service address to protect your personal details on Companies House public records.",
-        url: "https://www.sevenoakprestige.com/director-service-address",
+        url: "https://www.sevenoakprestige.com/services/director-service-address",
         type: "website",
     },
     twitter: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
             "Protect your personal details on Companies House public records with a director service address.",
     },
     alternates: {
-        canonical: "https://www.sevenoakprestige.com/director-service-address",
+        canonical: "https://www.sevenoakprestige.com/services/director-service-address",
     },
 };
 

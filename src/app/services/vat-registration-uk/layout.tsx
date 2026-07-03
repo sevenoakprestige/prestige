@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         title: "UK VAT Registration Service | Register for VAT with HMRC Support",
         description:
             "Fast UK VAT registration service with HMRC compliance guidance for businesses and non-residents.",
-        url: "https://www.sevenoakprestige.com/vat-registration-uk",
+        url: "https://www.sevenoakprestige.com/services/vat-registration-uk",
         type: "website",
     },
     twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
             "Fast UK VAT registration with HMRC compliance guidance.",
     },
     alternates: {
-        canonical: "https://www.sevenoakprestige.com/vat-registration-uk",
+        canonical: "https://www.sevenoakprestige.com/services/vat-registration-uk",
     },
 };
 

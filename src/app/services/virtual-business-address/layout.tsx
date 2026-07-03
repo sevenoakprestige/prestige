@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         title: "Virtual Business Address UK | Premium London Business Presence",
         description:
             "Get a virtual UK business address for branding, invoices, websites, and professional credibility.",
-        url: "https://www.sevenoakprestige.com/virtual-business-address",
+        url: "https://www.sevenoakprestige.com/services/virtual-business-address",
         type: "website",
     },
     twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
             "Premium virtual UK business address for branding and professional credibility.",
     },
     alternates: {
-        canonical: "https://www.sevenoakprestige.com/virtual-business-address",
+        canonical: "https://www.sevenoakprestige.com/services/virtual-business-address",
     },
 };
 

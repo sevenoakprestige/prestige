@@ -18,22 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── CORE SERVICE PAGES (highest commercial value) ──
     const coreServices: MetadataRoute.Sitemap = [
         {
-            url: `${baseUrl}/services/uk-company-formation`,
-            lastModified: now,
-            changeFrequency: 'weekly',
-            priority: 0.95,
-        },
-        {
             url: `${baseUrl}/services/uk-company-formation-for-non-residents`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.95,
-        },
-        {
-            url: `${baseUrl}/services/uk-company-formation-non-residents`,
-            lastModified: now,
-            changeFrequency: 'weekly',
-            priority: 0.90,
         },
     ];
 

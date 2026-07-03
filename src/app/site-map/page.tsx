@@ -8,9 +8,7 @@ const sitemapSections = [
         icon: <FaBuilding className="h-5 w-5" />,
         description: "Register your UK limited company with ease",
         links: [
-            { name: "UK Company Formation", href: "/services/uk-company-formation", description: "Fast Companies House registration for UK residents" },
             { name: "UK Company Formation for Non-Residents", href: "/services/uk-company-formation-for-non-residents", description: "Start a UK company from anywhere in the world" },
-            { name: "Non-Resident Company Formation", href: "/services/uk-company-formation-non-residents", description: "International entrepreneurs & overseas businesses" },
         ],
     },
     {

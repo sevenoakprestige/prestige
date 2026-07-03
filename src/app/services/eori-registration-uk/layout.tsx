@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         title: "EORI Registration UK | Import & Export Business Registration",
         description:
             "Get your EORI number for UK import/export trading with fast registration support.",
-        url: "https://www.sevenoakprestige.com/eori-registration-uk",
+        url: "https://www.sevenoakprestige.com/services/eori-registration-uk",
         type: "website",
     },
     twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
             "Fast UK EORI registration for import and export businesses.",
     },
     alternates: {
-        canonical: "https://www.sevenoakprestige.com/eori-registration-uk",
+        canonical: "https://www.sevenoakprestige.com/services/eori-registration-uk",
     },
 };
 

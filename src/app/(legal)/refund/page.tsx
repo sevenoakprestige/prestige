@@ -10,7 +10,6 @@ export const metadata: Metadata = {
         description: 'Refund and cancellation terms for Seven Oak Prestige Ltd company formation and business services.',
         url: 'https://www.sevenoakprestige.com/refund',
     },
-    robots: { index: false, follow: false },
 };
 
 export default function RefundPolicy() {

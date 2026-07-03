@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/services/uk-company-formation',
+        destination: '/services/uk-company-formation-for-non-residents',
+        permanent: true,
+      },
+      {
+        source: '/services/uk-company-formation-non-residents',
+        destination: '/services/uk-company-formation-for-non-residents',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

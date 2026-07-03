@@ -80,10 +80,7 @@ export default function Footer() {
                         <h3 className="footer-col-title">Our Services</h3>
                         <ul className="footer-nav-list">
                             <li>
-                                <Link href="/services/uk-company-formation">UK Company Formation</Link>
-                            </li>
-                            <li>
-                                <Link href="/services/uk-company-formation-for-non-residents">Formation for Non-Residents</Link>
+                                <Link href="/services/uk-company-formation-for-non-residents">UK Company Formation</Link>
                             </li>
                             <li>
                                 <Link href="/services/registered-office-service">Registered Office Address</Link>

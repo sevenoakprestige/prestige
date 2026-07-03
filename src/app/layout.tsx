@@ -15,10 +15,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.sevenoakprestige.com"),
     title: {
-        default: "Seven Oak Prestige – UK Company Formation for Non-Residents",
+        default: "UK Company Formation for International Entrepreneurs & Non-Residents | Banking Assistance | Seven Oak Prestige",
         template: "%s | Seven Oak Prestige",
     },
-    description: "Fast, confidential UK, USA & Canada company formation for non-residents. 24-hour setup, registered office, fintech banking support (Wise, Revolut, Stripe). Register from anywhere.",
+    description: "UK-based company formation service for international entrepreneurs and non-residents. Register your UK limited company remotely with compliance support and banking assistance guidance for a credible UK setup.",
     keywords: [
         "UK company formation",
         "non-resident UK company",
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_GB",
         url: "https://www.sevenoakprestige.com",
-        title: "Seven Oak Prestige – UK Company Formation for Non-Residents",
-        description: "Fast, confidential UK company formation for global entrepreneurs. Get your UK LTD and business bank account setup support in 24 hours.",
+        title: "UK Company Formation for International Entrepreneurs & Non-Residents | Banking Assistance | Seven Oak Prestige",
+        description: "UK-based company formation service for international entrepreneurs and non-residents. Register your UK limited company remotely with compliance support and banking assistance guidance for a credible UK setup.",
         siteName: "Seven Oak Prestige",
         images: [
             {
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Seven Oak Prestige – UK Company Formation",
-        description: "Launch your UK business from anywhere. 24-hour setup, privacy protection, and fintech support.",
+        title: "UK Company Formation for International Entrepreneurs & Non-Residents | Seven Oak Prestige",
+        description: "UK-based company formation service for international entrepreneurs and non-residents. Register your UK limited company remotely with compliance support and banking assistance guidance.",
         images: ["/assets/logo/seven_oak_prestige_dark_mode.png"],
     },
     robots: {
