@@ -1,5 +1,5 @@
 export default function JsonLd() {
-    const jsonLd = {
+    const professionalServiceJsonLd = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Seven Oak Prestige",
@@ -34,10 +34,50 @@ export default function JsonLd() {
         ]
     };
 
+    const organizationJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Seven Oak Prestige LTD",
+        "url": "https://sevenoakprestige.com",
+        "description": "Seven Oak Prestige Ltd specialises in UK company formation and corporate advisory for non-residents, international entrepreneurs and overseas businesses. We provide comprehensive, fully remote support including Companies House Identity Verification (ACSP), premium corporate addresses, banking readiness, Companies House compliance, and VAT and EORI registration. Establish, operate and grow your UK business with a trusted, compliant advisory partner.",
+        "legalName": "SEVEN OAK PRESTIGE LTD",
+        "taxID": "16903092",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "124 City Road",
+            "addressLocality": "London",
+            "postalCode": "EC1V 2NX",
+            "addressCountry": "GB"
+        },
+        "sameAs": [
+            "https://service.gov.uk",
+            "https://linkedin.com",
+            "https://crunchbase.com",
+            "https://clutch.co",
+            "https://g2.com",
+            "https://wellfound.com"
+        ],
+        "knowsAbout": [
+            "UK Company Formation",
+            "Corporate Advisory for Non-Residents",
+            "Companies House Identity Verification",
+            "ACSP Compliance",
+            "Premium Corporate Addresses",
+            "Banking Readiness Support",
+            "VAT and EORI Registration"
+        ]
+    };
+
     return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+            />
+        </>
     );
 }
