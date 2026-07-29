@@ -153,8 +153,27 @@ export default function FAQ() {
         setOpenItems(newOpenItems);
     };
 
+    // FAQPage JSON-LD for the UK FAQ items (primary content for SEO)
+    const faqPageJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqData[0].items.map((item) => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer,
+            },
+        })),
+    };
+
     return (
         <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+            {/* FAQPage JSON-LD */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd) }}
+            />
             {/* Background decoration — same as Testimonials */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
                 <div className="absolute left-1/4 top-10 h-[500px] w-[500px] rounded-full bg-[#d4af37]/3 blur-[120px] dark:bg-[#d4af37]/5"></div>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         description: 'Terms and Conditions governing the use of Seven Oak Prestige company formation and business address services.',
         url: 'https://www.sevenoakprestige.com/terms',
     },
-    robots: { index: false, follow: false },
+    robots: { index: false, follow: true },
 };
 
 export default function TermsAndConditions() {

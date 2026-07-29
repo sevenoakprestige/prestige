@@ -16,6 +16,9 @@ export const metadata: Metadata = {
         url: 'https://www.sevenoakprestige.com/consultation',
         type: 'website',
     },
+    alternates: {
+        canonical: 'https://www.sevenoakprestige.com/consultation',
+    },
 };
 
 export default function ConsultationPage() {

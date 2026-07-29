@@ -1,7 +1,12 @@
 import { MetadataRoute } from 'next';
-import { getAllPostSlugs } from '@/lib/posts';
+import { client } from '@/sanity/client';
+import { defineQuery, type SanityDocument } from 'next-sanity';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const SITEMAP_POSTS_QUERY = defineQuery(
+    `*[_type == "post" && defined(slug.current)]{ "slug": slug.current, _updatedAt }`
+);
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://www.sevenoakprestige.com';
     const now = new Date().toISOString();
 
@@ -129,13 +134,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
     ];
 
-    // ── DYNAMIC BLOG POSTS ──
-    const blogPosts: MetadataRoute.Sitemap = getAllPostSlugs().map(({ slug }) => ({
-        url: `${baseUrl}/blog/${slug}`,
-        lastModified: now,
-        changeFrequency: 'monthly' as const,
-        priority: 0.70,
-    }));
+    // ── DYNAMIC BLOG POSTS (from Sanity CMS) ──
+    let blogPosts: MetadataRoute.Sitemap = [];
+    try {
+        const posts = await client.fetch<SanityDocument[]>(
+            SITEMAP_POSTS_QUERY,
+            {},
+            { next: { revalidate: 3600 } }
+        );
+        blogPosts = posts.map((post) => ({
+            url: `${baseUrl}/blog/${post.slug}`,
+            lastModified: post._updatedAt || now,
+            changeFrequency: 'monthly' as const,
+            priority: 0.70,
+        }));
+    } catch {
+        // Fallback: return sitemap without blog posts if Sanity is unavailable
+        blogPosts = [];
+    }
 
     return [
         ...homepage,
@@ -148,3 +164,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...blogPosts,
     ];
 }
+

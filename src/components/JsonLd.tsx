@@ -12,7 +12,7 @@ export default function JsonLd() {
             "streetAddress": "124 City Road",
             "addressLocality": "London",
             "postalCode": "EC1V 2NX",
-            "addressCountry": "UK"
+            "addressCountry": "GB"
         },
         "priceRange": "$$",
         "openingHoursSpecification": {
@@ -30,7 +30,9 @@ export default function JsonLd() {
             "closes": "23:59"
         },
         "sameAs": [
-            "https://www.sevenoakprestige.com"
+            "https://www.sevenoakprestige.com",
+            "https://www.linkedin.com/company/sevenoakprestige",
+            "https://www.facebook.com/sevenoakprestige"
         ]
     };
 
@@ -38,7 +40,7 @@ export default function JsonLd() {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Seven Oak Prestige LTD",
-        "url": "https://sevenoakprestige.com",
+        "url": "https://www.sevenoakprestige.com",
         "description": "Seven Oak Prestige Ltd specialises in UK company formation and corporate advisory for non-residents, international entrepreneurs and overseas businesses. We provide comprehensive, fully remote support including Companies House Identity Verification (ACSP), premium corporate addresses, banking readiness, Companies House compliance, and VAT and EORI registration. Establish, operate and grow your UK business with a trusted, compliant advisory partner.",
         "legalName": "SEVEN OAK PRESTIGE LTD",
         "taxID": "16903092",
@@ -50,12 +52,9 @@ export default function JsonLd() {
             "addressCountry": "GB"
         },
         "sameAs": [
-            "https://service.gov.uk",
-            "https://linkedin.com",
-            "https://crunchbase.com",
-            "https://clutch.co",
-            "https://g2.com",
-            "https://wellfound.com"
+            "https://www.linkedin.com/company/sevenoakprestige",
+            "https://www.facebook.com/sevenoakprestige",
+            "https://find-and-update.company-information.service.gov.uk/company/16903092"
         ],
         "knowsAbout": [
             "UK Company Formation",

@@ -12,7 +12,7 @@ export default function CompaniesHouseVerification() {
             <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-32 pb-0 sm:pt-40 lg:pt-48">
                 {/* Background Image */}
                 <div className="absolute inset-0 -z-20 hidden dark:block">
-                    <Image src="/assets/services/pvc.webp" alt="Companies House Verification Service" fill className="object-cover object-center" priority quality={100} />
+                    <Image src="/assets/services/pvc.webp" alt="Companies House Verification Service" fill className="object-cover object-center" priority quality={85} />
                     {/* Gradient overlay to make left text readable */}
                     <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/20"></div>
                     <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent"></div>

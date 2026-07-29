@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.sevenoakprestige.com"),
     title: {
-        default: "UK Company Formation for International Entrepreneurs & Non-Residents | Banking Assistance | Seven Oak Prestige",
+        default: "UK Company Formation for Non-Residents | Seven Oak Prestige",
         template: "%s | Seven Oak Prestige",
     },
     description: "UK-based company formation service for international entrepreneurs and non-residents. Register your UK limited company remotely with compliance support and banking assistance guidance for a credible UK setup.",
@@ -74,6 +74,9 @@ export const metadata: Metadata = {
             "max-image-preview": "large",
             "max-snippet": -1,
         },
+    },
+    alternates: {
+        canonical: "https://www.sevenoakprestige.com",
     },
 };
 
