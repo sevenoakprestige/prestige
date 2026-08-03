@@ -25,6 +25,8 @@ const links = [
     { name: "Pricing", href: "#pricing" },
     { name: "Consultation", href: "/consultation" },
     { name: "Blogs", href: "/blog" },
+    { name: "Countries", href: "/countries" },
+    { name: "Resources", href: "#resources" },
     { name: "Contact", href: "#contact" },
 ];
 
@@ -45,6 +47,18 @@ const menuCategories = [
             { name: "VAT Registration", href: "/services/vat-registration-uk" },
             { name: "EORI Registration", href: "/services/eori-registration-uk" },
             { name: "Fintech & Payment Guidance", href: "/services/fintech-banking-guidance" },
+        ]
+    }
+];
+
+const resourceCategories = [
+    {
+        title: "Executive Frameworks",
+        links: [
+            { name: "UK Business Banking Readiness Assessment", href: "/resources/uk-business-banking-readiness-assessment" },
+            { name: "UK Corporate Compliance Framework", href: "#compliance-framework" },
+            { name: "International Founder Framework", href: "#founder-framework" },
+            { name: "UK Company Growth Framework", href: "#growth-framework" },
         ]
     }
 ];
@@ -126,7 +140,7 @@ export default function Navbar() {
                         <ul className="flex items-center gap-1">
                             {links.map((link) => (
                                 <li key={link.href}>
-                                    {link.name === "Services" ? (
+                                    {link.name === "Services" || link.name === "Resources" ? (
                                         <div className="group relative">
                                             <Link
                                                 href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
@@ -138,20 +152,20 @@ export default function Navbar() {
                                             </Link>
                                             
                                             {/* Dropdown Mega Menu */}
-                                            <div className="absolute left-1/2 -translate-x-1/2 top-full hidden w-[600px] pt-4 group-hover:block opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50">
-                                                <div className="rounded-2xl border border-[#d4af37]/20 bg-background p-8 shadow-2xl backdrop-blur-2xl supports-[backdrop-filter]:bg-background/95 grid grid-cols-2 gap-12">
-                                                    {menuCategories.map((category) => (
+                                            <div className={cn("absolute left-1/2 -translate-x-1/2 top-full hidden pt-4 group-hover:block opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50", link.name === "Services" ? "w-[600px]" : "w-[400px]")}>
+                                                <div className={cn("rounded-2xl border border-[#d4af37]/20 bg-background p-8 shadow-2xl backdrop-blur-2xl supports-[backdrop-filter]:bg-background/95 grid gap-12", link.name === "Services" ? "grid-cols-2" : "grid-cols-1")}>
+                                                    {(link.name === "Services" ? menuCategories : resourceCategories).map((category) => (
                                                         <div key={category.title}>
                                                             <h3 className="mb-5 text-lg font-bold text-foreground">{category.title}</h3>
                                                             <ul className="flex flex-col gap-3.5">
-                                                                {category.links.map((link) => (
-                                                                    <li key={link.href}>
+                                                                {category.links.map((sublink) => (
+                                                                    <li key={sublink.href}>
                                                                         <Link
-                                                                            href={link.href}
+                                                                            href={sublink.href}
                                                                             className="group/link flex items-center gap-2.5 text-sm text-foreground/80 transition-colors hover:text-foreground"
                                                                         >
                                                                             <span className="text-foreground/40 font-medium transition-transform group-hover/link:translate-x-1 group-hover/link:text-[#d4af37]">›</span>
-                                                                            <span className="group-hover/link:text-[#d4af37] transition-colors">{link.name}</span>
+                                                                            <span className="group-hover/link:text-[#d4af37] transition-colors">{sublink.name}</span>
                                                                         </Link>
                                                                     </li>
                                                                 ))}

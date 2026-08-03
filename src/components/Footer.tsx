@@ -230,6 +230,7 @@ export default function Footer() {
                                 alt="Mindful Employer"
                                 width={100}
                                 height={32}
+                                style={{ height: "32px", width: "auto" }}
                                 className="footer-badge-img"
                             />
                         </div>
@@ -240,6 +241,7 @@ export default function Footer() {
                                 alt="Living Wage Employer"
                                 width={60}
                                 height={60}
+                                style={{ height: "60px", width: "auto" }}
                                 className="footer-badge-img"
                             />
                         </div>
@@ -260,6 +262,7 @@ export default function Footer() {
                                 alt="Carbon Neutral Britain"
                                 width={55}
                                 height={70}
+                                style={{ height: "70px", width: "auto" }}
                                 className="footer-badge-img"
                             />
                         </div>
