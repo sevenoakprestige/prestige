@@ -246,29 +246,78 @@ export default function BusinessBankingReadinessPage() {
                             })}
                         </div>
                     </div>
+
+                    {/* ── Mobile/Medium Fallback: Vertical Cards ── */}
+                    <div className="flex flex-col gap-6 lg:hidden max-w-2xl mx-auto mt-4">
+                        {[
+                            { num: "01", title: "Corporate Identity", desc: "Establish a strong, consistent corporate identity across all public touchpoints." },
+                            { num: "02", title: "Business Documentation", desc: "Maintain accurate, complete, and legally robust corporate records." },
+                            { num: "03", title: "Website & Digital Presence", desc: "Demonstrate a professional and highly transparent online operational presence." },
+                            { num: "04", title: "Financial Readiness", desc: "Prepare clear financial forecasting, source of funds, and business planning." },
+                            { num: "05", title: "Compliance & Governance", desc: "Understand and proactively meet your ongoing UK regulatory obligations." },
+                        ].map((p) => (
+                            <div key={p.num} className="relative overflow-hidden rounded-[2rem] border border-border/20 bg-card/20 p-6 sm:p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#d4af37]/30 hover:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] group flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
+                                {/* Number Icon */}
+                                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border border-[#d4af37]/40 shadow-sm backdrop-blur-sm bg-white/90 dark:bg-[#161616]/95 group-hover:scale-110 group-hover:border-[#d4af37] transition-all duration-500">
+                                    <span className="font-serif text-lg sm:text-xl font-bold text-[#d4af37] group-hover:text-foreground transition-colors duration-300">{p.num}</span>
+                                </div>
+                                
+                                <div className="flex-1">
+                                    <h3 className="text-lg sm:text-xl font-bold text-[#d4af37] mb-2 tracking-tight leading-tight">
+                                        {p.title}
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        {p.desc}
+                                    </p>
+                                </div>
+
+                                {/* Card glow effect on hover */}
+                                <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent"></div>
+                                </div>
+                                {/* Decorative corner accent */}
+                                <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#d4af37]/10 blur-2xl transition-all duration-500 group-hover:bg-[#d4af37]/20 group-hover:blur-[30px] pointer-events-none"></div>
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </section>
 
-            {/* Executive Summary */}
-            <section className="bg-background border-b border-border/50 pb-16 pt-12">
-                <div className="mx-auto max-w-5xl px-6 relative z-10">
-                    <div className="p-8 md:p-10 rounded-2xl bg-background border border-[#d4af37]/20 shadow-2xl shadow-black/20 relative">
+            {/* ── Executive Summary ── */}
+            <section className="relative px-4 pb-16 pt-12 sm:px-6 lg:px-8 overflow-hidden">
+                {/* Ambient Background Glow */}
+                <div className="absolute inset-0 -z-10 pointer-events-none">
+                    <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-[100px]"></div>
+                </div>
 
+                <div className="mx-auto max-w-5xl relative z-10">
+                    <div className="p-8 md:p-12 rounded-[2.5rem] border border-border/20 bg-card/20 backdrop-blur-md shadow-[0_20px_50px_rgba(212,175,55,0.05)] transition-all duration-500 hover:bg-card/30 relative group overflow-hidden">
+                        
+                        {/* Subtle inner gold accent */}
+                        <div className="absolute -top-12 -right-12 p-8 opacity-[0.03] group-hover:opacity-10 transition-opacity duration-700 pointer-events-none transform-gpu group-hover:-rotate-12 group-hover:scale-110">
+                            <FaRegFileAlt className="w-64 h-64 text-[#d4af37]" />
+                        </div>
 
-                        <h3 className="text-2xl font-bold mb-4 text-foreground">Executive Summary</h3>
-                        <p className="text-lg text-foreground/80 leading-relaxed mb-4">
-                            Opening a UK business bank account is rarely determined by a single document or application form. Financial institutions generally evaluate a combination of factors to understand how a business operates, how it is managed and whether sufficient information has been provided to understand the nature of the relationship being requested.
-                        </p>
-                        <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-                            These assessments may include areas such as corporate identity, business activities, website quality, company documentation, <Link href="/services/companies-house-verification" className="text-[#d4af37] hover:underline font-medium">identity verification</Link>, source of funds information, and overall operational credibility.
-                        </p>
-                        <div className="flex flex-wrap items-center gap-4">
-                            <Link href="#download" className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-6 py-3 text-sm font-bold text-black shadow-lg transition-all hover:scale-105">
-                                <FaDownload /> Download Executive PDF
-                            </Link>
-                            <Link href="#framework" className="flex items-center gap-2 rounded-lg bg-foreground/10 border border-foreground/20 px-6 py-3 text-sm font-bold text-foreground transition-all hover:bg-foreground/20">
-                                Explore Framework <FaArrowRight />
-                            </Link>
+                        <div className="relative z-10">
+                            <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-3">Overview</p>
+                            <h3 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-foreground tracking-tight">Executive Summary</h3>
+                            
+                            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
+                                Opening a UK business bank account is rarely determined by a single document or application form. Financial institutions generally evaluate a combination of factors to understand how a business operates, how it is managed and whether sufficient information has been provided to understand the nature of the relationship being requested.
+                            </p>
+                            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
+                                These assessments may include areas such as corporate identity, business activities, website quality, company documentation, <Link href="/services/companies-house-verification" className="text-[#d4af37] hover:underline font-medium">identity verification</Link>, source of funds information, and overall operational credibility.
+                            </p>
+                            
+                            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                                <Link href="#download" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-xl transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                                    <FaDownload className="text-lg" /> Download Executive PDF
+                                </Link>
+                                <Link href="#framework" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-foreground/10 border border-border/50 px-8 py-4 text-base font-bold text-foreground transition-all hover:bg-foreground/20 hover:scale-[1.02]">
+                                    Explore Framework <FaArrowRight className="text-lg" />
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -791,138 +840,193 @@ export default function BusinessBankingReadinessPage() {
                 </div>
             </section>
 
-            {/* Timeline Section */}
-            <section className="py-24 bg-background">
-                <div className="mx-auto max-w-4xl px-6">
-                    <h2 className="text-3xl font-extrabold text-center mb-16">30-Day Banking Preparation Timeline</h2>
-                    <div className="relative border-l-2 border-[#d4af37]/30 pl-8 space-y-12 ml-4 md:ml-12">
-                        <div className="relative">
-                            <div className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-background bg-[#d4af37]" />
-                            <h3 className="text-xl font-bold mb-2">30 Days Before Application</h3>
-                            <p className="text-foreground/70">Review your company structure, website, branding and corporate information. Confirm that all public information accurately reflects the current business.</p>
-                        </div>
-                        <div className="relative">
-                            <div className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-background bg-[#d4af37]" />
-                            <h3 className="text-xl font-bold mb-2">21 Days Before Application</h3>
-                            <p className="text-foreground/70">Organise corporate documentation, <Link href="/services/companies-house-verification" className="text-[#d4af37] hover:underline">verify identity documents</Link>, prepare proof of address and ensure important company records are readily available.</p>
-                        </div>
-                        <div className="relative">
-                            <div className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-background bg-[#d4af37]" />
-                            <h3 className="text-xl font-bold mb-2">14 Days Before Application</h3>
-                            <p className="text-foreground/70">Review expected business activities, prepare financial projections where appropriate and organise supporting commercial evidence such as invoices, contracts or purchase orders.</p>
-                        </div>
-                        <div className="relative">
-                            <div className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-background bg-[#d4af37]" />
-                            <h3 className="text-xl font-bold mb-2">7 Days Before Application</h3>
-                            <p className="text-foreground/70">Carry out a final review of your website, business email, contact information and company documentation. Confirm that all information presented across different platforms remains consistent.</p>
-                        </div>
-                        <div className="relative">
-                            <div className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-background bg-[#d4af37]" />
-                            <h3 className="text-xl font-bold mb-2">Application Day & Beyond</h3>
-                            <p className="text-foreground/70">Provide accurate and complete information throughout the application process. Retain copies of submitted information and remain available should additional documentation be requested.</p>
-                        </div>
-                    </div>
+            {/* ── 30-Day Timeline Section ── */}
+            <section className="relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+                {/* Ambient Background Glow */}
+                <div className="absolute inset-0 -z-10 pointer-events-none">
+                    <div className="absolute left-0 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-[100px]"></div>
                 </div>
-            </section>
 
-            {/* FAQs */}
-            <section className="py-24 bg-foreground/5">
-                <div className="mx-auto max-w-4xl px-6">
-                    <h2 className="text-3xl font-extrabold text-center mb-12">Frequently Asked Questions</h2>
-                    <div className="w-full space-y-4">
-                        <details className="group rounded-lg border border-border bg-background p-6 open:bg-foreground/5 transition-colors">
-                            <summary className="flex cursor-pointer items-center justify-between font-bold text-lg marker:content-none">
-                                What is business banking readiness?
-                                <span className="transition-transform group-open:rotate-180">
-                                    <MdKeyboardArrowDown className="h-6 w-6" />
-                                </span>
-                            </summary>
-                            <p className="mt-4 text-foreground/80 text-base leading-relaxed">
-                                Business banking readiness refers to the overall level of preparation a company demonstrates before approaching a financial institution or payment provider. It includes corporate identity, documentation, operational readiness, financial planning and compliance rather than focusing solely on incorporation.
-                            </p>
-                        </details>
-                        <details className="group rounded-lg border border-border bg-background p-6 open:bg-foreground/5 transition-colors">
-                            <summary className="flex cursor-pointer items-center justify-between font-bold text-lg marker:content-none">
-                                Can a non-UK resident open a UK business bank account?
-                                <span className="transition-transform group-open:rotate-180">
-                                    <MdKeyboardArrowDown className="h-6 w-6" />
-                                </span>
-                            </summary>
-                            <p className="mt-4 text-foreground/80 text-base leading-relaxed">
-                                Many UK financial institutions and payment providers offer services to international entrepreneurs, although eligibility criteria, onboarding procedures and required documentation vary between providers. Each institution assesses applications according to its own policies.
-                            </p>
-                        </details>
-                        <details className="group rounded-lg border border-border bg-background p-6 open:bg-foreground/5 transition-colors">
-                            <summary className="flex cursor-pointer items-center justify-between font-bold text-lg marker:content-none">
-                                Does incorporating a UK company automatically qualify me for business banking?
-                                <span className="transition-transform group-open:rotate-180">
-                                    <MdKeyboardArrowDown className="h-6 w-6" />
-                                </span>
-                            </summary>
-                            <p className="mt-4 text-foreground/80 text-base leading-relaxed">
-                                No. <Link href="/services/uk-company-formation-for-non-residents" className="text-[#d4af37] hover:underline">Company incorporation</Link> and business banking are separate processes. Incorporation establishes the legal entity, while financial institutions carry out their own onboarding and due diligence procedures before deciding whether to establish a banking relationship.
-                            </p>
-                        </details>
-                        <details className="group rounded-lg border border-border bg-background p-6 open:bg-foreground/5 transition-colors">
-                            <summary className="flex cursor-pointer items-center justify-between font-bold text-lg marker:content-none">
-                                What documents are commonly requested during onboarding?
-                                <span className="transition-transform group-open:rotate-180">
-                                    <MdKeyboardArrowDown className="h-6 w-6" />
-                                </span>
-                            </summary>
-                            <p className="mt-4 text-foreground/80 text-base leading-relaxed">
-                                Requirements differ between institutions. Commonly requested information may include identity documents, proof of address, company registration documents, information regarding business activities and documentation relating to the source of funds or commercial operations.
-                            </p>
-                        </details>
+                <div className="mx-auto max-w-4xl relative z-10">
+                    <div className="text-center mb-20">
+                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-3">Preparation Guide</p>
+                        <h2 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight text-foreground mb-6">
+                            30-Day Banking Preparation Timeline
+                        </h2>
+                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
                     </div>
-                </div>
-            </section>
 
-            {/* Download & CTA Section */}
-            <section id="download" className="py-24 bg-background">
-                <div className="mx-auto max-w-5xl px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="bg-gradient-to-br from-[#d4af37]/20 to-background border border-[#d4af37]/30 p-12 rounded-3xl shadow-2xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 p-8 opacity-10">
-                                <FaBuilding className="w-48 h-48 text-[#d4af37]" />
+                    <div className="relative space-y-8 md:space-y-12 before:absolute before:content-[''] before:top-0 before:bottom-0 before:left-5 md:before:left-[2.25rem] before:-translate-x-px before:w-[3px] before:bg-gradient-to-b before:from-[#d4af37]/10 before:via-[#d4af37]/80 before:to-[#d4af37]/10">
+                        
+                        {[
+                            { title: "30 Days Before Application", desc: "Review your company structure, website, branding and corporate information. Confirm that all public information accurately reflects the current business." },
+                            { title: "21 Days Before Application", desc: <>Organise corporate documentation, <Link href="/services/companies-house-verification" className="text-[#d4af37] hover:underline font-medium">verify identity documents</Link>, prepare proof of address and ensure important company records are readily available.</> },
+                            { title: "14 Days Before Application", desc: "Review expected business activities, prepare financial projections where appropriate and organise supporting commercial evidence such as invoices, contracts or purchase orders." },
+                            { title: "7 Days Before Application", desc: "Carry out a final review of your website, business email, contact information and company documentation. Confirm that all information presented across different platforms remains consistent." },
+                            { title: "Application Day & Beyond", desc: "Provide accurate and complete information throughout the application process. Retain copies of submitted information and remain available should additional documentation be requested." },
+                        ].map((item, idx) => (
+                            <div key={idx} className="relative flex items-start gap-6 md:gap-8 group">
+                                <div className="absolute left-5 md:left-[2.25rem] top-8 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-background border-4 border-[#d4af37] z-10 shadow-[0_0_10px_rgba(212,175,55,0.5)] group-hover:scale-125 transition-transform duration-300"></div>
+                                
+                                <div className="pl-12 md:pl-20 w-full">
+                                    <div className="rounded-3xl border border-border/20 bg-card/20 p-6 md:p-8 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:bg-card/30">
+                                        <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground mb-3">{item.title}</h3>
+                                        <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                                            {item.desc}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <h2 className="text-3xl font-extrabold mb-6 relative z-10">Download the Executive Banking Readiness Checklist</h2>
-                            <p className="text-foreground/80 mb-8 relative z-10 text-lg">
-                                Preparing your business before approaching a financial institution can save valuable time and help ensure your documentation, corporate identity and operational information are organised.
-                            </p>
-                            <Link href="#" className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-xl hover:scale-105 transition-transform relative z-10">
-                                <FaDownload /> Download Executive PDF
-                            </Link>
-                        </div>
-
-                        <div>
-                            <h2 className="text-3xl font-extrabold mb-6">Request an Advisory Consultation</h2>
-                            <p className="text-foreground/80 mb-8 text-lg">
-                                Seven Oak Prestige assists international entrepreneurs in preparing their businesses, documentation, and operational profiles to support a structured and professional UK expansion.
-                            </p>
-                            <Link href="/consultation" className="inline-flex items-center gap-3 rounded-xl bg-foreground text-background px-8 py-4 text-base font-bold hover:bg-foreground/90 transition-colors">
-                                Book Advisory Call <FaArrowRight />
-                            </Link>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* Author Block & Related Guides */}
-            <section className="py-16 bg-foreground/5 border-t border-foreground/10">
-                <div className="mx-auto max-w-4xl px-6 text-center">
-                    <p className="text-sm text-foreground/60 leading-relaxed mb-12">
-                        <strong>Prepared by Seven Oak Prestige Ltd</strong><br/>
-                        This guide has been prepared by Seven Oak Prestige Ltd to help international entrepreneurs understand the practical considerations involved in preparing a UK business for banking and payment provider onboarding. It is reviewed periodically to reflect changes in UK corporate compliance practices and is intended for general educational purposes.
-                    </p>
+            {/* ── FAQs Section ── */}
+            <section className="relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+                {/* Ambient Background Glow */}
+                <div className="absolute inset-0 -z-10 pointer-events-none">
+                    <div className="absolute right-0 top-1/2 h-[500px] w-[500px] translate-x-1/3 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-[100px]"></div>
+                </div>
+
+                <div className="mx-auto max-w-4xl relative z-10">
+                    <div className="text-center mb-16">
+                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-3">Clarity & Insight</p>
+                        <h2 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight text-foreground mb-6">
+                            Frequently Asked Questions
+                        </h2>
+                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
+                    </div>
                     
-                    <h3 className="text-xl font-bold mb-6">Related Executive Guides</h3>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        <Link href="/services/uk-company-formation-for-non-residents" className="text-sm font-medium hover:text-[#d4af37] transition-colors border border-border rounded-full px-4 py-2 bg-background shadow-sm">UK Company Formation for Non-Residents</Link>
-                        <Link href="/services/companies-house-verification" className="text-sm font-medium hover:text-[#d4af37] transition-colors border border-border rounded-full px-4 py-2 bg-background shadow-sm">Companies House Identity Verification Guide</Link>
-                        <Link href="/services/registered-office-service" className="text-sm font-medium hover:text-[#d4af37] transition-colors border border-border rounded-full px-4 py-2 bg-background shadow-sm">Registered Office Guide</Link>
-                        <Link href="/services/vat-registration-uk" className="text-sm font-medium hover:text-[#d4af37] transition-colors border border-border rounded-full px-4 py-2 bg-background shadow-sm">VAT Registration Guide</Link>
-                        <Link href="/services/fintech-banking-guidance" className="text-sm font-medium hover:text-[#d4af37] transition-colors border border-border rounded-full px-4 py-2 bg-background shadow-sm">Fintech & Banking Setup</Link>
+                    <div className="w-full space-y-6">
+                        <details className="group rounded-3xl border border-border/20 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-[#d4af37]/20 overflow-hidden">
+                            <summary className="flex cursor-pointer items-center justify-between font-serif font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
+                                What is business banking readiness?
+                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-[#d4af37] shadow-sm">
+                                    <MdKeyboardArrowDown className="h-6 w-6" />
+                                </span>
+                            </summary>
+                            <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
+                                <p className="mt-6 text-muted-foreground text-base leading-relaxed">
+                                    Business banking readiness refers to the overall level of preparation a company demonstrates before approaching a financial institution or payment provider. It includes corporate identity, documentation, operational readiness, financial planning and compliance rather than focusing solely on incorporation.
+                                </p>
+                            </div>
+                        </details>
+                        
+                        <details className="group rounded-3xl border border-border/20 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-[#d4af37]/20 overflow-hidden">
+                            <summary className="flex cursor-pointer items-center justify-between font-serif font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
+                                Can a non-UK resident open a UK business bank account?
+                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-[#d4af37] shadow-sm">
+                                    <MdKeyboardArrowDown className="h-6 w-6" />
+                                </span>
+                            </summary>
+                            <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
+                                <p className="mt-6 text-muted-foreground text-base leading-relaxed">
+                                    Many UK financial institutions and payment providers offer services to international entrepreneurs, although eligibility criteria, onboarding procedures and required documentation vary between providers. Each institution assesses applications according to its own policies.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details className="group rounded-3xl border border-border/20 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-[#d4af37]/20 overflow-hidden">
+                            <summary className="flex cursor-pointer items-center justify-between font-serif font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
+                                Does incorporating a UK company automatically qualify me for business banking?
+                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-[#d4af37] shadow-sm">
+                                    <MdKeyboardArrowDown className="h-6 w-6" />
+                                </span>
+                            </summary>
+                            <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
+                                <p className="mt-6 text-muted-foreground text-base leading-relaxed">
+                                    No. <Link href="/services/uk-company-formation-for-non-residents" className="text-[#d4af37] hover:underline font-medium">Company incorporation</Link> and business banking are separate processes. Incorporation establishes the legal entity, while financial institutions carry out their own onboarding and due diligence procedures before deciding whether to establish a banking relationship.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details className="group rounded-3xl border border-border/20 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-[#d4af37]/20 overflow-hidden">
+                            <summary className="flex cursor-pointer items-center justify-between font-serif font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
+                                What documents are commonly requested during onboarding?
+                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-[#d4af37] shadow-sm">
+                                    <MdKeyboardArrowDown className="h-6 w-6" />
+                                </span>
+                            </summary>
+                            <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
+                                <p className="mt-6 text-muted-foreground text-base leading-relaxed">
+                                    Requirements differ between institutions. Commonly requested information may include identity documents, proof of address, company registration documents, information regarding business activities and documentation relating to the source of funds or commercial operations.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Download & CTA Section ── */}
+            <section id="download" className="relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+                <div className="mx-auto max-w-6xl relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+                        
+                        {/* Download Card */}
+                        <div className="relative group rounded-[2.5rem] border border-border/20 bg-card/20 p-8 md:p-12 backdrop-blur-md overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.1)] hover:bg-card/30 hover:border-[#d4af37]/30">
+                            {/* Inner gold glow */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <div className="absolute -top-12 -right-12 p-8 opacity-[0.03] group-hover:opacity-10 transition-opacity duration-700 group-hover:scale-110 group-hover:-rotate-12 transform-gpu">
+                                <FaBuilding className="w-64 h-64 text-[#d4af37]" />
+                            </div>
+                            
+                            <div className="relative z-10 h-full flex flex-col">
+                                <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-4">Resource</p>
+                                <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-foreground mb-6">
+                                    Download the Executive Banking Readiness Checklist
+                                </h2>
+                                <p className="text-muted-foreground mb-10 text-lg leading-relaxed flex-grow">
+                                    Preparing your business before approaching a financial institution can save valuable time and help ensure your documentation, corporate identity and operational information are organised.
+                                </p>
+                                <Link href="#" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-5 text-base font-bold text-black shadow-xl hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-[1.02] transition-all w-full sm:w-auto self-start">
+                                    <FaDownload className="text-lg" /> Download Executive PDF
+                                </Link>
+                            </div>
+                        </div>
+
+                        {/* Consultation Card */}
+                        <div className="relative group rounded-[2.5rem] border border-border/20 bg-card/20 p-8 md:p-12 backdrop-blur-md overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] hover:bg-card/30 hover:border-foreground/20">
+                            
+                            <div className="relative z-10 h-full flex flex-col">
+                                <p className="text-xs font-bold tracking-[0.3em] uppercase text-muted-foreground mb-4">Advisory Services</p>
+                                <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-foreground mb-6">
+                                    Request an Advisory Consultation
+                                </h2>
+                                <p className="text-muted-foreground mb-10 text-lg leading-relaxed flex-grow">
+                                    Seven Oak Prestige assists international entrepreneurs in preparing their businesses, documentation, and operational profiles to support a structured and professional UK expansion.
+                                </p>
+                                <Link href="/consultation" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-foreground text-background px-8 py-5 text-base font-bold hover:bg-foreground/90 hover:scale-[1.02] transition-all shadow-xl w-full sm:w-auto self-start">
+                                    Book Advisory Call <FaArrowRight className="text-lg" />
+                                </Link>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Author Block & Related Guides ── */}
+            <section className="relative px-4 py-24 sm:px-6 lg:px-8 border-t border-border/10 overflow-hidden">
+                {/* Subtle bottom glow */}
+                <div className="absolute bottom-0 left-1/2 h-[300px] w-[800px] -translate-x-1/2 translate-y-1/2 rounded-full bg-[#d4af37]/[0.02] blur-[100px] pointer-events-none"></div>
+
+                <div className="mx-auto max-w-4xl relative z-10 text-center">
+                    <div className="inline-block rounded-[2rem] border border-border/20 bg-card/20 backdrop-blur-md px-8 md:px-12 py-8 md:py-10 mb-16 max-w-3xl hover:bg-card/30 transition-colors duration-500">
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                            <strong className="text-foreground font-serif text-lg md:text-xl mb-3 block">Prepared by Seven Oak Prestige Ltd</strong>
+                            This guide has been prepared by Seven Oak Prestige Ltd to help international entrepreneurs understand the practical considerations involved in preparing a UK business for banking and payment provider onboarding. It is reviewed periodically to reflect changes in UK corporate compliance practices and is intended for general educational purposes.
+                        </p>
+                    </div>
+                    
+                    <h3 className="font-serif text-xl md:text-2xl font-bold mb-8 text-foreground">Related Executive Guides</h3>
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+                        <Link href="/services/uk-company-formation-for-non-residents" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">UK Company Formation for Non-Residents</Link>
+                        <Link href="/services/companies-house-verification" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Companies House Identity Verification Guide</Link>
+                        <Link href="/services/registered-office-service" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Registered Office Guide</Link>
+                        <Link href="/services/vat-registration-uk" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">VAT Registration Guide</Link>
+                        <Link href="/services/fintech-banking-guidance" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Fintech & Banking Setup</Link>
                     </div>
                 </div>
             </section>
