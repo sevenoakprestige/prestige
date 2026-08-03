@@ -138,7 +138,7 @@ export default function Navbar() {
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:block">
                         <ul className="flex items-center gap-1">
-                            {links.map((link) => (
+                            {links.filter((link) => link.name !== "Company Checker").map((link) => (
                                 <li key={link.href}>
                                     {link.name === "Services" || link.name === "Resources" ? (
                                         <div className="group relative">

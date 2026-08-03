@@ -112,6 +112,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
     ];
 
+    // ── RESOURCES & GUIDES ──
+    const resourcePages: MetadataRoute.Sitemap = [
+        {
+            url: `${baseUrl}/resources/uk-business-banking-readiness-assessment`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.90,
+        },
+    ];
+
     // ── LEGAL / POLICY PAGES ──
     const legalPages: MetadataRoute.Sitemap = [
         {
@@ -160,6 +170,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ...addressServices,
         ...bankingServices,
         ...landingPages,
+        ...resourcePages,
         ...legalPages,
         ...blogPosts,
     ];
