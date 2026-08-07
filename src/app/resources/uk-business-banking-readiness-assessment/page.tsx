@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaCheckCircle, FaDownload, FaArrowRight, FaBuilding, FaGlobe, FaShieldAlt, FaChartLine, FaRegFileAlt } from "react-icons/fa";
 import { MdOutlineDateRange, MdKeyboardArrowDown } from "react-icons/md";
+import InteractiveAssessment from "@/components/InteractiveAssessment";
 
 export const metadata = {
     title: "UK Business Banking for Non-UK Residents: The Complete Banking Readiness Guide (2026)",
@@ -49,10 +50,10 @@ export default function BusinessBankingReadinessPage() {
                 {/* Content */}
                 <div className="relative z-10 mx-auto max-w-7xl w-full text-left">
 
-                    {/* Badge — no dot */}
+                    {/* Badge */}
                     <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-4 py-2 backdrop-blur-sm">
                         <span className="text-sm font-medium text-white/90">
-                            Executive Framework &nbsp;·&nbsp; Edition 2026
+                            Executive Guide &nbsp;•&nbsp; 18 minute read &nbsp;•&nbsp; Updated August 2026
                         </span>
                     </div>
 
@@ -126,8 +127,8 @@ export default function BusinessBankingReadinessPage() {
                             Banking Readiness Framework™
                         </h2>
                         <div className="w-12 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#f3d066] mx-auto mb-8" />
-                        <p className="text-lg text-muted-foreground font-medium">
-                            Five foundational pillars to prepare your UK company for a successful business banking application.
+                        <p className="text-lg text-muted-foreground font-medium max-w-3xl mx-auto">
+                            Five foundational pillars to prepare your UK company for a successful business banking application. The Banking Readiness Framework™ has been developed to support entrepreneurs establishing UK companies from more than 190 jurisdictions worldwide.
                         </p>
                     </div>
 
@@ -837,6 +838,11 @@ export default function BusinessBankingReadinessPage() {
                             ))}
                         </div>
 
+                        {/* Interactive Assessment Client Component */}
+                        <div className="lg:col-span-12">
+                            <InteractiveAssessment />
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -909,7 +915,7 @@ export default function BusinessBankingReadinessPage() {
                             </summary>
                             <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
                                 <p className="mt-6 text-muted-foreground text-base leading-relaxed">
-                                    Business banking readiness refers to the overall level of preparation a company demonstrates before approaching a financial institution or payment provider. It includes corporate identity, documentation, operational readiness, financial planning and compliance rather than focusing solely on incorporation.
+                                    Business banking readiness refers to the overall level of preparation a company demonstrates before approaching a financial institution or <Link href="/services/fintech-banking-guidance" className="text-[#d4af37] hover:underline font-medium">payment provider</Link>. It includes corporate identity, documentation, operational readiness, financial planning and compliance rather than focusing solely on incorporation.
                                 </p>
                             </div>
                         </details>
@@ -924,6 +930,9 @@ export default function BusinessBankingReadinessPage() {
                             <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
                                 <p className="mt-6 text-muted-foreground text-base leading-relaxed">
                                     Many UK financial institutions and payment providers offer services to international entrepreneurs, although eligibility criteria, onboarding procedures and required documentation vary between providers. Each institution assesses applications according to its own policies.
+                                </p>
+                                <p className="mt-4 text-muted-foreground text-base leading-relaxed">
+                                    For tailored support, consider requesting an <Link href="/consultation" className="text-[#d4af37] hover:underline font-medium">Advisory Consultation</Link>.
                                 </p>
                             </div>
                         </details>
@@ -951,7 +960,10 @@ export default function BusinessBankingReadinessPage() {
                             </summary>
                             <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
                                 <p className="mt-6 text-muted-foreground text-base leading-relaxed">
-                                    Requirements differ between institutions. Commonly requested information may include identity documents, proof of address, company registration documents, information regarding business activities and documentation relating to the source of funds or commercial operations.
+                                    Requirements differ between institutions. Commonly requested information may include <Link href="/services/companies-house-verification" className="text-[#d4af37] hover:underline font-medium">identity documents</Link>, proof of address, company registration documents, information regarding business activities and documentation relating to the source of funds or commercial operations.
+                                </p>
+                                <p className="mt-4 text-muted-foreground text-base leading-relaxed">
+                                    You may also find our <Link href="#" className="text-[#d4af37] hover:underline font-medium">Business Documentation Guide</Link> useful.
                                 </p>
                             </div>
                         </details>
