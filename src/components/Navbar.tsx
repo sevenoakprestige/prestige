@@ -70,6 +70,7 @@ export default function Navbar() {
     const [isVisible, setIsVisible] = React.useState(true);
     const [lastScrollY, setLastScrollY] = React.useState(0);
     const [mounted, setMounted] = React.useState(false);
+    const [expandedMobileCategory, setExpandedMobileCategory] = React.useState<string | null>(null);
 
     React.useEffect(() => {
         setMounted(true);
@@ -78,6 +79,7 @@ export default function Navbar() {
     // Close sheet when route changes
     React.useEffect(() => {
         setIsOpen(false);
+        setExpandedMobileCategory(null);
     }, [pathname]);
 
     React.useEffect(() => {
@@ -225,35 +227,73 @@ export default function Navbar() {
                                 className="border-l border-[#d4af37]/20 bg-background/95 backdrop-blur-xl"
                             >
                                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
-                                <nav className="mt-8 flex flex-col gap-1">
-                                    {links.map((link) => (
-                                        <Link
-                                            key={link.href}
-                                            href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
-                                            className="group relative overflow-hidden rounded-lg px-4 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
-                                            onClick={(e) => {
-                                                // Close the sheet
-                                                setIsOpen(false);
+                                <nav className="mt-8 flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-120px)] pb-8">
+                                    {links.map((link) => {
+                                        if (link.name === "Services" || link.name === "Resources") {
+                                            const categories = link.name === "Services" ? menuCategories : resourceCategories;
+                                            const isExpanded = expandedMobileCategory === link.name;
+                                            return (
+                                                <div key={link.name} className="group flex flex-col mb-1">
+                                                    <button 
+                                                        onClick={() => setExpandedMobileCategory(isExpanded ? null : link.name)}
+                                                        className="flex w-full cursor-pointer items-center justify-between overflow-hidden rounded-lg px-4 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
+                                                    >
+                                                        <span className="relative z-10">{link.name}</span>
+                                                        <MdKeyboardArrowDown className={cn("h-5 w-5 transition-transform duration-300 text-[#d4af37] opacity-80", isExpanded && "rotate-180")} />
+                                                    </button>
+                                                    
+                                                    <div className={cn("grid transition-all duration-300 ease-in-out", isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0")}>
+                                                        <div className="overflow-hidden">
+                                                            <div className="flex flex-col pl-2 gap-1 border-l-2 border-[#d4af37]/20 ml-6 pb-2 pt-1">
+                                                                {categories.flatMap(cat => cat.links).map(sublink => (
+                                                                    <Link
+                                                                        key={sublink.href}
+                                                                        href={sublink.href}
+                                                                        className="group relative overflow-hidden rounded-lg px-4 py-2.5 text-sm font-medium text-foreground/70 transition-colors hover:bg-foreground/5 hover:text-foreground"
+                                                                        onClick={() => setIsOpen(false)}
+                                                                    >
+                                                                        <div className="flex items-center justify-between">
+                                                                            <span className="relative z-10">{sublink.name}</span>
+                                                                            <MdArrowOutward className="h-3 w-3 text-[#d4af37] opacity-60 group-hover:opacity-100 transition-opacity" />
+                                                                        </div>
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
 
-                                                // Handle anchor links only when on the home page
-                                                if (link.href.startsWith("#") && pathname === "/") {
-                                                    e.preventDefault();
-                                                    const element = document.querySelector(`${link.href}`);
-                                                    if (element) {
-                                                        setTimeout(() => {
-                                                            element.scrollIntoView({ behavior: "smooth" });
-                                                        }, 100);
+                                        return (
+                                            <Link
+                                                key={link.href}
+                                                href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
+                                                className="group relative overflow-hidden rounded-lg px-4 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
+                                                onClick={(e) => {
+                                                    // Close the sheet
+                                                    setIsOpen(false);
+
+                                                    // Handle anchor links only when on the home page
+                                                    if (link.href.startsWith("#") && pathname === "/") {
+                                                        e.preventDefault();
+                                                        const element = document.querySelector(`${link.href}`);
+                                                        if (element) {
+                                                            setTimeout(() => {
+                                                                element.scrollIntoView({ behavior: "smooth" });
+                                                            }, 100);
+                                                        }
                                                     }
-                                                }
-                                            }}
-                                        >
-                                            <div className="flex items-center justify-between">
-                                                <span className="relative z-10">{link.name}</span>
-                                                <MdArrowOutward className="h-3 w-3 text-[#d4af37] opacity-60 group-hover:opacity-100 transition-opacity" />
-                                            </div>
-                                            <span className="absolute inset-y-0 left-0 w-1 origin-left scale-y-0 bg-gradient-to-b from-[#d4af37] to-[#f3d066] transition-transform group-hover:scale-y-100" />
-                                        </Link>
-                                    ))}
+                                                }}
+                                            >
+                                                <div className="flex items-center justify-between">
+                                                    <span className="relative z-10">{link.name}</span>
+                                                    <MdArrowOutward className="h-3 w-3 text-[#d4af37] opacity-60 group-hover:opacity-100 transition-opacity" />
+                                                </div>
+                                                <span className="absolute inset-y-0 left-0 w-1 origin-left scale-y-0 bg-gradient-to-b from-[#d4af37] to-[#f3d066] transition-transform group-hover:scale-y-100" />
+                                            </Link>
+                                        );
+                                    })}
                                 </nav>
                             </SheetContent>
                         </Sheet>
