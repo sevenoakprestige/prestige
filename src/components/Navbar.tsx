@@ -233,7 +233,7 @@ export default function Navbar() {
                                             const categories = link.name === "Services" ? menuCategories : resourceCategories;
                                             const isExpanded = expandedMobileCategory === link.name;
                                             return (
-                                                <div key={link.name} className="group flex flex-col mb-1">
+                                                <div key={link.name} className="group flex flex-col mb-1 shrink-0">
                                                     <button 
                                                         onClick={() => setExpandedMobileCategory(isExpanded ? null : link.name)}
                                                         className="flex w-full cursor-pointer items-center justify-between overflow-hidden rounded-lg px-4 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
@@ -269,7 +269,7 @@ export default function Navbar() {
                                             <Link
                                                 key={link.href}
                                                 href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
-                                                className="group relative overflow-hidden rounded-lg px-4 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
+                                                className="group relative overflow-hidden rounded-lg px-4 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground shrink-0"
                                                 onClick={(e) => {
                                                     // Close the sheet
                                                     setIsOpen(false);
