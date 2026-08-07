@@ -71,14 +71,15 @@ export default function BusinessBankingReadinessPage() {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-6">
-                        <Link
-                            href="#download"
+                        <a
+                            href="/flies/Executive Framework & Due Diligence Checklist for International Entrepreneurs.pdf"
+                            download
                             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-2xl shadow-[#d4af37]/30 transition-all duration-300 hover:scale-105 hover:shadow-[#d4af37]/50 active:scale-95 sm:text-lg"
                         >
                             <FaDownload className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                             <span>Download PDF Guide</span>
                             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#f3d066] to-[#d4af37] opacity-0 transition-opacity group-hover:opacity-100" />
-                        </Link>
+                        </a>
 
                         <Link
                             href="#framework"
@@ -311,9 +312,9 @@ export default function BusinessBankingReadinessPage() {
                             </p>
                             
                             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-                                <Link href="#download" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-xl transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                                <a href="/flies/Executive Framework & Due Diligence Checklist for International Entrepreneurs.pdf" download className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-xl transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
                                     <FaDownload className="text-lg" /> Download Executive PDF
-                                </Link>
+                                </a>
                                 <Link href="#framework" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-foreground/10 border border-border/50 px-8 py-4 text-base font-bold text-foreground transition-all hover:bg-foreground/20 hover:scale-[1.02]">
                                     Explore Framework <FaArrowRight className="text-lg" />
                                 </Link>
@@ -980,9 +981,9 @@ export default function BusinessBankingReadinessPage() {
                                 <p className="text-muted-foreground mb-10 text-lg leading-relaxed flex-grow">
                                     Preparing your business before approaching a financial institution can save valuable time and help ensure your documentation, corporate identity and operational information are organised.
                                 </p>
-                                <Link href="#" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-5 text-base font-bold text-black shadow-xl hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-[1.02] transition-all w-full sm:w-auto self-start">
+                                <a href="/flies/Executive Framework & Due Diligence Checklist for International Entrepreneurs.pdf" download className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-5 text-base font-bold text-black shadow-xl hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-[1.02] transition-all w-full sm:w-auto self-start">
                                     <FaDownload className="text-lg" /> Download Executive PDF
-                                </Link>
+                                </a>
                             </div>
                         </div>
 
