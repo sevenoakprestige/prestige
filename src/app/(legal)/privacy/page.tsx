@@ -15,18 +15,16 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen">
             {/* Header */}
-            <div className="border-b border-border/20 bg-background/80 backdrop-blur-xl">
-                <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
-                    <Link
-                        href="/"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-foreground/70 transition-colors hover:text-[#d4af37]"
-                    >
-                        <FaArrowLeft className="h-4 w-4" />
-                        Back to Home
-                    </Link>
-                </div>
+            <div className="mx-auto max-w-4xl px-4 pt-32 pb-4 sm:px-6 lg:px-8">
+                <Link
+                    href="/"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground/70 transition-colors hover:text-[#d4af37]"
+                >
+                    <FaArrowLeft className="h-4 w-4" />
+                    Back to Home
+                </Link>
             </div>
 
             {/* Content */}
@@ -42,7 +40,7 @@ export default function PrivacyPolicy() {
                     </div>
 
                     {/* Company Info */}
-                    <div className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                    <div className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                         <p className="font-semibold text-foreground">Seven Oak Prestige Ltd</p>
                         <p className="text-sm text-foreground/70">Last Updated: 2025</p>
                         <p className="text-sm text-foreground/70">
@@ -56,7 +54,7 @@ export default function PrivacyPolicy() {
                     {/* Policy Sections */}
                     <div className="space-y-6">
                         {/* Section 1 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">1. Introduction</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 This Privacy Policy explains how we collect, use, store, and protect your personal data in
@@ -65,7 +63,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 2 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">2. Data We Collect</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 We may collect personal and business information including identification documents for
@@ -74,7 +72,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 3 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">3. How We Use Your Data</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 Your data is used to provide services, verify identity, process payments, and improve our website.
@@ -82,7 +80,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 4 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">4. Legal Basis for Processing</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 We process data based on contract necessity, legal obligations, legitimate interests, and consent.
@@ -90,7 +88,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 5 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">5. Data Sharing</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 We may share data with authorities, payment processors, and compliance partners. We never sell
@@ -99,7 +97,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 6 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">6. International Transfers</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 Data transfers outside the UK/EU are secured and GDPR-compliant.
@@ -107,7 +105,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 7 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">7. Data Security</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 We apply encryption, secure servers, and access controls.
@@ -115,7 +113,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 8 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">8. Data Retention</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 Data is retained for a minimum of 5 years or as legally required.
@@ -123,7 +121,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 9 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">9. Your Rights</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 You may access, correct, delete, or object to processing of your data.
@@ -131,7 +129,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 10 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">10. Cookies</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 Cookies are used for analytics and website functionality.
@@ -139,7 +137,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 11 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">11. Minimum Age</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 Services are intended for individuals aged 18 or older.
@@ -147,7 +145,7 @@ export default function PrivacyPolicy() {
                         </section>
 
                         {/* Section 12 */}
-                        <section className="rounded-xl border border-border/40 bg-card/50 p-6 backdrop-blur-sm">
+                        <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">12. Changes to This Policy</h2>
                             <p className="leading-relaxed text-foreground/80">
                                 Updates will be published on this page.
