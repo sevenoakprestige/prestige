@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   experimental: {
     // Only bundle the specific icons used, not the entire icon libraries
-    optimizePackageImports: ["react-icons", "lucide-react", "@sanity/icons"],
+    optimizePackageImports: ["react-icons", "lucide-react"],
   },
   images: {
     qualities: [25, 50, 75, 90, 100],
