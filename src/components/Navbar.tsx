@@ -23,11 +23,10 @@ const links = [
     { name: "Services", href: "#services" },
     { name: "Company Checker", href: "#checker" },
     { name: "Pricing", href: "#pricing" },
-    { name: "Consultation", href: "/consultation" },
     { name: "Blogs", href: "/blog" },
     { name: "Countries", href: "/countries" },
     { name: "Resources", href: "#resources" },
-    { name: "Contact", href: "#contact" },
+    { name: "Connect", href: "#connect" },
 ];
 
 const menuCategories = [
@@ -67,7 +66,17 @@ const countryCategories = [
     {
         title: "International Founders",
         links: [
-            { name: "🇮🇳 India", href: "/countries/india/uk-company-formation" },
+            { name: "India", href: "/countries/india/uk-company-formation", icon: "/assets/flags/in.svg" },
+        ]
+    }
+];
+
+const connectCategories = [
+    {
+        title: "Get in Touch",
+        links: [
+            { name: "Contact", href: "#contact" },
+            { name: "Consultation", href: "/consultation" },
         ]
     }
 ];
@@ -112,6 +121,31 @@ export default function Navbar() {
         return null;
     }
 
+    const getDropdownLabel = (linkName: string) => {
+        if (linkName === "Countries") {
+            const activeCountry = countryCategories
+                .flatMap(c => c.links)
+                .find(l => {
+                    const parts = l.href.split('/');
+                    if (parts.length >= 3) {
+                        return pathname.startsWith(`/${parts[1]}/${parts[2]}`);
+                    }
+                    return pathname.startsWith(l.href);
+                });
+            if (activeCountry) {
+                return (
+                    <span className="flex items-center gap-1.5">
+                        {activeCountry.icon && (
+                            <Image src={activeCountry.icon} alt={activeCountry.name} width={18} height={14} className="rounded-sm object-cover" />
+                        )}
+                        <span>{activeCountry.name}</span>
+                    </span>
+                );
+            }
+        }
+        return linkName;
+    };
+
     return (
         <header
             className={cn(
@@ -151,13 +185,13 @@ export default function Navbar() {
                         <ul className="flex items-center gap-1">
                             {links.filter((link) => link.name !== "Company Checker").map((link) => (
                                 <li key={link.href}>
-                                    {link.name === "Services" || link.name === "Resources" || link.name === "Countries" ? (
+                                    {link.name === "Services" || link.name === "Resources" || link.name === "Countries" || link.name === "Connect" ? (
                                         <div className="group relative">
                                             <Link
                                                 href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
                                                 className="relative flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
                                             >
-                                                <span className="relative z-10">{link.name}</span>
+                                                <span className="relative z-10">{getDropdownLabel(link.name)}</span>
                                                 <MdKeyboardArrowDown className="relative z-10 h-4 w-4 transition-transform group-hover:rotate-180" />
                                                 <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-[#d4af37] to-[#f3d066] transition-transform group-hover:scale-x-100" />
                                             </Link>
@@ -165,7 +199,7 @@ export default function Navbar() {
                                             {/* Dropdown Mega Menu */}
                                             <div className={cn("absolute left-1/2 -translate-x-1/2 top-full hidden pt-4 group-hover:block opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50", link.name === "Services" ? "w-[600px]" : "w-[400px]")}>
                                                 <div className={cn("rounded-2xl border border-[#d4af37]/20 bg-background p-8 shadow-2xl backdrop-blur-2xl supports-[backdrop-filter]:bg-background/95 grid gap-12", link.name === "Services" ? "grid-cols-2" : "grid-cols-1")}>
-                                                    {(link.name === "Services" ? menuCategories : link.name === "Countries" ? countryCategories : resourceCategories).map((category) => (
+                                                    {(link.name === "Services" ? menuCategories : link.name === "Countries" ? countryCategories : link.name === "Connect" ? connectCategories : resourceCategories).map((category) => (
                                                         <div key={category.title}>
                                                             <h3 className="mb-5 text-lg font-bold text-foreground">{category.title}</h3>
                                                             <ul className="flex flex-col gap-3.5">
@@ -176,7 +210,10 @@ export default function Navbar() {
                                                                             className="group/link flex items-center gap-2.5 text-sm text-foreground/80 transition-colors hover:text-foreground"
                                                                         >
                                                                             <span className="text-foreground/40 font-medium transition-transform group-hover/link:translate-x-1 group-hover/link:text-[#d4af37]">›</span>
-                                                                            <span className="group-hover/link:text-[#d4af37] transition-colors">{sublink.name}</span>
+                                                                            <span className="group-hover/link:text-[#d4af37] transition-colors flex items-center gap-2">
+                                                                                {(sublink as any).icon && <Image src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
+                                                                                {sublink.name}
+                                                                            </span>
                                                                         </Link>
                                                                     </li>
                                                                 ))}
@@ -191,7 +228,7 @@ export default function Navbar() {
                                             href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
                                             className="group relative block px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
                                         >
-                                            <span className="relative z-10">{link.name}</span>
+                                            <span className="relative z-10">{getDropdownLabel(link.name)}</span>
                                             <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-[#d4af37] to-[#f3d066] transition-transform group-hover:scale-x-100" />
                                         </Link>
                                     )}
@@ -238,8 +275,8 @@ export default function Navbar() {
                                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
                                 <nav className="mt-8 flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-120px)] pb-8">
                                     {links.map((link) => {
-                                        if (link.name === "Services" || link.name === "Resources" || link.name === "Countries") {
-                                            const categories = link.name === "Services" ? menuCategories : link.name === "Countries" ? countryCategories : resourceCategories;
+                                        if (link.name === "Services" || link.name === "Resources" || link.name === "Countries" || link.name === "Connect") {
+                                            const categories = link.name === "Services" ? menuCategories : link.name === "Countries" ? countryCategories : link.name === "Connect" ? connectCategories : resourceCategories;
                                             const isExpanded = expandedMobileCategory === link.name;
                                             return (
                                                 <div key={link.name} className="group flex flex-col mb-1 shrink-0">
@@ -247,7 +284,7 @@ export default function Navbar() {
                                                         onClick={() => setExpandedMobileCategory(isExpanded ? null : link.name)}
                                                         className="flex w-full cursor-pointer items-center justify-between overflow-hidden rounded-lg px-4 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
                                                     >
-                                                        <span className="relative z-10">{link.name}</span>
+                                                        <span className="relative z-10">{getDropdownLabel(link.name)}</span>
                                                         <MdKeyboardArrowDown className={cn("h-5 w-5 transition-transform duration-300 text-[#d4af37] opacity-80", isExpanded && "rotate-180")} />
                                                     </button>
                                                     
@@ -262,7 +299,10 @@ export default function Navbar() {
                                                                         onClick={() => setIsOpen(false)}
                                                                     >
                                                                         <div className="flex items-center justify-between">
-                                                                            <span className="relative z-10">{sublink.name}</span>
+                                                                            <span className="relative z-10 flex items-center gap-2">
+                                                                                {(sublink as any).icon && <Image src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
+                                                                                {sublink.name}
+                                                                            </span>
                                                                             <MdArrowOutward className="h-3 w-3 text-[#d4af37] opacity-60 group-hover:opacity-100 transition-opacity" />
                                                                         </div>
                                                                     </Link>

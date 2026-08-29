@@ -109,8 +109,9 @@ export default function IndiaSpecialist() {
             </section>
 
             {/* SECTION 15 - WHY THE UK? */}
-            <section className="py-16 sm:py-24 bg-muted/30">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <section className="relative overflow-hidden py-16 sm:py-24">
+                <div className="premium-section-bg"></div>
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="mb-12 text-center">
                         <h2 className="services-heading text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                             Why Indian Entrepreneurs Consider a UK Company
@@ -144,14 +145,15 @@ export default function IndiaSpecialist() {
                                 desc: "Useful where the business intends to establish genuine commercial activity in the United Kingdom."
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-background rounded-xl p-6 border shadow-sm flex gap-4">
-                                <div className="mt-1">
-                                    <FaGlobe className="text-[#d4af37] h-5 w-5" />
+                            <div key={idx} className="group premium-service-card h-full">
+                                <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
+                                
+                                <div className="mb-4 inline-flex rounded-xl bg-[#d4af37]/10 p-3 text-[#d4af37] transition-transform duration-500 group-hover:scale-110 group-hover:bg-[#d4af37]/20">
+                                    <FaGlobe className="h-6 w-6" />
                                 </div>
-                                <div>
-                                    <h3 className="font-bold mb-2">{item.title}</h3>
-                                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                                </div>
+                                
+                                <h3 className="mb-3 text-xl font-bold text-foreground group-hover:text-[#d4af37] transition-colors">{item.title}</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
                     </div>
