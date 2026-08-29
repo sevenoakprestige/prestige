@@ -50,13 +50,16 @@ export default function IndiaProcess() {
                                 icon: FaShieldAlt
                             }
                         ].map((doc, idx) => (
-                            <div key={idx} className="flex gap-4 p-5 rounded-xl border trust-card-bg">
-                                <div className="mt-1">
-                                    <doc.icon className="h-6 w-6 text-[#d4af37]" />
+                            <div key={idx} className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
+                                <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
+                                
+                                <div className="mb-6 flex shrink-0 h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30">
+                                    <doc.icon className="h-6 w-6" />
                                 </div>
+                                
                                 <div>
-                                    <h3 className="font-bold mb-1">{doc.title}</h3>
-                                    <p className="text-sm text-muted-foreground">{doc.desc}</p>
+                                    <h3 className="font-bold mb-2 text-lg text-foreground">{doc.title}</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">{doc.desc}</p>
                                 </div>
                             </div>
                         ))}

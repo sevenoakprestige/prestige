@@ -34,22 +34,7 @@ export default async function IndiaLandingPage() {
             
             <IndiaFeatures />
             
-            <div className="bg-background py-16">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="mb-10 text-center">
-                        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                            Check if Your UK Company Name Is Available
-                        </h2>
-                        <p className="mt-4 text-lg text-muted-foreground">
-                            Have a company name in mind? Check whether the proposed name appears available before starting your application.
-                        </p>
-                    </div>
-                    <CompanyChecker />
-                    <p className="mt-6 text-center text-xs text-muted-foreground max-w-3xl mx-auto">
-                        Name-check results are indicative only. Companies House makes the final decision on whether a proposed company name is acceptable. Certain sensitive words or expressions may require approval.
-                    </p>
-                </div>
-            </div>
+            <CompanyChecker />
 
             <IndiaPricing inrRate={inrRate} />
             
