@@ -90,15 +90,15 @@ export default function IndiaFeatures() {
                             </Button>
                         </div>
                         <div className="md:w-1/2 w-full">
-                            <div className="rounded-2xl bg-gradient-to-br from-[#d4af37]/20 to-transparent p-1">
-                                <div className="rounded-xl trust-card-bg p-8 h-full shadow-xl">
-                                    <h3 className="text-xl font-bold mb-4">Structure Facts</h3>
-                                    <div className="space-y-4 text-sm text-muted-foreground">
-                                        <p><strong>Company Type:</strong> Private Limited Company (Ltd)</p>
-                                        <p><strong>Minimum Directors:</strong> 1 (can be Indian resident)</p>
-                                        <p><strong>Minimum Shareholders:</strong> 1 (can be the same person)</p>
-                                        <p><strong>Capital:</strong> Typically £1 (1 share of £1)</p>
-                                    </div>
+                            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)] h-full">
+                                <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
+                                
+                                <h3 className="text-xl font-bold mb-6 text-foreground">Structure Facts</h3>
+                                <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+                                    <p><strong className="text-foreground/90">Company Type:</strong> Private Limited Company (Ltd)</p>
+                                    <p><strong className="text-foreground/90">Minimum Directors:</strong> 1 (can be Indian resident)</p>
+                                    <p><strong className="text-foreground/90">Minimum Shareholders:</strong> 1 (can be the same person)</p>
+                                    <p><strong className="text-foreground/90">Capital:</strong> Typically £1 (1 share of £1)</p>
                                 </div>
                             </div>
                         </div>

@@ -140,10 +140,10 @@ export default function IndiaProcess() {
                     </p>
                     
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                        <div className="trust-card-bg p-4 rounded-xl border text-sm font-semibold">Secure Online Payment</div>
-                        <div className="trust-card-bg p-4 rounded-xl border text-sm font-semibold">International Debit/Credit</div>
-                        <div className="trust-card-bg p-4 rounded-xl border text-sm font-semibold">Bank Transfer</div>
-                        <div className="trust-card-bg p-4 rounded-xl border text-sm font-semibold">Formal Invoice Provided</div>
+                        <div className="group premium-service-card h-24 text-sm font-semibold text-foreground">Secure Online Payment</div>
+                        <div className="group premium-service-card h-24 text-sm font-semibold text-foreground">International Debit/Credit</div>
+                        <div className="group premium-service-card h-24 text-sm font-semibold text-foreground">Bank Transfer</div>
+                        <div className="group premium-service-card h-24 text-sm font-semibold text-foreground">Formal Invoice Provided</div>
                     </div>
                 </div>
             </section>
