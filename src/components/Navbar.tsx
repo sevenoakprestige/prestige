@@ -63,6 +63,15 @@ const resourceCategories = [
     }
 ];
 
+const countryCategories = [
+    {
+        title: "International Founders",
+        links: [
+            { name: "🇮🇳 India", href: "/countries/india/uk-company-formation" },
+        ]
+    }
+];
+
 export default function Navbar() {
     const { theme, resolvedTheme } = useTheme();
     const pathname = usePathname();
@@ -142,7 +151,7 @@ export default function Navbar() {
                         <ul className="flex items-center gap-1">
                             {links.filter((link) => link.name !== "Company Checker").map((link) => (
                                 <li key={link.href}>
-                                    {link.name === "Services" || link.name === "Resources" ? (
+                                    {link.name === "Services" || link.name === "Resources" || link.name === "Countries" ? (
                                         <div className="group relative">
                                             <Link
                                                 href={link.href.startsWith("#") && pathname !== "/" ? "/" + link.href : link.href}
@@ -156,7 +165,7 @@ export default function Navbar() {
                                             {/* Dropdown Mega Menu */}
                                             <div className={cn("absolute left-1/2 -translate-x-1/2 top-full hidden pt-4 group-hover:block opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50", link.name === "Services" ? "w-[600px]" : "w-[400px]")}>
                                                 <div className={cn("rounded-2xl border border-[#d4af37]/20 bg-background p-8 shadow-2xl backdrop-blur-2xl supports-[backdrop-filter]:bg-background/95 grid gap-12", link.name === "Services" ? "grid-cols-2" : "grid-cols-1")}>
-                                                    {(link.name === "Services" ? menuCategories : resourceCategories).map((category) => (
+                                                    {(link.name === "Services" ? menuCategories : link.name === "Countries" ? countryCategories : resourceCategories).map((category) => (
                                                         <div key={category.title}>
                                                             <h3 className="mb-5 text-lg font-bold text-foreground">{category.title}</h3>
                                                             <ul className="flex flex-col gap-3.5">
@@ -229,8 +238,8 @@ export default function Navbar() {
                                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
                                 <nav className="mt-8 flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-120px)] pb-8">
                                     {links.map((link) => {
-                                        if (link.name === "Services" || link.name === "Resources") {
-                                            const categories = link.name === "Services" ? menuCategories : resourceCategories;
+                                        if (link.name === "Services" || link.name === "Resources" || link.name === "Countries") {
+                                            const categories = link.name === "Services" ? menuCategories : link.name === "Countries" ? countryCategories : resourceCategories;
                                             const isExpanded = expandedMobileCategory === link.name;
                                             return (
                                                 <div key={link.name} className="group flex flex-col mb-1 shrink-0">

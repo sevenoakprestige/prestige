@@ -221,17 +221,17 @@ export default function FAQ() {
                         return (
                             <div
                                 key={itemIndex}
-                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45"
+                                className="group premium-faq-item"
                             >
                                 {/* Question Button */}
                                 <button
                                     onClick={() => toggleItem(itemIndex)}
-                                    className="faq-question flex w-full items-start justify-between gap-4 p-4 text-left transition-colors hover:bg-[#d4af37]/5 sm:p-5"
+                                    className="premium-faq-question"
                                 >
-                                    <span className="flex-1 font-semibold">
+                                    <span className="premium-faq-question-text">
                                         {item.question}
                                     </span>
-                                    <span className="flex-shrink-0 text-[#d4af37]">
+                                    <span className="premium-faq-icon">
                                         {isOpen ? (
                                             <FaMinus className="h-4 w-4" />
                                         ) : (
@@ -242,11 +242,11 @@ export default function FAQ() {
 
                                 {/* Answer */}
                                 <div
-                                    className={`faq-answer overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                                    className={`premium-faq-answer-wrapper ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                                         }`}
                                 >
-                                    <div className="border-t border-border/40 p-4 sm:p-5">
-                                        <p className="leading-relaxed">{item.answer}</p>
+                                    <div className="premium-faq-answer-inner">
+                                        <p className="premium-faq-answer-text">{item.answer}</p>
                                     </div>
                                 </div>
                             </div>
