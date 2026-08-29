@@ -188,7 +188,7 @@ export default function IndiaFeatures() {
                             "Education Businesses",
                             "E-commerce & Shopify"
                         ].map((niche, idx) => (
-                            <div key={idx} className="trust-card-bg flex items-center justify-center p-4 text-center rounded-lg border h-24">
+                            <div key={idx} className="group premium-service-card h-32">
                                 <span className="font-semibold text-sm">{niche}</span>
                             </div>
                         ))}

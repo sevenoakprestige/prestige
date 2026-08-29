@@ -238,7 +238,7 @@ export default function Services() {
                                 <Link
                                     key={index}
                                     href={(service as any).href}
-                                    className="group flex h-[160px] w-[150px] flex-col items-center justify-center gap-5 rounded-2xl border border-[#d4af37]/25 bg-transparent p-5 text-center transition-all duration-300 hover:border-[#d4af37]/60 hover:bg-[#d4af37]/[0.04] hover:shadow-[0_0_20px_rgba(212,175,55,0.07)] sm:h-[170px] sm:w-[160px]"
+                                    className="group premium-service-card h-[160px] w-[150px] sm:h-[170px] sm:w-[160px]"
                                 >
                                     {cardContent}
                                 </Link>
@@ -248,7 +248,7 @@ export default function Services() {
                         return (
                             <div
                                 key={index}
-                                className="group flex h-[160px] w-[150px] flex-col items-center justify-center gap-5 rounded-2xl border border-[#d4af37]/25 bg-transparent p-5 text-center transition-all duration-300 hover:border-[#d4af37]/60 hover:bg-[#d4af37]/[0.04] hover:shadow-[0_0_20px_rgba(212,175,55,0.07)] sm:h-[170px] sm:w-[160px]"
+                                className="group premium-service-card h-[160px] w-[150px] sm:h-[170px] sm:w-[160px]"
                             >
                                 {cardContent}
                             </div>

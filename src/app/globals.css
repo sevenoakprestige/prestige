@@ -3204,3 +3204,10 @@ RESPONSIVE DESIGN
 .premium-faq-answer-text {
     @apply leading-relaxed text-muted-foreground;
 }
+
+/* ================================
+   PREMIUM SERVICE CARD
+================================= */
+.premium-service-card {
+    @apply flex flex-col items-center justify-center gap-5 rounded-2xl border border-[#d4af37]/25 bg-transparent p-5 text-center transition-all duration-300 hover:border-[#d4af37]/60 hover:bg-[#d4af37]/[0.04] hover:shadow-[0_0_20px_rgba(212,175,55,0.07)];
+}

@@ -66,6 +66,10 @@ For premium cards, trust signals, and specific thematic elements, the site relie
 - **`.checker-section` & `.checker-container`:** Wrappers for interactive forms.
 - **`.checker-input`:** A highly styled input field with focus rings and disabled states.
 
+### Service Cards
+- **Premium Service Card:** For grids representing services or niches (like the home page's "Our Core Services" or the India page's "Built for Modern Indian Entrepreneurs"), use the `.premium-service-card` class. This handles all hover transitions, borders, glows, and flex alignments natively.
+  - Usage: `<div className="premium-service-card">...</div>`. You may append explicit `h-*` and `w-*` tailwind classes if you require strict sizing.
+
 ### FAQ UI
 - **Premium FAQ Component:** For FAQ accordions across the site, use the standard `.premium-faq-item` class to ensure visual consistency with the dark/light card designs.
   - `premium-faq-item`: Wrapper for the individual FAQ.
