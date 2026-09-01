@@ -1,149 +1,119 @@
-import { FaPassport, FaHome, FaBriefcase, FaUser, FaBuilding, FaShieldAlt } from "react-icons/fa";
+import { FaPassport, FaHome, FaFileSignature, FaBriefcase, FaExclamationCircle } from "react-icons/fa";
 
 export default function IndiaProcess() {
     return (
         <>
-            {/* SECTION 8 - WHAT DOCUMENTS DO I NEED? */}
-            <section className="relative overflow-hidden py-16 sm:py-24">
+            {/* WHAT YOU NEED TO GET STARTED */}
+            <section className="py-16 sm:py-20 relative overflow-hidden">
                 <div className="premium-section-bg"></div>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="mb-12 text-center">
-                        <h2 className="why-choose-heading text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-                            Documents Required From Indian Founders
+                        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-10">
+                            What You Need to Get Started
                         </h2>
-                        <div className="mx-auto h-1 w-24 bg-[#d4af37] mb-6"></div>
-                        <p className="text-muted-foreground text-sm max-w-2xl mx-auto font-medium">
-                            Requirements depend on the individual founder, selected service and business activity. We will tell you exactly what is required before submission.
-                        </p>
                     </div>
 
-                    <div className="grid gap-6 md:grid-cols-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
                             {
-                                title: "Passport / Identity Document",
-                                desc: "A valid accepted identity document for the director, shareholder and relevant PSC.",
+                                title: "Valid passport",
+                                desc: "For each director and shareholder",
                                 icon: FaPassport
                             },
                             {
-                                title: "Proof of Residential Address",
-                                desc: "Recent evidence of the founder’s genuine Indian residential address where required for KYC/compliance. Examples may include accepted bank statement, utility bill, government-issued address document.",
+                                title: "Proof of address",
+                                desc: "Bank statement, utility bill or landline bill, dated within 3 months",
                                 icon: FaHome
                             },
                             {
-                                title: "Business Activity Information",
-                                desc: "We need to understand what the company will do; products/services; target customers; countries of operation; expected business model.",
+                                title: "Proposed company name",
+                                desc: "One or two preferred options",
+                                icon: FaFileSignature
+                            },
+                            {
+                                title: "Business activity",
+                                desc: "A short description of what the company will do",
                                 icon: FaBriefcase
-                            },
-                            {
-                                title: "Director / Shareholder Details",
-                                desc: "Including full legal name; date of birth; nationality; residential address; shareholding percentage; ownership/control information.",
-                                icon: FaUser
-                            },
-                            {
-                                title: "Company Details",
-                                desc: "Proposed company name; business activity; email; share structure; proposed SIC codes.",
-                                icon: FaBuilding
-                            },
-                            {
-                                title: "Additional Compliance Documents",
-                                desc: "Depending on the activity, banking, VAT or risk profile, additional evidence may include source of funds; source of wealth; contracts; website; supplier/customer information; existing company documents.",
-                                icon: FaShieldAlt
                             }
                         ].map((doc, idx) => (
-                            <div key={idx} className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
-                                <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
-                                
-                                <div className="mb-6 flex shrink-0 h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30">
-                                    <doc.icon className="h-6 w-6" />
+                            <div key={idx} className="premium-service-card flex flex-col items-center text-center p-6">
+                                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30 mb-5">
+                                    <doc.icon className="size-7" />
                                 </div>
-                                
-                                <div>
-                                    <h3 className="font-bold mb-2 text-lg text-foreground">{doc.title}</h3>
-                                    <p className="text-sm text-muted-foreground leading-relaxed">{doc.desc}</p>
-                                </div>
+                                <h3 className="font-bold text-lg text-foreground mb-2">{doc.title}</h3>
+                                {doc.desc && <p className="text-sm text-muted-foreground">{doc.desc}</p>}
                             </div>
                         ))}
                     </div>
+
+                    <div className="mt-8 text-center">
+                        <p className="text-foreground font-medium">That is enough to begin your formation review.</p>
+                    </div>
                 </div>
             </section>
 
-            {/* SECTION 9 - HOW IT WORKS */}
-            <section className="relative overflow-hidden py-16 sm:py-24">
+            {/* HOW IT WORKS TIMELINE */}
+            <section className="py-16 sm:py-20 border-t border-border relative overflow-hidden">
                 <div className="premium-section-bg"></div>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="mb-16 text-center">
-                        <h2 className="how-it-works-heading text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-                            From India to a UK Company: How It Works
+                        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">
+                            How UK Company Formation Works from India
                         </h2>
                     </div>
 
-                    <div className="relative max-w-3xl mx-auto">
-                        <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-[#d4af37]/30 hidden md:block"></div>
-                        
-                        <div className="space-y-8">
+                    <div className="relative max-w-6xl mx-auto">
+                        {/* Connecting Line (Desktop) */}
+                        <div className="hidden lg:block absolute top-[28px] left-[5%] right-[5%] h-[2px] bg-gradient-to-r from-[#d4af37]/10 via-[#d4af37]/50 to-[#d4af37]/10 z-0"></div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 lg:gap-4 relative z-10">
                             {[
-                                {
-                                    step: "01",
-                                    title: "Initial Consultation",
-                                    desc: "Tell us about your business, intended activity, ownership and objectives."
-                                },
-                                {
-                                    step: "02",
-                                    title: "Company Name & Structure Review",
-                                    desc: "We check the proposed company name and confirm the director, shareholder, share and SIC-code structure."
-                                },
-                                {
-                                    step: "03",
-                                    title: "KYC & Identity Verification",
-                                    desc: "The required identity and compliance documents are collected and reviewed."
-                                },
-                                {
-                                    step: "04",
-                                    title: "Companies House Submission",
-                                    desc: "Your incorporation application is prepared and submitted to Companies House."
-                                },
-                                {
-                                    step: "05",
-                                    title: "Company Documents",
-                                    desc: "After successful incorporation, you receive the relevant company documents and setup information."
-                                },
-                                {
-                                    step: "06",
-                                    title: "Post-Incorporation Support",
-                                    desc: "Depending on your package/business: registered office; service address; banking readiness; VAT; EORI; post-incorporation guidance."
-                                }
-                            ].map((item, idx) => (
-                                <div key={idx} className="relative flex items-start gap-6">
-                                    <div className="how-it-works-icon flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#d4af37] to-[#f3d066] text-xl font-bold text-black shadow-lg z-10" style={{ animationDelay: `${idx * 100}ms` }}>
-                                        {item.step}
+                                { title: "Choose your package", doc: null },
+                                { title: "Make payment", doc: null },
+                                { title: "Receive onboarding email", doc: null },
+                                { title: "Submit your documents", doc: "Certificate of Incorporation" },
+                                { title: "KYC & identity verification", doc: "Memorandum & Articles" },
+                                { title: "We prepare and submit the incorporation", doc: "Share Certificate" },
+                                { title: "Receive your company documents", doc: "Company Register" }
+                            ].map((step, idx) => (
+                                <div key={idx} className="flex flex-row lg:flex-col items-center lg:text-center gap-4 lg:gap-4 relative h-full">
+                                    {/* Number Circle */}
+                                    <div className="flex h-14 w-14 lg:h-14 lg:w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-xl font-bold text-black z-10 shadow-lg shadow-[#d4af37]/20 relative">
+                                        {idx + 1}
                                     </div>
-                                    <div className="pt-3">
-                                        <h3 className="how-it-works-title text-xl font-bold mb-2">{item.title}</h3>
-                                        <p className="how-it-works-description">{item.desc}</p>
+                                    <div className="flex-1 lg:w-full flex flex-col h-full">
+                                        <p className="text-sm font-semibold text-foreground leading-tight mb-2">{step.title}</p>
+                                        
+                                        {/* Document Box */}
+                                        {step.doc && (
+                                            <div className="flex mt-2 lg:mt-auto pt-2 lg:pt-6 w-full lg:justify-center relative">
+                                                {/* Vertical line connecting text to box (Desktop only) */}
+                                                <div className="hidden lg:block absolute top-0 left-1/2 w-[2px] h-6 -translate-x-1/2 bg-gradient-to-b from-[#d4af37]/50 to-[#d4af37]/10 z-0"></div>
+                                                <div className="premium-standard-card w-full lg:w-[130%] lg:-ml-[15%] text-[11px] text-muted-foreground z-10 relative flex-row items-center justify-start lg:justify-center gap-1.5 text-left lg:text-center leading-tight !p-3">
+                                                    <FaFileSignature className="text-[#d4af37] shrink-0 text-lg" />
+                                                    <span>{step.doc}</span>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
+                                    
+                                    {/* Mobile Connecting Line */}
+                                    {idx < 6 && (
+                                        <div className="lg:hidden absolute top-[3.5rem] left-[27px] w-[2px] h-[calc(100%+2rem)] bg-gradient-to-b from-[#d4af37]/50 to-[#d4af37]/10 z-0"></div>
+                                    )}
                                 </div>
                             ))}
                         </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* SECTION 10 - HOW TO PAY FROM INDIA */}
-            <section className="relative overflow-hidden py-16">
-                <div className="premium-section-bg"></div>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="why-choose-heading text-2xl font-bold tracking-tight sm:text-3xl mb-4">
-                        Simple and Secure Payment From India
-                    </h2>
-                    <p className="why-choose-description mb-10 max-w-2xl mx-auto">
-                        Indian clients can pay for their Seven Oak Prestige services using the payment method available on their invoice or secure payment link.
-                    </p>
-                    
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                        <div className="group premium-service-card h-24 text-sm font-semibold text-foreground">Secure Online Payment</div>
-                        <div className="group premium-service-card h-24 text-sm font-semibold text-foreground">International Debit/Credit</div>
-                        <div className="group premium-service-card h-24 text-sm font-semibold text-foreground">Bank Transfer</div>
-                        <div className="group premium-service-card h-24 text-sm font-semibold text-foreground">Formal Invoice Provided</div>
+
+
+                        {/* Warning Box */}
+                        <div className="mt-16 flex items-start gap-3 bg-amber-50/50 dark:bg-amber-950/20 p-4 rounded-xl border border-amber-200 dark:border-amber-900/50 max-w-4xl mx-auto">
+                            <FaExclamationCircle className="text-[#d4af37] w-5 h-5 shrink-0 mt-0.5" />
+                            <p className="text-sm text-foreground/80 font-medium">
+                                HMRC Corporation Tax correspondence, including the UTR, is typically received after incorporation and forwarded in line with the selected service.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>

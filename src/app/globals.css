@@ -3211,3 +3211,29 @@ RESPONSIVE DESIGN
 .premium-service-card {
     @apply flex flex-col items-center justify-center gap-5 rounded-2xl border border-[#d4af37]/25 bg-transparent p-5 text-center transition-all duration-300 hover:border-[#d4af37]/60 hover:bg-[#d4af37]/[0.04] hover:shadow-[0_0_20px_rgba(212,175,55,0.07)];
 }
+
+/* ================================
+   PREMIUM STANDARD CARD
+================================= */
+.premium-standard-card {
+    @apply relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500;
+}
+
+.premium-standard-card:hover {
+    @apply -translate-y-1.5 border-[#d4af37]/45;
+    box-shadow: 0 20px 50px rgba(212, 175, 55, 0.06);
+}
+
+.premium-standard-card::before {
+    content: '';
+    @apply absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500;
+    pointer-events: none;
+}
+
+.premium-standard-card:hover::before {
+    @apply translate-x-4 -translate-y-4;
+}
+
+.premium-icon-wrapper {
+    @apply flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30;
+}

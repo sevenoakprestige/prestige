@@ -39,11 +39,20 @@ The site uses a Shadcn-based UI component library located in `src/components/ui`
 For premium cards, trust signals, and specific thematic elements, the site relies on highly tuned CSS classes from `globals.css` rather than inline Tailwind utilities. **Always use these classes for layout components instead of rebuilding them with Tailwind.**
 
 ### Card Styles
-- **Premium Standard Card (e.g. Services, Pricing):**
-  - **Wrapper Class:** `group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]`
-  - **Corner Accent:** Add this inside the card wrapper for a subtle gold glow on hover: `<div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>`
-  - **Premium Icon Wrapper:** `<div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30">`
-  - **Usage Instruction:** Use this exact class combination for feature cards, pricing tiers, and main offering cards to ensure consistency.
+- **Premium Standard Card (e.g. Services, Pricing, High-End Features):**
+  - **Wrapper Class:** `.premium-standard-card` (Defined in `globals.css`)
+  - **Premium Icon Wrapper:** `.premium-icon-wrapper` (Defined in `globals.css`)
+  - **Usage Instruction:** Use this exact class combination for feature cards, pricing tiers, and main offering cards to ensure consistency. You no longer need to copy/paste the massive tailwind string or the inline HTML `div` for the corner glow, as it's now all handled by `::before` pseudo-elements inside the class!
+  - **Example:**
+    ```tsx
+    <div className="premium-standard-card">
+        <div className="premium-icon-wrapper">
+            <FaCheckCircle className="size-6" />
+        </div>
+        <h3>Title</h3>
+        <p>Description</p>
+    </div>
+    ```
 
 - **`.service-card` / `.why-choose-card` (Legacy/Alternative):**
   - Use the Premium Standard Card approach above instead, or rely on these legacy CSS classes if rebuilding is not feasible.
@@ -53,11 +62,14 @@ For premium cards, trust signals, and specific thematic elements, the site relie
   - **Usage Instruction:** Use for secondary cards. Includes hover animations similar to service cards.
 
 ### Section Backgrounds & Structural Elements
-- **Standard Section Background Decoration:** For standard sections (like features, services), apply `relative overflow-hidden` to the section, and include this background element behind the content (z-index -10):
+- **Standard Section Backgrounds:** For standard sections (like features, services, FAQs), **DO NOT hardcode background colors** (like `bg-white`, `bg-black`, `bg-background`, or `bg-[#001328]`) on the `<section>` tag.
+  - Leave the section background transparent (e.g., `<section className="py-16 sm:py-20 relative overflow-hidden">`) so the global gradient body background shows through for a premium, unified feel.
+  - **Text Colors:** Because the background is dynamic (light/dark mode), **never use hardcoded text colors** like `text-white` or `text-gray-300` in these standard sections. Always use the theme variables: `text-foreground` for main text and headings, and `text-muted-foreground` for paragraphs/descriptions.
+- **Section Background Decoration:** To add the subtle glowing orbs behind the content, include this empty div as the first child of the section (make sure the section has `relative overflow-hidden` and the inner content container has `relative z-10`):
   ```tsx
   <div className="premium-section-bg"></div>
   ```
-  - **Important Color Instruction:** The `.premium-section-bg` class is defined in `globals.css` and automatically handles the correct colors (`rgba(212, 175, 55, 0.03)` for light mode and `rgba(212, 175, 55, 0.05)` for dark mode). Use this reusable class instead of hardcoding raw Tailwind utility chains.
+  - **Important Color Instruction:** The `.premium-section-bg` class is defined in `globals.css` and automatically handles the correct background blur and colors (`rgba(212, 175, 55, 0.03)` for light mode and `rgba(212, 175, 55, 0.05)` for dark mode). Use this reusable class instead of hardcoding raw Tailwind utility chains.
 - **`.hero-gradient`:** Apply to the hero section wrapper for the premium background.
 - **`.hero-heading` / `.hero-text` / `.hero-secondary-btn`:** Use these for text within the hero to respect dark/light mode rules automatically.
 - **Animated Background Elements:** Use `.hero-circle-1` and `.hero-circle-2` for floating background decorative circles (they have 20s-25s infinite float animations).

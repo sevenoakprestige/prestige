@@ -1,68 +1,60 @@
-import { FaCheckCircle, FaBuilding, FaGlobeAmericas, FaHandsHelping, FaFileSignature, FaIdCard, FaReceipt, FaLandmark, FaShieldAlt } from "react-icons/fa";
+import { FaCheckCircle, FaCloud, FaBuilding, FaShoppingCart, FaTruck, FaBriefcase, FaGlobe } from "react-icons/fa";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function IndiaFeatures() {
     return (
         <>
-            {/* SECTION 2 - WHO WE ARE */}
-            <section className="relative overflow-hidden py-16 sm:py-24">
+            {/* SECTION: CAN AN INDIAN RESIDENT FORM A UK COMPANY? */}
+            <section className="relative overflow-hidden py-16">
                 <div className="premium-section-bg"></div>
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="mb-12 text-center max-w-3xl mx-auto">
-                        <h2 className="why-choose-heading text-3xl font-bold tracking-tight sm:text-4xl mb-6">
-                            A UK Business Advisory Firm Built for International Founders
-                        </h2>
-                        <p className="why-choose-description text-lg">
-                            Seven Oak Prestige is a UK corporate advisory and company formation provider supporting entrepreneurs who want to establish and operate credible businesses in the United Kingdom while living overseas. For Indian founders, our role goes beyond submitting a Companies House application. We help you understand the corporate structure, identity-verification requirements, UK addresses, banking readiness, VAT, EORI and the key post-incorporation steps required to operate professionally.
-                        </p>
-                    </div>
-
-                    <div className="grid gap-8 md:grid-cols-3">
-                        <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
-                            <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
-                            <div className="mb-6 flex justify-start">
-                                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30">
-                                    <FaBuilding className="h-6 w-6" />
-                                </div>
-                            </div>
-                            <h3 className="why-choose-title text-xl font-bold mb-3">Premium Advisory</h3>
-                            <p className="why-choose-description">A structured, professional approach to UK company establishment rather than simple certificate-only formation.</p>
+                    <div className="flex flex-col md:flex-row gap-12 items-center relative z-10">
+                        <div className="md:w-1/2">
+                            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6 text-foreground">
+                                Can an Indian Resident Form a UK Company?
+                            </h2>
+                            <p className="text-lg mb-8 text-muted-foreground">
+                                Yes. An Indian resident can generally own and direct a UK private limited company remotely, subject to a UK registered office and applicable identity-verification requirements.
+                            </p>
                         </div>
-                        <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]" style={{ animationDelay: '100ms' }}>
-                            <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
-                            <div className="mb-6 flex justify-start">
-                                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30">
-                                    <FaGlobeAmericas className="h-6 w-6" />
+                        <div className="md:w-1/2 w-full">
+                            <div className="premium-standard-card h-full">
+                                <div className="flex items-center gap-3 mb-6 relative z-10">
+                                    <div className="premium-icon-wrapper">
+                                        <FaCheckCircle className="size-6" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-foreground">Important</h3>
                                 </div>
+                                <ul className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+                                    {[
+                                        "Indian residents can generally own a UK Ltd",
+                                        "A UK-resident director is generally not required",
+                                        "A UK registered office is required",
+                                        "Identity-verification requirements apply"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex gap-3">
+                                            <FaCheckCircle className="mt-0.5 size-4 shrink-0 text-[#d4af37]" />
+                                            <span className="font-medium text-foreground">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                            <h3 className="why-choose-title text-xl font-bold mb-3">International Business Expertise</h3>
-                            <p className="why-choose-description">Designed for founders building businesses across the UK, India and international markets.</p>
-                        </div>
-                        <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]" style={{ animationDelay: '200ms' }}>
-                            <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
-                            <div className="mb-6 flex justify-start">
-                                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30">
-                                    <FaHandsHelping className="h-6 w-6" />
-                                </div>
-                            </div>
-                            <h3 className="why-choose-title text-xl font-bold mb-3">End-to-End Support</h3>
-                            <p className="why-choose-description">From formation and compliance to banking readiness and ongoing corporate support.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 3 - CAN AN INDIAN RESIDENT OWN A UK COMPANY? */}
-            <section className="relative overflow-hidden py-16">
+            {/* SECTION: CAN AN INDIAN RESIDENT OWN 100% OF A UK COMPANY? (Restored from history) */}
+            <section className="relative overflow-hidden py-16 sm:py-20 border-t border-border">
                 <div className="premium-section-bg"></div>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="flex flex-col md:flex-row gap-12 items-center">
                         <div className="md:w-1/2">
-                            <h2 className="services-heading text-3xl font-bold tracking-tight sm:text-4xl mb-6">
+                            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-6">
                                 Can an Indian Resident Own 100% of a UK Company?
                             </h2>
-                            <p className="service-description text-lg mb-8">
+                            <p className="text-muted-foreground text-lg mb-8">
                                 Yes. An Indian resident can generally own 100% of an ordinary UK private limited company and may also act as its director, subject to the applicable Companies House requirements.
                             </p>
                             
@@ -77,28 +69,26 @@ export default function IndiaFeatures() {
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-3">
                                         <FaCheckCircle className="mt-1 h-5 w-5 text-[#d4af37] shrink-0" />
-                                        <span className="font-medium">{item}</span>
+                                        <span className="font-medium text-foreground">{item}</span>
                                     </li>
                                 ))}
                             </ul>
 
                             <Button asChild className="group bg-[#d4af37] text-black hover:bg-[#f3d066] font-semibold">
-                                <Link href="/blog/how-to-start-a-uk-company-from-india-the-complete-guide-for-indian-entrepreneurs-2026">
+                                <Link href="/blog/how-to-start-a-uk-company-from-india">
                                     Read the Complete India Formation Guide 
                                     <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
                                 </Link>
                             </Button>
                         </div>
                         <div className="md:w-1/2 w-full">
-                            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)] h-full">
-                                <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
-                                
-                                <h3 className="text-xl font-bold mb-6 text-foreground">Structure Facts</h3>
-                                <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                                    <p><strong className="text-foreground/90">Company Type:</strong> Private Limited Company (Ltd)</p>
-                                    <p><strong className="text-foreground/90">Minimum Directors:</strong> 1 (can be Indian resident)</p>
-                                    <p><strong className="text-foreground/90">Minimum Shareholders:</strong> 1 (can be the same person)</p>
-                                    <p><strong className="text-foreground/90">Capital:</strong> Typically £1 (1 share of £1)</p>
+                            <div className="rounded-xl premium-standard-card p-8 h-full">
+                                <h3 className="text-xl font-bold mb-4 text-foreground">Structure Facts</h3>
+                                <div className="space-y-4 text-sm text-muted-foreground">
+                                    <p><strong className="text-foreground">Company Type:</strong> Private Limited Company (Ltd)</p>
+                                    <p><strong className="text-foreground">Minimum Directors:</strong> 1 (can be Indian resident)</p>
+                                    <p><strong className="text-foreground">Minimum Shareholders:</strong> 1 (can be the same person)</p>
+                                    <p><strong className="text-foreground">Capital:</strong> Typically £1 (1 share of £1)</p>
                                 </div>
                             </div>
                         </div>
@@ -106,92 +96,38 @@ export default function IndiaFeatures() {
                 </div>
             </section>
 
-            {/* SECTION 5 - WHAT WE OFFER */}
-            <section className="relative overflow-hidden py-16 sm:py-24">
+            {/* SECTION: BUILT FOR INDIAN FOUNDERS EXPANDING INTERNATIONALLY */}
+            <section className="py-16 sm:py-20 border-t border-border relative overflow-hidden">
                 <div className="premium-section-bg"></div>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="mb-16 text-center">
-                        <h2 className="services-heading text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-                            Everything You Need to Establish Your UK Company
-                        </h2>
-                        <div className="mx-auto h-1 w-24 bg-[#d4af37]"></div>
-                    </div>
-
-                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        {[
-                            {
-                                title: "UK Company Formation",
-                                desc: "Preparation and submission of your UK private limited company incorporation.",
-                                icon: FaFileSignature
-                            },
-                            {
-                                title: "Registered Office & Director Address",
-                                desc: "Professional UK statutory address support for eligible packages.",
-                                icon: FaBuilding
-                            },
-                            {
-                                title: "Companies House Identity Verification",
-                                desc: "Guidance and assistance with the current Companies House identity-verification framework.",
-                                icon: FaIdCard
-                            },
-                            {
-                                title: "VAT & EORI Assistance",
-                                desc: "Support for eligible businesses that require VAT registration or a UK EORI for importing and exporting.",
-                                icon: FaReceipt
-                            },
-                            {
-                                title: "Banking Readiness",
-                                desc: "Preparation and guidance to help your company meet the documentation and compliance expectations of suitable banking and fintech providers.",
-                                icon: FaLandmark
-                            },
-                            {
-                                title: "Post-Incorporation Compliance",
-                                desc: "Guidance covering important Companies House, accounting and operational requirements after incorporation.",
-                                icon: FaShieldAlt
-                            }
-                        ].map((service, idx) => (
-                            <div key={idx} className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]" style={{ animationDelay: `${idx * 100}ms` }}>
-                                <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
-                                <div className="mb-6 flex justify-start">
-                                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30">
-                                        <service.icon className="h-6 w-6" />
-                                    </div>
-                                </div>
-                                <h3 className="service-title text-lg font-bold mb-2">{service.title}</h3>
-                                <p className="service-description text-sm">{service.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* SECTION 6 - WHO WE SUPPORT */}
-            <section className="relative overflow-hidden py-16 sm:py-24">
-                <div className="premium-section-bg"></div>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="mb-12 text-center">
-                        <h2 className="services-heading text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-                            Built for Modern Indian Entrepreneurs
+                        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">
+                            Built for Indian Founders Expanding Internationally
                         </h2>
                     </div>
                     
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {[
-                            "TikTok Shop Sellers",
-                            "Amazon FBA Sellers",
-                            "SaaS Businesses",
-                            "IT & Software Companies",
-                            "Import & Export Businesses",
-                            "Global Service Businesses",
-                            "Medical & Healthcare",
-                            "Tech Startups",
-                            "Education Businesses",
-                            "E-commerce & Shopify"
-                        ].map((niche, idx) => (
-                            <div key={idx} className="group premium-service-card h-32">
-                                <span className="font-semibold text-sm">{niche}</span>
+                            { title: "SaaS & Technology", icon: FaCloud },
+                            { title: "IT Services & Agencies", icon: FaBuilding },
+                            { title: "E-Commerce Brands", icon: FaShoppingCart },
+                            { title: "Import, Export & Trade", icon: FaTruck },
+                            { title: "Professional Services", icon: FaBriefcase },
+                            { title: "UK & Global Expansion", icon: FaGlobe }
+                        ].map((item, idx) => (
+                            <div key={idx} className="premium-service-card flex items-center gap-4 rounded-xl p-6">
+                                <div className="text-[#d4af37] text-2xl">
+                                    <item.icon />
+                                </div>
+                                <span className="font-semibold text-foreground text-lg">{item.title}</span>
                             </div>
                         ))}
+                    </div>
+
+                    <div className="mt-12 text-center">
+                        <p className="text-sm text-muted-foreground font-medium">
+                            A UK company is not automatically the right choice for every business. We help assess whether a UK Ltd is appropriate for your goals.
+                        </p>
                     </div>
                 </div>
             </section>

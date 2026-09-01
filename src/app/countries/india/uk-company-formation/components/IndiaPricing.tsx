@@ -14,7 +14,7 @@ export default function IndiaPricing({ inrRate }: PricingProps) {
     const formatPriceDisplay = (gbp: number) => {
         const inrFormatted = formatINR(gbp);
         if (inrFormatted) {
-            return `(Approx. ₹${inrFormatted})*`;
+            return `~ ₹${inrFormatted}`;
         }
         return "(Current market rates apply for Rupee conversion)*";
     };
@@ -24,13 +24,11 @@ export default function IndiaPricing({ inrRate }: PricingProps) {
             name: "Starter",
             price: "£199",
             gbpAmount: 199,
-            description: "Perfect for independent founders looking for basic UK company registration.",
             features: [
-                "UK Company Formation (Limited by Shares)",
-                "Digital Company Documents",
-                "Companies House Filing",
-                "Compliance Reminders",
-                "Ready in 24h"
+                "Companies House filing support",
+                "Digital incorporation documents",
+                "Memorandum & Articles",
+                "Basic post-incorporation checklist"
             ],
             cta: "Choose Starter",
             link: "https://buy.stripe.com/9B65kvcB217f3ZX2l6fw40i"
@@ -39,14 +37,13 @@ export default function IndiaPricing({ inrRate }: PricingProps) {
             name: "Prestige",
             price: "£299",
             gbpAmount: 299,
-            description: "Designed for international founders who need company formation and core UK address infrastructure.",
             features: [
                 "Everything in Starter",
-                "Registered Office Address",
+                "UK Registered Office",
                 "Director Service Address",
-                "Mail Handling & Scanning Services",
-                "Annual Compliance Support",
-                "Priority Support"
+                "Identity-verification guidance",
+                "Banking-readiness review",
+                "One strategy call"
             ],
             cta: "Choose Prestige",
             featured: true,
@@ -56,16 +53,12 @@ export default function IndiaPricing({ inrRate }: PricingProps) {
             name: "Elite",
             price: "£399",
             gbpAmount: 399,
-            description: "A more complete setup for founders requiring additional business infrastructure and banking-readiness support.",
             features: [
                 "Everything in Prestige",
-                "Advanced UK & International Structuring Guidance",
-                "VBA Address (UK)",
-                "Business Credibility & Operational Readiness Review",
-                "Banking & Fintechs Readiness Support",
-                "Enhanced Compliance & KYC Documentation Support",
-                "Annual Strategic Business Reveiw (1:1)",
-                "Priority Advisory Support Access"
+                "International structure guidance",
+                "VAT / EORI readiness review",
+                "Payment-provider documentation checklist",
+                "Priority support"
             ],
             cta: "Choose Elite",
             link: "https://buy.stripe.com/9B6fZ958AbLT5417Fqfw402"
@@ -113,11 +106,7 @@ export default function IndiaPricing({ inrRate }: PricingProps) {
                                 </div>
                             </div>
 
-                            <p className="pricing-description mb-6 text-sm">
-                                <span className="text-[#d4af37]">★</span> {tier.description}
-                            </p>
-
-                            <ul className="mb-8 flex-grow space-y-3">
+                            <ul className="mb-8 flex-grow space-y-3 mt-4">
                                 {tier.features.map((feature, i) => (
                                     <li key={i} className="flex items-start gap-3 text-sm">
                                         <FaCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#d4af37]" />
