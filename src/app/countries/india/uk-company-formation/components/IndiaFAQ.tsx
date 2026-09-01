@@ -1,14 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FaChevronDown, FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
 
 export default function IndiaFAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     const toggleFaq = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
+    };
+
+    const scroll = (direction: 'left' | 'right') => {
+        if (scrollRef.current) {
+            const { current } = scrollRef;
+            // Scroll by one card width (approx 350px) plus gap
+            const scrollAmount = 374; 
+            if (direction === 'left') {
+                current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
     };
 
     const faqs = [
@@ -61,6 +75,21 @@ export default function IndiaFAQ() {
             name: "Rohan Iyer",
             title: "IT Consultant, Mumbai",
             text: "Very transparent pricing and great guidance throughout. Got my company incorporated quickly and without any hassle."
+        },
+        {
+            name: "Priya Patel",
+            title: "Export Business, Ahmedabad",
+            text: "I was worried about the compliance and EORI requirements, but Seven Oak Prestige guided us step-by-step. Incredibly knowledgeable about cross-border trade."
+        },
+        {
+            name: "Sameer Reddy",
+            title: "Web3 Developer, Hyderabad",
+            text: "Super fast incorporation. I had my company registered and documents in hand within 24 hours. The best service for tech founders in India."
+        },
+        {
+            name: "Vikram Desai",
+            title: "Digital Agency Owner, Pune",
+            text: "The team handled our VAT registration and banking setup seamlessly. Having a prestigious London address has completely changed how international clients view us."
         }
     ];
 
@@ -113,15 +142,22 @@ export default function IndiaFAQ() {
                     </div>
 
                     <div className="relative max-w-5xl mx-auto flex items-center">
-                        <button className="hidden md:flex absolute -left-12 h-10 w-10 rounded-full border border-border bg-card items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors shadow-sm">
+                        <button 
+                            onClick={() => scroll('left')}
+                            className="hidden md:flex absolute -left-12 h-10 w-10 rounded-full border border-border bg-card items-center justify-center text-muted-foreground hover:text-[#d4af37] hover:border-[#d4af37] transition-colors shadow-sm z-10"
+                        >
                             <FaChevronLeft />
                         </button>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                        <div 
+                            ref={scrollRef}
+                            className="flex overflow-x-auto gap-6 w-full snap-x snap-mandatory hide-scrollbar pb-4"
+                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                        >
                             {reviews.map((review, idx) => (
                                 <div 
                                     key={idx} 
-                                    className="premium-standard-card justify-between"
+                                    className="premium-standard-card justify-between w-[85vw] md:w-[calc(33.333%-1rem)] shrink-0 snap-start"
                                     style={{ animationDelay: `${idx * 100}ms` }}
                                 >
                                     <div className="relative z-10">
@@ -142,7 +178,10 @@ export default function IndiaFAQ() {
                             ))}
                         </div>
 
-                        <button className="hidden md:flex absolute -right-12 h-10 w-10 rounded-full border border-border bg-card items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors shadow-sm">
+                        <button 
+                            onClick={() => scroll('right')}
+                            className="hidden md:flex absolute -right-12 h-10 w-10 rounded-full border border-border bg-card items-center justify-center text-muted-foreground hover:text-[#d4af37] hover:border-[#d4af37] transition-colors shadow-sm z-10"
+                        >
                             <FaChevronRight />
                         </button>
                     </div>
