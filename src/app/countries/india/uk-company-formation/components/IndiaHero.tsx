@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { FaUserTie, FaBuilding, FaGlobe, FaShieldAlt } from "react-icons/fa";
+import { FaUserTie, FaBuilding, FaGlobe, FaShieldAlt, FaLock } from "react-icons/fa";
 import Image from "next/image";
 
 export default function IndiaHero() {
@@ -16,7 +16,7 @@ export default function IndiaHero() {
                     className="object-cover object-center"
                     priority
                 />
-                <div className="absolute inset-0 bg-[#001328]/90 backdrop-blur-sm"></div>
+                <div className="absolute inset-0 bg-[#001328]/80"></div>
             </div>
 
             <div className="relative z-10 mx-auto max-w-7xl">
@@ -81,7 +81,7 @@ export default function IndiaHero() {
                                     <input 
                                         type="text" 
                                         placeholder="Full name" 
-                                        className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900"
+                                        className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 placeholder-gray-500"
                                     />
                                 </div>
                                 <div className="flex border border-gray-300 rounded-md focus-within:ring-2 focus-within:ring-[#001328] focus-within:border-transparent bg-white">
@@ -91,19 +91,19 @@ export default function IndiaHero() {
                                     <input 
                                         type="tel" 
                                         placeholder="WhatsApp number" 
-                                        className="w-full px-4 py-3 rounded-r-md focus:outline-none text-gray-900"
+                                        className="w-full px-4 py-3 rounded-r-md focus:outline-none bg-white text-gray-900 placeholder-gray-500"
                                     />
                                 </div>
                                 <div>
                                     <input 
                                         type="email" 
                                         placeholder="Email address" 
-                                        className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900"
+                                        className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 placeholder-gray-500"
                                     />
                                 </div>
                                 <div>
-                                    <select className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 bg-white appearance-none">
-                                        <option value="" disabled selected>Business activity</option>
+                                    <select defaultValue="" className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 placeholder-gray-500 appearance-none">
+                                        <option value="" disabled>Business activity</option>
                                         <option value="saas">SaaS & Technology</option>
                                         <option value="services">IT Services & Agency</option>
                                         <option value="ecommerce">E-Commerce</option>
@@ -113,12 +113,12 @@ export default function IndiaHero() {
                                     </select>
                                 </div>
                                 <div className="pt-2">
-                                    <Button type="button" className="w-full h-14 bg-[#001328] hover:bg-[#001328]/90 text-white font-bold text-lg rounded-md">
+                                    <Button type="button" className="w-full h-14 bg-[#001328] hover:bg-[#001328]/90 text-white font-bold text-lg rounded-md transition-colors">
                                         Request a Setup Review
                                     </Button>
                                 </div>
                                 <div className="flex items-start gap-2 mt-4 text-xs text-gray-500">
-                                    <div className="mt-0.5 text-[#d4af37]">🔒</div>
+                                    <div className="mt-0.5 text-[#d4af37] shrink-0"><FaLock className="w-3 h-3" /></div>
                                     <p>We use your details only to assess your enquiry and contact you about your UK company setup.</p>
                                 </div>
                             </form>
