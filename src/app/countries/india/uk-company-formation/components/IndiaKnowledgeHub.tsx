@@ -14,31 +14,47 @@ export default function IndiaKnowledgeHub() {
                 <div className="flex flex-wrap justify-center items-center gap-2 max-w-6xl mx-auto">
                     {[
                         {
-                            title: "Start a UK Company from India | Complete Guide",
-                            url: "/blog/how-to-start-a-uk-company-from-india"
+                            title: "Start a UK Company from India (2026 Guide)",
+                            url: "/blog/how-to-start-a-uk-company-from-india-the-complete-guide-for-indian-entrepreneurs-2026"
                         },
                         {
-                            title: "UK Company Formation for Non-Residents (2026)",
-                            url: "/blog/company-formation-guide-2026"
+                            title: "UK Business Bank Account for Indian Residents",
+                            url: "/blog/uk-business-bank-account-indian-residents"
                         },
                         {
-                            title: "The Ultimate Guide to Fintech Banking",
-                            url: "/blog/fintech-banking-guide"
+                            title: "Indian Pvt Ltd vs UK Limited Company",
+                            url: "/blog/indian-pvt-ltd-vs-uk-limited-company"
                         },
                         {
-                            title: "UK Company Formation with a London Business Address",
-                            url: "/blog/uk-company-formation-london-business-address"
+                            title: "Companies House ID Verification for Indian Residents",
+                            url: "/blog/companies-house-identity-verification-indian-residents"
                         },
                         {
-                            title: "How to Start a Business in the UK as a Non-Resident",
-                            url: "/blog/starting-a-business-uk"
+                            title: "UK Company for Indian SaaS & Tech Founders",
+                            url: "/blog/uk-company-indian-saas-technology-founders-2026"
                         },
                         {
-                            title: "How to Start a UK Company From Abroad in 2026",
-                            url: "/blog/uk-company-formation-guide-2026"
+                            title: "UK Company for Indian Amazon & E-commerce",
+                            url: "/blog/uk-company-for-indian-amazon-e-commerce-exporters-2026"
+                        },
+                        {
+                            title: "UK Company Tax for Indian Residents (POEM & DTAA)",
+                            url: "/blog/uk-company-tax-indian-residents-poem-double-taxation-2026"
+                        },
+                        {
+                            title: "Stripe, Wise & Airwallex for Indian Founders",
+                            url: "/blog/stripe-wise-airwallex-indian-founders-uk-company"
+                        },
+                        {
+                            title: "Revolut Business for Indian Residents",
+                            url: "/blog/revolut-business-indian-residents-uk-company-2026"
+                        },
+                        {
+                            title: "UK Company Formation Cost from India",
+                            url: "/blog/uk-company-formation-from-india-cost"
                         }
                     ].map((article, idx, arr) => (
-                        <div key={idx} className="flex items-center gap-2">
+                        <div key={idx} className="flex items-center gap-2 mb-2">
                             <Link href={article.url} className="group flex items-center gap-2 p-3 border border-border rounded-lg bg-card hover:border-[#d4af37] transition-colors shadow-sm">
                                 <FaBookOpen className="text-[#d4af37] shrink-0" />
                                 <span className="text-sm font-semibold text-foreground group-hover:text-[#d4af37] transition-colors line-clamp-1">{article.title}</span>

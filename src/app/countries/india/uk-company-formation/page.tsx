@@ -12,6 +12,7 @@ import IndiaSpecialist from "./components/IndiaSpecialist";
 import IndiaKnowledgeHub from "./components/IndiaKnowledgeHub";
 import IndiaFAQ from "./components/IndiaFAQ";
 import IndiaFinalCTA from "./components/IndiaFinalCTA";
+import IndiaGoogleReviews from "./components/IndiaGoogleReviews";
 
 export const metadata: Metadata = {
     title: "UK Company Formation for Indian Residents | Seven Oak Prestige",
@@ -35,6 +36,8 @@ export default async function IndiaLandingPage() {
             <IndiaFeatures />
             
             <CompanyChecker />
+
+            <IndiaGoogleReviews />
 
             <IndiaPricing inrRate={inrRate} />
             

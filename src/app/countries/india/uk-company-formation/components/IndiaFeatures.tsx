@@ -75,7 +75,7 @@ export default function IndiaFeatures() {
                             </ul>
 
                             <Button asChild className="group bg-[#d4af37] text-black hover:bg-[#f3d066] font-semibold">
-                                <Link href="/blog/how-to-start-a-uk-company-from-india">
+                                <Link href="/blog/how-to-start-a-uk-company-from-india-the-complete-guide-for-indian-entrepreneurs-2026">
                                     Read the Complete India Formation Guide 
                                     <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
                                 </Link>
