@@ -58,6 +58,7 @@ export default function JsonLd() {
         ],
         "knowsAbout": [
             "UK Company Formation",
+            "UK Company Formation for Indian Residents",
             "Corporate Advisory for Non-Residents",
             "Companies House Identity Verification",
             "ACSP Compliance",

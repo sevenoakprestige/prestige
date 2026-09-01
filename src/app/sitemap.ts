@@ -122,6 +122,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
     ];
 
+    // ── COUNTRY-SPECIFIC PAGES ──
+    const countryPages: MetadataRoute.Sitemap = [
+        {
+            url: `${baseUrl}/countries/india/uk-company-formation`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.95,
+        },
+    ];
+
     // ── LEGAL / POLICY PAGES ──
     const legalPages: MetadataRoute.Sitemap = [
         {
@@ -171,6 +181,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ...bankingServices,
         ...landingPages,
         ...resourcePages,
+        ...countryPages,
         ...legalPages,
         ...blogPosts,
     ];

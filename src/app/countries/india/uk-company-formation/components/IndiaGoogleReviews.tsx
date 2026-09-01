@@ -27,7 +27,7 @@ export default function IndiaGoogleReviews() {
         {
             name: "Sameer Reddy",
             title: "Web3 Developer, Hyderabad",
-            text: "Super fast incorporation. I had my company registered and documents in hand within 24 hours. The best service for tech founders in India."
+            text: "Super fast incorporation. I had my company registered and documents in hand within 48 hours. The best service for tech founders in India."
         },
         {
             name: "Vikram Desai",
