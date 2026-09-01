@@ -86,10 +86,20 @@ export default function IndiaProcess() {
                                         
                                         {/* Document Box */}
                                         {step.doc && (
-                                            <div className="flex mt-2 lg:mt-auto pt-2 lg:pt-6 w-full lg:justify-center relative">
-                                                {/* Vertical line connecting text to box (Desktop only) */}
+                                            <div className="hidden lg:flex mt-auto pt-6 w-full justify-center relative">
+                                                {/* Desktop branching tree for the documents */}
+                                                {idx === 6 && (
+                                                    <>
+                                                        {/* Upward stem from the horizontal branch to the text */}
+                                                        <div className="hidden lg:block absolute bottom-full left-1/2 w-[2px] h-8 -translate-x-1/2 bg-gradient-to-t from-[#d4af37]/50 to-transparent z-0"></div>
+                                                        {/* Horizontal branch spanning steps 4, 5, 6, 7 */}
+                                                        <div className="hidden lg:block absolute top-0 right-[calc(50%-1px)] w-[calc(300%+3rem+2px)] h-[2px] bg-[#d4af37]/50 z-0"></div>
+                                                    </>
+                                                )}
+                                                {/* Vertical drop into each document box */}
                                                 <div className="hidden lg:block absolute top-0 left-1/2 w-[2px] h-6 -translate-x-1/2 bg-gradient-to-b from-[#d4af37]/50 to-[#d4af37]/10 z-0"></div>
-                                                <div className="premium-standard-card w-full lg:w-[130%] lg:-ml-[15%] text-[11px] text-muted-foreground z-10 relative flex-row items-center justify-start lg:justify-center gap-1.5 text-left lg:text-center leading-tight !p-3">
+                                                
+                                                <div className="premium-standard-card w-[130%] -ml-[15%] text-[11px] text-muted-foreground z-10 relative flex-row items-center justify-center gap-1.5 text-center leading-tight !p-3">
                                                     <FaFileSignature className="text-[#d4af37] shrink-0 text-lg" />
                                                     <span>{step.doc}</span>
                                                 </div>
@@ -101,6 +111,28 @@ export default function IndiaProcess() {
                                     {idx < 6 && (
                                         <div className="lg:hidden absolute top-[3.5rem] left-[27px] w-[2px] h-[calc(100%+2rem)] bg-gradient-to-b from-[#d4af37]/50 to-[#d4af37]/10 z-0"></div>
                                     )}
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Mobile Document Boxes */}
+                        <div className="flex lg:hidden flex-col relative mt-4 pl-[70px] gap-4">
+                            {["Certificate of Incorporation", "Memorandum & Articles", "Share Certificate", "Company Register"].map((docName, i) => (
+                                <div key={i} className="premium-standard-card w-full text-[12px] text-muted-foreground z-10 relative flex-row items-center justify-start gap-3 leading-tight !p-3">
+                                    {/* Horizontal branch */}
+                                    <div className="absolute top-1/2 left-[-43px] w-[43px] h-[2px] bg-[#d4af37]/50 z-0"></div>
+                                    
+                                    {/* Vertical segment connecting up */}
+                                    {i === 0 ? (
+                                        // First item: connect way up to Step 7
+                                        <div className="absolute bottom-1/2 left-[-43px] w-[2px] h-[150px] bg-[#d4af37]/50 z-[-1]"></div>
+                                    ) : (
+                                        // Subsequent items: connect to the previous item
+                                        <div className="absolute bottom-1/2 left-[-43px] w-[2px] h-[calc(100%+1rem)] bg-[#d4af37]/50 z-[-1]"></div>
+                                    )}
+
+                                    <FaFileSignature className="text-[#d4af37] shrink-0 text-lg" />
+                                    <span>{docName}</span>
                                 </div>
                             ))}
                         </div>
