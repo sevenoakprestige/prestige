@@ -16,7 +16,7 @@ const POSTS_SLUG_QUERY = defineQuery(
 );
 
 export async function generateStaticParams() {
-    const posts = await client.fetch<SanityDocument[]>(POSTS_SLUG_QUERY, {}, { next: { revalidate: 30 } });
+    const posts = await client.fetch<SanityDocument[]>(POSTS_SLUG_QUERY, {}, { next: { tags: ['post'] } });
     return posts.map((post) => ({
         slug: post.slug,
     }));
@@ -105,7 +105,7 @@ const portableTextComponents = {
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = await client.fetch<SanityDocument>(POST_QUERY, { slug }, { next: { revalidate: 30 } });
+    const post = await client.fetch<SanityDocument>(POST_QUERY, { slug }, { next: { tags: ['post'] } });
 
     if (!post) {
         notFound();

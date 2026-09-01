@@ -24,7 +24,7 @@ const POSTS_QUERY = defineQuery(
   `*[_type == "post" && defined(slug.current)] | order(date desc){ _id, title, "slug": slug.current, date, excerpt, tags }`
 );
 
-const options = { next: { revalidate: 30 } };
+const options = { next: { tags: ['post'] } };
 
 export default async function BlogHome() {
     const allPostsData = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
