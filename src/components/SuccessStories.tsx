@@ -65,86 +65,11 @@ const successStoriesData: CountryStories[] = [
             },
         ],
     },
-    {
-        country: "USA",
-        flag: "🇺🇸",
-        title: "USA SUCCESS STORIES",
-        subtitle: "Real client results — professionally curated",
-        stories: [
-            {
-                title: "USA LLC — African Founder",
-                quote: "Seamless Delaware LLC setup for international operations.",
-                status: "Operational globally",
-                location: "Malik O., Dubai",
-            },
-            {
-                title: "USA Fintech Approval",
-                quote: "My LLC structure was accepted by Stripe and Mercury without issues.",
-                status: "Stripe & Mercury verified",
-                location: "Daniel R., Kenya",
-            },
-        ],
-        reviews: [
-            {
-                stars: 5,
-                text: "Incredibly smooth process. No hidden fees, no delays.",
-            },
-            {
-                stars: 5,
-                text: "Professional handling from start to finish. My EIN arrived exactly when promised.",
-            },
-            {
-                stars: 5,
-                text: "Perfect for non-US residents. Everything explained clearly and delivered on time.",
-            },
-        ],
-    },
-    {
-        country: "Canada",
-        flag: "🇨🇦",
-        title: "CANADA SUCCESS STORIES",
-        subtitle: "Real client results — professionally curated",
-        stories: [
-            {
-                title: "Canadian Corporation — Non-Resident Entrepreneur",
-                quote: "Incorporated my Canadian business entirely remotely. The team provided director services and a registered address, making the process effortless.",
-                status: "Federally incorporated with nationwide protection",
-            },
-            {
-                title: "Canadian Corporation — International Investor",
-                quote: "Needed a Canadian entity for my investment activities. The incorporation was completed in 10 days with full compliance documentation for my bank.",
-                status: "Banking-ready structure",
-                location: "Chen W., Hong Kong",
-            },
-            {
-                title: "Canadian Corporation — E-commerce Business",
-                quote: "My Canadian corporation was set up quickly with all necessary filings. I was able to start operations in multiple provinces without any issues.",
-                status: "Multi-province operational",
-                location: "Sofia M., London, UK",
-            },
-        ],
-        reviews: [
-            {
-                stars: 5,
-                text: "Excellent service for non-residents. Clear communication throughout.",
-            },
-            {
-                stars: 5,
-                text: "The director service made it possible when I didn't have Canadian residents. Highly recommended.",
-            },
-            {
-                stars: 5,
-                text: "Fast, compliant, and thoroughly professional. Everything was handled correctly.",
-            },
-        ],
-    },
 ];
 
 // Map country to index
 const countryToIndex: Record<Country, number> = {
     UK: 0,
-    USA: 1,
-    Canada: 2,
 };
 
 export default function SuccessStories() {

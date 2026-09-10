@@ -31,34 +31,6 @@ const testimonialsData: Record<Country, Testimonial[]> = {
             image: "https://randomuser.me/api/portraits/men/53.jpg"
         },
     ],
-    USA: [
-        {
-            quote: "The EIN process was handled perfectly. My Stripe account was approved.",
-            name: "Sophia M.",
-            location: "Brazil",
-            image: "https://randomuser.me/api/portraits/women/68.jpg"
-        },
-        {
-            quote: "Fast and compliant Delaware LLC formation. Highly recommended.",
-            name: "Richard T.",
-            location: "South Africa",
-            image: "https://randomuser.me/api/portraits/men/22.jpg"
-        },
-    ],
-    Canada: [
-        {
-            quote: "Perfect solution for a non-resident incorporating in Canada.",
-            name: "Yuki S.",
-            location: "Japan",
-            image: "https://randomuser.me/api/portraits/women/44.jpg"
-        },
-        {
-            quote: "Professional, fast, and fully compliant. Highly recommended.",
-            name: "Omar E.",
-            location: "UAE",
-            image: "https://randomuser.me/api/portraits/men/78.jpg"
-        },
-    ],
 };
 
 export default function Testimonials() {

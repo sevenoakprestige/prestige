@@ -19,16 +19,6 @@ export default function CTASection() {
             subtitle: 'UK LTD formed in 24 hours — fully compliant for non-residents.',
             buttonText: 'START YOUR UK COMPANY NOW',
         },
-        USA: {
-            title: 'START YOUR COMPANY',
-            subtitle: 'Delaware LLC formed in 2-3 days — 0% U.S. tax for non-residents.',
-            buttonText: 'START YOUR US COMPANY NOW',
-        },
-        Canada: {
-            title: 'START YOUR COMPANY',
-            subtitle: 'Canadian corporation formed in 1-2 weeks — 100% remote process.',
-            buttonText: 'START YOUR CANADIAN COMPANY NOW',
-        },
     };
 
     const content = ctaContent[selectedCountry];

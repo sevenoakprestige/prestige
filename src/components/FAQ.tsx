@@ -55,85 +55,12 @@ const faqData: FAQSection[] = [
             },
         ],
     },
-    {
-        title: "USA",
-        flag: "🇺🇸",
-        items: [
-            {
-                question: "Can a non-U.S. resident form a Delaware LLC?",
-                answer: "Yes — you don't need to live in the U.S. or have a Social Security Number. We guide you through the entire process seamlessly.",
-            },
-            {
-                question: "How long does it take to form my Delaware LLC?",
-                answer: "Your Delaware LLC is usually formed within 2-3 business days. A 24-hour expedited filing option is available if you need it faster.",
-            },
-            {
-                question: "Will I pay taxes in the United States?",
-                answer: "No — a Delaware LLC typically pays 0% U.S. income tax when owned by a non-U.S. resident.",
-            },
-            {
-                question: "How long does it take to receive the EIN?",
-                answer: "For non-U.S. residents, EIN approvals typically take 3-7 business days. Standard IRS processing may take up to 4-6 weeks, but we handle the fast route for you.",
-            },
-            {
-                question: "Do I need a U.S. address or a U.S. phone number?",
-                answer: "No. We provide a registered agent address and support all required filings.",
-            },
-            {
-                question: "Can I create a US LLC even if I don't live in the United States?",
-                answer: "Yes. 100% of non-residents can create an LLC without ever traveling to the USA.",
-            },
-            {
-                question: "Do you need my SSN?",
-                answer: "No. Not necessary. We obtain your EIN even without an SSN.",
-            },
-        ],
-    },
-    {
-        title: "Canada",
-        flag: "🇨🇦",
-        items: [
-            {
-                question: "Can a non-Canadian resident start a company in Canada?",
-                answer: "Yes, non-Canadian residents can form a corporation or a partnership in Canada. We manage the entire incorporation process for you.",
-            },
-            {
-                question: "Do I need a Canadian address?",
-                answer: "Your company must have a registered office address in Canada. We provide this service if you don't have one.",
-            },
-            {
-                question: "How long does it take to form my company?",
-                answer: "Incorporation is typically completed in 1-2 weeks depending on province. We ensure all paperwork is filed promptly.",
-            },
-            {
-                question: "Will I pay taxes in Canada?",
-                answer: "Yes, income earned by your Canadian corporation is subject to Canadian taxes. You may also owe taxes in your home country depending on your residency.",
-            },
-            {
-                question: "Do I need a Canadian director for my company?",
-                answer: "Some provinces require at least 25% of directors to be Canadian residents. Others (British Columbia, Quebec, New Brunswick, PEI) allow 100% foreign ownership.",
-            },
-            {
-                question: "Do I need to visit Canada to incorporate?",
-                answer: "No. The entire process can be completed remotely.",
-            },
-            {
-                question: "Can I incorporate a company in Canada as a non-resident?",
-                answer: "Yes, with a Canadian director or through our representation services.",
-            },
-            {
-                question: "What are the benefits of federal incorporation?",
-                answer: "Nationwide name protection and the ability to operate in all provinces.",
-            },
-        ],
-    },
+
 ];
 
 // Map country to index for accessing faqData array
 const countryToIndex: Record<Country, number> = {
     UK: 0,
-    USA: 1,
-    Canada: 2,
 };
 
 export default function FAQ() {

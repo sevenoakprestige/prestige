@@ -42,63 +42,6 @@ const whyChooseData: Record<Country, { subtitle: string; icon: React.ReactNode; 
             },
         ],
     },
-    USA: {
-        subtitle: "FOR YOUR USA COMPANY",
-        icon: <span className="text-5xl">🇺🇸</span>,
-        reasons: [
-            {
-                icon: <FaUserTie className="h-8 w-8" />,
-                title: "Experts in Non-Resident LLC Formation",
-                description: "We structure US LLCs specifically for foreign founders with no SSN, no ITIN, and no US residency.",
-            },
-            {
-                icon: <FaClock className="h-8 w-8" />,
-                title: "Fast Formation",
-                description: "Your Delaware LLC is formed quickly with fully compliant documents and Registered Agent service.",
-            },
-            {
-                icon: <FaDollarSign className="h-8 w-8" />,
-                title: "EIN Assistance",
-                description: "We handle the EIN process, even for non-US residents without Social Security Numbers.",
-            },
-            {
-                icon: <FaCheckCircle className="h-8 w-8" />,
-                title: "Fintech-Ready Structure",
-                description: "LLC is structured to meet expectations of US fintech platforms like Stripe, PayPal, Mercury, and Payoneer.",
-            },
-            {
-                icon: <FaPassport className="h-8 w-8" />,
-                title: "No US Documents Required",
-                description: "Only a valid passport is required. No SSN, no ITIN, no US address needed.",
-            },
-        ],
-    },
-    Canada: {
-        subtitle: "FOR YOUR CANADIAN COMPANY",
-        icon: <span className="text-5xl">🇨🇦</span>,
-        reasons: [
-            {
-                icon: <FaUserTie className="h-8 w-8" />,
-                title: "Non-Resident Friendly",
-                description: "We help founders incorporate even without a Canadian residence.",
-            },
-            {
-                icon: <FaBuilding className="h-8 w-8" />,
-                title: "Flexible Structure",
-                description: "Choose between Federal or Provincial incorporation depending on your needs.",
-            },
-            {
-                icon: <FaShieldAlt className="h-8 w-8" />,
-                title: "Privacy & Compliance",
-                description: "Registered address keeps your personal information protected.",
-            },
-            {
-                icon: <FaCheckCircle className="h-8 w-8" />,
-                title: "Fintech-Optimised Documents",
-                description: "Company structured to meet financial institution standards.",
-            },
-        ],
-    },
 };
 
 export default function WhyChooseUs() {
