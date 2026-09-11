@@ -39,6 +39,15 @@
         --chart-3: 197 37% 24%;
         --chart-4: 43 74% 66%;
         --chart-5: 27 87% 67%;
+
+        --ink-deep: #0e1a2b;
+        --ink: #16273d;
+        --ink-soft: #5b6472;
+        --gold: #96712f;
+        --gold-soft: #7d5e26;
+        --cream: #f7f5f0;
+        --line: #d8d2c4;
+        --on-gold: #ffffff;
     }
 }
 
@@ -3180,4 +3189,95 @@ RESPONSIVE DESIGN
 
 .premium-icon-wrapper {
     @apply flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30;
+}
+
+@layer utilities {
+  .section-parchment {
+    --background: var(--cream);
+    background-color: var(--cream);
+  }
+
+  .section-dark {
+    --gold: #c2a05a;
+    --gold-soft: #d6bc84;
+    --line: rgba(216, 210, 196, 0.22);
+    --on-gold: #0e1a2b;
+    --background: var(--ink-deep);
+    --foreground: #f7f5f0;
+    --card: #16273d;
+    --card-foreground: #f7f5f0;
+    --primary: var(--gold);
+    --primary-foreground: #0e1a2b;
+    --secondary: #16273d;
+    --secondary-foreground: #f7f5f0;
+    --muted: #16273d;
+    --muted-foreground: #b9c1cc;
+    --accent: #16273d;
+    --border: var(--line);
+    --input: var(--line);
+    background-color: var(--ink-deep);
+    color: var(--foreground);
+  }
+
+  .eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .rule-gold {
+    background: linear-gradient(
+      90deg,
+      var(--gold) 0%,
+      color-mix(in oklab, var(--gold) 25%, transparent) 60%,
+      transparent 100%
+    );
+  }
+
+  .surface {
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+    color: var(--on-gold);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 1rem 1.75rem;
+    border-radius: var(--radius);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 12px 30px -16px oklch(0 0 0 / 80%);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid color-mix(in oklab, var(--gold) 45%, transparent);
+    color: var(--gold-soft);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 1rem 1.75rem;
+    border-radius: var(--radius);
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost:hover {
+    background: color-mix(in oklab, var(--gold) 12%, transparent);
+  }
 }

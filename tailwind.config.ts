@@ -48,7 +48,19 @@ const config: Config = {
     				'3': 'hsl(var(--chart-3))',
     				'4': 'hsl(var(--chart-4))',
     				'5': 'hsl(var(--chart-5))'
-    			}
+    			},
+                ink: {
+                    DEFAULT: 'var(--ink)',
+                    deep: 'var(--ink-deep)',
+                    soft: 'var(--ink-soft)'
+                },
+                gold: {
+                    DEFAULT: 'var(--gold)',
+                    soft: 'var(--gold-soft)'
+                },
+                cream: 'var(--cream)',
+                line: 'var(--line)',
+                'on-gold': 'var(--on-gold)'
     		},
     		borderRadius: {
     			lg: 'var(--radius)',

@@ -1,211 +1,159 @@
 "use client";
 
-import Link from "next/link";
-import CountrySelector, { Country } from "./CountrySelector";
-import UKComparisonTable from "./UKComparisonTable";
-import UKAddressServices from "./UKAddressServices";
-import { FaCheck, FaLock, FaCreditCard, FaWhatsapp } from "react-icons/fa";
-import { useCountry } from "@/contexts/CountryContext";
 
-interface PricingTier {
+const PROVIDER_LOGOS = [
+    { name: "Revolut", logo: "https://www.google.com/s2/favicons?domain=revolut.com&sz=128" },
+    { name: "Wise", logo: "https://www.google.com/s2/favicons?domain=wise.com&sz=128" },
+    { name: "Payoneer", logo: "https://www.google.com/s2/favicons?domain=payoneer.com&sz=128" },
+    { name: "Airwallex", logo: "https://www.google.com/s2/favicons?domain=airwallex.com&sz=128" },
+];
+
+const PLANS: Array<{
     name: string;
     price: string;
-    description: string;
+    note: string;
     features: string[];
     cta: string;
-    featured?: boolean;
-    link: string;
-}
-
-
-
-const pricingData: Record<Country, PricingTier[]> = {
-    UK: [
-        {
-            name: "Starter",
-            price: "£199",
-            description: "Perfect for each Entrepreneur",
-            features: [
-                "UK Company Formation (Limited by Shares)",
-                "Digital Company Documents",
-                "Companies House Filing",
-                "Compliance Reminders",
-                "Ready in 24h",
-            ],
-            cta: "Start Now",
-            link: "https://buy.stripe.com/9B65kvcB217f3ZX2l6fw40i"
-        },
-        {
-            name: "Prestige",
-            price: "£299",
-            description: "Most chosen by non-residents founders",
-            features: [
-                "Everything in Starter",
-                "Registered Office Address",
-                "Director Service Address",
-                "Mail Handling & Scanning Services",
-                "Annual Compliance Support",
-                "Priority Support",
-            ],
-            cta: "Start Your Company",
-            featured: true,
-            link: "https://buy.stripe.com/aFa6ozbwY5nv3ZX8Jufw40a"
-        },
-        {
-            name: "Elite",
-            price: "£399",
-            description: "For founders who want beyond registration",
-            features: [
-                "Everything in Prestige",
-                // "Banking Assistance",
-                // "(Wise, Revolut, Payoneer, etc.)",
-                "Advanced UK & International Structuring Guidance",
-                "VBA Address (UK)",
-                "Business Credibility & Operational Readiness Review",
-                "Banking & Fintechs Readiness Support",
-                "Enhanced Compliance & KYC Documentation Support",
-                "Annual Strategic Business Reveiw (1:1)",
-                "Priority Advisory Support Access"
-            ],
-            cta: "Become Elite",
-            link: "https://buy.stripe.com/9B6fZ958AbLT5417Fqfw402"
-        },
-    ],
-};
+    href: string;
+    featured: boolean;
+    logos?: boolean;
+    footnote?: string;
+    tag?: string;
+}> = [
+    {
+        name: "Starter",
+        price: "£199",
+        note: "For founders who mainly require company incorporation and already have appropriate UK address arrangements.",
+        features: [
+            "UK company formation",
+            "Companies House filing",
+            "Digital company documents",
+            "Key compliance reminders",
+        ],
+        cta: "Choose Starter",
+        href: "https://buy.stripe.com/9B65kvcB217f3ZX2l6fw40i",
+        featured: false,
+    },
+    {
+        name: "Prestige",
+        price: "£299",
+        note: "For non-resident founders needing a complete London setup.",
+        features: [
+            "Everything in Starter",
+            "Registered Office — 12 months",
+            "Director Service Address — 12 months",
+            "Eligible mail handling and scanning according to service scope",
+            "Annual compliance support according to package scope",
+        ],
+        cta: "Choose Prestige",
+        href: "https://buy.stripe.com/aFa6ozbwY5nv3ZX8Jufw40a",
+        featured: false,
+        tag: "Recommended for non-resident founders",
+    },
+    {
+        name: "Elite",
+        price: "£399",
+        note: "For founders requiring broader establishment and banking-readiness support.",
+        features: [
+            "Everything in Prestige",
+            "Virtual Business Address — use our address on your website and for eligible business correspondence",
+            "Companies House Identity Verification for 1 Director",
+            "High-Priority Support",
+            "Bank Account Opening Support",
+            "Best-fit provider recommendations",
+            "Partner introductions where genuinely available",
+            "Documents preparation & review",
+            "Application assistance",
+            "Enhanced compliance-document support",
+        ],
+        logos: true,
+        footnote:
+            "One director included. Additional directors or relevant persons are handled separately.",
+        cta: "Choose Elite",
+        href: "https://buy.stripe.com/9B6fZ958AbLT5417Fqfw402",
+        featured: true,
+        tag: "Most comprehensive",
+    },
+];
 
 export default function Pricing() {
-    const { selectedCountry, setSelectedCountry } = useCountry();
-    const tiers = pricingData[selectedCountry];
-
     return (
-        <section id="pricing" className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-            {/* Background decoration */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
-                <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
-            </div>
-
-            <div className="mx-auto max-w-7xl">
-                {/* Header */}
-                <div className="mb-10 text-center lg:mb-12">
-                    <h2 className="pricing-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                        Pricing Plans
-                    </h2>
-                    <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
+        <section id="pricing" className="border-t border-border scroll-mt-20 px-6 py-14 sm:py-18">
+            <div className="mx-auto max-w-6xl">
+                <div>
+                    <p className="eyebrow">Packages</p>
+                    <div className="mt-4 h-px w-16 rule-gold" />
                 </div>
-
-                {/* Country Selector */}
-                <CountrySelector
-                    selectedCountry={selectedCountry}
-                    onCountryChange={setSelectedCountry}
-                />
-
-                {/* Pricing Cards */}
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
-                    {tiers.map((tier, index) => (
-                        <div
-                            key={index}
-                            className={`pricing-card group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-2xl ${tier.featured
-                                ? "border-[#d4af37] shadow-xl shadow-[#d4af37]/20 md:scale-105 md:py-12"
-                                : "md:mt-8"
+                <h2 className="mt-6 max-w-2xl text-3xl leading-tight sm:text-4xl">
+                    Fixed pricing. Everything stated up front.
+                </h2>
+                <div className="mt-14 grid gap-px bg-border lg:grid-cols-3">
+                    {PLANS.map((p) => (
+                        <article
+                            key={p.name}
+                            className={`relative flex flex-col p-8 sm:p-10 ${p.featured
+                                    ? "section-dark border-y-2 border-gold bg-ink-deep shadow-[0_30px_60px_-30px_oklch(0_0_0/60%)] lg:-my-4 lg:py-14"
+                                    : "bg-background"
                                 }`}
-                            style={{
-                                animationDelay: `${index * 100}ms`,
-                            }}
                         >
-                            {/* Featured Badge */}
-                            {tier.featured && (
-                                <div className="absolute right-0 top-0 h-20 w-20 overflow-hidden">
-                                    <div className="absolute right-[-30px] top-[20px] w-[140px] rotate-[45deg] bg-gradient-to-r from-[#d4af37] to-[#f3d066] py-1.5 text-center text-[10px] font-bold uppercase tracking-wide text-black shadow-lg">
-                                        MOST POPULAR
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Decorative corner accent light */}
-                            <div className="absolute right-0 top-0 -z-10 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4 pointer-events-none"></div>
-
-                            {/* Tier Name */}
-                            <h3 className="pricing-tier-name mb-2 text-2xl font-bold">
-                                {tier.name}
-                            </h3>
-
-                            {/* Price */}
-                            <div className="mb-4">
-                                <span className="pricing-price text-4xl font-bold text-[#d4af37]">
-                                    {tier.price}
-                                </span>
-                            </div>
-
-                            {/* Description */}
-                            <p className="pricing-description mb-6 text-sm">
-                                <span className="text-[#d4af37]">
-                                    ★
-                                </span> {tier.description}
+                            <h3 className="font-display text-2xl">{p.name}</h3>
+                            <p className="mt-1 h-4 text-[0.6rem] uppercase tracking-[0.14em] text-gold">
+                                {p.tag ? p.tag : ""}
                             </p>
-
-                            {/* Features */}
-                            <ul className="mb-8 flex-grow space-y-3">
-                                {tier.features.map((feature, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-sm">
-                                        <FaCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#d4af37]" />
-                                        <span className="pricing-feature">{feature}</span>
+                            <p className="mt-8 font-display text-4xl text-foreground">{p.price}</p>
+                            <p className="mt-3 text-sm text-muted-foreground">{p.note}</p>
+                            <ul className="mt-8 flex-1 space-y-2.5 border-t border-border pt-8 text-sm text-foreground/85">
+                                {p.features.map((f) => (
+                                    <li key={f} className="flex items-start gap-2.5">
+                                        <span className="mt-2 h-1 w-1 shrink-0 bg-gold" aria-hidden="true" />
+                                        {f}
                                     </li>
                                 ))}
                             </ul>
-
-                            {/* CTA Button */}
-                            <Link
-                                href={tier.link}
-                                className={`block w-full rounded-xl py-3 text-center text-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95 ${tier.featured
-                                    ? "bg-gradient-to-r from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30"
-                                    : "border-2 border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black"
-                                    }`}
+                            {p.logos ? (
+                                <div className="mt-8 border-t border-border pt-6">
+                                    <p className="eyebrow">Providers considered</p>
+                                    <ul className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-4">
+                                        {PROVIDER_LOGOS.map((b) => (
+                                            <li key={b.name} className="flex items-center gap-2">
+                                                <img
+                                                    src={b.logo}
+                                                    alt={`${b.name} logo`}
+                                                    width={24}
+                                                    height={24}
+                                                    className="h-6 w-6 rounded-sm"
+                                                />
+                                                <span className="font-display text-lg text-foreground/70">{b.name}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                                        Provider availability depends on founder residence, business activity, ownership, KYC and
+                                        individual eligibility. Final approval remains with the provider.
+                                    </p>
+                                </div>
+                            ) : null}
+                            {p.footnote ? (
+                                <p className="mt-6 text-xs leading-relaxed text-muted-foreground">{p.footnote}</p>
+                            ) : null}
+                            <a href={p.href} className={`mt-10 ${p.featured ? "btn-gold" : "btn-ghost"}`}>
+                                {p.cta}
+                            </a>
+                            <a
+                                href={`https://wa.me/447447488755?text=${encodeURIComponent(
+                                    `Hello Seven Oak Prestige, I have a question about the ${p.name} package.`
+                                )}`}
+                                className="mt-4 inline-block text-xs text-muted-foreground underline-offset-4 transition-colors hover:text-gold hover:underline"
                             >
-                                {tier.cta}
-                            </Link>
-
-                            {/* Talk to an Expert Button */}
-                            {tier.link.startsWith("https://buy.stripe.com") && (
-                                <Link
-                                    href="https://wa.me/447447488755"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-3 flex items-center justify-center gap-2 w-full rounded-xl py-3 text-center text-sm font-bold border border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 hover:bg-[#25D366] hover:text-white dark:hover:text-black hover:border-transparent transition-all duration-300 hover:scale-105 active:scale-95"
-                                >
-                                    <FaWhatsapp className="h-4 w-4" />
-                                    Talk to an Expert
-                                </Link>
-                            )}
-
-                            {/* Decorative corner accent */}
-                            <div className="absolute right-0 top-0 h-20 w-20 translate-x-10 -translate-y-10 rounded-full bg-[#d4af37]/10 blur-2xl transition-transform duration-300 group-hover:translate-x-5 group-hover:-translate-y-5"></div>
-                        </div>
+                                Have a question? Talk to an expert
+                            </a>
+                        </article>
                     ))}
                 </div>
-
-                {/* Payment Methods Notice */}
-                <div className="mx-auto mt-12 max-w-2xl text-center">
-                    <div className="inline-flex flex-col items-center justify-center gap-3 rounded-2xl border border-[#d4af37]/30 bg-gradient-to-r from-[#d4af37]/5 via-[#d4af37]/10 to-[#d4af37]/5 px-6 py-4 shadow-[0_0_15px_rgba(212,175,55,0.1)] backdrop-blur-sm sm:flex-row">
-                        <div className="flex items-center gap-2">
-                            <FaLock className="h-4 w-4 text-[#d4af37]" />
-                            <FaCreditCard className="h-4 w-4 text-[#d4af37]" />
-                        </div>
-                        <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                            We accept payments via <span className="font-semibold text-gray-900 dark:text-white">supported global payment methods</span> and <span className="font-semibold text-gray-900 dark:text-white">bank transfers</span>.
-                        </p>
-                    </div>
-                </div>
-
-                {/* UK Comparison Table */}
-                {selectedCountry === 'UK' && (
-                    <>
-                        <div className="mt-16">
-                            <UKComparisonTable />
-                        </div>
-                        <UKAddressServices />
-                    </>
-                )}
+                <p className="mt-10 max-w-3xl text-xs leading-relaxed text-muted-foreground">
+                    Financial-provider approval is not guaranteed and remains subject to each provider's eligibility, KYC
+                    and risk assessment.
+                </p>
             </div>
         </section>
     );

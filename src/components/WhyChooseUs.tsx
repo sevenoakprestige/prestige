@@ -1,122 +1,54 @@
 "use client";
 
-import CountrySelector, { Country } from "./CountrySelector";
-import { FaShieldAlt, FaClock, FaDollarSign, FaHeadset, FaUserTie, FaCheckCircle, FaBuilding, FaPassport } from "react-icons/fa";
-import { useCountry } from "@/contexts/CountryContext";
+import Image from "next/image";
 
-interface Reason {
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-}
-
-const whyChooseData: Record<Country, { subtitle: string; icon: React.ReactNode; reasons: Reason[] }> = {
-    UK: {
-        subtitle: "FOR YOUR UK COMPANY",
-        icon: <span className="text-5xl">🇬🇧</span>,
-        reasons: [
-            {
-                icon: <FaUserTie className="h-8 w-8" />,
-                title: "UK Experts for Non-Residents",
-                description: "Specialised in serving international founders with no UK documents or proof of address.",
-            },
-            {
-                icon: <FaClock className="h-8 w-8" />,
-                title: "Fast 24-Hour Incorporation",
-                description: "Optimised SIC codes, shareholder structure, and fully compliant documents.",
-            },
-            {
-                icon: <FaShieldAlt className="h-8 w-8" />,
-                title: "Premium Confidential Addresses",
-                description: "Registered office + director service address to keep residential details off the public register.",
-            },
-            // {
-            //     icon: <FaCheckCircle className="h-8 w-8" />,
-            //     title: "Fintech-Ready Structures",
-            //     description: "Structured for smooth onboarding with Wise, Payoneer, Stripe, Revolut Business, and WorldFirst.",
-            // },
-            {
-                icon: <FaPassport className="h-8 w-8" />,
-                title: "No UK Documents Required",
-                description: "Only a valid passport is required. No UK proof of address.",
-            },
-        ],
-    },
-};
+const ADVISORY = [
+    ["Your Residence", "Where you genuinely live matters for KYC and provider eligibility."],
+    ["Your Activity", "Your SIC codes and business description should accurately reflect the business."],
+    ["Your Ownership", "Directors, shareholders and PSCs should be structured correctly from the beginning."],
+    ["Your Next Step", "Address, banking, payments, VAT and compliance should be considered before submission."],
+];
 
 export default function WhyChooseUs() {
-    const { selectedCountry, setSelectedCountry } = useCountry();
-    const data = whyChooseData[selectedCountry];
-
     return (
-        <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-            {/* Background decoration */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
-                <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
-            </div>
-
-            <div className="mx-auto max-w-7xl">
-                {/* Header */}
-                <div className="mb-10 text-center lg:mb-12">
-                    <h2 className="why-choose-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                        Why Choose Us
-                    </h2>
-                    <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
-                </div>
-
-                {/* Country Selector */}
-                <CountrySelector
-                    selectedCountry={selectedCountry}
-                    onCountryChange={setSelectedCountry}
-                />
-
-                {/* Subtitle with Icon */}
-                {data.subtitle && (
-                    <div className="mb-8 flex items-center justify-center gap-4">
-                        {data.icon}
-                        <p className="why-choose-subtitle text-lg font-semibold sm:text-xl">
-                            {data.subtitle}
-                        </p>
-                    </div>
-                )}
-
-                {/* Reasons Grid */}
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
-                    {data.reasons.map((reason, index) => (
-                        <div
-                            key={index}
-                            className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:bg-card/40 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)] sm:p-8"
-                            style={{
-                                animationDelay: `${index * 100}ms`,
-                            }}
-                        >
-                            {/* Card glow effect on hover */}
-                            <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent"></div>
-                            </div>
-
-                            <div className="flex items-start gap-5">
-                                {/* Icon */}
-                                <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl border border-[#d4af37]/30 bg-gradient-to-br from-[#d4af37]/10 to-transparent text-[#d4af37] shadow-sm transition-transform duration-500 group-hover:scale-110">
-                                    {reason.icon}
-                                </div>
-
-                                {/* Content */}
-                                <div className="flex-1 pt-1">
-                                    <h3 className="mb-2 text-lg font-bold leading-tight text-foreground sm:text-xl">
-                                        {reason.title}
-                                    </h3>
-                                    <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-                                        {reason.description}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Decorative corner accent */}
-                            <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#d4af37]/10 blur-3xl transition-all duration-500 group-hover:bg-[#d4af37]/20 group-hover:blur-[40px] pointer-events-none"></div>
+        <section className="border-t border-border px-6 py-24 sm:py-32">
+            <div className="mx-auto max-w-6xl">
+                <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+                    <div className="order-2 lg:order-1">
+                        <div>
+                            <p className="eyebrow">Bespoke compliance review</p>
+                            <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                    ))}
+                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">We Don’t Just Automate — We Review</h2>
+                        <p className="mt-6 leading-relaxed text-muted-foreground">
+                            Off-the-shelf agents push every application straight to Companies House. We manually review your
+                            proposed structure, SIC codes, and compliance details to reduce the chance of rejection or errors.
+                        </p>
+                        <ul className="mt-8 space-y-4">
+                            {ADVISORY.map(([title, desc]) => (
+                                <li key={title} className="flex gap-3 text-sm text-foreground/90">
+                                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/20 text-[10px] text-gold">
+                                        ✓
+                                    </span>
+                                    <span>
+                                        <strong className="font-semibold text-foreground">{title}: </strong>
+                                        <span className="text-muted-foreground">{desc}</span>
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="order-1 lg:order-2">
+                        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-border">
+                            {/* Reusing an existing image or keeping a placeholder */}
+                            <Image
+                                src="/assets/why-choose-us.jpg"
+                                alt="A professional adviser reviewing documents on a desk with a laptop"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

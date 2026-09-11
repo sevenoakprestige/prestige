@@ -421,94 +421,121 @@ export default function CompanyChecker() {
     };
 
     return (
-        <section id="checker" className="checker-section">
-            <div className="checker-container">
-                <h2 className="checker-heading">Check Your Company Name Availability</h2>
-                <p className="checker-subtitle">Instant check with the UK database</p>
-
-                <div className="mx-auto max-w-2xl bg-black/5 dark:bg-white/5 p-6 rounded-xl border border-black/10 dark:border-white/10 backdrop-blur-md transition-colors">
-                    <label className="mb-2 block text-left text-md font-semibold text-foreground/80">
-                        Company name
-                    </label>
-
-                    {/* Input Group */}
-                    <div className="flex flex-col gap-4 sm:flex-row">
-                        <div className={`relative flex flex-1 items-center rounded-lg border bg-background/50 dark:bg-background/20 backdrop-blur-sm transition-all focus-within:ring-2 focus-within:ring-[#d4af37]/50 ${result.type === 'error' ? 'border-red-500/50' :
-                            result.type === 'success' ? 'border-green-500/50' :
-                                result.type === 'warning' ? 'border-orange-500/50' : 'border-border/60'
-                            }`}>
-                            <input
-                                type="text"
-                                className="flex-1 min-w-0 bg-transparent px-4 py-3 text-base text-foreground outline-none placeholder:text-muted-foreground"
-                                placeholder="Enter company name"
-                                value={companyName}
-                                onChange={(e) => {
-                                    setCompanyName(e.target.value);
-                                    if (result.type) setResult({ type: null, message: '' });
-                                }}
-                                onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleCheckAvailability()}
-                                disabled={isLoading}
-                            />
-                            {/* Vertical Divider */}
-                            <div className="h-6 w-[1px] dark:bg-white/40 bg-black/40 flex-shrink-0"></div>
-
-                            {/* Suffix Select Custom Wrapper */}
-                            <div className="relative flex-shrink-0 w-[85px] max-w-[85px]">
-                                <select
-                                    value={suffix}
-                                    onChange={(e) => setSuffix(e.target.value)}
-                                    className="appearance-none bg-transparent pl-2 pr-6 py-3 text-sm font-medium text-foreground outline-none cursor-pointer hover:bg-black/5 dark:hover:bg-white/5 transition-colors rounded-r-lg w-full"
-                                    disabled={isLoading}
-                                >
-                                    <option value="LTD" className="text-foreground bg-background">LTD</option>
-                                    <option value="Limited" className="text-foreground bg-background">Limited</option>
-                                    <option value="PLC" className="text-foreground bg-background">PLC</option>
-                                </select>
-                                {/* Custom Chevron */}
-                                <div className="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 text-muted-foreground">
-                                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </div>
-                            </div>
+        <section id="name-check" className="px-6 py-24 sm:py-32 scroll-mt-20">
+            <div className="mx-auto max-w-6xl">
+                <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+                    <div>
+                        <div>
+                            <p className="eyebrow">Company name check</p>
+                            <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-
-                        <button
-                            onClick={handleCheckAvailability}
-                            disabled={isLoading}
-                            className={`min-w-[170px] rounded-lg px-6 py-3 font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed ${result.type === 'success'
-                                ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-green-500/20 hover:shadow-green-500/30'
-                                : 'bg-gradient-to-r from-[#d4af37] to-[#f3d066] text-black shadow-[#d4af37]/20 hover:shadow-[#d4af37]/30'
-                                }`}
-                        >
-                            {isLoading ? (
-                                <span className="flex items-center justify-center gap-2">
-                                    <FaSpinner className="animate-spin" />
-                                    Checking...
-                                </span>
-                            ) : result.type === 'success' ? (
-                                'Register Now'
-                            ) : (
-                                'Check Availability'
-                            )}
-                        </button>
+                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">Is Your Company Name Available?</h2>
+                        <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
+                            Search the live Companies House register before you begin.
+                        </p>
+                        <p className="mt-6 max-w-md text-xs leading-relaxed text-muted-foreground">
+                            An indication only — final approval rests with Companies House.
+                        </p>
                     </div>
 
-                    {/* Inline Result Message */}
-                    {result.type && (
-                        <div className={`mt-3 flex items-center gap-2 text-sm font-medium animate-in fade-in slide-in-from-top-1 ${result.type === 'success' ? 'text-green-600 dark:text-green-400' :
-                            result.type === 'error' ? 'text-red-600 dark:text-red-400' :
-                                'text-orange-500'
-                            }`}>
-                            {result.type === 'success' && <FaCheckCircle className="h-4 w-4" />}
-                            {result.type === 'error' && <FaTimesCircle className="h-4 w-4" />}
-                            {result.type === 'warning' && <FaExclamationTriangle className="h-4 w-4" />}
-                            <span>{result.message}</span>
+                    <div>
+                        <div className="flex flex-col gap-3 sm:flex-row">
+                            <label htmlFor="company-name" className="sr-only">
+                                Proposed company name
+                            </label>
+                            
+                            <div className="flex flex-1 relative">
+                                <input
+                                    id="company-name"
+                                    type="text"
+                                    value={companyName}
+                                    onChange={(e) => {
+                                        setCompanyName(e.target.value);
+                                        if (result.type) setResult({ type: null, message: '' });
+                                    }}
+                                    onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleCheckAvailability()}
+                                    disabled={isLoading}
+                                    placeholder="Your proposed company name"
+                                    autoComplete="organization"
+                                    className="w-full border border-border bg-background px-4 py-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-gold pr-[85px]"
+                                />
+                                {/* Suffix Select */}
+                                <div className="absolute right-0 top-0 bottom-0 w-[85px] border-l border-border flex items-center justify-center">
+                                    <select
+                                        value={suffix}
+                                        onChange={(e) => setSuffix(e.target.value)}
+                                        className="appearance-none bg-transparent h-full w-full px-3 text-sm font-medium text-foreground outline-none cursor-pointer hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                                        disabled={isLoading}
+                                    >
+                                        <option value="LTD" className="text-foreground bg-background">LTD</option>
+                                        <option value="Limited" className="text-foreground bg-background">Limited</option>
+                                        <option value="PLC" className="text-foreground bg-background">PLC</option>
+                                    </select>
+                                    <div className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground">
+                                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button 
+                                onClick={handleCheckAvailability} 
+                                className="btn-gold shrink-0" 
+                                disabled={isLoading}
+                            >
+                                {isLoading ? "Checking…" : "Check availability"}
+                            </button>
                         </div>
-                    )}
-                </div>
 
-                {/* Legacy card removed, using inline validation above */}
+                        <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                            Searches the live Companies House register. An indication only — final approval rests with the Registrar.
+                        </p>
+
+                        {result.type && (
+                            <div className="mt-8 border-t border-border pt-6">
+                                <p className={`font-sans text-base font-semibold ${result.type === 'success' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                                    {result.message}
+                                </p>
+                                
+                                <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                                    {result.type === 'success' 
+                                        ? "The name looks available. Names that are too similar to an existing company, or that use sensitive words, may still be refused."
+                                        : "You will need a distinguishable name. Your adviser can suggest compliant alternatives at no cost."}
+                                </p>
+
+                                {result.companies && result.companies.length > 0 && (
+                                    <div className="mt-6">
+                                        <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-gold">
+                                            Similar names on the register
+                                        </p>
+                                        <ul className="mt-4 divide-y divide-border border-y border-border">
+                                            {result.companies.map((c, i) => (
+                                                <li key={i} className="flex flex-wrap items-baseline justify-between gap-2 py-3">
+                                                    <a
+                                                        href={`https://find-and-update.company-information.service.gov.uk/company/${c.company_number}`}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="text-sm font-medium transition-colors hover:text-gold-soft"
+                                                    >
+                                                        {c.title}
+                                                    </a>
+                                                    <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+                                                        {c.company_number}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                <a href="#pricing" className="btn-ghost mt-8">
+                                    Continue to packages
+                                </a>
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         </section>
     );
