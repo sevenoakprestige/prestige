@@ -215,7 +215,7 @@ export default function Footer() {
                     <div className="footer-badges-row">
                         {/* ICO Logo */}
                         <div className="footer-badge-item" title="Information Commissioner's Office">
-                            <Image
+                            <img
                                 src="/assets/footer/ico-header-logo.svg"
                                 alt="ICO Registered"
                                 width={80}
@@ -225,29 +225,27 @@ export default function Footer() {
                         </div>
                         {/* Mindful Employer */}
                         <div className="footer-badge-item" title="Mindful Employer">
-                            <Image
+                            <img
                                 src="/assets/footer/mindful-employer--white.png"
                                 alt="Mindful Employer"
                                 width={100}
                                 height={32}
-                                style={{ height: "32px", width: "auto" }}
                                 className="footer-badge-img"
                             />
                         </div>
                         {/* Living Wage */}
                         <div className="footer-badge-item" title="Living Wage Employer">
-                            <Image
+                            <img
                                 src="/assets/footer/living-wage--white.png"
                                 alt="Living Wage Employer"
                                 width={60}
                                 height={60}
-                                style={{ height: "60px", width: "auto" }}
                                 className="footer-badge-img"
                             />
                         </div>
                         {/* Green Mark */}
                         <div className="footer-badge-item" title="Green Mark Certified">
-                            <Image
+                            <img
                                 src="/assets/footer/green-mark--white.png"
                                 alt="Green Mark Certified"
                                 width={55}
@@ -255,20 +253,18 @@ export default function Footer() {
                                 className="footer-badge-img"
                             />
                         </div>
-                        {/* Carbon Neutral Britain */}
                         <div className="footer-badge-item" title="Carbon Neutral Britain">
-                            <Image
+                            <img
                                 src="/assets/footer/cnb--white.png"
                                 alt="Carbon Neutral Britain"
                                 width={55}
                                 height={70}
-                                style={{ height: "70px", width: "auto" }}
                                 className="footer-badge-img"
                             />
                         </div>
                         {/* Living Hours */}
                         <div className="footer-badge-item" title="Living Hours">
-                            <Image
+                            <img
                                 src="/assets/footer/living-hours-white.png"
                                 alt="Living Hours"
                                 width={60}

@@ -136,7 +136,7 @@ export default function Navbar() {
                 return (
                     <span className="flex items-center gap-1.5">
                         {activeCountry.icon && (
-                            <Image src={activeCountry.icon} alt={activeCountry.name} width={18} height={14} className="rounded-sm object-cover" />
+                            <img src={activeCountry.icon} alt={activeCountry.name} width={18} height={14} className="rounded-sm object-cover" />
                         )}
                         <span>{activeCountry.name}</span>
                     </span>
@@ -211,7 +211,7 @@ export default function Navbar() {
                                                                         >
                                                                             <span className="text-foreground/40 font-medium transition-transform group-hover/link:translate-x-1 group-hover/link:text-[#d4af37]">›</span>
                                                                             <span className="group-hover/link:text-[#d4af37] transition-colors flex items-center gap-2">
-                                                                                {(sublink as any).icon && <Image src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
+                                                                                {(sublink as any).icon && <img src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
                                                                                 {sublink.name}
                                                                             </span>
                                                                         </Link>
@@ -300,7 +300,7 @@ export default function Navbar() {
                                                                     >
                                                                         <div className="flex items-center justify-between">
                                                                             <span className="relative z-10 flex items-center gap-2">
-                                                                                {(sublink as any).icon && <Image src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
+                                                                                {(sublink as any).icon && <img src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
                                                                                 {sublink.name}
                                                                             </span>
                                                                             <MdArrowOutward className="h-3 w-3 text-[#d4af37] opacity-60 group-hover:opacity-100 transition-opacity" />

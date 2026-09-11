@@ -42,9 +42,10 @@ export default function WhyChooseUs() {
                         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-border">
                             {/* Reusing an existing image or keeping a placeholder */}
                             <Image
-                                src="/assets/why-choose-us.jpg"
+                                src="/assets/advisory-team.jpg"
                                 alt="A professional adviser reviewing documents on a desk with a laptop"
                                 fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                                 className="object-cover"
                             />
                         </div>

@@ -31,24 +31,33 @@ export default function SuccessStories() {
         <>
             {/* Deliverables */}
             <section className="section-parchment border-t border-border px-6 py-24 sm:py-32">
-                <div className="mx-auto max-w-6xl">
-                    <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
-                        <div>
-                            <div>
-                                <p className="eyebrow">Digital delivery</p>
-                                <div className="mt-4 h-px w-16 rule-gold" />
-                            </div>
-                            <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">What You Receive</h2>
-                            <p className="mt-6 leading-relaxed text-muted-foreground">
-                                All statutory documents are provided digitally as PDF files, which are the standard format
-                                required by banks and payment processors.
-                            </p>
+                <div className="mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-2 lg:gap-20">
+                    <div className="w-full lg:sticky lg:top-32 lg:h-[calc(100vh-16rem)]">
+                        <div className="relative aspect-[4/3] h-full w-full overflow-hidden bg-border lg:aspect-auto">
+                            <Image
+                                src="/assets/documents.jpg"
+                                alt="Incorporation certificate, company documents and a fountain pen on a desk"
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                className="object-cover"
+                            />
                         </div>
-                        <ul className="grid gap-6 sm:grid-cols-2">
+                    </div>
+                    <div>
+                        <div>
+                            <p className="eyebrow">Digital delivery</p>
+                            <div className="mt-4 h-px w-16 rule-gold" />
+                        </div>
+                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">What You Receive</h2>
+                        <p className="mt-6 leading-relaxed text-muted-foreground">
+                            All statutory documents are provided digitally as PDF files, which are the standard format
+                            required by banks and payment processors.
+                        </p>
+                        <ul className="mt-10 divide-y divide-border border-t border-border">
                             {DELIVERABLES.map(([title, desc]) => (
-                                <li key={title} className="bg-background p-6 shadow-sm">
+                                <li key={title} className="py-6">
                                     <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-                                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{desc}</p>
+                                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{desc}</p>
                                 </li>
                             ))}
                         </ul>
@@ -60,12 +69,13 @@ export default function SuccessStories() {
             <section className="border-t border-border px-6 py-24 sm:py-32">
                 <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
                     <div className="relative aspect-square w-full overflow-hidden bg-border">
-                        <Image
-                            src="/assets/case-study.jpeg"
-                            alt="A founder in a cafe reviewing company documents on a laptop"
-                            fill
-                            className="object-cover opacity-90"
-                        />
+                            <Image
+                                src="/assets/case-study.jpg"
+                                alt="A founder in a cafe reviewing company documents on a laptop"
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                className="object-cover opacity-90"
+                            />
                     </div>
                     <div>
                         <div>
