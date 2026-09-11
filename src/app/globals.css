@@ -43,8 +43,8 @@
         --ink-deep: #0e1a2b;
         --ink: #16273d;
         --ink-soft: #5b6472;
-        --gold: #96712f;
-        --gold-soft: #7d5e26;
+        --gold: 38 52% 39%;
+        --gold-soft: 38 53% 32%;
         --cream: #f7f5f0;
         --line: #d8d2c4;
         --on-gold: #ffffff;
@@ -77,13 +77,6 @@
 
 
 /* GOLD COLOR */
-:root {
-    --gold: #d4af37;
-    --dark: #0c0c0c;
-    --gray: #1a1a1a;
-}
-
-
 
 /* ================================
 HEADER
@@ -107,7 +100,7 @@ HEADER
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: var(--gold);
+    color: hsl(var(--gold));
 }
 
 
@@ -123,13 +116,13 @@ HEADER
 
 
 .header nav a:hover {
-    color: var(--gold);
+    color: hsl(var(--gold));
 }
 
 
 
 .btn-header {
-    background: var(--gold);
+    background: hsl(var(--gold));
     padding: 10px 16px;
     border-radius: 5px;
     color: black !important;
@@ -2430,11 +2423,11 @@ FOOTER — REDESIGNED
 }
 
 /* --- Brand Name --- */
-.footer-brand-name {
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: #d4af37;
+.footer-logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: hsl(var(--gold));
+    margin-bottom: 20px;
 }
 
 /* --- Company Details --- */
@@ -2471,14 +2464,14 @@ FOOTER — REDESIGNED
 }
 
 a.footer-contact-item:hover {
-    color: #d4af37;
+    color: hsl(var(--gold));
 }
 
 .footer-contact-icon {
     flex-shrink: 0;
     width: 15px;
     height: 15px;
-    color: #d4af37;
+    color: hsl(var(--gold));
     opacity: 0.8;
 }
 
@@ -2501,7 +2494,7 @@ a.footer-contact-item:hover {
     left: 0;
     width: 28px;
     height: 2px;
-    background: linear-gradient(to right, #d4af37, #f3d066);
+    background: linear-gradient(to right, hsl(var(--gold)), #f3d066);
     border-radius: 2px;
 }
 
@@ -2546,7 +2539,7 @@ a.footer-contact-item:hover {
 }
 
 .footer-nav-list li a:hover {
-    color: #d4af37;
+    color: hsl(var(--gold));
     padding-left: 4px;
 }
 
@@ -2589,6 +2582,23 @@ a.footer-contact-item:hover {
 }
 
 /* --- Social Links --- */
+.footer-socials a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid hsl(var(--gold));
+    color: white;
+    transition: 0.3s ease;
+}
+
+.footer-socials a:hover {
+    background: hsl(var(--gold));
+    color: black;
+}
+
 .footer-social-link {
     display: flex;
     align-items: center;
@@ -2607,7 +2617,7 @@ a.footer-contact-item:hover {
 }
 
 .footer-social-link:hover {
-    background: #d4af37;
+    background: hsl(var(--gold));
     color: hsl(0, 0%, 10%);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
@@ -3198,9 +3208,9 @@ RESPONSIVE DESIGN
   }
 
   .section-dark {
-    --gold: #c2a05a;
-    --gold-soft: #d6bc84;
-    --line: rgba(216, 210, 196, 0.22);
+    --gold: 40 48% 56%;
+    --gold-soft: 41 53% 68%;
+    --line: 42 23% 81%;
     --on-gold: #0e1a2b;
     --background: var(--ink-deep);
     --foreground: #f7f5f0;
@@ -3220,17 +3230,18 @@ RESPONSIVE DESIGN
   }
 
   .eyebrow {
-    font-size: 0.6875rem;
-    letter-spacing: 0.22em;
+    color: hsl(var(--gold));
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--gold);
   }
 
   .rule-gold {
     background: linear-gradient(
       90deg,
-      var(--gold) 0%,
-      color-mix(in oklab, var(--gold) 25%, transparent) 60%,
+      hsl(var(--gold)) 0%,
+      color-mix(in oklab, hsl(var(--gold)) 25%, transparent) 60%,
       transparent 100%
     );
   }
@@ -3245,7 +3256,7 @@ RESPONSIVE DESIGN
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+    background: linear-gradient(180deg, hsl(var(--gold-soft)), hsl(var(--gold)));
     color: var(--on-gold);
     font-weight: 700;
     font-size: 0.8125rem;
@@ -3262,8 +3273,8 @@ RESPONSIVE DESIGN
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    border: 1px solid color-mix(in oklab, var(--gold) 45%, transparent);
-    color: var(--gold-soft);
+    border: 1px solid color-mix(in oklab, hsl(var(--gold)) 45%, transparent);
+    color: hsl(var(--gold-soft));
     font-weight: 600;
     font-size: 0.8125rem;
     letter-spacing: 0.09em;
@@ -3278,6 +3289,6 @@ RESPONSIVE DESIGN
   }
 
   .btn-ghost:hover {
-    background: color-mix(in oklab, var(--gold) 12%, transparent);
+    background: color-mix(in oklab, hsl(var(--gold)) 12%, transparent);
   }
 }

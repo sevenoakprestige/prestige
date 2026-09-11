@@ -147,13 +147,8 @@ export default function Navbar() {
     };
 
     return (
-        <header
-            className={cn(
-                "fixed top-0 z-50 w-full px-4 pt-3 transition-transform duration-300 md:px-6",
-                isVisible ? "translate-y-0" : "-translate-y-full"
-            )}
-        >
-            <div className="mx-auto max-w-7xl rounded-xl border border-border/20 bg-background/80 px-4 py-2 backdrop-blur-xl shadow-lg shadow-black/5 supports-[backdrop-filter]:bg-background/60 md:px-6 lg:px-8">
+        <header className="section-dark sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="mx-auto max-w-7xl px-4 py-3 md:px-6 lg:px-8">
                 <div className="flex items-center justify-between gap-4">
                     {/* Logo Section */}
                     <Link
@@ -162,22 +157,17 @@ export default function Navbar() {
                     >
                         <div className="flex items-center">
                             <Image
-                                src={
-                                    mounted && (resolvedTheme === "dark" || theme === "dark")
-                                        ? "/assets/logo/seven_oak_prestige_dark_mode.png"
-                                        : "/assets/logo/seven_oak_prestige_light_mode.png"
-                                }
+                                src="/assets/logo/seven_oak_prestige_dark_mode.png"
                                 alt="Seven Oak Prestige Logo"
-                                width={70}
-                                height={70}
+                                width={60}
+                                height={60}
                                 priority
                             />
 
-                            <span className="bg-gradient-to-r from-[#d4af37] to-[#f3d066] bg-clip-text text-sm font-bold text-transparent md:inline-block md:text-base lg:text-lg">
+                            <span className="font-serif text-sm font-bold text-gold md:inline-block md:text-base lg:text-lg">
                                 SEVEN OAK PRESTIGE
                             </span>
                         </div>
-
                     </Link>
 
                     {/* Desktop Navigation */}
