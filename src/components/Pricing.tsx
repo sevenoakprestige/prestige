@@ -1,5 +1,8 @@
 "use client";
 
+import { FaCheckCircle } from "react-icons/fa";
+import { Button } from "./ui/button";
+
 
 const PROVIDER_LOGOS = [
     { name: "Revolut", logo: "https://www.google.com/s2/favicons?domain=revolut.com&sz=128" },
@@ -136,9 +139,9 @@ export default function Pricing() {
                             {p.footnote ? (
                                 <p className="mt-6 text-xs leading-relaxed text-muted-foreground">{p.footnote}</p>
                             ) : null}
-                            <a href={p.href} className={`mt-10 ${p.featured ? "btn-gold" : "btn-ghost"}`}>
-                                {p.cta}
-                            </a>
+                            <Button asChild variant={p.featured ? "default" : "ghost"} className="mt-10">
+                                <a href={p.href}>{p.cta}</a>
+                            </Button>
                             <a
                                 href={`https://wa.me/447447488755?text=${encodeURIComponent(
                                     `Hello Seven Oak Prestige, I have a question about the ${p.name} package.`

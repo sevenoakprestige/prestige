@@ -121,15 +121,6 @@ HEADER
 
 
 
-.btn-header {
-    background: hsl(var(--gold));
-    padding: 10px 16px;
-    border-radius: 5px;
-    color: black !important;
-    font-weight: bold;
-}
-
-
 
 /* ================================
 HERO SECTION
@@ -172,13 +163,6 @@ HERO SECTION
     color: hsl(0, 0%, 75%);
 }
 
-.hero-secondary-btn {
-    color: hsl(0, 0%, 20%);
-}
-
-.dark .hero-secondary-btn {
-    color: hsl(0, 0%, 90%);
-}
 
 /* Animated Background Circles */
 @keyframes float-1 {
@@ -241,32 +225,11 @@ HERO SECTION
     margin-top: 40px;
 }
 
-.btn-primary,
-.btn-secondary {
-    padding: 14px 28px;
-    margin: 10px;
-    border-radius: 6px;
-    font-size: 17px;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.btn-primary {
-    background: var(--gold);
-    color: black;
-    font-weight: bold;
-}
 
 .btn-primary:hover {
     background: #f3d066;
 }
 
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid var(--gold);
-}
 
 .btn-secondary:hover {
     background: var(--gold);
@@ -1878,47 +1841,6 @@ NEW CONTACT CARD DESIGN
     color: hsl(45, 70%, 60%);
 }
 
-.cta-whatsapp-btn {
-    background: linear-gradient(135deg, hsl(45, 70%, 50%), hsl(45, 80%, 60%));
-    color: hsl(0, 0%, 10%);
-    font-size: 18px;
-    font-weight: 700;
-    padding: 18px 50px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    box-shadow: 0 10px 35px -3px rgba(212, 175, 55, 0.65);
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-whatsapp-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.cta-whatsapp-btn:hover::before {
-    left: 100%;
-}
-
-.cta-whatsapp-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 50px -3px rgba(212, 175, 55, 0.85);
-    background: linear-gradient(135deg, hsl(45, 80%, 55%), hsl(45, 90%, 65%));
-}
-
-.cta-whatsapp-btn:active {
-    transform: translateY(-1px) scale(1.02);
-}
 
 
 /* ================================
@@ -2556,30 +2478,7 @@ a.footer-contact-item:hover {
 }
 
 /* --- WhatsApp Button --- */
-.footer-whatsapp-btn {
-    background: linear-gradient(135deg, hsl(45, 70%, 50%), hsl(45, 80%, 60%));
-    color: hsl(0, 0%, 10%);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 11px 28px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    box-shadow: 0 4px 16px -1px rgba(212, 175, 55, 0.45);
-    width: fit-content;
-}
 
-.footer-whatsapp-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px 0px rgba(212, 175, 55, 0.65);
-    background: linear-gradient(135deg, hsl(45, 80%, 55%), hsl(45, 90%, 65%));
-}
-
-.footer-whatsapp-btn:active {
-    transform: translateY(0);
-}
 
 /* --- Social Links --- */
 .footer-socials a {
@@ -2813,12 +2712,6 @@ RESPONSIVE DESIGN
         gap: 10px;
     }
 
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        max-width: 280px;
-        margin: 5px 0;
-    }
 
     .trust-logos {
         display: flex;
@@ -2905,10 +2798,6 @@ RESPONSIVE DESIGN
         margin: 5px 8px;
     }
 
-    .btn-header {
-        padding: 8px 14px;
-        font-size: 13px;
-    }
 
     .hero {
         padding: 60px 15px;
@@ -2923,12 +2812,6 @@ RESPONSIVE DESIGN
         font-size: 14px;
     }
 
-    .btn-primary,
-    .btn-secondary {
-        padding: 12px 20px;
-        font-size: 15px;
-        max-width: 100%;
-    }
 
     .services h2,
     .checker h2,
@@ -2951,10 +2834,6 @@ RESPONSIVE DESIGN
         font-size: 16px;
     }
 
-    .cta-whatsapp-btn {
-        font-size: 16px;
-        padding: 16px 40px;
-    }
 
     .service-box,
     .price-card {
@@ -3019,10 +2898,6 @@ RESPONSIVE DESIGN
         letter-spacing: 2px;
     }
 
-    .cta-whatsapp-btn {
-        font-size: 14px;
-        padding: 14px 30px;
-    }
 
     /* Footer Responsive (480px) */
     .footer-main {
@@ -3212,21 +3087,21 @@ RESPONSIVE DESIGN
     --gold-soft: 41 53% 68%;
     --line: 42 23% 81%;
     --on-gold: #0e1a2b;
-    --background: var(--ink-deep);
-    --foreground: #f7f5f0;
-    --card: #16273d;
-    --card-foreground: #f7f5f0;
+    --background: 215 51% 11%;
+    --foreground: 43 33% 95%;
+    --card: 214 47% 16%;
+    --card-foreground: 43 33% 95%;
     --primary: var(--gold);
-    --primary-foreground: #0e1a2b;
-    --secondary: #16273d;
-    --secondary-foreground: #f7f5f0;
-    --muted: #16273d;
-    --muted-foreground: #b9c1cc;
-    --accent: #16273d;
+    --primary-foreground: 215 51% 11%;
+    --secondary: 214 47% 16%;
+    --secondary-foreground: 43 33% 95%;
+    --muted: 214 47% 16%;
+    --muted-foreground: 216 11% 75%;
+    --accent: 214 47% 16%;
     --border: var(--line);
     --input: var(--line);
-    background-color: var(--ink-deep);
-    color: var(--foreground);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 
   .eyebrow {
@@ -3251,44 +3126,15 @@ RESPONSIVE DESIGN
     border: 1px solid var(--line);
   }
 
+}
+
+@layer components {
   .btn-gold {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: linear-gradient(180deg, hsl(var(--gold-soft)), hsl(var(--gold)));
-    color: var(--on-gold);
-    font-weight: 700;
-    font-size: 0.8125rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    padding: 1rem 1.75rem;
-    border-radius: var(--radius);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    box-shadow: 0 12px 30px -16px oklch(0 0 0 / 80%);
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-all uppercase tracking-[0.09em] bg-gradient-to-b from-gold-soft to-gold text-on-gold font-bold shadow-[0_12px_30px_-16px_rgba(0,0,0,0.8)] hover:-translate-y-[2px] text-[0.8125rem] px-7 py-4;
   }
 
   .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border: 1px solid color-mix(in oklab, hsl(var(--gold)) 45%, transparent);
-    color: hsl(var(--gold-soft));
-    font-weight: 600;
-    font-size: 0.8125rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    padding: 1rem 1.75rem;
-    border-radius: var(--radius);
-    transition: background 0.25s ease, color 0.25s ease;
-  }
-
-  .btn-gold:hover {
-    transform: translateY(-2px);
-  }
-
-  .btn-ghost:hover {
-    background: color-mix(in oklab, hsl(var(--gold)) 12%, transparent);
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-all uppercase tracking-[0.09em] border border-gold/[.45] text-gold-soft font-semibold hover:bg-gold/[.12] text-[0.8125rem] px-7 py-4;
   }
 }
+

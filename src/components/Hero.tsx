@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaWhatsapp, FaSearch, FaStar } from "react-icons/fa";
+import { Button } from "./ui/button";
 
 const WHATSAPP = "https://wa.me/447447488755";
 const COMPANIES_HOUSE = "https://find-and-update.company-information.service.gov.uk/company/16903092";
@@ -22,12 +23,16 @@ export default function Hero() {
                         support and one named adviser throughout the process.
                     </p>
                     <div className="mt-9 flex flex-wrap items-center gap-4">
-                        <Link href="#pricing" className="btn-gold !px-9 !py-4 !text-sm shadow-lg">
-                            Start My UK Company
-                        </Link>
-                        <a href={WHATSAPP} className="btn-ghost">
-                            Speak to an Adviser
-                        </a>
+                        <Button asChild className="!px-9 !py-4 !text-sm shadow-lg">
+                            <Link href="#pricing">
+                                Start My UK Company
+                            </Link>
+                        </Button>
+                        <Button asChild variant="ghost">
+                            <a href={WHATSAPP}>
+                                Speak to an Adviser
+                            </a>
+                        </Button>
                     </div>
 
                     <div className="mt-12 border-t border-border/70 pt-8">

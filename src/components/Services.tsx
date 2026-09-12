@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 const SUPPORTED = [
     ["E-commerce & Amazon FBA", "International sellers needing a credible UK structure."],
@@ -154,9 +155,9 @@ export default function Services() {
                     <p className="mt-6 max-w-2xl border-l-2 border-gold/60 pl-4 text-sm leading-relaxed text-foreground/85">
                         KYC onboarding and Companies House statutory identity verification are separate processes.
                     </p>
-                    <Link href="/guides" className="btn-ghost mt-7 inline-block">
-                        Learn About Identity Verification
-                    </Link>
+                    <Button asChild variant="ghost" className="mt-7">
+                        <Link href="/guides">Learn About Identity Verification</Link>
+                    </Button>
                 </div>
             </section>
         </>

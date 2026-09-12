@@ -190,7 +190,6 @@ export default function UKComparisonTable() {
                 </div>
 
             </div>
-        </div>
+        </section>
     );
 }
-

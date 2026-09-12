@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { Button } from "./ui/button";
+
 const WHATSAPP = "https://wa.me/447447488755";
 
 export default function CTASection() {
@@ -25,12 +27,16 @@ export default function CTASection() {
                         Choose the setup that fits your circumstances or speak with an adviser before you begin.
                     </p>
                     <div className="mt-10 flex flex-wrap gap-4">
-                        <a href="#pricing" className="btn-gold">
-                            Start My UK Company
-                        </a>
-                        <a href={WHATSAPP} className="btn-ghost">
-                            Speak to an Adviser
-                        </a>
+                        <Button asChild>
+                            <a href="#pricing">
+                                Start My UK Company
+                            </a>
+                        </Button>
+                        <Button asChild variant="ghost">
+                            <a href={WHATSAPP}>
+                                Speak to an Adviser
+                            </a>
+                        </Button>
                     </div>
                     <div className="mt-12 grid gap-6 border-t border-border pt-10 sm:grid-cols-3">
                         <div>

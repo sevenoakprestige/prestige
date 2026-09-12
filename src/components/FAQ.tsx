@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "./ui/button";
 
 const FAQS = [
     {
@@ -57,9 +58,9 @@ export default function FAQ() {
                         <p className="mt-6 max-w-sm leading-relaxed text-muted-foreground">
                             If your question isn’t answered here, contact our team.
                         </p>
-                        <a href="mailto:hello@sevenoakprestige.com" className="btn-ghost mt-8">
-                            hello@sevenoakprestige.com
-                        </a>
+                        <Button asChild variant="ghost" className="mt-8">
+                            <a href="mailto:hello@sevenoakprestige.com">hello@sevenoakprestige.com</a>
+                        </Button>
                     </div>
                     <div>
                         <div className="divide-y divide-border border-y border-border">

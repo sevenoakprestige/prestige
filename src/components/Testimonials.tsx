@@ -26,9 +26,9 @@ const OVERALL_RATING = "5.0";
 
 function Stars({ n }: { n: number }) {
     return (
-        <div className="flex gap-1 text-gold" aria-label={`Rated ${n} out of 5`}>
+        <div className="flex gap-1.5 text-gold" aria-label={`Rated ${n} out of 5`}>
             {Array.from({ length: n }).map((_, i) => (
-                <svg key={i} viewBox="0 0 20 20" className="h-3.5 w-3.5 fill-current" aria-hidden="true">
+                <svg key={i} viewBox="0 0 20 20" className="h-5 w-5 fill-current" aria-hidden="true">
                     <path d="M10 1.5l2.47 5.27 5.53.72-4.06 3.9 1.03 5.61L10 14.35 5.03 17l1.03-5.61L2 7.49l5.53-.72L10 1.5z" />
                 </svg>
             ))}
@@ -38,7 +38,7 @@ function Stars({ n }: { n: number }) {
 
 function GoogleMark() {
     return (
-        <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+        <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
             <path
                 fill="#4285F4"
                 d="M23.5 12.27c0-.85-.08-1.67-.22-2.45H12v4.63h6.45a5.5 5.5 0 0 1-2.39 3.62v3h3.86c2.26-2.08 3.58-5.15 3.58-8.8z"
@@ -61,7 +61,13 @@ export default function Testimonials() {
     const [paused, setPaused] = useState(false);
     const loop = [...REVIEWS, ...REVIEWS, ...REVIEWS];
 
-    // Slow continuous drift; pauses on hover / touch / manual navigation.
+    const nudge = useCallback((dir: number) => {
+        const el = scroller.current;
+        if (!el) return;
+        el.scrollBy({ left: dir * (el.clientWidth * 0.6), behavior: "smooth" });
+    }, []);
+
+    // Continuous smooth drift; pauses on hover / touch.
     useEffect(() => {
         if (paused) return;
         const el = scroller.current;
@@ -70,12 +76,26 @@ export default function Testimonials() {
 
         let raf = 0;
         let last = performance.now();
+        let fractional = el.scrollLeft;
+
         const step = (now: number) => {
             const dt = now - last;
             last = now;
-            el.scrollLeft += (dt / 1000) * 22; // ~22px per second
+            
+            fractional += (dt / 1000) * 35; // 35px per second
+            
+            // Sync if user manually scrolled (if actual scroll differs significantly from our tracked fraction)
+            if (Math.abs(el.scrollLeft - fractional) > 2) {
+                fractional = el.scrollLeft;
+            }
+            
+            el.scrollLeft = fractional;
+
             const third = el.scrollWidth / 3;
-            if (el.scrollLeft >= third * 2) el.scrollLeft -= third;
+            if (el.scrollLeft >= third * 2) {
+                el.scrollLeft -= third;
+                fractional -= third;
+            }
             raf = requestAnimationFrame(step);
         };
         raf = requestAnimationFrame(step);
@@ -88,11 +108,6 @@ export default function Testimonials() {
         if (el) el.scrollLeft = el.scrollWidth / 3;
     }, []);
 
-    const nudge = useCallback((dir: number) => {
-        const el = scroller.current;
-        if (!el) return;
-        el.scrollBy({ left: dir * (el.clientWidth * 0.6), behavior: "smooth" });
-    }, []);
 
     return (
         <section className="section-parchment border-t border-border px-6 py-24 sm:py-32">
@@ -139,7 +154,7 @@ export default function Testimonials() {
 
                         <div
                             ref={scroller}
-                            className="mt-8 flex snap-x gap-px overflow-x-auto bg-border [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                            className="mt-8 flex gap-px overflow-x-auto bg-border [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing"
                         >
                             {loop.map((r, idx) => (
                                 <a
@@ -147,7 +162,7 @@ export default function Testimonials() {
                                     href={GOOGLE_REVIEWS_URL}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="flex w-[85%] shrink-0 snap-start flex-col bg-background p-8 transition-colors hover:bg-accent sm:w-[48%] lg:w-[36%]"
+                                    className="flex w-[85%] shrink-0 flex-col bg-background p-8 transition-colors hover:bg-accent sm:w-[48%] lg:w-[36%]"
                                 >
                                     <div className="flex items-center justify-between">
                                         <Stars n={r.rating} />

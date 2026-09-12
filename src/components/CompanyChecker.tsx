@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { FaCheckCircle, FaTimesCircle, FaExclamationTriangle, FaSpinner, FaTimes } from 'react-icons/fa';
+import { Button } from "./ui/button";
 
 interface CompanyResult {
     title: string;
@@ -423,7 +424,7 @@ export default function CompanyChecker() {
     return (
         <section id="name-check" className="px-6 py-24 sm:py-32 scroll-mt-20">
             <div className="mx-auto max-w-6xl">
-                <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+                <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
                     <div>
                         <div>
                             <p className="eyebrow">Company name check</p>
@@ -479,13 +480,13 @@ export default function CompanyChecker() {
                                 </div>
                             </div>
                             
-                            <button 
+                            <Button 
                                 onClick={handleCheckAvailability} 
-                                className="btn-gold shrink-0" 
+                                className="shrink-0" 
                                 disabled={isLoading}
                             >
                                 {isLoading ? "Checking…" : "Check availability"}
-                            </button>
+                            </Button>
                         </div>
 
                         <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
@@ -529,9 +530,9 @@ export default function CompanyChecker() {
                                     </div>
                                 )}
 
-                                <a href="#pricing" className="btn-ghost mt-8">
-                                    Continue to packages
-                                </a>
+                                <Button asChild variant="ghost" className="mt-8">
+                                    <a href="#pricing">Continue to packages</a>
+                                </Button>
                             </div>
                         )}
                     </div>
