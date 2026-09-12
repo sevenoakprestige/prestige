@@ -139,15 +139,15 @@ export default function BusinessBankingReadinessPage() {
                             {/* SVG Base Layers */}
                             <svg className="absolute inset-0" width="900" height="700" viewBox="0 0 900 700" fill="none">
                                 {/* Outer dashed gold ring */}
-                                <circle cx="450" cy="350" r="200" className="stroke-gold" strokeWidth="1" strokeDasharray="4 6" className="opacity-30 dark:opacity-20" />
+                                <circle cx="450" cy="350" r="200" strokeWidth="1" strokeDasharray="4 6" className="stroke-gold opacity-30 dark:opacity-20" />
                                 {/* Inner subtle ring */}
-                                <circle cx="450" cy="350" r="100" className="stroke-gold" strokeWidth="0.5" className="opacity-20 dark:opacity-10" />
+                                <circle cx="450" cy="350" r="100" strokeWidth="0.5" className="stroke-gold opacity-20 dark:opacity-10" />
                                 
                                 {/* Spokes connecting center to nodes */}
                                 {[
                                     [450, 150], [640, 288], [568, 512], [332, 512], [260, 288]
                                 ].map(([x, y], i) => (
-                                    <line key={i} x1="450" y1="350" x2={x} y2={y} className="stroke-gold" strokeWidth="1" className="opacity-20 dark:opacity-10" />
+                                    <line key={i} x1="450" y1="350" x2={x} y2={y} strokeWidth="1" className="stroke-gold opacity-20 dark:opacity-10" />
                                 ))}
 
                                 {/* Central abstract pentagon */}

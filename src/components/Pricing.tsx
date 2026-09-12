@@ -79,7 +79,14 @@ const PLANS: Array<{
     },
 ];
 
-export default function Pricing() {
+export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
+    const formatINR = (priceStr: string) => {
+        if (!inrRate) return null;
+        const gbp = parseInt(priceStr.replace(/[^0-9]/g, ''));
+        if (isNaN(gbp)) return null;
+        return `~ ₹${Math.round(gbp * inrRate).toLocaleString('en-IN')}`;
+    };
+
     return (
         <section id="pricing" className="border-t border-border scroll-mt-20 px-6 py-14 sm:py-18">
             <div className="mx-auto max-w-6xl">
@@ -103,7 +110,14 @@ export default function Pricing() {
                             <p className="mt-1 h-4 text-[0.6rem] uppercase tracking-[0.14em] text-gold">
                                 {p.tag ? p.tag : ""}
                             </p>
-                            <p className="mt-8 font-display text-4xl text-foreground">{p.price}</p>
+                            <div className="mt-8">
+                                <p className="font-display text-4xl text-foreground">{p.price}</p>
+                                {inrRate && (
+                                    <p className="mt-1 text-sm font-medium text-muted-foreground">
+                                        {formatINR(p.price) || "(Current market rates apply)"}
+                                    </p>
+                                )}
+                            </div>
                             <p className="mt-3 text-sm text-muted-foreground">{p.note}</p>
                             <ul className="mt-8 flex-1 space-y-2.5 border-t border-border pt-8 text-sm text-foreground/85">
                                 {p.features.map((f) => (
@@ -144,7 +158,9 @@ export default function Pricing() {
                             </Button>
                             <a
                                 href={`https://wa.me/447447488755?text=${encodeURIComponent(
-                                    `Hello Seven Oak Prestige, I have a question about the ${p.name} package.`
+                                    inrRate
+                                        ? `Hi, I'm from India and interested in the ${p.name} package.`
+                                        : `Hello Seven Oak Prestige, I have a question about the ${p.name} package.`
                                 )}`}
                                 className="mt-4 inline-block text-xs text-muted-foreground underline-offset-4 transition-colors hover:text-gold hover:underline"
                             >
@@ -153,6 +169,13 @@ export default function Pricing() {
                         </article>
                     ))}
                 </div>
+                
+                {inrRate && (
+                    <p className="mt-8 text-center max-w-3xl mx-auto text-xs leading-relaxed text-muted-foreground">
+                        * Payments are charged in GBP. Rupee amounts are provided for convenience and are indicative based on exchange rates (updated daily).
+                    </p>
+                )}
+                
                 <p className="mt-10 max-w-3xl text-xs leading-relaxed text-muted-foreground">
                     Financial-provider approval is not guaranteed and remains subject to each provider's eligibility, KYC
                     and risk assessment.

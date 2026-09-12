@@ -13,20 +13,20 @@ export default function WhoThisIsFor() {
     ];
 
     return (
-        <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <section className="section-dark relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
             {/* Background decoration */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
-                <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
+                <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl"></div>
+                <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-gold/5 blur-3xl"></div>
             </div>
 
             <div className="mx-auto max-w-4xl text-center">
                 {/* Header */}
                 <div className="mb-10 text-center lg:mb-12">
-                    <h2 className="who-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                    <h2 className="who-heading mb-4 text-3xl font-display font-bold tracking-tight sm:text-4xl lg:text-5xl">
                         Who This Is For
                     </h2>
-                    <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
+                    <div className="mx-auto h-1 w-24 bg-gradient-to-r from-gold to-[#f3d066]"></div>
                 </div>
 
                 {/* Target Audience List */}
@@ -41,7 +41,7 @@ export default function WhoThisIsFor() {
                         >
                             <div className="text-left">
 
-                                <span className="mr-2 mt-1 flex-shrink-0 text-[#d4af37]">•</span>
+                                <span className="mr-2 mt-1 flex-shrink-0 text-gold">•</span>
                                 <span className="">{item}</span>
                             </div>
                         </li>
@@ -49,7 +49,7 @@ export default function WhoThisIsFor() {
                 </ul>
 
                 {/* Tagline */}
-                <p className="who-tagline mb-10 text-base italic leading-relaxed sm:text-lg lg:text-xl">
+                <p className="text-muted-foreground who-tagline mb-10 text-base italic leading-relaxed sm:text-lg lg:text-xl">
                     This is not for shortcuts or hacks. We focus on structure,
                     <br className="hidden sm:block" />
                     compliance and long-term viability.
@@ -58,11 +58,9 @@ export default function WhoThisIsFor() {
                 {/* CTA Button */}
                 <Link
                     href="https://calendly.com/sevenoakprestige/30min"
-                    className="strategic-button group relative inline-block overflow-hidden rounded-lg border-2 px-4 py-3 text-sm font-medium tracking-wide transition-all duration-300 hover:scale-105 sm:px-8 sm:py-4 sm:text-base md:px-10 md:text-lg"
+                    className="btn-gold mt-8"
                 >
-                    <span className="relative z-10 whitespace-nowrap">Request a Private Strategy Session</span>
-                    {/* Hover effect background */}
-                    <div className="strategic-button-bg absolute inset-0 -z-0 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
+                    Request a Private Strategy Session
                 </Link>
             </div>
         </section>
