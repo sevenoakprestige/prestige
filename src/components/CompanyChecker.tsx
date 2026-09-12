@@ -12,7 +12,51 @@ interface CompanyResult {
     date_of_creation?: string;
 }
 
-export default function CompanyChecker() {
+const COPY = {
+  en: {
+    title: "Company name check",
+    heading: "Is Your Company Name Available?",
+    description: "Search the live Companies House register before you begin.",
+    note: "An indication only — final approval rests with Companies House.",
+    label: "Proposed company name",
+    placeholder: "Your proposed company name",
+    submit: "Check availability",
+    loading: "Checking…",
+    searchNote: "Searches the live Companies House register. An indication only — final approval rests with the Registrar.",
+    error: "Error while checking. Please try again.",
+    taken: "This company name is already registered. Please choose another name.",
+    highlySimilar: (title: string, match: number) => `A very similar company name exists: "${title}" (${match}% match)`,
+    similar: (count: number) => `Name appears available, but ${count} similar company name(s) exist. Consider a more distinctive name.`,
+    available: "Company name is available. You can register it now.",
+    freeHelp: "The name looks available. Names that are too similar to an existing company, or that use sensitive words, may still be refused.",
+    takenHelp: "You will need a distinguishable name. Your adviser can suggest compliant alternatives at no cost.",
+    similarNames: "Similar names on the register",
+    cta: "Continue to packages"
+  },
+  fr: {
+    title: "Disponibilité du nom",
+    heading: "Votre nom de société est-il libre ?",
+    description: "Vérifiez la disponibilité en temps réel sur le registre britannique.",
+    note: "Indication uniquement — l'approbation finale appartient à Companies House.",
+    label: "Nom de votre future société",
+    placeholder: "Nom de votre future société",
+    submit: "Vérifier le nom",
+    loading: "Vérification…",
+    searchNote: "Recherche effectuée sur le registre Companies House. La disponibilité affichée est indicative : la décision finale appartient à Companies House.",
+    error: "Une erreur est survenue. Merci de réessayer.",
+    taken: "Ce nom de société est déjà enregistré. Veuillez en choisir un autre.",
+    highlySimilar: (title: string, match: number) => `Un nom très similaire existe : "${title}" (${match}% match)`,
+    similar: (count: number) => `Le nom semble disponible, mais ${count} nom(s) similaire(s) existe(nt). Considérez un nom plus distinctif.`,
+    available: "Le nom est disponible. Vous pouvez l'enregistrer maintenant.",
+    freeHelp: "Le nom semble disponible. Un nom trop proche d’une société existante, ou comportant des mots sensibles, peut néanmoins être refusé.",
+    takenHelp: "Il vous faudra un nom distinguable. Votre conseiller peut vous proposer des alternatives conformes, sans frais.",
+    similarNames: "Noms similaires au registre",
+    cta: "Voir les offres"
+  }
+} as const;
+
+export default function CompanyChecker({ lang = "en" }: { lang?: "en" | "fr" }) {
+    const t = COPY[lang];
     const [companyName, setCompanyName] = useState('');
     const [result, setResult] = useState<{
         type: 'success' | 'error' | 'warning' | 'info' | null;
@@ -427,22 +471,22 @@ export default function CompanyChecker() {
                 <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
                     <div>
                         <div>
-                            <p className="eyebrow">Company name check</p>
+                            <p className="eyebrow">{t.title}</p>
                             <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">Is Your Company Name Available?</h2>
+                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">{t.heading}</h2>
                         <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
-                            Search the live Companies House register before you begin.
+                            {t.description}
                         </p>
                         <p className="mt-6 max-w-md text-xs leading-relaxed text-muted-foreground">
-                            An indication only — final approval rests with Companies House.
+                            {t.note}
                         </p>
                     </div>
 
                     <div>
                         <div className="flex flex-col gap-3 sm:flex-row">
                             <label htmlFor="company-name" className="sr-only">
-                                Proposed company name
+                                {t.label}
                             </label>
                             
                             <div className="flex flex-1 relative">
@@ -456,7 +500,7 @@ export default function CompanyChecker() {
                                     }}
                                     onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleCheckAvailability()}
                                     disabled={isLoading}
-                                    placeholder="Your proposed company name"
+                                    placeholder={t.placeholder}
                                     autoComplete="organization"
                                     className="w-full border border-border bg-background px-4 py-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-gold pr-[85px]"
                                 />
@@ -485,12 +529,12 @@ export default function CompanyChecker() {
                                 className="shrink-0" 
                                 disabled={isLoading}
                             >
-                                {isLoading ? "Checking…" : "Check availability"}
+                                {isLoading ? t.loading : t.submit}
                             </Button>
                         </div>
 
                         <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                            Searches the live Companies House register. An indication only — final approval rests with the Registrar.
+                            {t.searchNote}
                         </p>
 
                         {result.type && (
@@ -501,14 +545,14 @@ export default function CompanyChecker() {
                                 
                                 <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
                                     {result.type === 'success' 
-                                        ? "The name looks available. Names that are too similar to an existing company, or that use sensitive words, may still be refused."
-                                        : "You will need a distinguishable name. Your adviser can suggest compliant alternatives at no cost."}
+                                        ? t.freeHelp
+                                        : t.takenHelp}
                                 </p>
 
                                 {result.companies && result.companies.length > 0 && (
                                     <div className="mt-6">
                                         <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-gold">
-                                            Similar names on the register
+                                            {t.similarNames}
                                         </p>
                                         <ul className="mt-4 divide-y divide-border border-y border-border">
                                             {result.companies.map((c, i) => (
@@ -531,7 +575,7 @@ export default function CompanyChecker() {
                                 )}
 
                                 <Button asChild variant="ghost" className="mt-8">
-                                    <a href="#pricing">Continue to packages</a>
+                                    <a href="#pricing">{t.cta}</a>
                                 </Button>
                             </div>
                         )}

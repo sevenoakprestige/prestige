@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -152,6 +153,7 @@ export default function CountriesPage() {
                     </Button>
                 </div>
             </Section>
+            <Footer />
         </main>
     );
 }

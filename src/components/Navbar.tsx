@@ -64,6 +64,7 @@ const countryCategories = [
     {
         title: "International Founders",
         links: [
+            { name: "France", href: "/countries/france/uk-company-formation", icon: "/assets/flags/fr.svg" },
             { name: "India", href: "/countries/india/uk-company-formation", icon: "/assets/flags/in.svg" },
         ]
     }
