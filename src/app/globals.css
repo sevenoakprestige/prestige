@@ -1311,20 +1311,16 @@ FAQ
 
 /* FAQ Question */
 .faq-question {
-    color: hsl(0, 0%, 10%);
 }
 
 .dark .faq-question {
-    color: hsl(0, 0%, 95%);
 }
 
 /* FAQ Answer */
 .faq-answer {
-    color: hsl(0, 0%, 30%);
 }
 
 .dark .faq-answer {
-    color: hsl(0, 0%, 75%);
 }
 
 
@@ -3080,6 +3076,22 @@ RESPONSIVE DESIGN
   .section-parchment {
     --background: var(--cream);
     background-color: var(--cream);
+    --foreground: 215 51% 11%;
+    --card: 43 33% 95%;
+    --card-foreground: 215 51% 11%;
+    --popover: 43 33% 95%;
+    --popover-foreground: 215 51% 11%;
+    --primary: 215 51% 11%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 43 33% 95%;
+    --secondary-foreground: 215 51% 11%;
+    --muted: 43 33% 95%;
+    --muted-foreground: 216 11% 40%;
+    --accent: 43 31% 93%;
+    --accent-foreground: 215 51% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 215 51% 11%;
   }
 
   .section-dark {
