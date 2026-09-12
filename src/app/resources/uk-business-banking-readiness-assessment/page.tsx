@@ -153,8 +153,9 @@ export default function BusinessBankingReadinessPage() {
                                 {/* Central abstract pentagon */}
                                 <polygon
                                     points="450,250 545,319 509,431 391,431 355,319"
-                                    className="fill-gold/10 stroke-gold"
+                                    className="fill-gold/10 stroke-gold transition-all duration-500 hover:fill-gold/20 cursor-default"
                                     strokeWidth="1.5"
+                                    style={{ filter: "drop-shadow(0 0 15px rgba(212,175,55,0.4))" }}
                                 />
                             </svg>
 

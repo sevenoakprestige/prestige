@@ -1,7 +1,10 @@
+import { Metadata } from "next";
+import Head from "next/head";
 import Footer from "@/components/Footer";
+import React from "react";
+import LeadForm from "@/components/forms/LeadForm";
 import Link from "next/link";
 import Image from "next/image";
-import { Metadata } from "next";
 
 
 import { ReviewsFr } from "@/components/ReviewsFr";
@@ -980,6 +983,10 @@ export default function FrancePage() {
           <a href="#tarifs" className="btn-ghost">
             Créer ma société
           </a>
+        </div>
+
+        <div className="mt-20 max-w-2xl">
+          <LeadForm source="France UK Company Formation Landing Page" title="Contactez-nous" buttonText="Envoyer" />
         </div>
       </Section>
 

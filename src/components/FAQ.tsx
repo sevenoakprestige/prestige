@@ -59,7 +59,7 @@ export default function FAQ() {
                             If your question isn’t answered here, contact our team.
                         </p>
                         <Button asChild variant="ghost" className="mt-8">
-                            <a href="mailto:hello@sevenoakprestige.com">hello@sevenoakprestige.com</a>
+                            <a href="mailto:contact@sevenoakprestige.com">contact@sevenoakprestige.com</a>
                         </Button>
                     </div>
                     <div>

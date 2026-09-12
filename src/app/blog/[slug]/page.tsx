@@ -55,11 +55,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 const portableTextComponents = {
     block: {
         h1: ({ children }: any) => <h1 className="mb-4 mt-8 text-3xl font-bold">{children}</h1>,
-        h2: ({ children }: any) => <h2 className="mb-3 mt-6 text-2xl font-bold text-[#d4af37]">{children}</h2>,
+        h2: ({ children }: any) => <h2 className="mb-3 mt-6 text-2xl font-display font-bold text-gold">{children}</h2>,
         h3: ({ children }: any) => <h3 className="mb-2 mt-4 text-xl font-semibold">{children}</h3>,
         normal: ({ children }: any) => <p className="mb-4 leading-relaxed text-foreground/90">{children}</p>,
         blockquote: ({ children }: any) => (
-            <blockquote className="border-l-4 border-[#d4af37] pl-4 italic text-muted-foreground">{children}</blockquote>
+            <blockquote className="border-l-4 border-gold pl-4 italic text-muted-foreground">{children}</blockquote>
         ),
     },
     list: {
@@ -74,7 +74,7 @@ const portableTextComponents = {
         link: ({ children, value }: any) => (
             <a
                 href={value.href}
-                className="font-medium text-[#d4af37] underline decoration-[#d4af37]/30 underline-offset-2 transition-colors hover:decoration-[#d4af37]"
+                className="font-medium text-gold underline decoration-gold/30 underline-offset-2 transition-colors hover:decoration-gold"
                 target={value.blank ? '_blank' : undefined}
                 rel={value.blank ? 'noopener noreferrer' : undefined}
             >
@@ -138,13 +138,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
             />
-            <main className="min-h-screen pt-24 pb-16">
+            <main className="section-parchment min-h-screen pt-24 pb-16">
                 {/* Header Section */}
                 <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                     {/* Back Button */}
                     <Link
                         href="/blog"
-                        className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-[#d4af37]"
+                        className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-gold"
                     >
                         <FaArrowLeft className="h-3 w-3" />
                         Back to Blog
@@ -153,10 +153,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     {/* Tags */}
                     {post.tags && post.tags.length > 0 && (
                         <div className="mb-4 flex flex-wrap gap-2">
-                            {post.tags.map((tag: string) => (
+                            {post.tags.map((tag: string, idx: number) => (
                                 <span
-                                    key={tag}
-                                    className="inline-flex items-center gap-1 rounded-full bg-[#d4af37]/10 px-3 py-1 text-xs font-medium text-[#d4af37]"
+                                    key={`${tag}-${idx}`}
+                                    className="inline-flex items-center gap-1 rounded-full bg-gold/10 px-3 py-1 text-xs font-medium text-gold"
                                 >
                                     <FaTag className="h-2.5 w-2.5" />
                                     {tag}
@@ -166,7 +166,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     )}
 
                     {/* Title */}
-                    <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                    <h1 className="mb-6 text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-6xl">
                         {post.title}
                     </h1>
 
@@ -207,9 +207,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     <div className="mt-12 border-t pt-8">
                         <Link
                             href="/blog"
-                            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-6 py-3 font-semibold text-black shadow-lg shadow-[#d4af37]/20 transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#d4af37]/30 active:scale-95"
+                            className="btn-gold"
                         >
-                            <FaArrowLeft className="h-4 w-4" />
+                            <FaArrowLeft className="h-4 w-4 mr-2 inline-block" />
                             Back to All Articles
                         </Link>
                     </div>

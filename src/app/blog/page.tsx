@@ -31,26 +31,26 @@ export default async function BlogHome() {
 
     return (
         <>
-            <main className="min-h-screen pt-24 pb-16">
+            <main className="section-dark min-h-screen pt-24 pb-16">
                 {/* Header Section */}
-                <section className="relative px-4 py-16 sm:px-6 lg:px-8">
+                <section className="section-dark relative px-4 py-16 sm:px-6 lg:px-8">
                     <div className="absolute inset-0 -z-10">
-                        <div className="absolute right-1/4 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
+                        <div className="absolute right-1/4 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl"></div>
                     </div>
 
                     <div className="mx-auto max-w-7xl">
                         {/* Back Button */}
                         <Link
                             href="/"
-                            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-[#d4af37]"
+                            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-gold"
                         >
                             <FaArrowLeft className="h-3 w-3" />
                             Back to Home
                         </Link>
 
                         <div className="text-center">
-                            <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                                UK Company Formation <span className="text-[#d4af37]">Insights</span> & Business Guides
+                            <h1 className="mb-6 text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                                UK Company Formation <span className="text-gold">Insights</span> & Business Guides
                             </h1>
                             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
                                 Expert guides on UK company formation, fintech banking, and global business structuring.
@@ -60,26 +60,26 @@ export default async function BlogHome() {
                 </section>
 
                 {/* Posts Grid */}
-                <section className="px-4 py-12 sm:px-6 lg:px-8">
+                <section className="section-parchment px-4 py-12 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-7xl">
                         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                             {allPostsData.map(({ slug, date, title, excerpt, tags }) => (
                                 <article
                                     key={slug}
-                                    className="group relative flex flex-col overflow-hidden rounded-2xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-lg hover:shadow-[#d4af37]/10"
+                                    className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/50 bg-card/50 text-card-foreground shadow-sm transition-all hover:shadow-lg hover:shadow-gold/10"
                                 >
                                     <div className="flex flex-1 flex-col p-6">
                                         {/* Tags */}
                                         <div className="mb-4 flex flex-wrap gap-2">
-                                            {tags?.map((tag: string) => (
-                                                <span key={tag} className="rounded-full bg-[#d4af37]/10 px-3 py-1 text-xs font-medium text-[#d4af37]">
+                                            {tags?.map((tag: string, idx: number) => (
+                                                <span key={`${tag}-${idx}`} className="rounded-full bg-gold/10 px-3 py-1 text-xs font-medium text-gold">
                                                     {tag}
                                                 </span>
                                             ))}
                                         </div>
 
                                         {/* Title */}
-                                        <h2 className="mb-3 text-2xl font-bold leading-tight decoration-[#d4af37] underline-offset-4 group-hover:underline">
+                                        <h2 className="mb-3 text-2xl font-display font-bold leading-tight decoration-gold underline-offset-4 group-hover:underline">
                                             <Link href={`/blog/${slug}`} className="focus:outline-none">
                                                 <span className="absolute inset-0" aria-hidden="true" />
                                                 {title}
@@ -97,14 +97,14 @@ export default async function BlogHome() {
                                                 <FaCalendar className="h-3 w-3" />
                                                 <time dateTime={date}>{date}</time>
                                             </div>
-                                            <div className="flex items-center gap-1 font-medium text-[#d4af37]">
+                                            <div className="flex items-center gap-1 font-medium text-gold">
                                                 Read Article <FaArrowRight className="h-3 w-3" />
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Hover Effect */}
-                                    <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[#d4af37] to-[#f3d066] opacity-0 transition-opacity group-hover:opacity-100" />
+                                    <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-gold to-[#f3d066] opacity-0 transition-opacity group-hover:opacity-100" />
                                 </article>
                             ))}
                         </div>

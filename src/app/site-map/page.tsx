@@ -75,6 +75,7 @@ const sitemapSections = [
         description: "Main site pages",
         links: [
             { name: "Homepage", href: "/", description: "Seven Oak Prestige — UK Company Formation Services" },
+            { name: "Contact", href: "/contact", description: "Get in touch with our team" },
             { name: "Consultation", href: "/consultation", description: "Book a free consultation with our team" },
         ],
     },

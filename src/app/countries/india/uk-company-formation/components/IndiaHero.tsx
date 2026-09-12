@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FaUserTie, FaBuilding, FaGlobe, FaShieldAlt, FaLock } from "react-icons/fa";
 import Image from "next/image";
+import LeadForm from "@/components/forms/LeadForm";
 
 export default function IndiaHero() {
     return (
@@ -76,33 +77,9 @@ export default function IndiaHero() {
                     <div className="lg:w-5/12 w-full">
                         <div className="bg-white rounded-xl shadow-2xl p-6 sm:p-8">
                             <h3 className="text-2xl font-bold text-gray-900 mb-6">Check Your UK Company Setup</h3>
-                            <form className="space-y-4">
+                            <LeadForm source="India UK Company Formation Landing Page" buttonText="Check My Setup">
                                 <div>
-                                    <input 
-                                        type="text" 
-                                        placeholder="Full name" 
-                                        className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 placeholder-gray-500"
-                                    />
-                                </div>
-                                <div className="flex border border-gray-300 rounded-md focus-within:ring-2 focus-within:ring-[#001328] focus-within:border-transparent bg-white">
-                                    <div className="flex items-center px-3 border-r border-gray-300 bg-gray-50 text-gray-700 rounded-l-md">
-                                        <span className="text-lg mr-2">🇮🇳</span> <span className="text-sm">+91</span>
-                                    </div>
-                                    <input 
-                                        type="tel" 
-                                        placeholder="WhatsApp number" 
-                                        className="w-full px-4 py-3 rounded-r-md focus:outline-none bg-white text-gray-900 placeholder-gray-500"
-                                    />
-                                </div>
-                                <div>
-                                    <input 
-                                        type="email" 
-                                        placeholder="Email address" 
-                                        className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 placeholder-gray-500"
-                                    />
-                                </div>
-                                <div>
-                                    <select defaultValue="" className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 placeholder-gray-500 appearance-none">
+                                    <select name="businessActivity" defaultValue="" className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 placeholder-gray-500 appearance-none">
                                         <option value="" disabled>Business activity</option>
                                         <option value="saas">SaaS & Technology</option>
                                         <option value="services">IT Services & Agency</option>
@@ -112,16 +89,7 @@ export default function IndiaHero() {
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
-                                <div className="pt-2">
-                                    <Button type="button" className="w-full h-14 bg-[#001328] hover:bg-[#001328]/90 text-white font-bold text-lg rounded-md transition-colors">
-                                        Request a Setup Review
-                                    </Button>
-                                </div>
-                                <div className="flex items-start gap-2 mt-4 text-xs text-gray-500">
-                                    <div className="mt-0.5 text-[#d4af37] shrink-0"><FaLock className="w-3 h-3" /></div>
-                                    <p>We use your details only to assess your enquiry and contact you about your UK company setup.</p>
-                                </div>
-                            </form>
+                            </LeadForm>
                         </div>
                     </div>
                 </div>

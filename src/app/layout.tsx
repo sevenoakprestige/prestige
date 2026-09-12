@@ -92,7 +92,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <GoogleTagManager gtmId={gtmId} />
-            <body className={`${jakarta.variable} ${outfit.variable} font-sans antialiased bg-background text-foreground`}>
+            <body className={`${jakarta.variable} ${outfit.variable} font-sans antialiased bg-background text-foreground`} suppressHydrationWarning>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="dark"

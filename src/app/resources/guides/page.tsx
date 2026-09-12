@@ -1,9 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
 export const metadata: Metadata = {
   title: "Guides & Insights | UK Company Formation for Non-Residents",
   description:
@@ -78,8 +75,6 @@ const GUIDES = [
 export default function GuidesPage() {
   return (
     <div className="bg-background min-h-screen">
-      <Navbar />
-
       <div className="border-b border-border px-6 pb-16 pt-32 sm:pb-20 sm:pt-40">
         <div className="mx-auto max-w-6xl">
           <p className="eyebrow">Guides &amp; insights</p>
@@ -126,8 +121,6 @@ export default function GuidesPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

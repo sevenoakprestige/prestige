@@ -75,7 +75,7 @@ const connectCategories = [
     {
         title: "Get in Touch",
         links: [
-            { name: "Contact", href: "#contact" },
+            { name: "Contact", href: "/contact" },
             { name: "Consultation", href: "/consultation" },
         ]
     }

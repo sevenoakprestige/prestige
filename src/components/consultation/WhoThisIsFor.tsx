@@ -29,24 +29,32 @@ export default function WhoThisIsFor() {
                     <div className="mx-auto h-1 w-24 bg-gradient-to-r from-gold to-[#f3d066]"></div>
                 </div>
 
-                {/* Target Audience List */}
-                <ul className="who-list mx-auto mb-8 max-w-md space-y-4">
+                {/* Target Audience Grid */}
+                <div className="mx-auto mb-8 max-w-2xl grid grid-cols-1 gap-4 sm:grid-cols-2">
                     {targetAudience.map((item, index) => (
-                        <li
+                        <div
                             key={index}
-                            className="who-list-item flex items-start text-lg sm:text-xl"
+                            className="group relative overflow-hidden rounded-xl border border-border/30 bg-card/25 p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#d4af37]/45 hover:shadow-[0_0_20px_rgba(212,175,55,0.1)] text-left"
                             style={{
                                 animationDelay: `${index * 100}ms`,
                             }}
                         >
-                            <div className="text-left">
-
-                                <span className="mr-2 mt-1 flex-shrink-0 text-gold">•</span>
-                                <span className="">{item}</span>
+                            {/* Card glow effect on hover */}
+                            <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent"></div>
                             </div>
-                        </li>
+                            
+                            <div className="flex items-center gap-3">
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 text-[#d4af37] group-hover:bg-[#d4af37]/20 transition-colors">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span className="text-base sm:text-lg font-medium text-foreground/90">{item}</span>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
 
                 {/* Tagline */}
                 <p className="text-muted-foreground who-tagline mb-10 text-base italic leading-relaxed sm:text-lg lg:text-xl">

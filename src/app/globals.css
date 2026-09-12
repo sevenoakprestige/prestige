@@ -2770,7 +2770,7 @@ RESPONSIVE DESIGN
    PREMIUM FAQ COMPONENT
 ================================= */
 .premium-faq-item {
-    @apply relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45;
+    @apply relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)];
 }
 
 .premium-faq-question {
