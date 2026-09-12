@@ -474,7 +474,7 @@ export default function CompanyChecker({ lang = "en" }: { lang?: "en" | "fr" }) 
                             <p className="eyebrow">{t.title}</p>
                             <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">{t.heading}</h2>
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">{t.heading}</h2>
                         <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
                             {t.description}
                         </p>

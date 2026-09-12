@@ -116,7 +116,7 @@ export default function Testimonials() {
                     <p className="eyebrow">Client reviews</p>
                     <div className="mt-4 h-px w-16 rule-gold" />
                 </div>
-                <h2 className="mt-6 max-w-xl text-3xl leading-tight sm:text-4xl">
+                <h2 className="font-display mb-6 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                     What Our Clients Say About Our UK Setup Service
                 </h2>
                 <div className="mt-12">

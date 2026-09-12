@@ -63,7 +63,7 @@ export default function HowItWorks() {
                     <div>
                         <p className="eyebrow">How it works</p>
                         <div className="mt-4 h-px w-16 rule-gold" />
-                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">A Clear Process From Start to Finish</h2>
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">A Clear Process From Start to Finish</h2>
                         <ol className="mt-12 space-y-10">
                             {PROCESS_STEPS.map((s) => (
                                 <li key={s.n} className="border-t border-border pt-8">
@@ -175,7 +175,7 @@ export default function HowItWorks() {
                                 <p className="eyebrow">Banking readiness</p>
                                 <div className="mt-4 h-px w-16 rule-gold" />
                             </div>
-                            <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">
+                            <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                                 Prepare Your Company for Banking and Payments
                             </h2>
                             <p className="mt-6 leading-relaxed text-muted-foreground">

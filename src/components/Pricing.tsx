@@ -87,7 +87,7 @@ export default function Pricing() {
                     <p className="eyebrow">Packages</p>
                     <div className="mt-4 h-px w-16 rule-gold" />
                 </div>
-                <h2 className="mt-6 max-w-2xl text-3xl leading-tight sm:text-4xl">
+                <h2 className="font-display mb-6 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                     Fixed pricing. Everything stated up front.
                 </h2>
                 <div className="mt-14 grid gap-px bg-border lg:grid-cols-3">

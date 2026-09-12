@@ -48,7 +48,7 @@ export default function SuccessStories() {
                             <p className="eyebrow">Digital delivery</p>
                             <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">What You Receive</h2>
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">What You Receive</h2>
                         <p className="mt-6 leading-relaxed text-muted-foreground">
                             All statutory documents are provided digitally as PDF files, which are the standard format
                             required by banks and payment processors.
@@ -82,7 +82,7 @@ export default function SuccessStories() {
                             <p className="eyebrow">Case study</p>
                             <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                        <h2 className="mt-6 text-2xl font-semibold leading-tight sm:text-3xl">
+                        <h2 className="font-display mb-6 text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-foreground">
                             Forming a UK Tech Consultancy from India
                         </h2>
                         <ul className="mt-8 space-y-4">
@@ -116,7 +116,7 @@ export default function SuccessStories() {
                         <p className="eyebrow">Why Seven Oak</p>
                         <div className="mt-4 h-px w-16 rule-gold" />
                     </div>
-                    <h2 className="mt-6 max-w-2xl text-3xl leading-tight sm:text-4xl">
+                    <h2 className="font-display mb-6 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                         More Than an Incorporation Platform
                     </h2>
                     <div className="mt-14 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
@@ -144,7 +144,7 @@ export default function SuccessStories() {
                                 <p className="eyebrow">Guidance</p>
                                 <div className="mt-4 h-px w-16 rule-gold" />
                             </div>
-                            <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">Guidance for International Founders</h2>
+                            <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Guidance for International Founders</h2>
                         </div>
                         <Link
                             href="/countries"

@@ -20,7 +20,7 @@ export default function CTASection() {
             <div className="absolute inset-0 bg-gradient-to-r from-ink-deep via-ink-deep/90 to-ink-deep/60" />
             <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
                 <div className="max-w-2xl">
-                    <h2 className="font-display text-3xl leading-tight sm:text-5xl">
+                    <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                         Ready to Establish Your UK Company?
                     </h2>
                     <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">

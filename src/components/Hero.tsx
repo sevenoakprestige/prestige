@@ -15,10 +15,10 @@ export default function Hero() {
                 <div className="px-6 pb-16 pt-16 sm:px-10 sm:pb-20 sm:pt-20 lg:py-24">
                     <p className="eyebrow">UK Company Formation for Non-Residents</p>
                     <div className="mt-4 h-px w-24 rule-gold" />
-                    <h1 className="mt-8 max-w-xl font-display text-4xl leading-[1.08] sm:text-5xl lg:text-[3.4rem]">
-                        Form Your UK Company From Anywhere in the World
+                    <h1 className="mt-8 max-w-xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                        Form Your UK Company From <span className="text-gold">Anywhere</span> in the World
                     </h1>
-                    <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+                    <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80 sm:text-xl">
                         UK company formation for international founders, with address solutions, guided compliance
                         support and one named adviser throughout the process.
                     </p>
@@ -68,8 +68,8 @@ export default function Hero() {
                                         </svg>
                                     </span>
                                     <div>
-                                        <p className="text-sm font-semibold text-foreground">{title}</p>
-                                        <p className="mt-0.5 text-xs text-muted-foreground">{desc}</p>
+                                        <p className="text-base font-semibold tracking-wide text-foreground">{title}</p>
+                                        <p className="mt-1 text-sm text-foreground/70">{desc}</p>
                                     </div>
                                 </li>
                             ))}
@@ -92,7 +92,7 @@ export default function Hero() {
                                 Fair Refund Policy
                             </Link>
                         </div>
-                        <p className="mt-5 max-w-xl text-xs leading-relaxed text-muted-foreground">
+                        <p className="mt-5 max-w-xl text-sm leading-relaxed text-foreground/60">
                             Subject to complete information, identity checks and Companies House processing.
                         </p>
                     </div>

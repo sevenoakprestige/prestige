@@ -52,6 +52,7 @@ const resourceCategories = [
     {
         title: "Executive Frameworks",
         links: [
+            { name: "Guides & Insights", href: "/resources/guides" },
             { name: "UK Business Banking Readiness Assessment", href: "/resources/uk-business-banking-readiness-assessment" },
             { name: "UK Corporate Compliance Framework", href: "#compliance-framework" },
             { name: "International Founder Framework", href: "#founder-framework" },

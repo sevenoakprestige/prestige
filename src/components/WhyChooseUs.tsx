@@ -19,7 +19,7 @@ export default function WhyChooseUs() {
                             <p className="eyebrow">Bespoke compliance review</p>
                             <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">We Don’t Just Automate — We Review</h2>
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">We Don’t Just Automate — We Review</h2>
                         <p className="mt-6 leading-relaxed text-muted-foreground">
                             Off-the-shelf agents push every application straight to Companies House. We manually review your
                             proposed structure, SIC codes, and compliance details to reduce the chance of rejection or errors.

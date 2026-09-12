@@ -17,6 +17,12 @@ import IndiaGoogleReviews from "./components/IndiaGoogleReviews";
 export const metadata: Metadata = {
     title: "UK Company Formation for Indian Residents | Seven Oak Prestige",
     description: "Build and operate your UK business from India with specialist support for company formation, verification, UK addresses, banking readiness, VAT, and EORI.",
+    alternates: {
+        canonical: "https://www.sevenoakprestige.com/countries/india/uk-company-formation",
+        languages: {
+            "en-IN": "https://www.sevenoakprestige.com/countries/india/uk-company-formation",
+        }
+    },
     openGraph: {
         title: "UK Company Formation for Indian Residents | Seven Oak Prestige",
         description: "Build and operate your UK business from India with specialist support.",

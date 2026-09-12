@@ -45,7 +45,7 @@ export default function Services() {
                         <p className="eyebrow">Global founders</p>
                         <div className="mt-4 h-px w-16 rule-gold" />
                     </div>
-                    <h2 className="mt-6 max-w-xl text-3xl leading-tight sm:text-4xl">Who We Support</h2>
+                    <h2 className="font-display mb-6 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Who We Support</h2>
                     <div className="mt-12 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
                         {SUPPORTED.map(([title, desc]) => (
                             <div key={title} className="surface flex flex-col p-6">
@@ -64,7 +64,7 @@ export default function Services() {
                         <p className="eyebrow">Comprehensive package</p>
                         <div className="mt-4 h-px w-16 rule-gold" />
                     </div>
-                    <h2 className="mt-6 max-w-xl text-3xl leading-tight sm:text-4xl">Everything Required to Operate</h2>
+                    <h2 className="font-display mb-6 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Everything Required to Operate</h2>
                     <p className="mt-6 max-w-2xl leading-relaxed text-muted-foreground">
                         We do not strip out essential services to sell them back to you later. Our non-resident package
                         includes the registered addresses, documents and support you actually need to open an account and
@@ -89,7 +89,7 @@ export default function Services() {
                             <p className="eyebrow">Address & correspondence</p>
                             <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                             Your UK Mail, Accessible From Anywhere
                         </h2>
                         <ol className="mt-12 divide-y divide-border border-t border-border">
@@ -136,7 +136,7 @@ export default function Services() {
                         <p className="eyebrow">Verification</p>
                         <div className="mt-4 h-px w-16 rule-gold" />
                     </div>
-                    <h2 className="mt-6 max-w-2xl text-3xl leading-tight sm:text-4xl">
+                    <h2 className="font-display mb-6 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                         Companies House Identity Verification
                     </h2>
                     <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">

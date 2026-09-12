@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
     title: "Countries We Support | UK Company Formation for Non-Residents",
     description: "Seven Oak Prestige supports founders in Africa, the Middle East, Asia, Europe and the Americas forming UK limited companies, subject to KYC and eligibility checks.",
+    alternates: {
+        canonical: "https://www.sevenoakprestige.com/countries",
+    }
 };
 
 const WHATSAPP = "https://wa.me/447447488755";

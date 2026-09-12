@@ -10,6 +10,12 @@ import CompanyChecker from "@/components/CompanyChecker";
 export const metadata: Metadata = {
   title: "Création Société UK depuis la France | Seven Oak Prestige",
   description: "Créez une UK Limited depuis la France avec un cabinet britannique. Accompagnement en français, adresse UK, vérification Companies House, gestion du courrier et préparation bancaire.",
+  alternates: {
+    canonical: "https://www.sevenoakprestige.com/countries/france/uk-company-formation",
+    languages: {
+      "fr": "https://www.sevenoakprestige.com/countries/france/uk-company-formation",
+    },
+  },
 };
 
 const FAQS = [

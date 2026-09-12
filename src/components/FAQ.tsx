@@ -54,7 +54,7 @@ export default function FAQ() {
                             <p className="eyebrow">Common questions</p>
                             <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                        <h2 className="mt-6 text-3xl leading-tight sm:text-4xl">Questions? We Are Here to Help.</h2>
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Questions? We Are Here to Help.</h2>
                         <p className="mt-6 max-w-sm leading-relaxed text-muted-foreground">
                             If your question isn’t answered here, contact our team.
                         </p>
