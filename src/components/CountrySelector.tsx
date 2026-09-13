@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-type Country = "UK" | "USA" | "Canada";
+type Country = "UK";
 
 interface CountrySelectorProps {
     selectedCountry: Country;
@@ -11,8 +11,6 @@ interface CountrySelectorProps {
 
 const countries: { value: Country; label: string; flag: string }[] = [
     { value: "UK", label: "United Kingdom", flag: "🇬🇧" },
-    { value: "USA", label: "United States", flag: "🇺🇸" },
-    { value: "Canada", label: "Canada", flag: "🇨🇦" },
 ];
 
 export default function CountrySelector({ selectedCountry, onCountryChange }: CountrySelectorProps) {

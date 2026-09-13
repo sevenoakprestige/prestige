@@ -29,20 +29,20 @@ export default function HowEngagementWorks() {
     ];
 
     return (
-        <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <section className="section-dark relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
             {/* Background decoration */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
-                <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
+                <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl"></div>
+                <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-gold/5 blur-3xl"></div>
             </div>
 
             <div className="mx-auto max-w-6xl">
                 {/* Header */}
                 <div className="mb-10 text-center lg:mb-12">
-                    <h2 className="engagement-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                    <h2 className="engagement-heading mb-4 text-3xl font-display font-bold tracking-tight sm:text-4xl lg:text-5xl">
                         How the Engagement Works
                     </h2>
-                    <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
+                    <div className="mx-auto h-1 w-24 bg-gradient-to-r from-gold to-[#f3d066]"></div>
                 </div>
 
                 {/* Steps Grid */}
@@ -50,22 +50,22 @@ export default function HowEngagementWorks() {
                     {steps.map((step, index) => (
                         <div
                             key={index}
-                            className="engagement-card group relative overflow-hidden rounded-xl border p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-xl"
+                            className="group relative overflow-hidden rounded-xl border border-border/50 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-xl"
                             style={{
                                 animationDelay: `${index * 100}ms`,
                             }}
                         >
                             {/* Card glow effect on hover */}
                             <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent"></div>
                             </div>
 
                             {/* Step Number */}
                             <div className="mb-4 flex items-center gap-4">
-                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#d4af37]/20 to-[#f3d066]/10 text-2xl font-bold text-[#d4af37]">
+                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold/20 to-[#f3d066]/10 text-2xl font-display font-bold text-gold">
                                     {step.number}
                                 </div>
-                                <h3 className="engagement-title text-xl font-bold">
+                                <h3 className="engagement-title text-xl font-display font-bold">
                                     {step.title}
                                 </h3>
                             </div>
@@ -76,7 +76,7 @@ export default function HowEngagementWorks() {
                             </p>
 
                             {/* Decorative corner accent */}
-                            <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/10 blur-2xl transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
+                            <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-gold/10 blur-2xl transition-transform duration-300 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
                         </div>
                     ))}
                 </div>

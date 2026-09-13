@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import LeadForm from '@/components/forms/LeadForm';
 
 export default function Contact() {
     const cards = [
@@ -92,6 +93,10 @@ export default function Contact() {
                             </p>
                         </div>
                     ))}
+                </div>
+
+                <div className="mt-20 max-w-2xl mx-auto">
+                    <LeadForm source="Main Contact Page" title="Send us a message" />
                 </div>
             </div>
         </section>

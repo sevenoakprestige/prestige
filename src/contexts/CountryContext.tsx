@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-export type Country = "UK" | "USA" | "Canada";
+export type Country = "UK";
 
 interface CountryContextType {
     selectedCountry: Country;

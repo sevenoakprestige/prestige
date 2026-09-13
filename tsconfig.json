@@ -37,6 +37,7 @@
     "**/*.mts"
   ],
   "exclude": [
+    "sevenoaks-prestige-redesign-main",
     "node_modules"
   ]
 }

@@ -14,8 +14,6 @@ import {
     SheetTitle,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "./mode-toggle";
-import { useTheme } from "next-themes";
 
 const links = [
     { name: "Home", href: "/" },
@@ -54,6 +52,7 @@ const resourceCategories = [
     {
         title: "Executive Frameworks",
         links: [
+            { name: "Guides & Insights", href: "/resources/guides" },
             { name: "UK Business Banking Readiness Assessment", href: "/resources/uk-business-banking-readiness-assessment" },
             { name: "UK Corporate Compliance Framework", href: "#compliance-framework" },
             { name: "International Founder Framework", href: "#founder-framework" },
@@ -66,6 +65,7 @@ const countryCategories = [
     {
         title: "International Founders",
         links: [
+            { name: "France", href: "/countries/france/uk-company-formation", icon: "/assets/flags/fr.svg" },
             { name: "India", href: "/countries/india/uk-company-formation", icon: "/assets/flags/in.svg" },
         ]
     }
@@ -75,14 +75,13 @@ const connectCategories = [
     {
         title: "Get in Touch",
         links: [
-            { name: "Contact", href: "#contact" },
+            { name: "Contact", href: "/contact" },
             { name: "Consultation", href: "/consultation" },
         ]
     }
 ];
 
 export default function Navbar() {
-    const { theme, resolvedTheme } = useTheme();
     const pathname = usePathname();
     const [isOpen, setIsOpen] = React.useState(false);
     const [isVisible, setIsVisible] = React.useState(true);
@@ -136,7 +135,7 @@ export default function Navbar() {
                 return (
                     <span className="flex items-center gap-1.5">
                         {activeCountry.icon && (
-                            <Image src={activeCountry.icon} alt={activeCountry.name} width={18} height={14} className="rounded-sm object-cover" />
+                            <img src={activeCountry.icon} alt={activeCountry.name} width={18} height={14} className="rounded-sm object-cover" />
                         )}
                         <span>{activeCountry.name}</span>
                     </span>
@@ -147,13 +146,24 @@ export default function Navbar() {
     };
 
     return (
-        <header
-            className={cn(
-                "fixed top-0 z-50 w-full px-4 pt-3 transition-transform duration-300 md:px-6",
-                isVisible ? "translate-y-0" : "-translate-y-full"
-            )}
-        >
-            <div className="mx-auto max-w-7xl rounded-xl border border-border/20 bg-background/80 px-4 py-2 backdrop-blur-xl shadow-lg shadow-black/5 supports-[backdrop-filter]:bg-background/60 md:px-6 lg:px-8">
+        <header className="section-dark sticky top-0 z-50 w-full border-b border-border/60">
+
+            {/* Institutional utility bar */}
+            <div className="hidden border-b border-border/40 lg:block">
+                <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-[0.68rem] tracking-[0.06em] text-muted-foreground">
+                    <span>Seven Oak Prestige Ltd · Company No. 16903092 · 124 City Road, London EC1V 2NX</span>
+                    <span className="flex items-center gap-6">
+                        <a href="mailto:contact@sevenoakprestige.com" className="transition-colors hover:text-gold-soft">
+                            contact@sevenoakprestige.com
+                        </a>
+                        <a href="tel:+442045780726" className="transition-colors hover:text-gold-soft">
+                            +44 20 4578 0726
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+            <div className="mx-auto max-w-7xl px-4 py-3 md:px-6 lg:px-8">
                 <div className="flex items-center justify-between gap-4">
                     {/* Logo Section */}
                     <Link
@@ -162,22 +172,17 @@ export default function Navbar() {
                     >
                         <div className="flex items-center">
                             <Image
-                                src={
-                                    mounted && (resolvedTheme === "dark" || theme === "dark")
-                                        ? "/assets/logo/seven_oak_prestige_dark_mode.png"
-                                        : "/assets/logo/seven_oak_prestige_light_mode.png"
-                                }
+                                src="/assets/logo/seven_oak_prestige_dark_mode.png"
                                 alt="Seven Oak Prestige Logo"
-                                width={70}
-                                height={70}
+                                width={60}
+                                height={60}
                                 priority
                             />
 
-                            <span className="bg-gradient-to-r from-[#d4af37] to-[#f3d066] bg-clip-text text-sm font-bold text-transparent md:inline-block md:text-base lg:text-lg">
+                            <span className="font-serif text-sm font-bold text-gold md:inline-block md:text-base lg:text-lg">
                                 SEVEN OAK PRESTIGE
                             </span>
                         </div>
-
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -211,7 +216,7 @@ export default function Navbar() {
                                                                         >
                                                                             <span className="text-foreground/40 font-medium transition-transform group-hover/link:translate-x-1 group-hover/link:text-[#d4af37]">›</span>
                                                                             <span className="group-hover/link:text-[#d4af37] transition-colors flex items-center gap-2">
-                                                                                {(sublink as any).icon && <Image src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
+                                                                                {(sublink as any).icon && <img src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
                                                                                 {sublink.name}
                                                                             </span>
                                                                         </Link>
@@ -244,7 +249,6 @@ export default function Navbar() {
                                 </Link>
                             </li>
                             <li className="ml-4">
-                                <ModeToggle />
                             </li>
                         </ul>
                     </nav>
@@ -258,7 +262,6 @@ export default function Navbar() {
                         >
                             <FaWhatsapp className="h-4 w-4" />
                         </Link>
-                        <ModeToggle />
                         <Sheet key={pathname} open={isOpen} onOpenChange={setIsOpen}>
                             <SheetTrigger asChild>
                                 <button
@@ -300,7 +303,7 @@ export default function Navbar() {
                                                                     >
                                                                         <div className="flex items-center justify-between">
                                                                             <span className="relative z-10 flex items-center gap-2">
-                                                                                {(sublink as any).icon && <Image src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
+                                                                                {(sublink as any).icon && <img src={(sublink as any).icon} alt={sublink.name} width={18} height={14} className="rounded-sm object-cover" />}
                                                                                 {sublink.name}
                                                                             </span>
                                                                             <MdArrowOutward className="h-3 w-3 text-[#d4af37] opacity-60 group-hover:opacity-100 transition-opacity" />

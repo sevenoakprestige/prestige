@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FaWhatsapp, FaFacebook, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import { Button } from "./ui/button";
 
 export default function Footer() {
     const { theme, resolvedTheme } = useTheme();
@@ -27,12 +28,12 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="footer-redesigned">
+        <footer className="section-dark border-t border-border px-6 py-20 scroll-mt-20">
             {/* Main Footer */}
-            <div className="footer-main">
-                <div className="footer-main-inner">
+            <div>
+                <div className="mx-auto max-w-7xl grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_0.8fr_1fr]">
                     {/* Column 1: Company Info */}
-                    <div className="footer-col footer-col-company">
+                    <div className="text-sm">
                         {/* Logo */}
                         <div className="flex items-center gap-3 mb-5">
                             {mounted && (
@@ -44,13 +45,13 @@ export default function Footer() {
                                     className="object-contain"
                                 />
                             )}
-                            <span className="footer-brand-name">
+                            <span className="font-serif text-sm font-bold text-gold md:text-base lg:text-lg">
                                 SEVEN OAK PRESTIGE
                             </span>
                         </div>
 
                         {/* Company Registration */}
-                        <div className="footer-company-details">
+                        <div className="mt-5 space-y-1 text-muted-foreground leading-relaxed">
                             <p>Registered in England & Wales</p>
                             <p>124 City Road, London EC1V 2NX</p>
                             <p>United Kingdom</p>
@@ -59,98 +60,101 @@ export default function Footer() {
                         </div>
 
                         {/* Contact Info */}
-                        <div className="footer-contact-info">
-                            <a href="mailto:contact@sevenoakprestige.com" className="footer-contact-item">
-                                <FaEnvelope className="footer-contact-icon" />
+                        <div className="mt-6 space-y-3 text-muted-foreground">
+                            <a href="mailto:contact@sevenoakprestige.com" className="flex items-center gap-3 hover:text-gold-soft transition-colors">
+                                <FaEnvelope className="text-gold shrink-0 text-base" />
                                 <span>contact@sevenoakprestige.com</span>
                             </a>
-                            <a href="https://wa.me/447447488755" target="_blank" rel="noopener noreferrer" className="footer-contact-item">
-                                <FaWhatsapp className="footer-contact-icon" />
+                            <a href="https://wa.me/447447488755" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-gold-soft transition-colors">
+                                <FaWhatsapp className="text-gold shrink-0 text-base" />
                                 <span>+44 7447 488755</span>
                             </a>
-                            <div className="footer-contact-item">
-                                <FaMapMarkerAlt className="footer-contact-icon" />
+                            <div className="flex items-center gap-3 hover:text-gold-soft transition-colors">
+                                <FaMapMarkerAlt className="text-gold shrink-0 text-base" />
                                 <span className="italic">Visits by appointment only</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Column 2: Our Services */}
-                    <div className="footer-col">
-                        <h3 className="footer-col-title">Our Services</h3>
-                        <ul className="footer-nav-list">
+                    <div className="text-sm">
+                        <p className="eyebrow">Our Services</p>
+                        <ul className="mt-5 space-y-3 text-muted-foreground">
                             <li>
-                                <Link href="/services/uk-company-formation-for-non-residents">UK Company Formation</Link>
+                                <Link href="/services/uk-company-formation-for-non-residents" className="transition-colors hover:text-gold-soft">UK Company Formation</Link>
                             </li>
                             <li>
-                                <Link href="/services/registered-office-service">Registered Office Address</Link>
+                                <Link href="/services/registered-office-service" className="transition-colors hover:text-gold-soft">Registered Office Address</Link>
                             </li>
                             <li>
-                                <Link href="/services/director-service-address">Director Service Address</Link>
+                                <Link href="/services/director-service-address" className="transition-colors hover:text-gold-soft">Director Service Address</Link>
                             </li>
                             <li>
-                                <Link href="/services/virtual-business-address">Virtual Business Address</Link>
+                                <Link href="/services/virtual-business-address" className="transition-colors hover:text-gold-soft">Virtual Business Address</Link>
                             </li>
                             <li>
-                                <Link href="/services/fintech-banking-guidance">Fintech & Banking Guidance</Link>
+                                <Link href="/services/fintech-banking-guidance" className="transition-colors hover:text-gold-soft">Fintech & Banking Guidance</Link>
                             </li>
                             <li>
-                                <Link href="/services/vat-registration-uk">VAT Registration</Link>
+                                <Link href="/services/vat-registration-uk" className="transition-colors hover:text-gold-soft">VAT Registration</Link>
                             </li>
                             <li>
-                                <Link href="/services/eori-registration-uk">EORI Registration</Link>
+                                <Link href="/services/eori-registration-uk" className="transition-colors hover:text-gold-soft">EORI Registration</Link>
                             </li>
                         </ul>
                     </div>
 
                     {/* Column 3: Legal */}
-                    <div className="footer-col">
-                        <h3 className="footer-col-title">Legal</h3>
-                        <ul className="footer-nav-list">
+                    <div className="text-sm">
+                        <p className="eyebrow">Legal</p>
+                        <ul className="mt-5 space-y-3 text-muted-foreground">
                             <li>
-                                <Link href="/terms">Terms & Conditions</Link>
+                                <Link href="/terms" className="transition-colors hover:text-gold-soft">Terms & Conditions</Link>
                             </li>
                             <li>
-                                <Link href="/refund">Refund Policy</Link>
+                                <Link href="/refund" className="transition-colors hover:text-gold-soft">Refund Policy</Link>
                             </li>
                             <li>
-                                <Link href="/privacy">Privacy Policy</Link>
+                                <Link href="/privacy" className="transition-colors hover:text-gold-soft">Privacy Policy</Link>
+                            </li>
+                            <li>
+                                <Link href="/security" className="transition-colors hover:text-gold-soft">Trust & Security</Link>
                             </li>
                         </ul>
 
-                        <h3 className="footer-col-title mt-6">Useful</h3>
-                        <ul className="footer-nav-list">
+                        <p className="eyebrow mt-8">Useful</p>
+                        <ul className="mt-5 space-y-3 text-muted-foreground">
                             <li>
-                                <Link href="/about">About Us</Link>
+                                <Link href="/about" className="transition-colors hover:text-gold-soft">About Us</Link>
                             </li>
                             <li>
-                                <Link href="/blog">Blog</Link>
+                                <Link href="/blog" className="transition-colors hover:text-gold-soft">Blog</Link>
                             </li>
                             <li>
-                                <Link href="/consultation">Book Consultation</Link>
+                                <Link href="/consultation" className="transition-colors hover:text-gold-soft">Book Consultation</Link>
                             </li>
                             <li>
-                                <Link href="/site-map">Sitemap</Link>
+                                <Link href="/site-map" className="transition-colors hover:text-gold-soft">Sitemap</Link>
                             </li>
                         </ul>
                     </div>
 
                     {/* Column 4: Get in Touch + Socials */}
-                    <div className="footer-col footer-col-cta">
-                        <h3 className="footer-col-title">Get in Touch</h3>
-                        <p className="footer-cta-desc">
+                    <div className="text-sm">
+                        <p className="eyebrow">Get in Touch</p>
+                        <p className="mt-5 text-muted-foreground mb-6 leading-relaxed">
                             Have questions about our services? Reach out to our team for a free consultation.
                         </p>
-                        <button
+                        <Button
                             onClick={handleWhatsAppClick}
-                            className="footer-whatsapp-btn flex items-center justify-center gap-2"
+                            className="w-full"
                         >
                             <FaWhatsapp size={18} />
                             WhatsApp Now
-                        </button>
+                        </Button>
 
                         <div className="mt-6">
-                            <p className="footer-col-subtitle">Follow Us</p>
+                            <p className="eyebrow mt-10 mb-5">Follow Us</p>
                             <div className="flex items-center gap-4 mt-3">
                                 <Link
                                     href="https://www.facebook.com/sevenoakprestige"
@@ -210,70 +214,66 @@ export default function Footer() {
             </div>
 
             {/* Certifications & Badges Bar */}
-            <div className="footer-badges-bar">
-                <div className="footer-badges-inner">
-                    <div className="footer-badges-row">
+            <div className="mt-20 border-t border-border/40 pt-10 pb-8">
+                <div className="mx-auto max-w-7xl">
+                    <div className="flex flex-wrap items-center justify-center gap-8 opacity-60 grayscale transition-all hover:grayscale-0">
                         {/* ICO Logo */}
-                        <div className="footer-badge-item" title="Information Commissioner's Office">
-                            <Image
+                        <div title="Information Commissioner's Office" className="transition-transform hover:scale-105">
+                            <img
                                 src="/assets/footer/ico-header-logo.svg"
                                 alt="ICO Registered"
                                 width={80}
                                 height={47}
-                                className="footer-badge-img"
+                                className="object-contain"
                             />
                         </div>
                         {/* Mindful Employer */}
-                        <div className="footer-badge-item" title="Mindful Employer">
-                            <Image
+                        <div title="Mindful Employer" className="transition-transform hover:scale-105">
+                            <img
                                 src="/assets/footer/mindful-employer--white.png"
                                 alt="Mindful Employer"
                                 width={100}
                                 height={32}
-                                style={{ height: "32px", width: "auto" }}
-                                className="footer-badge-img"
+                                className="object-contain"
                             />
                         </div>
                         {/* Living Wage */}
-                        <div className="footer-badge-item" title="Living Wage Employer">
-                            <Image
-                                src="/assets/footer/living-wage--white.png"
+                        <div title="Living Wage Employer" className="transition-transform hover:scale-105">
+                            <img
+                                src="/assets/footer/living-wage--white.webp"
                                 alt="Living Wage Employer"
                                 width={60}
                                 height={60}
-                                style={{ height: "60px", width: "auto" }}
-                                className="footer-badge-img"
+                                className="object-contain"
                             />
                         </div>
                         {/* Green Mark */}
-                        <div className="footer-badge-item" title="Green Mark Certified">
-                            <Image
+                        <div title="Green Mark Certified" className="transition-transform hover:scale-105">
+                            <img
                                 src="/assets/footer/green-mark--white.png"
                                 alt="Green Mark Certified"
                                 width={55}
                                 height={55}
-                                className="footer-badge-img"
+                                className="object-contain"
                             />
                         </div>
-                        {/* Carbon Neutral Britain */}
-                        <div className="footer-badge-item" title="Carbon Neutral Britain">
-                            <Image
+                        <div title="Carbon Neutral Britain" className="transition-transform hover:scale-105">
+                            <img
                                 src="/assets/footer/cnb--white.png"
                                 alt="Carbon Neutral Britain"
                                 width={55}
                                 height={70}
-                                style={{ height: "70px", width: "auto" }}
-                                className="footer-badge-img"
+                                className="object-contain"
                             />
                         </div>
                         {/* Living Hours */}
-                        <div className="footer-badge-item" title="Living Hours">
-                            <Image
+                        <div title="Living Hours" className="transition-transform hover:scale-105">
+                            <img
                                 src="/assets/footer/living-hours-white.png"
                                 alt="Living Hours"
                                 width={60}
                                 height={50}
-                                className="footer-badge-img"
+                                className="object-contain"
                             />
                         </div>
                     </div>
@@ -281,12 +281,12 @@ export default function Footer() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="footer-bottom">
-                <div className="footer-bottom-inner">
-                    <p className="footer-bottom-text">
+            <div className="border-t border-border/40 py-8 text-xs text-muted-foreground">
+                <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                    <p>
                         © {currentYear} Seven Oak Prestige Ltd. All rights reserved.
                     </p>
-                    <p className="footer-bottom-disclaimer">
+                    <p className="max-w-2xl text-center md:text-right opacity-60 leading-relaxed">
                         Seven Oak Prestige Ltd is not a law firm, accountancy firm, or regulated financial institution. All information provided is for general guidance only.
                     </p>
                 </div>

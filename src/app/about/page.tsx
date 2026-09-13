@@ -89,11 +89,11 @@ export default function AboutPage() {
     return (
         <>
             {/* ── SECTION 1: HERO BANNER ── */}
-            <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
+            <section className="section-dark relative min-h-[90vh] flex items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
                 {/* Background Image */}
                 <div className="absolute inset-0 -z-20">
                     <Image
-                        src="/assets/aboutus/aboutussec.jpeg"
+                        src="/assets/aboutus/aboutussec.webp"
                         alt="Premium London skyline — Seven Oak Prestige LTD UK Company Formation"
                         fill
                         className="object-cover object-center"
@@ -108,33 +108,33 @@ export default function AboutPage() {
 
                 {/* Animated gold orbs */}
                 <div className="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
-                    <div className="hero-circle-1 absolute -top-40 -right-40 h-96 w-96 rounded-full bg-[#d4af37]/15 blur-3xl" />
-                    <div className="hero-circle-2 absolute -bottom-40 -left-40 h-[30rem] w-[30rem] rounded-full bg-[#d4af37]/10 blur-3xl" />
+                    <div className="hero-circle-1 absolute -top-40 -right-40 h-96 w-96 rounded-full bg-gold/15 blur-3xl" />
+                    <div className="hero-circle-2 absolute -bottom-40 -left-40 h-[30rem] w-[30rem] rounded-full bg-gold/10 blur-3xl" />
                 </div>
 
                 <div className="relative z-10 mx-auto max-w-5xl text-center">
                     {/* Badge */}
-                    <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/40 bg-[#d4af37]/10 px-5 py-2 backdrop-blur-sm">
+                    <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2 backdrop-blur-sm">
                         <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#d4af37] opacity-75" />
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#d4af37]" />
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
                         </span>
-                        <span className="text-sm font-medium text-[#d4af37] tracking-wide">
+                        <span className="text-sm font-medium text-gold tracking-wide">
                             Seven Oak Prestige LTD
                         </span>
                     </div>
 
                     {/* Headline */}
-                    <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                    <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                         Building Professional{" "}
-                        <span className="bg-gradient-to-r from-[#d4af37] via-[#f3d066] to-[#d4af37] bg-clip-text text-transparent">
+                        <span className="text-gold">
                             UK Business Foundations
                         </span>{" "}
                         for Entrepreneurs Worldwide
                     </h1>
 
                     {/* Subheadline */}
-                    <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-white/80 sm:text-xl md:text-2xl">
+                    <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-foreground/80 sm:text-xl md:text-2xl">
                         Supporting entrepreneurs with UK company formation, registered office services, compliance guidance, and banking assistance.
                     </p>
 
@@ -144,15 +144,13 @@ export default function AboutPage() {
                             href="https://wa.me/447447488755"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-2xl shadow-[#d4af37]/40 transition-all duration-300 hover:scale-105 hover:shadow-[#d4af37]/60 active:scale-95 sm:text-lg"
+                            className="btn-gold"
                         >
-                            {/* <FaWhatsapp className="h-5 w-5 transition-transform group-hover:rotate-12" /> */}
                             <span>Contact Us</span>
-                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#f3d066] to-[#d4af37] opacity-0 transition-opacity group-hover:opacity-100" />
                         </Link>
                         <Link
                             href="#about-content"
-                            className="group inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20 hover:border-white/50 sm:text-lg"
+                            className="btn-ghost"
                         >
                             Learn More
                         </Link>
@@ -161,8 +159,8 @@ export default function AboutPage() {
                     {/* Trust indicators */}
                     <div className="mt-14 flex flex-wrap items-center justify-center gap-6 text-sm sm:gap-10">
                         {["UK Registered Company", "Companies House Compliant", "International Clients Supported"].map((item) => (
-                            <div key={item} className="flex items-center gap-2 text-white/70">
-                                <FaCheck className="h-4 w-4 text-[#d4af37]" />
+                            <div key={item} className="flex items-center gap-2 text-foreground/70">
+                                <FaCheck className="h-4 w-4 text-gold" />
                                 <span className="font-medium">{item}</span>
                             </div>
                         ))}
@@ -174,24 +172,24 @@ export default function AboutPage() {
             <section id="about-content" className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
                 {/* Background decoration */}
                 <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl" />
-                    <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl" />
+                    <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
+                    <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
                 </div>
 
                 <div className="mx-auto max-w-7xl">
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
                         {/* Left: Text Content */}
                         <div>
-                            <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">
+                            <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-3 block">
                                 ABOUT US
                             </span>
-                            <h2 className="hero-heading mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                            <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                                 About Seven Oak{" "}
-                                <span className="bg-gradient-to-r from-[#d4af37] to-[#f3d066] bg-clip-text text-transparent">
+                                <span className="text-gold">
                                     Prestige LTD
                                 </span>
                             </h2>
-                            <div className="mx-auto mb-8 h-1 w-20 bg-gradient-to-r from-[#d4af37] to-[#f3d066]" />
+                            <div className="mx-auto mb-8 h-px w-24 rule-gold" />
 
                             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
                                 <p>
@@ -214,7 +212,7 @@ export default function AboutPage() {
                                 <div className="space-y-3">
                                     {approach.map((item) => (
                                         <div key={item} className="flex items-center gap-3">
-                                            <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[#d4af37]/20 text-[#d4af37]">
+                                            <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold">
                                                 <FaCheck className="h-3 w-3" />
                                             </div>
                                             <span className="text-base font-medium text-foreground">{item}</span>
@@ -229,9 +227,9 @@ export default function AboutPage() {
 
                         {/* Right: Image */}
                         <div className="relative">
-                            <div className="relative overflow-hidden rounded-3xl border border-[#d4af37]/20 shadow-2xl shadow-[#d4af37]/10">
+                            <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-2xl shadow-gold/10">
                                 <Image
-                                    src="/assets/aboutus/aboutus_section2.jpeg"
+                                    src="/assets/aboutus/aboutus_section2.webp"
                                     alt="Professional UK business environment — Seven Oak Prestige LTD"
                                     width={700}
                                     height={500}
@@ -239,20 +237,20 @@ export default function AboutPage() {
                                     quality={90}
                                 />
                                 {/* Gold overlay gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 via-transparent to-transparent pointer-events-none" />
+                                <div className="absolute inset-0 bg-gradient-to-tr from-gold/10 via-transparent to-transparent pointer-events-none" />
                             </div>
                             {/* Decorative element */}
-                            <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-[#d4af37]/10 blur-2xl pointer-events-none" />
-                            <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-[#d4af37]/10 blur-2xl pointer-events-none" />
+                            <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-gold/10 blur-2xl pointer-events-none" />
+                            <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-gold/10 blur-2xl pointer-events-none" />
 
                             {/* Floating badge */}
-                            <div className="absolute -bottom-4 left-6 rounded-2xl border border-[#d4af37]/30 bg-card/90 px-5 py-4 shadow-xl backdrop-blur-md">
+                            <div className="absolute -bottom-4 left-6 rounded-2xl border border-gold/30 bg-card/90 px-5 py-4 shadow-xl backdrop-blur-md">
                                 <div className="flex items-center gap-3">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#d4af37]/20 to-[#d4af37]/5 text-[#d4af37]">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 text-gold">
                                         🇬🇧
                                     </div>
                                     <div>
-                                        <p className="text-xs font-bold text-[#d4af37] tracking-wider uppercase">Registered in</p>
+                                        <p className="text-xs font-bold text-gold tracking-wider uppercase">Registered in</p>
                                         <p className="text-sm font-semibold text-foreground">England &amp; Wales</p>
                                     </div>
                                 </div>
@@ -263,21 +261,21 @@ export default function AboutPage() {
             </section>
 
             {/* ── SECTION 3: SERVICES OVERVIEW ── */}
-            <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+            <section className="section-parchment border-y border-border relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
                 <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/3 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl" />
-                    <div className="absolute bottom-0 right-1/3 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl" />
+                    <div className="absolute left-1/3 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
+                    <div className="absolute bottom-0 right-1/3 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
                 </div>
 
                 <div className="mx-auto max-w-7xl">
                     <div className="mb-14 text-center">
-                        <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">
+                        <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-3 block">
                             WHAT WE DO
                         </span>
-                        <h2 className="hero-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                        <h2 className="font-display mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                             Services We Provide
                         </h2>
-                        <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066] mb-5" />
+                        <div className="mx-auto mb-5 h-px w-24 rule-gold" />
                         <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
                             By combining company formation services with practical business support, we help entrepreneurs establish a professional UK presence from the very beginning.
                         </p>
@@ -288,20 +286,20 @@ export default function AboutPage() {
                             <Link
                                 key={index}
                                 href={service.href}
-                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-[#d4af37]/45 hover:bg-card/40 hover:shadow-[0_20px_40px_rgba(212,175,55,0.12)] block"
+                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-gold/45 hover:bg-card/40 hover:shadow-[0_20px_40px_rgba(212,175,55,0.12)] block"
                             >
                                 {/* Background glow on hover */}
                                 <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent" />
+                                    <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent" />
                                 </div>
-                                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[#d4af37]/10 blur-2xl transition-all duration-500 group-hover:bg-[#d4af37]/20 pointer-events-none" />
+                                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/10 blur-2xl transition-all duration-500 group-hover:bg-gold/20 pointer-events-none" />
 
-                                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#d4af37]/30 bg-gradient-to-br from-[#d4af37]/15 to-transparent text-[#d4af37] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]/50">
+                                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/30 bg-gradient-to-br from-gold/15 to-transparent text-gold shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-gold/50">
                                     {service.icon}
                                 </div>
                                 <h3 className="mb-3 text-lg font-bold text-foreground">{service.title}</h3>
                                 <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
-                                <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#d4af37] transition-all group-hover:gap-2">
+                                <span className="inline-flex items-center gap-1 text-sm font-semibold text-gold transition-all group-hover:gap-2">
                                     Learn more <span className="transition-transform group-hover:translate-x-1">→</span>
                                 </span>
                             </Link>
@@ -313,15 +311,15 @@ export default function AboutPage() {
             {/* ── SECTION 4: SUPPORTING INTERNATIONAL ENTREPRENEURS ── */}
             <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
                 <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl" />
-                    <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl" />
+                    <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
+                    <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
                 </div>
 
                 <div className="mx-auto max-w-7xl">
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
                         {/* Left: Globe visual */}
                         <div className="relative order-2 lg:order-1 h-full w-full">
-                            <div className="relative h-full w-full min-h-[400px] lg:min-h-[600px] overflow-hidden rounded-3xl border border-[#d4af37]/20 shadow-2xl shadow-[#d4af37]/10">
+                            <div className="relative h-full w-full min-h-[400px] lg:min-h-[600px] overflow-hidden rounded-3xl border border-gold/20 shadow-2xl shadow-gold/10">
                                 <Image
                                     src="/assets/aboutus/gobal_support.webp"
                                     alt="Global Reach and Support"
@@ -329,23 +327,23 @@ export default function AboutPage() {
                                     className="object-cover object-center"
                                     quality={95}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 via-transparent to-transparent pointer-events-none" />
+                                <div className="absolute inset-0 bg-gradient-to-tr from-gold/10 via-transparent to-transparent pointer-events-none" />
                             </div>
-                            <div className="absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-[#d4af37]/15 blur-3xl pointer-events-none" />
+                            <div className="absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-gold/15 blur-3xl pointer-events-none" />
                         </div>
 
                         {/* Right: Text */}
                         <div className="order-1 lg:order-2">
-                            <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">
+                            <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-3 block">
                                 INTERNATIONAL SUPPORT
                             </span>
-                            <h2 className="hero-heading mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                            <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                                 Supporting{" "}
-                                <span className="bg-gradient-to-r from-[#d4af37] to-[#f3d066] bg-clip-text text-transparent">
+                                <span className="text-gold">
                                     International Entrepreneurs
                                 </span>
                             </h2>
-                            <div className="mb-8 h-1 w-20 bg-gradient-to-r from-[#d4af37] to-[#f3d066]" />
+                            <div className="mb-8 h-px w-24 rule-gold" />
 
                             <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
                                 <p className="text-xl font-medium text-foreground">
@@ -356,25 +354,25 @@ export default function AboutPage() {
                                 </p>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
                                     <div className="flex items-center gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37]">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/10 border border-gold/20 text-gold">
                                             <FaGlobe className="h-5 w-5" />
                                         </div>
                                         <span className="font-semibold text-foreground text-sm uppercase tracking-wide">Global<br />Entrepreneurs</span>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37]">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/10 border border-gold/20 text-gold">
                                             <FaBuilding className="h-5 w-5" />
                                         </div>
                                         <span className="font-semibold text-foreground text-sm uppercase tracking-wide">UK Business<br />Expertise</span>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37]">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/10 border border-gold/20 text-gold">
                                             <FaShieldAlt className="h-5 w-5" />
                                         </div>
                                         <span className="font-semibold text-foreground text-sm uppercase tracking-wide">Trusted &<br />Compliant</span>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37]">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/10 border border-gold/20 text-gold">
                                             <FaHandshake className="h-5 w-5" />
                                         </div>
                                         <span className="font-semibold text-foreground text-sm uppercase tracking-wide">Long-term<br />Partnership</span>
@@ -387,7 +385,7 @@ export default function AboutPage() {
                                     href="https://wa.me/447447488755"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-lg shadow-[#d4af37]/30 transition-all duration-300 hover:scale-105 hover:shadow-[#d4af37]/50 active:scale-95"
+                                    className="btn-gold"
                                 >
                                     <span>Enquire Now</span>
                                 </Link>
@@ -398,24 +396,24 @@ export default function AboutPage() {
             </section>
 
             {/* ── SECTION 5: WHY CHOOSE SEVEN OAK PRESTIGE ── */}
-            <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+            <section className="section-parchment border-y border-border relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
                 <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/3 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl" />
-                    <div className="absolute bottom-0 right-1/3 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl" />
+                    <div className="absolute left-1/3 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
+                    <div className="absolute bottom-0 right-1/3 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
                 </div>
 
                 <div className="mx-auto max-w-7xl">
                     <div className="mb-14 text-center">
-                        <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">
+                        <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-3 block">
                             WHY CHOOSE US
                         </span>
-                        <h2 className="hero-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                        <h2 className="font-display mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                             Why Choose Seven Oak{" "}
-                            <span className="bg-gradient-to-r from-[#d4af37] to-[#f3d066] bg-clip-text text-transparent">
+                            <span className="text-gold">
                                 Prestige LTD?
                             </span>
                         </h2>
-                        <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066] mb-5" />
+                        <div className="mx-auto mb-5 h-px w-24 rule-gold" />
                         <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
                             Our objective is not only to help establish a company, but to support entrepreneurs in creating a business structure that is prepared for future opportunities.
                         </p>
@@ -425,14 +423,14 @@ export default function AboutPage() {
                         {whyChoose.map((item, index) => (
                             <div
                                 key={index}
-                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-[#d4af37]/45 hover:bg-card/40 hover:shadow-[0_20px_40px_rgba(212,175,55,0.12)]"
+                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-gold/45 hover:bg-card/40 hover:shadow-[0_20px_40px_rgba(212,175,55,0.12)]"
                             >
                                 <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent" />
+                                    <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent" />
                                 </div>
-                                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[#d4af37]/10 blur-2xl transition-all duration-500 group-hover:bg-[#d4af37]/20 pointer-events-none" />
+                                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/10 blur-2xl transition-all duration-500 group-hover:bg-gold/20 pointer-events-none" />
 
-                                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#d4af37]/30 bg-gradient-to-br from-[#d4af37]/15 to-transparent text-[#d4af37] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]/50">
+                                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/30 bg-gradient-to-br from-gold/15 to-transparent text-gold shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-gold/50">
                                     {item.icon}
                                 </div>
                                 <h3 className="mb-3 text-lg font-bold text-foreground">{item.title}</h3>
@@ -444,42 +442,42 @@ export default function AboutPage() {
             </section>
 
             {/* ── SECTION 6: FINAL CTA BANNER ── */}
-            <section className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+            <section className="section-dark relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
                 {/* Background: London skyline */}
                 <div className="absolute inset-0 -z-20">
                     <Image
-                        src="/assets/seven_oak_prestise.png"
+                        src="/assets/seven_oak_prestise.webp"
                         alt="Premium London skyline at night — Seven Oak Prestige LTD"
                         fill
                         className="object-cover object-center"
                         quality={90}
                     />
                     <div className="absolute inset-0 bg-black/75" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/10 via-transparent to-[#d4af37]/5" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-gold/5" />
                 </div>
 
                 {/* Gold orbs */}
                 <div className="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
-                    <div className="hero-circle-1 absolute -top-32 -right-32 h-80 w-80 rounded-full bg-[#d4af37]/15 blur-3xl" />
-                    <div className="hero-circle-2 absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#d4af37]/10 blur-3xl" />
+                    <div className="hero-circle-1 absolute -top-32 -right-32 h-80 w-80 rounded-full bg-gold/15 blur-3xl" />
+                    <div className="hero-circle-2 absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
                 </div>
 
                 <div className="mx-auto max-w-4xl text-center">
                     {/* Section label */}
-                    <span className="text-xs font-bold tracking-[0.3em] text-[#d4af37] uppercase mb-5 block">
+                    <span className="text-xs font-bold tracking-[0.3em] text-gold uppercase mb-5 block">
                         GET STARTED TODAY
                     </span>
 
                     {/* Main headline */}
-                    <h2 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    <h2 className="mb-6 font-display text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                         Ready to Establish Your{" "}
-                        <span className="bg-gradient-to-r from-[#d4af37] via-[#f3d066] to-[#d4af37] bg-clip-text text-transparent">
+                        <span className="text-gold">
                             UK Business?
                         </span>
                     </h2>
 
                     {/* Subtext */}
-                    <p className="mx-auto mb-10 max-w-2xl text-lg text-white/75 sm:text-xl">
+                    <p className="mx-auto mb-10 max-w-2xl text-lg text-foreground/75 sm:text-xl">
                         UK Company Formation &bull; Business Addresses &bull; Compliance Guidance &bull; Banking Assistance
                     </p>
 
@@ -489,15 +487,13 @@ export default function AboutPage() {
                             href="https://wa.me/447447488755"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-10 py-5 text-lg font-bold text-black shadow-2xl shadow-[#d4af37]/40 transition-all duration-300 hover:scale-105 hover:shadow-[#d4af37]/60 active:scale-95"
+                            className="btn-gold"
                         >
-                            {/* <FaWhatsapp className="h-6 w-6 transition-transform group-hover:rotate-12" /> */}
                             <span>Contact Us Now</span>
-                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#f3d066] to-[#d4af37] opacity-0 transition-opacity group-hover:opacity-100" />
                         </Link>
                     </div>
 
-                    <p className="mt-6 text-[#d4af37]/80 text-base font-medium tracking-wide">
+                    <p className="mt-6 text-gold/80 text-base font-medium tracking-wide">
                         +44 7447 488755
                     </p>
 
@@ -510,8 +506,8 @@ export default function AboutPage() {
                                 </div>
                             ))}
                         </div>
-                        <p className="text-white font-medium text-lg tracking-wide">Excellent</p>
-                        <p className="text-white/70 text-sm max-w-sm text-center">
+                        <p className="text-foreground font-medium text-lg tracking-wide">Excellent</p>
+                        <p className="text-foreground/70 text-sm max-w-sm text-center">
                             We value your feedback. Review us on <strong>Trustpilot</strong>, it takes less than a minute.
                         </p>
                         <Link

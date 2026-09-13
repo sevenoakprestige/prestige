@@ -12,6 +12,16 @@ const sitemapSections = [
         ],
     },
     {
+        title: "Country Specific Formation",
+        icon: <FaMapSigns className="h-5 w-5" />,
+        description: "Tailored setup guides for international founders",
+        links: [
+            { name: "Global Jurisdictions Overview", href: "/countries", description: "Select your country of residence" },
+            { name: "UK Company Formation from India", href: "/countries/india/uk-company-formation", description: "Setup a UK company from India" },
+            { name: "UK Company Formation from France", href: "/countries/france/uk-company-formation", description: "Setup a UK company from France" },
+        ],
+    },
+    {
         title: "Compliance & Registration",
         icon: <FaShieldAlt className="h-5 w-5" />,
         description: "Stay compliant with UK regulations",
@@ -44,6 +54,8 @@ const sitemapSections = [
         icon: <FaNewspaper className="h-5 w-5" />,
         description: "Guides, articles & insights",
         links: [
+            { name: "Guides & Resources", href: "/resources/guides", description: "In-depth guides for UK company formation" },
+            { name: "Banking Readiness Assessment", href: "/resources/uk-business-banking-readiness-assessment", description: "Evaluate your company's banking readiness" },
             { name: "Blog", href: "/blog", description: "Latest articles and guides on UK company formation" },
             { name: "Company Formation Guide 2026", href: "/blog/company-formation-guide-2026", description: "Complete guide to forming a UK company" },
             { name: "UK Company Formation Guide 2026", href: "/blog/uk-company-formation-guide-2026", description: "Step-by-step UK company formation walkthrough" },
@@ -63,6 +75,7 @@ const sitemapSections = [
         description: "Main site pages",
         links: [
             { name: "Homepage", href: "/", description: "Seven Oak Prestige — UK Company Formation Services" },
+            { name: "Contact", href: "/contact", description: "Get in touch with our team" },
             { name: "Consultation", href: "/consultation", description: "Book a free consultation with our team" },
         ],
     },
@@ -86,15 +99,15 @@ export default function SitemapPage() {
             {/* ── HERO ── */}
             <section className="relative overflow-hidden px-4 pt-32 pb-16 sm:px-6 lg:px-8 sm:pt-40 lg:pt-44">
                 <div className="absolute inset-0 -z-10">
-                    <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-3xl"></div>
+                    <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.03] blur-3xl"></div>
                 </div>
                 <div className="mx-auto max-w-4xl text-center">
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-4 py-2 backdrop-blur-sm">
-                        <FaMapSigns className="h-3.5 w-3.5 text-[#d4af37]" />
-                        <span className="text-sm font-medium text-[#d4af37]">{totalPages} Pages Indexed</span>
+                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-2 backdrop-blur-sm">
+                        <FaMapSigns className="h-3.5 w-3.5 text-gold" />
+                        <span className="text-sm font-medium text-gold">{totalPages} Pages Indexed</span>
                     </div>
                     <h1 className="mb-4 font-serif text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                        Site <span className="bg-gradient-to-r from-[#d4af37] via-[#f3d066] to-[#d4af37] bg-clip-text text-transparent">Map</span>
+                        Site <span className="bg-gradient-to-r from-gold via-[#f3d066] to-gold bg-clip-text text-transparent">Map</span>
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl">
                         Browse our complete directory of services, resources, and pages. Find exactly what you&apos;re looking for.
@@ -109,14 +122,14 @@ export default function SitemapPage() {
                         {sitemapSections.map((section, sectionIndex) => (
                             <div
                                 key={sectionIndex}
-                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-6 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/30 hover:bg-card/40 sm:p-8"
+                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-6 backdrop-blur-md transition-all duration-500 hover:border-gold/30 hover:bg-card/40 sm:p-8"
                             >
                                 {/* Decorative glow */}
-                                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[#d4af37]/5 blur-2xl transition-all duration-500 group-hover:bg-[#d4af37]/10 pointer-events-none"></div>
+                                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/5 blur-2xl transition-all duration-500 group-hover:bg-gold/10 pointer-events-none"></div>
 
                                 {/* Section Header */}
                                 <div className="mb-6 flex items-center gap-3">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#d4af37]/30 bg-gradient-to-br from-[#d4af37]/10 to-transparent text-[#d4af37]">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent text-gold">
                                         {section.icon}
                                     </div>
                                     <div>
@@ -126,7 +139,7 @@ export default function SitemapPage() {
                                 </div>
 
                                 {/* Divider */}
-                                <div className="mb-4 h-[1px] w-full bg-gradient-to-r from-[#d4af37]/20 via-[#d4af37]/10 to-transparent"></div>
+                                <div className="mb-4 h-[1px] w-full bg-gradient-to-r from-gold/20 via-gold/10 to-transparent"></div>
 
                                 {/* Links */}
                                 <ul className="space-y-3">
@@ -134,11 +147,11 @@ export default function SitemapPage() {
                                         <li key={linkIndex}>
                                             <Link
                                                 href={link.href}
-                                                className="group/link flex items-start gap-2 rounded-lg p-2 -mx-2 transition-all duration-300 hover:bg-[#d4af37]/5"
+                                                className="group/link flex items-start gap-2 rounded-lg p-2 -mx-2 transition-all duration-300 hover:bg-gold/5"
                                             >
-                                                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#d4af37]/40 transition-colors group-hover/link:bg-[#d4af37]"></span>
+                                                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold/40 transition-colors group-hover/link:bg-gold"></span>
                                                 <div>
-                                                    <span className="text-sm font-medium text-foreground transition-colors group-hover/link:text-[#d4af37]">
+                                                    <span className="text-sm font-medium text-foreground transition-colors group-hover/link:text-gold">
                                                         {link.name}
                                                     </span>
                                                     <p className="text-xs text-muted-foreground leading-relaxed">
@@ -169,7 +182,7 @@ export default function SitemapPage() {
                             </div>
                             <Link
                                 href="/sitemap.xml"
-                                className="rounded-lg border border-[#d4af37]/30 bg-[#d4af37]/10 px-4 py-2 text-sm font-medium text-[#d4af37] transition-all duration-300 hover:bg-[#d4af37]/20"
+                                className="rounded-lg border border-gold/30 bg-gold/10 px-4 py-2 text-sm font-medium text-gold transition-all duration-300 hover:bg-gold/20"
                             >
                                 sitemap.xml
                             </Link>

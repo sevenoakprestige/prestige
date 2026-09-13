@@ -1,257 +1,103 @@
 "use client";
 
 import { useState } from "react";
-import { FaPlus, FaMinus } from "react-icons/fa";
-import { useCountry } from "@/contexts/CountryContext";
-import type { Country } from "@/contexts/CountryContext";
+import { Button } from "./ui/button";
 
-interface FAQItem {
-    question: string;
-    answer: string;
-}
-
-interface FAQSection {
-    title: string;
-    flag: string;
-    items: FAQItem[];
-}
-
-const faqData: FAQSection[] = [
+const FAQS = [
     {
-        title: "UK",
-        flag: "🇬🇧",
-        items: [
-            {
-                question: "Can a non-resident form a UK LTD company?",
-                answer: "Yes, non-residents can form a UK LTD company without needing to live in the UK. The process can be completed entirely online.",
-            },
-            {
-                question: "What information is required to register a UK LTD?",
-                answer: "You'll need a unique company name, a UK registered office address, a director, and a shareholder. You don't need to be a UK citizen.",
-            },
-            {
-                question: "How long does incorporation take?",
-                answer: "The incorporation process typically takes 24 hours once all documents are submitted and approved by Companies House.",
-            },
-            {
-                question: "Do I need a UK address?",
-                answer: "You need a UK registered office address for official correspondence. A professional service can provide this for non-residents.",
-            },
-            {
-                question: "Can I open a UK bank account as a non-resident?",
-                answer: "Yes, non-residents can open a UK business bank account. Requirements vary, check with individual banks for specifics.",
-            },
-            {
-                question: "Can I create a UK company for someone else?",
-                answer: "Yes, as long as you have their consent. You can act as an authorized representative and receive all documents in your name.",
-            },
-            {
-                question: "What identity documents are required?",
-                answer: "Valid passport or ID card. Translation provided if necessary.",
-            },
-            {
-                question: "Do you assist with business banking and fintech applications?",
-                answer: "Banking & Fintech Application Support. We provide administrative guidance relating to business documentation and information preparation for applications submitted to third-party financial institutions and payment platforms, including providers such as Wise, Revolut, WorldFirst, and Payoneer. All onboarding, compliance reviews, and approval decisions are conducted independently at the sole discretion of each provider.",
-            },
-        ],
+        q: "Is this legal for non-residents?",
+        a: "Yes. UK residency is not generally required to own shares in or act as a director of a UK private limited company. The incorporation remains subject to Companies House requirements, identity verification and applicable eligibility rules.",
     },
     {
-        title: "USA",
-        flag: "🇺🇸",
-        items: [
-            {
-                question: "Can a non-U.S. resident form a Delaware LLC?",
-                answer: "Yes — you don't need to live in the U.S. or have a Social Security Number. We guide you through the entire process seamlessly.",
-            },
-            {
-                question: "How long does it take to form my Delaware LLC?",
-                answer: "Your Delaware LLC is usually formed within 2-3 business days. A 24-hour expedited filing option is available if you need it faster.",
-            },
-            {
-                question: "Will I pay taxes in the United States?",
-                answer: "No — a Delaware LLC typically pays 0% U.S. income tax when owned by a non-U.S. resident.",
-            },
-            {
-                question: "How long does it take to receive the EIN?",
-                answer: "For non-U.S. residents, EIN approvals typically take 3-7 business days. Standard IRS processing may take up to 4-6 weeks, but we handle the fast route for you.",
-            },
-            {
-                question: "Do I need a U.S. address or a U.S. phone number?",
-                answer: "No. We provide a registered agent address and support all required filings.",
-            },
-            {
-                question: "Can I create a US LLC even if I don't live in the United States?",
-                answer: "Yes. 100% of non-residents can create an LLC without ever traveling to the USA.",
-            },
-            {
-                question: "Do you need my SSN?",
-                answer: "No. Not necessary. We obtain your EIN even without an SSN.",
-            },
-        ],
+        q: "How is my identity verified?",
+        a: "Under the Economic Crime and Corporate Transparency Act, directors and people with significant control must verify their identity. We verify identities with our KYC and AML partners, Onfido and Credas, and we prepare and file your company with Companies House ourselves. In practice you supply a valid passport or national ID and your address details; further documents may be requested depending on your circumstances.",
     },
     {
-        title: "Canada",
-        flag: "🇨🇦",
-        items: [
-            {
-                question: "Can a non-Canadian resident start a company in Canada?",
-                answer: "Yes, non-Canadian residents can form a corporation or a partnership in Canada. We manage the entire incorporation process for you.",
-            },
-            {
-                question: "Do I need a Canadian address?",
-                answer: "Your company must have a registered office address in Canada. We provide this service if you don't have one.",
-            },
-            {
-                question: "How long does it take to form my company?",
-                answer: "Incorporation is typically completed in 1-2 weeks depending on province. We ensure all paperwork is filed promptly.",
-            },
-            {
-                question: "Will I pay taxes in Canada?",
-                answer: "Yes, income earned by your Canadian corporation is subject to Canadian taxes. You may also owe taxes in your home country depending on your residency.",
-            },
-            {
-                question: "Do I need a Canadian director for my company?",
-                answer: "Some provinces require at least 25% of directors to be Canadian residents. Others (British Columbia, Quebec, New Brunswick, PEI) allow 100% foreign ownership.",
-            },
-            {
-                question: "Do I need to visit Canada to incorporate?",
-                answer: "No. The entire process can be completed remotely.",
-            },
-            {
-                question: "Can I incorporate a company in Canada as a non-resident?",
-                answer: "Yes, with a Canadian director or through our representation services.",
-            },
-            {
-                question: "What are the benefits of federal incorporation?",
-                answer: "Nationwide name protection and the ability to operate in all provinces.",
-            },
-        ],
+        q: "What do I need to provide?",
+        a: "Valid identity documentation, residential address information and the company details required for incorporation — name, registered office, shareholding, directors and SIC codes. Additional KYC or proof-of-address documents may be requested.",
+    },
+    {
+        q: "How long does it take?",
+        a: "Many standard online incorporations are processed quickly once identity verification is complete, but timing depends on Companies House review and cannot be guaranteed.",
+    },
+    {
+        q: "What happens if my application is rejected?",
+        a: "Rejections are usually caused by a name conflict or a document issue. We tell you the reason, correct the filing and resubmit at no extra service fee. If the company genuinely cannot be formed, our refund policy applies.",
+    },
+    {
+        q: "Will my home address appear on the public register?",
+        a: "A director's residential address is generally kept private where a separate service address is used. The company must still maintain an appropriate registered office, which appears on the public register.",
+    },
+    {
+        q: "Can I open a UK business bank account?",
+        a: "Potentially. Eligibility depends on the provider, founder residence, business activity, KYC, source of funds and expected transactions. Forming a UK company does not guarantee banking approval, and we never promise it.",
+    },
+    {
+        q: "Do you help with banking and fintech applications?",
+        a: "Yes. We provide banking-readiness and application support where included in your package or purchased separately. Final approval is always made by the financial provider.",
+    },
+    {
+        q: "Are there hidden or renewal fees?",
+        a: "No. Package prices are fixed and stated up front, including the Companies House incorporation fee. Address services renew annually at the published rates — registered office £59/year and director service address £35/year — and we tell you the renewal date in advance.",
     },
 ];
 
-// Map country to index for accessing faqData array
-const countryToIndex: Record<Country, number> = {
-    UK: 0,
-    USA: 1,
-    Canada: 2,
-};
-
 export default function FAQ() {
-    const { selectedCountry, setSelectedCountry } = useCountry();
-    const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-
-    const activeIndex = countryToIndex[selectedCountry];
-
-    const toggleItem = (itemIndex: number) => {
-        const key = `${selectedCountry}-${itemIndex}`;
-        const newOpenItems = new Set(openItems);
-        if (newOpenItems.has(key)) {
-            newOpenItems.delete(key);
-        } else {
-            newOpenItems.add(key);
-        }
-        setOpenItems(newOpenItems);
-    };
-
-    // FAQPage JSON-LD for the UK FAQ items (primary content for SEO)
-    const faqPageJsonLd = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqData[0].items.map((item) => ({
-            "@type": "Question",
-            "name": item.question,
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.answer,
-            },
-        })),
-    };
+    const [open, setOpen] = useState<number | null>(0);
 
     return (
-        <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-            {/* FAQPage JSON-LD */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd) }}
-            />
-            {/* Background decoration — same as Testimonials */}
-            <div className="absolute inset-0 -z-10 overflow-hidden">
-                <div className="absolute left-1/4 top-10 h-[500px] w-[500px] rounded-full bg-[#d4af37]/3 blur-[120px] dark:bg-[#d4af37]/5"></div>
-                <div className="absolute right-1/4 bottom-10 h-[500px] w-[500px] rounded-full bg-[#d4af37]/3 blur-[120px] dark:bg-[#d4af37]/5"></div>
-            </div>
-
-            <div className="mx-auto max-w-4xl">
-                {/* Header — same as Testimonials */}
-                <div className="mb-16 text-center">
-                    <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">
-                        COMMON QUESTIONS
-                    </span>
-                    <h2 className="faq-heading mb-4 font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl uppercase">
-                        FAQ
-                    </h2>
-                    <div className="mx-auto h-[1px] w-20 bg-[#d4af37]/50"></div>
-                </div>
-
-                {/* Tabs */}
-                <div className="mb-8 flex justify-center gap-2 sm:gap-4">
-                    {faqData.map((section, index) => (
-                        <button
-                            key={index}
-                            onClick={() => {
-                                setSelectedCountry(section.title as Country);
-                                setOpenItems(new Set()); // Clear open items when switching tabs
-                            }}
-                            className={`flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold transition-all sm:px-6 sm:text-base ${activeIndex === index
-                                ? "bg-gradient-to-r from-[#d4af37] to-[#f3d066] text-black shadow-lg shadow-[#d4af37]/30"
-                                : "border border-border/40 bg-background/50 text-foreground/70 hover:border-[#d4af37]/50 hover:text-foreground"
-                                }`}
-                        >
-                            <span className="text-xl sm:text-2xl">{section.flag}</span>
-                            <span>{section.title}</span>
-                        </button>
-                    ))}
-                </div>
-
-                {/* FAQ Items */}
-                <div className="space-y-3">
-                    {faqData[activeIndex].items.map((item, itemIndex) => {
-                        const key = `${selectedCountry}-${itemIndex}`;
-                        const isOpen = openItems.has(key);
-
-                        return (
-                            <div
-                                key={itemIndex}
-                                className="group premium-faq-item"
-                            >
-                                {/* Question Button */}
-                                <button
-                                    onClick={() => toggleItem(itemIndex)}
-                                    className="premium-faq-question"
-                                >
-                                    <span className="premium-faq-question-text">
-                                        {item.question}
-                                    </span>
-                                    <span className="premium-faq-icon">
-                                        {isOpen ? (
-                                            <FaMinus className="h-4 w-4" />
-                                        ) : (
-                                            <FaPlus className="h-4 w-4" />
-                                        )}
-                                    </span>
-                                </button>
-
-                                {/* Answer */}
-                                <div
-                                    className={`premium-faq-answer-wrapper ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                                        }`}
-                                >
-                                    <div className="premium-faq-answer-inner">
-                                        <p className="premium-faq-answer-text">{item.answer}</p>
+        <section className="border-t border-border px-6 py-24 sm:py-32">
+            <div className="mx-auto max-w-6xl">
+                <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
+                    <div>
+                        <div>
+                            <p className="eyebrow">Common questions</p>
+                            <div className="mt-4 h-px w-16 rule-gold" />
+                        </div>
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Questions? We Are Here to Help.</h2>
+                        <p className="mt-6 max-w-sm leading-relaxed text-muted-foreground">
+                            If your question isn’t answered here, contact our team.
+                        </p>
+                        <Button asChild variant="ghost" className="mt-8">
+                            <a href="mailto:contact@sevenoakprestige.com">contact@sevenoakprestige.com</a>
+                        </Button>
+                    </div>
+                    <div>
+                        <div className="divide-y divide-border border-y border-border">
+                            {FAQS.map((item, i) => {
+                                const isOpen = open === i;
+                                return (
+                                    <div key={item.q}>
+                                        <h3>
+                                            <button
+                                                type="button"
+                                                onClick={() => setOpen(isOpen ? null : i)}
+                                                aria-expanded={isOpen}
+                                                className="flex w-full items-start justify-between gap-6 py-6 text-left transition-colors hover:text-gold-soft"
+                                            >
+                                                <span className="font-sans text-base font-semibold sm:text-lg">{item.q}</span>
+                                                <span
+                                                    className={`mt-1 shrink-0 text-gold transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+                                                    aria-hidden="true"
+                                                >
+                                                    <svg viewBox="0 0 24 24" className="h-4 w-4">
+                                                        <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="1.6" fill="none" />
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </h3>
+                                        <div
+                                            className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] pb-6" : "grid-rows-[0fr]"}`}
+                                        >
+                                            <div className="overflow-hidden">
+                                                <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        );
-                    })}
+                                );
+                            })}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -23,7 +23,7 @@ export default function BusinessBankingReadinessPage() {
     return (
         <article className="w-full">
             {/* ─── Hero ─────────────────────────────────────────────────────── */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
+            <section className="section-dark relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
 
                 {/* Background image — positioned behind everything */}
                 <div className="absolute inset-0 z-0">
@@ -36,37 +36,37 @@ export default function BusinessBankingReadinessPage() {
                         priority
                     />
                     {/* Dark overlay */}
-                    <div className="absolute inset-0 bg-black/70" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/20" />
                     {/* Bottom vignette */}
-                    <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
                 </div>
 
                 {/* Animated gold orbs */}
                 <div className="absolute inset-0 overflow-hidden z-[1] pointer-events-none">
-                    <div className="hero-circle-1 absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#d4af37]/10 blur-3xl" />
-                    <div className="hero-circle-2 absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[#d4af37]/10 blur-3xl" />
+                    <div className="hero-circle-1 absolute -top-40 -right-40 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
+                    <div className="hero-circle-2 absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10 mx-auto max-w-7xl w-full text-left">
 
                     {/* Badge */}
-                    <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-4 py-2 backdrop-blur-sm">
-                        <span className="text-sm font-medium text-white/90">
+                    <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-2 backdrop-blur-sm">
+                        <span className="text-sm font-medium text-foreground/90">
                             Executive Guide &nbsp;•&nbsp; 18 minute read &nbsp;•&nbsp; Updated August 2026
                         </span>
                     </div>
 
                     {/* Main Heading */}
-                    <h1 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                    <h1 className="mb-6 font-display text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                         UK Business Banking for{" "}
-                        <span className="bg-gradient-to-r from-[#d4af37] via-[#f3d066] to-[#d4af37] bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-gold via-[#f3d066] to-gold bg-clip-text text-transparent">
                             Non-UK Residents
                         </span>
                     </h1>
 
                     {/* Subheading */}
-                    <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl lg:mx-0">
+                    <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-foreground/80 sm:text-xl lg:mx-0">
                         The complete banking readiness framework to prepare your UK company for a successful business banking application — built for international founders.
                     </p>
 
@@ -75,16 +75,16 @@ export default function BusinessBankingReadinessPage() {
                         <a
                             href="/flies/Executive Framework & Due Diligence Checklist for International Entrepreneurs.pdf"
                             download
-                            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-2xl shadow-[#d4af37]/30 transition-all duration-300 hover:scale-105 hover:shadow-[#d4af37]/50 active:scale-95 sm:text-lg"
+                            className="btn-gold"
                         >
                             <FaDownload className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                             <span>Download PDF Guide</span>
-                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#f3d066] to-[#d4af37] opacity-0 transition-opacity group-hover:opacity-100" />
+                            <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#f3d066] to-gold opacity-0 transition-opacity group-hover:opacity-100" />
                         </a>
 
                         <Link
                             href="#framework"
-                            className="group inline-flex items-center gap-3 rounded-xl border-2 border-[#d4af37] bg-transparent px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-[#d4af37] hover:text-black active:scale-95 sm:text-lg"
+                            className="btn-ghost"
                         >
                             <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                             <span>Explore Framework</span>
@@ -98,8 +98,8 @@ export default function BusinessBankingReadinessPage() {
                             "100-Point Scorecard",
                             "30-Day Prep Plan",
                         ].map((item) => (
-                            <div key={item} className="flex items-center gap-2 text-white/80">
-                                <svg className="h-5 w-5 text-[#d4af37]" fill="currentColor" viewBox="0 0 20 20">
+                            <div key={item} className="flex items-center gap-2 text-foreground/80">
+                                <svg className="h-5 w-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                 </svg>
                                 <span className="font-medium">{item}</span>
@@ -112,21 +112,21 @@ export default function BusinessBankingReadinessPage() {
 
 
             {/* ── Framework Section — Radial Diagram ── */}
-            <section id="framework" className="relative overflow-hidden px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+            <section id="framework" className="section-parchment relative overflow-hidden px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
                 {/* Subtle ambient glow */}
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-3xl"></div>
+                <div className="absolute inset-0 z-0">
+                    <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.03] blur-3xl"></div>
                 </div>
                 
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
                     
                     {/* Header */}
                     <div className="text-center mb-12">
-                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-4">The Seven Oak Prestige</p>
-                        <h2 className="font-serif text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
+                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-gold mb-4">The Seven Oak Prestige</p>
+                        <h2 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
                             Banking Readiness Framework™
                         </h2>
-                        <div className="w-12 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#f3d066] mx-auto mb-8" />
+                        <div className="w-12 h-[2px] bg-gradient-to-r from-gold to-[#f3d066] mx-auto mb-8" />
                         <p className="text-lg text-muted-foreground font-medium max-w-3xl mx-auto">
                             Five foundational pillars to prepare your UK company for a successful business banking application. The Banking Readiness Framework™ has been developed to support entrepreneurs establishing UK companies from more than 190 jurisdictions worldwide.
                         </p>
@@ -139,22 +139,23 @@ export default function BusinessBankingReadinessPage() {
                             {/* SVG Base Layers */}
                             <svg className="absolute inset-0" width="900" height="700" viewBox="0 0 900 700" fill="none">
                                 {/* Outer dashed gold ring */}
-                                <circle cx="450" cy="350" r="200" stroke="#d4af37" strokeWidth="1" strokeDasharray="4 6" className="opacity-30 dark:opacity-20" />
+                                <circle cx="450" cy="350" r="200" strokeWidth="1" strokeDasharray="4 6" className="stroke-gold opacity-30 dark:opacity-20" />
                                 {/* Inner subtle ring */}
-                                <circle cx="450" cy="350" r="100" stroke="#d4af37" strokeWidth="0.5" className="opacity-20 dark:opacity-10" />
+                                <circle cx="450" cy="350" r="100" strokeWidth="0.5" className="stroke-gold opacity-20 dark:opacity-10" />
                                 
                                 {/* Spokes connecting center to nodes */}
                                 {[
                                     [450, 150], [640, 288], [568, 512], [332, 512], [260, 288]
                                 ].map(([x, y], i) => (
-                                    <line key={i} x1="450" y1="350" x2={x} y2={y} stroke="#d4af37" strokeWidth="1" className="opacity-20 dark:opacity-10" />
+                                    <line key={i} x1="450" y1="350" x2={x} y2={y} strokeWidth="1" className="stroke-gold opacity-20 dark:opacity-10" />
                                 ))}
 
                                 {/* Central abstract pentagon */}
                                 <polygon
                                     points="450,250 545,319 509,431 391,431 355,319"
-                                    className="fill-[#d4af37]/5 dark:fill-[#0a0a0a]/90 stroke-[#d4af37]"
+                                    className="fill-gold/10 stroke-gold transition-all duration-500 hover:fill-gold/20 cursor-default"
                                     strokeWidth="1.5"
+                                    style={{ filter: "drop-shadow(0 0 15px rgba(212,175,55,0.4))" }}
                                 />
                             </svg>
 
@@ -219,28 +220,28 @@ export default function BusinessBankingReadinessPage() {
                                     >
                                         {/* Node Circle */}
                                         <div
-                                            className="w-full h-full rounded-full flex items-center justify-center border border-[#d4af37]/40 shadow-md backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37] group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] cursor-default bg-white/90 dark:bg-[#161616]/95"
+                                            className="w-full h-full rounded-full flex items-center justify-center border border-gold/40 shadow-md backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-gold group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] cursor-default bg-card/95"
                                         >
-                                            <span className="font-serif text-xl font-bold text-[#d4af37] group-hover:text-foreground transition-colors duration-300">
+                                            <span className="font-display text-xl font-bold text-gold group-hover:text-foreground transition-colors duration-300">
                                                 {p.num}
                                             </span>
                                         </div>
 
                                         {/* Attached Text Label as a Card */}
                                         <div style={textStyle}>
-                                            <div className="relative text-left overflow-hidden rounded-2xl border border-border/20 bg-card/20 p-5 backdrop-blur-md transition-all duration-500 group-hover:-translate-y-1 group-hover:border-[#d4af37]/30 group-hover:bg-card/40 group-hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)]">
+                                            <div className="relative text-left overflow-hidden rounded-2xl border border-border/20 bg-card/20 p-5 backdrop-blur-md transition-all duration-500 group-hover:-translate-y-1 group-hover:border-gold/30 group-hover:bg-card/40 group-hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)]">
                                                 {/* Card glow effect on hover */}
-                                                <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                                    <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent"></div>
+                                                <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent"></div>
                                                 </div>
-                                                <h3 className="text-lg font-bold text-[#d4af37] mb-2 tracking-tight leading-tight">
+                                                <h3 className="text-lg font-bold text-gold mb-2 tracking-tight leading-tight">
                                                     {p.title}
                                                 </h3>
                                                 <p className="text-sm text-muted-foreground leading-relaxed">
                                                     {p.desc}
                                                 </p>
                                                 {/* Decorative corner accent */}
-                                                <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#d4af37]/10 blur-2xl transition-all duration-500 group-hover:bg-[#d4af37]/20 group-hover:blur-[30px] pointer-events-none"></div>
+                                                <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gold/10 blur-2xl transition-all duration-500 group-hover:bg-gold/20 group-hover:blur-[30px] pointer-events-none"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -258,14 +259,14 @@ export default function BusinessBankingReadinessPage() {
                             { num: "04", title: "Financial Readiness", desc: "Prepare clear financial forecasting, source of funds, and business planning." },
                             { num: "05", title: "Compliance & Governance", desc: "Understand and proactively meet your ongoing UK regulatory obligations." },
                         ].map((p) => (
-                            <div key={p.num} className="relative overflow-hidden rounded-[2rem] border border-border/20 bg-card/20 p-6 sm:p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#d4af37]/30 hover:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] group flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
+                            <div key={p.num} className="relative overflow-hidden rounded-[2rem] border border-border/20 bg-card/20 p-6 sm:p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-gold/30 hover:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] group flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
                                 {/* Number Icon */}
-                                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border border-[#d4af37]/40 shadow-sm backdrop-blur-sm bg-white/90 dark:bg-[#161616]/95 group-hover:scale-110 group-hover:border-[#d4af37] transition-all duration-500">
-                                    <span className="font-serif text-lg sm:text-xl font-bold text-[#d4af37] group-hover:text-foreground transition-colors duration-300">{p.num}</span>
+                                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border border-gold/40 shadow-sm backdrop-blur-sm bg-card/95 group-hover:scale-110 group-hover:border-gold transition-all duration-500">
+                                    <span className="font-display text-lg sm:text-xl font-bold text-gold group-hover:text-foreground transition-colors duration-300">{p.num}</span>
                                 </div>
                                 
                                 <div className="flex-1">
-                                    <h3 className="text-lg sm:text-xl font-bold text-[#d4af37] mb-2 tracking-tight leading-tight">
+                                    <h3 className="text-lg sm:text-xl font-bold text-gold mb-2 tracking-tight leading-tight">
                                         {p.title}
                                     </h3>
                                     <p className="text-sm text-muted-foreground leading-relaxed">
@@ -274,11 +275,11 @@ export default function BusinessBankingReadinessPage() {
                                 </div>
 
                                 {/* Card glow effect on hover */}
-                                <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent"></div>
+                                <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent"></div>
                                 </div>
                                 {/* Decorative corner accent */}
-                                <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#d4af37]/10 blur-2xl transition-all duration-500 group-hover:bg-[#d4af37]/20 group-hover:blur-[30px] pointer-events-none"></div>
+                                <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gold/10 blur-2xl transition-all duration-500 group-hover:bg-gold/20 group-hover:blur-[30px] pointer-events-none"></div>
                             </div>
                         ))}
                     </div>
@@ -287,10 +288,10 @@ export default function BusinessBankingReadinessPage() {
             </section>
 
             {/* ── Executive Summary ── */}
-            <section className="relative px-4 pb-16 pt-12 sm:px-6 lg:px-8 overflow-hidden">
+            <section className="section-dark relative px-4 pb-16 pt-12 sm:px-6 lg:px-8 overflow-hidden">
                 {/* Ambient Background Glow */}
-                <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-[100px]"></div>
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.03] blur-[100px]"></div>
                 </div>
 
                 <div className="mx-auto max-w-5xl relative z-10">
@@ -298,22 +299,22 @@ export default function BusinessBankingReadinessPage() {
                         
                         {/* Subtle inner gold accent */}
                         <div className="absolute -top-12 -right-12 p-8 opacity-[0.03] group-hover:opacity-10 transition-opacity duration-700 pointer-events-none transform-gpu group-hover:-rotate-12 group-hover:scale-110">
-                            <FaRegFileAlt className="w-64 h-64 text-[#d4af37]" />
+                            <FaRegFileAlt className="w-64 h-64 text-gold" />
                         </div>
 
                         <div className="relative z-10">
-                            <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-3">Overview</p>
-                            <h3 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-foreground tracking-tight">Executive Summary</h3>
+                            <p className="text-xs font-bold tracking-[0.3em] uppercase text-gold mb-3">Overview</p>
+                            <h3 className="font-display text-3xl md:text-4xl font-bold mb-6 text-foreground tracking-tight">Executive Summary</h3>
                             
                             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
                                 Opening a UK business bank account is rarely determined by a single document or application form. Financial institutions generally evaluate a combination of factors to understand how a business operates, how it is managed and whether sufficient information has been provided to understand the nature of the relationship being requested.
                             </p>
                             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
-                                These assessments may include areas such as corporate identity, business activities, website quality, company documentation, <Link href="/services/companies-house-verification" className="text-[#d4af37] hover:underline font-medium">identity verification</Link>, source of funds information, and overall operational credibility.
+                                These assessments may include areas such as corporate identity, business activities, website quality, company documentation, <Link href="/services/companies-house-verification" className="text-gold hover:underline font-medium">identity verification</Link>, source of funds information, and overall operational credibility.
                             </p>
                             
                             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-                                <a href="/flies/Executive Framework & Due Diligence Checklist for International Entrepreneurs.pdf" download className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-xl transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                                <a href="/flies/Executive Framework & Due Diligence Checklist for International Entrepreneurs.pdf" download className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-gold to-[#f3d066] px-8 py-4 text-base font-bold text-black shadow-xl transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
                                     <FaDownload className="text-lg" /> Download Executive PDF
                                 </a>
                                 <Link href="#framework" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-foreground/10 border border-border/50 px-8 py-4 text-base font-bold text-foreground transition-all hover:bg-foreground/20 hover:scale-[1.02]">
@@ -326,19 +327,19 @@ export default function BusinessBankingReadinessPage() {
             </section>
 
             {/* ── Detailed Context & Readiness Checklist (Redesigned) ── */}
-            <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+            <section className="section-parchment relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-6xl relative z-10">
                     
                     {/* Part 1: The Thesis */}
                     <div className="mb-20 text-center max-w-4xl mx-auto">
-                        <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-snug mb-8">
+                        <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-snug mb-8">
                             Establishing a UK Company Is Only the Beginning.<br className="hidden md:block" />
-                            <span className="text-[#d4af37]">Banking Readiness</span> Determines What Comes Next.
+                            <span className="text-gold">Banking Readiness</span> Determines What Comes Next.
                         </h2>
-                        <div className="w-16 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#f3d066] mx-auto mb-8" />
+                        <div className="w-16 h-[2px] bg-gradient-to-r from-gold to-[#f3d066] mx-auto mb-8" />
                         <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-left sm:text-center">
                             <p>
-                                Successfully incorporating a UK Limited Company is an important milestone for international entrepreneurs seeking to expand into one of the world’s most respected business jurisdictions. However, <Link href="/services/uk-company-formation-for-non-residents" className="text-[#d4af37] hover:underline font-medium transition-colors hover:text-[#f3d066]">company formation</Link> alone does not automatically mean a business is prepared for business banking, <Link href="/services/fintech-banking-guidance" className="text-[#d4af37] hover:underline font-medium transition-colors hover:text-[#f3d066]">payment provider onboarding</Link> or long-term commercial operations.
+                                Successfully incorporating a UK Limited Company is an important milestone for international entrepreneurs seeking to expand into one of the world’s most respected business jurisdictions. However, <Link href="/services/uk-company-formation-for-non-residents" className="text-gold hover:underline font-medium transition-colors hover:text-[#f3d066]">company formation</Link> alone does not automatically mean a business is prepared for business banking, <Link href="/services/fintech-banking-guidance" className="text-gold hover:underline font-medium transition-colors hover:text-[#f3d066]">payment provider onboarding</Link> or long-term commercial operations.
                             </p>
                             <p>
                                 Many entrepreneurs focus considerable attention on incorporation while underestimating the importance of operational readiness, documentation quality, corporate consistency and regulatory preparation. These factors often play an important role when financial institutions evaluate new business relationships.
@@ -355,7 +356,7 @@ export default function BusinessBankingReadinessPage() {
                         {/* Image Side */}
                         <div className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-border/20 shadow-2xl shadow-black/20 group min-h-[350px] lg:min-h-full">
                             <Image 
-                                src="/assets/resouces/banking-readiness.jpg"
+                                src="/assets/resouces/banking-readiness.webp"
                                 alt="Business Banking Readiness Documents"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -363,16 +364,16 @@ export default function BusinessBankingReadinessPage() {
                             />
                             {/* Inner vignette/glow */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 mix-blend-overlay"></div>
-                            <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-overlay"></div>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-overlay"></div>
                         </div>
 
                         {/* Content Side (Premium Card) */}
                         <div className="lg:col-span-7 relative rounded-3xl border border-border/20 bg-card/20 p-8 md:p-10 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:bg-card/30 flex flex-col justify-center">
                             {/* Decorative glow */}
-                            <div className="absolute top-0 right-0 h-64 w-64 -translate-y-1/2 translate-x-1/3 rounded-full bg-[#d4af37]/10 blur-3xl pointer-events-none"></div>
+                            <div className="absolute top-0 right-0 h-64 w-64 -translate-y-1/2 translate-x-1/3 rounded-full bg-gold/10 blur-3xl pointer-events-none"></div>
 
                             <div className="relative z-10">
-                                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">
+                                <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
                                     What Is Business Banking Readiness?
                                 </h3>
                                 <p className="text-base text-muted-foreground leading-relaxed mb-8">
@@ -394,7 +395,7 @@ export default function BusinessBankingReadinessPage() {
                                         "Appropriate governance arrangements"
                                     ].map((item, index) => (
                                         <div key={index} className="group/item flex items-start gap-3">
-                                            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/10 text-[#d4af37] transition-colors duration-300 group-hover/item:bg-[#d4af37] group-hover/item:text-black mt-0.5">
+                                            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold transition-colors duration-300 group-hover/item:bg-gold group-hover/item:text-black mt-0.5">
                                                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                                 </svg>
@@ -416,13 +417,13 @@ export default function BusinessBankingReadinessPage() {
 
                     {/* Section Header */}
                     <div className="text-center mb-16">
-                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-2">
+                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-gold mb-2">
                             The Seven Oak Prestige
                         </p>
-                        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-3">
+                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-3">
                             Banking Readiness Framework™
                         </h2>
-                        <div className="w-10 h-[2px] bg-[#d4af37] mx-auto mb-5" />
+                        <div className="w-10 h-[2px] bg-gold mx-auto mb-5" />
                         <p className="text-base text-foreground/70 font-medium">
                             Five Pillars for a Banking-Ready UK Business
                         </p>
@@ -446,12 +447,12 @@ export default function BusinessBankingReadinessPage() {
 
                             {/* Gold ring SVG */}
                             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 680 680" fill="none">
-                                <circle cx="340" cy="340" r="220" stroke="#d4af37" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.6" />
+                                <circle cx="340" cy="340" r="220" className="stroke-gold" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.6" />
                                 {/* Connecting lines from center to each node */}
                                 {[
                                     [340, 120], [550, 272], [469, 518], [211, 518], [130, 272]
                                 ].map(([x, y], i) => (
-                                    <line key={i} x1="340" y1="340" x2={x} y2={y} stroke="#d4af37" strokeWidth="1" opacity="0.25" />
+                                    <line key={i} x1="340" y1="340" x2={x} y2={y} className="stroke-gold" strokeWidth="1" opacity="0.25" />
                                 ))}
                             </svg>
 
@@ -465,10 +466,10 @@ export default function BusinessBankingReadinessPage() {
                                     background: "linear-gradient(160deg, #0f1f3d 0%, #1a3060 100%)",
                                 }}
                             >
-                                <p className="text-[9px] font-bold tracking-[0.18em] uppercase text-[#d4af37]/80 mb-0.5 px-6 leading-tight">
+                                <p className="text-[9px] font-bold tracking-[0.18em] uppercase text-gold/80 mb-0.5 px-6 leading-tight">
                                     Seven Oak Prestige
                                 </p>
-                                <p className="text-[11px] font-extrabold uppercase tracking-wide text-white px-4 leading-snug">
+                                <p className="text-[11px] font-extrabold uppercase tracking-wide text-foreground px-4 leading-snug">
                                     Banking<br />Readiness<br />Framework™
                                 </p>
                             </div>
@@ -538,7 +539,7 @@ export default function BusinessBankingReadinessPage() {
                                     >
                                         {/* Icon node */}
                                         <div
-                                            className="w-full h-full rounded-full flex items-center justify-center shadow-xl border-2 border-[#d4af37]/60"
+                                            className="w-full h-full rounded-full flex items-center justify-center shadow-xl border-2 border-gold/60"
                                             style={{ background: "linear-gradient(145deg, #0f1f3d 0%, #1a3060 100%)" }}
                                         >
                                             <span className="text-2xl" aria-hidden="true">{p.icon}</span>
@@ -546,7 +547,7 @@ export default function BusinessBankingReadinessPage() {
                                         {/* Text label */}
                                         <div style={labelStyle}>
                                             <p className="text-[11px] font-extrabold uppercase tracking-wider text-foreground leading-tight mb-0.5">
-                                                <span className="text-[#d4af37]">{p.num}. </span>{p.title}
+                                                <span className="text-gold">{p.num}. </span>{p.title}
                                             </p>
                                             <p className="text-[10px] text-foreground/60 leading-snug">{p.desc}</p>
                                         </div>
@@ -565,12 +566,12 @@ export default function BusinessBankingReadinessPage() {
                             { num: "4", title: "Financial Readiness", desc: "Prepare clear financial information and business planning", icon: "📈" },
                             { num: "5", title: "Compliance & Corporate Governance", desc: "Understand and meet your ongoing regulatory obligations", icon: "🛡" },
                         ].map((p) => (
-                            <div key={p.num} className="flex items-start gap-4 p-5 rounded-2xl border border-[#d4af37]/20 bg-background shadow-sm">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center border-2 border-[#d4af37]/60" style={{ background: "linear-gradient(145deg, #0f1f3d 0%, #1a3060 100%)" }}>
+                            <div key={p.num} className="flex items-start gap-4 p-5 rounded-2xl border border-gold/20 bg-background shadow-sm">
+                                <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center border-2 border-gold/60" style={{ background: "linear-gradient(145deg, #0f1f3d 0%, #1a3060 100%)" }}>
                                     <span className="text-xl">{p.icon}</span>
                                 </div>
                                 <div>
-                                    <p className="text-xs font-bold text-[#d4af37] tracking-widest uppercase mb-0.5">Pillar {p.num}</p>
+                                    <p className="text-xs font-bold text-gold tracking-widest uppercase mb-0.5">Pillar {p.num}</p>
                                     <p className="font-bold text-foreground text-sm mb-1">{p.title}</p>
                                     <p className="text-xs text-foreground/60 leading-relaxed">{p.desc}</p>
                                 </div>
@@ -584,20 +585,20 @@ export default function BusinessBankingReadinessPage() {
 
             {/* Pillars Detail Section */}
             {/* ── The Five Pillars Framework ── */}
-            <section className="relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+            <section className="section-dark relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
                 {/* Ambient Background matching Services.tsx */}
-                <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/2 top-1/4 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-3xl"></div>
-                    <div className="absolute right-0 bottom-1/4 h-[500px] w-[500px] translate-x-1/4 translate-y-1/4 rounded-full bg-[#d4af37]/[0.02] blur-3xl"></div>
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <div className="absolute left-1/2 top-1/4 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.03] blur-3xl"></div>
+                    <div className="absolute right-0 bottom-1/4 h-[500px] w-[500px] translate-x-1/4 translate-y-1/4 rounded-full bg-gold/[0.02] blur-3xl"></div>
                 </div>
 
                 <div className="mx-auto max-w-5xl relative z-10">
                     <div className="text-center mb-24">
-                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-3">The Core Framework</p>
-                        <h2 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight text-foreground mb-6">
+                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-gold mb-3">The Core Framework</p>
+                        <h2 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-foreground mb-6">
                             The Five Pillars of Readiness
                         </h2>
-                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#f3d066] mb-6"></div>
+                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-gold to-[#f3d066] mb-6"></div>
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                             A structured framework to evaluate and prepare your business before approaching financial institutions.
                         </p>
@@ -609,18 +610,18 @@ export default function BusinessBankingReadinessPage() {
 
                         {/* Pillar 1 */}
                         <div className="relative flex flex-col md:flex-row gap-6 md:gap-12 group">
-                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-serif text-xl text-[#d4af37] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]/50 group-hover:bg-[#d4af37]/5">
+                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-display text-xl text-gold shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-gold/50 group-hover:bg-gold/5">
                                 01
                             </div>
                             <div className="flex-1 rounded-3xl border border-border/20 bg-card/20 p-8 md:p-10 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:bg-card/30">
-                                <div className="md:hidden text-[#d4af37] font-bold tracking-widest uppercase text-xs mb-3">Pillar One</div>
-                                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">Corporate Identity</h3>
+                                <div className="md:hidden text-gold font-bold tracking-widest uppercase text-xs mb-3">Pillar One</div>
+                                <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">Corporate Identity</h3>
                                 <p className="text-base text-muted-foreground leading-relaxed mb-8">
                                     Corporate identity extends beyond a company name or logo. It represents the complete professional image presented by a business across every public touchpoint. For international entrepreneurs, establishing a strong corporate identity before approaching financial institutions helps create consistency between official company records and publicly available information.
                                 </p>
                                 <div className="bg-background/40 rounded-2xl p-6 md:p-8 border border-border/40">
                                     <h4 className="font-semibold text-foreground mb-6 flex items-center gap-2">
-                                        <FaRegFileAlt className="text-[#d4af37]" />
+                                        <FaRegFileAlt className="text-gold" />
                                         Corporate Identity Assessment
                                     </h4>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -635,9 +636,9 @@ export default function BusinessBankingReadinessPage() {
                                             { label: "Consistent branding" }
                                         ].map((item, idx) => (
                                             <div key={idx} className="flex items-start gap-3">
-                                                <FaCheckCircle className="text-[#d4af37] text-sm mt-1 shrink-0" />
+                                                <FaCheckCircle className="text-gold text-sm mt-1 shrink-0" />
                                                 {item.href ? (
-                                                    <Link href={item.href} className="text-sm font-medium text-foreground/80 hover:text-[#d4af37] underline decoration-border hover:decoration-[#d4af37] transition-all">
+                                                    <Link href={item.href} className="text-sm font-medium text-foreground/80 hover:text-gold underline decoration-border hover:decoration-[#d4af37] transition-all">
                                                         {item.label}
                                                     </Link>
                                                 ) : (
@@ -652,18 +653,18 @@ export default function BusinessBankingReadinessPage() {
 
                         {/* Pillar 2 */}
                         <div className="relative flex flex-col md:flex-row gap-6 md:gap-12 group">
-                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-serif text-xl text-[#d4af37] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]/50 group-hover:bg-[#d4af37]/5">
+                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-display text-xl text-gold shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-gold/50 group-hover:bg-gold/5">
                                 02
                             </div>
                             <div className="flex-1 rounded-3xl border border-border/20 bg-card/20 p-8 md:p-10 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:bg-card/30">
-                                <div className="md:hidden text-[#d4af37] font-bold tracking-widest uppercase text-xs mb-3">Pillar Two</div>
-                                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">Business Documentation</h3>
+                                <div className="md:hidden text-gold font-bold tracking-widest uppercase text-xs mb-3">Pillar Two</div>
+                                <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">Business Documentation</h3>
                                 <p className="text-base text-muted-foreground leading-relaxed mb-8">
                                     Maintaining organised corporate documentation forms an essential part of business readiness. Preparing documentation in advance enables businesses to respond efficiently to requests for supporting information while reducing unnecessary delays caused by missing records.
                                 </p>
                                 <div className="bg-background/40 rounded-2xl p-6 md:p-8 border border-border/40">
                                     <h4 className="font-semibold text-foreground mb-6 flex items-center gap-2">
-                                        <FaRegFileAlt className="text-[#d4af37]" />
+                                        <FaRegFileAlt className="text-gold" />
                                         Business Documentation Checklist
                                     </h4>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -678,9 +679,9 @@ export default function BusinessBankingReadinessPage() {
                                             { label: "Financial forecasts" }
                                         ].map((item, idx) => (
                                             <div key={idx} className="flex items-start gap-3">
-                                                <FaCheckCircle className="text-[#d4af37] text-sm mt-1 shrink-0" />
+                                                <FaCheckCircle className="text-gold text-sm mt-1 shrink-0" />
                                                 {item.href ? (
-                                                    <Link href={item.href} className="text-sm font-medium text-foreground/80 hover:text-[#d4af37] underline decoration-border hover:decoration-[#d4af37] transition-all">
+                                                    <Link href={item.href} className="text-sm font-medium text-foreground/80 hover:text-gold underline decoration-border hover:decoration-[#d4af37] transition-all">
                                                         {item.label}
                                                     </Link>
                                                 ) : (
@@ -695,12 +696,12 @@ export default function BusinessBankingReadinessPage() {
 
                         {/* Pillar 3 */}
                         <div className="relative flex flex-col md:flex-row gap-6 md:gap-12 group">
-                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-serif text-xl text-[#d4af37] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]/50 group-hover:bg-[#d4af37]/5">
+                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-display text-xl text-gold shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-gold/50 group-hover:bg-gold/5">
                                 03
                             </div>
                             <div className="flex-1 rounded-3xl border border-border/20 bg-card/20 p-8 md:p-10 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:bg-card/30">
-                                <div className="md:hidden text-[#d4af37] font-bold tracking-widest uppercase text-xs mb-3">Pillar Three</div>
-                                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">Website & Digital Presence Readiness</h3>
+                                <div className="md:hidden text-gold font-bold tracking-widest uppercase text-xs mb-3">Pillar Three</div>
+                                <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">Website & Digital Presence Readiness</h3>
                                 <p className="text-base text-muted-foreground leading-relaxed">
                                     For many international entrepreneurs, a company website represents one of the first opportunities to communicate the nature of their business to prospective clients, suppliers, business partners and financial institutions. A well-prepared website should explain the company’s activities in a straightforward and transparent manner.
                                 </p>
@@ -709,12 +710,12 @@ export default function BusinessBankingReadinessPage() {
 
                         {/* Pillar 4 */}
                         <div className="relative flex flex-col md:flex-row gap-6 md:gap-12 group">
-                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-serif text-xl text-[#d4af37] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]/50 group-hover:bg-[#d4af37]/5">
+                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-display text-xl text-gold shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-gold/50 group-hover:bg-gold/5">
                                 04
                             </div>
                             <div className="flex-1 rounded-3xl border border-border/20 bg-card/20 p-8 md:p-10 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:bg-card/30">
-                                <div className="md:hidden text-[#d4af37] font-bold tracking-widest uppercase text-xs mb-3">Pillar Four</div>
-                                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">Financial Readiness</h3>
+                                <div className="md:hidden text-gold font-bold tracking-widest uppercase text-xs mb-3">Pillar Four</div>
+                                <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">Financial Readiness</h3>
                                 <p className="text-base text-muted-foreground leading-relaxed">
                                     Financial readiness extends beyond demonstrating existing revenue. It involves understanding how the business expects to operate commercially, preparing realistic financial expectations and maintaining documentation that accurately supports business activities.
                                 </p>
@@ -723,12 +724,12 @@ export default function BusinessBankingReadinessPage() {
 
                         {/* Pillar 5 */}
                         <div className="relative flex flex-col md:flex-row gap-6 md:gap-12 group">
-                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-serif text-xl text-[#d4af37] shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]/50 group-hover:bg-[#d4af37]/5">
+                            <div className="hidden md:flex shrink-0 w-16 h-16 rounded-full bg-background border border-border items-center justify-center relative z-10 font-display text-xl text-gold shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-gold/50 group-hover:bg-gold/5">
                                 05
                             </div>
                             <div className="flex-1 rounded-3xl border border-border/20 bg-card/20 p-8 md:p-10 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:bg-card/30">
-                                <div className="md:hidden text-[#d4af37] font-bold tracking-widest uppercase text-xs mb-3">Pillar Five</div>
-                                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">Compliance & Corporate Governance</h3>
+                                <div className="md:hidden text-gold font-bold tracking-widest uppercase text-xs mb-3">Pillar Five</div>
+                                <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">Compliance & Corporate Governance</h3>
                                 <p className="text-base text-muted-foreground leading-relaxed">
                                     Corporate compliance forms part of maintaining a professionally managed UK company. While regulatory obligations vary depending on the nature of the business, entrepreneurs should understand the importance of maintaining accurate records and meeting ongoing filing responsibilities.
                                 </p>
@@ -740,20 +741,20 @@ export default function BusinessBankingReadinessPage() {
             </section>
 
             {/* ── Scorecard Dashboard Section ── */}
-            <section className="relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+            <section className="section-parchment relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
                 {/* Ambient Background Glow */}
-                <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/2 bottom-0 h-[600px] w-[800px] -translate-x-1/2 translate-y-1/2 rounded-full bg-[#d4af37]/[0.04] blur-[120px]"></div>
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <div className="absolute left-1/2 bottom-0 h-[600px] w-[800px] -translate-x-1/2 translate-y-1/2 rounded-full bg-gold/[0.04] blur-[120px]"></div>
                 </div>
 
                 <div className="mx-auto max-w-6xl relative z-10">
                     
                     <div className="text-center mb-16 max-w-3xl mx-auto">
-                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-3">Evaluation Tool</p>
-                        <h2 className="font-serif text-3xl md:text-5xl font-extrabold mb-6 text-foreground tracking-tight">
+                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-gold mb-3">Evaluation Tool</p>
+                        <h2 className="font-display text-3xl md:text-5xl font-extrabold mb-6 text-foreground tracking-tight">
                             The Banking Readiness Score™
                         </h2>
-                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#f3d066] mb-6"></div>
+                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-gold to-[#f3d066] mb-6"></div>
                         <p className="text-lg text-muted-foreground leading-relaxed">
                             Evaluate your business before you apply. This framework is intended as an educational readiness tool to help founders evaluate the key areas that contribute to a well-prepared UK business.
                         </p>
@@ -764,7 +765,7 @@ export default function BusinessBankingReadinessPage() {
                         
                         {/* Left: Total Score (Gauge/Donut) */}
                         <div className="lg:col-span-5 rounded-3xl border border-border/20 bg-card/20 p-8 md:p-12 backdrop-blur-md flex flex-col items-center justify-center relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:bg-card/30 transition-all duration-500">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#d4af37]/10 rounded-full blur-3xl pointer-events-none transition-opacity group-hover:opacity-100 opacity-50"></div>
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-3xl pointer-events-none transition-opacity group-hover:opacity-100 opacity-50"></div>
                             <h3 className="text-lg font-semibold text-foreground mb-8 self-start w-full border-b border-border/30 pb-4">Maximum Potential Score</h3>
                             
                             <div className="relative w-56 h-56 mb-8 group-hover:scale-105 transition-transform duration-700">
@@ -782,7 +783,7 @@ export default function BusinessBankingReadinessPage() {
                                 </svg>
                                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                                     <span className="text-6xl font-mono font-bold text-foreground tracking-tighter">100</span>
-                                    <span className="text-xs text-[#d4af37] font-bold tracking-widest uppercase mt-2">Points</span>
+                                    <span className="text-xs text-gold font-bold tracking-widest uppercase mt-2">Points</span>
                                 </div>
                             </div>
                             
@@ -805,11 +806,11 @@ export default function BusinessBankingReadinessPage() {
                                     <div key={i} className="group/bar">
                                         <div className="flex justify-between items-end mb-3">
                                             <span className="font-medium text-foreground text-sm sm:text-base">{item.name}</span>
-                                            <span className="font-mono text-[#d4af37] font-bold text-sm bg-[#d4af37]/10 px-2 py-0.5 rounded border border-[#d4af37]/20">{item.score} pts</span>
+                                            <span className="font-mono text-gold font-bold text-sm bg-gold/10 px-2 py-0.5 rounded border border-gold/20">{item.score} pts</span>
                                         </div>
                                         {/* Bar container */}
                                         <div className="h-2 w-full bg-background rounded-full overflow-hidden border border-border/30">
-                                            <div className="h-full bg-gradient-to-r from-[#d4af37] to-[#f3d066] w-full rounded-full relative group-hover/bar:brightness-110 transition-all duration-300">
+                                            <div className="h-full bg-gradient-to-r from-gold to-[#f3d066] w-full rounded-full relative group-hover/bar:brightness-110 transition-all duration-300">
                                             </div>
                                         </div>
                                     </div>
@@ -848,36 +849,36 @@ export default function BusinessBankingReadinessPage() {
             </section>
 
             {/* ── 30-Day Timeline Section ── */}
-            <section className="relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+            <section className="section-dark relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
                 {/* Ambient Background Glow */}
-                <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-0 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-[100px]"></div>
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <div className="absolute left-0 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.03] blur-[100px]"></div>
                 </div>
 
                 <div className="mx-auto max-w-4xl relative z-10">
                     <div className="text-center mb-20">
-                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-3">Preparation Guide</p>
-                        <h2 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight text-foreground mb-6">
+                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-gold mb-3">Preparation Guide</p>
+                        <h2 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-foreground mb-6">
                             30-Day Banking Preparation Timeline
                         </h2>
-                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
+                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-gold to-[#f3d066]"></div>
                     </div>
 
-                    <div className="relative space-y-8 md:space-y-12 before:absolute before:content-[''] before:top-0 before:bottom-0 before:left-5 md:before:left-[2.25rem] before:-translate-x-px before:w-[3px] before:bg-gradient-to-b before:from-[#d4af37]/10 before:via-[#d4af37]/80 before:to-[#d4af37]/10">
+                    <div className="relative space-y-8 md:space-y-12 before:absolute before:content-[''] before:top-0 before:bottom-0 before:left-5 md:before:left-[2.25rem] before:-translate-x-px before:w-[3px] before:bg-gradient-to-b before:from-gold/10 before:via-gold/80 before:to-gold/10">
                         
                         {[
                             { title: "30 Days Before Application", desc: "Review your company structure, website, branding and corporate information. Confirm that all public information accurately reflects the current business." },
-                            { title: "21 Days Before Application", desc: <>Organise corporate documentation, <Link href="/services/companies-house-verification" className="text-[#d4af37] hover:underline font-medium">verify identity documents</Link>, prepare proof of address and ensure important company records are readily available.</> },
+                            { title: "21 Days Before Application", desc: <>Organise corporate documentation, <Link href="/services/companies-house-verification" className="text-gold hover:underline font-medium">verify identity documents</Link>, prepare proof of address and ensure important company records are readily available.</> },
                             { title: "14 Days Before Application", desc: "Review expected business activities, prepare financial projections where appropriate and organise supporting commercial evidence such as invoices, contracts or purchase orders." },
                             { title: "7 Days Before Application", desc: "Carry out a final review of your website, business email, contact information and company documentation. Confirm that all information presented across different platforms remains consistent." },
                             { title: "Application Day & Beyond", desc: "Provide accurate and complete information throughout the application process. Retain copies of submitted information and remain available should additional documentation be requested." },
                         ].map((item, idx) => (
                             <div key={idx} className="relative flex items-start gap-6 md:gap-8 group">
-                                <div className="absolute left-5 md:left-[2.25rem] top-8 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-background border-4 border-[#d4af37] z-10 shadow-[0_0_10px_rgba(212,175,55,0.5)] group-hover:scale-125 transition-transform duration-300"></div>
+                                <div className="absolute left-5 md:left-[2.25rem] top-8 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-background border-4 border-gold z-10 shadow-[0_0_10px_rgba(212,175,55,0.5)] group-hover:scale-125 transition-transform duration-300"></div>
                                 
                                 <div className="pl-12 md:pl-20 w-full">
                                     <div className="rounded-3xl border border-border/20 bg-card/20 p-6 md:p-8 backdrop-blur-md transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:bg-card/30">
-                                        <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground mb-3">{item.title}</h3>
+                                        <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">{item.title}</h3>
                                         <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                                             {item.desc}
                                         </p>
@@ -890,40 +891,40 @@ export default function BusinessBankingReadinessPage() {
             </section>
 
             {/* ── FAQs Section ── */}
-            <section className="relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+            <section className="section-parchment relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
                 {/* Ambient Background Glow */}
-                <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute right-0 top-1/2 h-[500px] w-[500px] translate-x-1/3 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-[100px]"></div>
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <div className="absolute right-0 top-1/2 h-[500px] w-[500px] translate-x-1/3 -translate-y-1/2 rounded-full bg-gold/[0.03] blur-[100px]"></div>
                 </div>
 
                 <div className="mx-auto max-w-4xl relative z-10">
                     <div className="text-center mb-16">
-                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-3">Clarity & Insight</p>
-                        <h2 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight text-foreground mb-6">
+                        <p className="text-xs font-bold tracking-[0.3em] uppercase text-gold mb-3">Clarity & Insight</p>
+                        <h2 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-foreground mb-6">
                             Frequently Asked Questions
                         </h2>
-                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
+                        <div className="mx-auto w-16 h-[2px] bg-gradient-to-r from-gold to-[#f3d066]"></div>
                     </div>
                     
                     <div className="w-full space-y-6">
-                        <details className="group rounded-3xl border border-border/20 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-[#d4af37]/20 overflow-hidden">
-                            <summary className="flex cursor-pointer items-center justify-between font-serif font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
+                        <details className="group rounded-3xl border border-border/60 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-gold/20 overflow-hidden">
+                            <summary className="flex cursor-pointer items-center justify-between font-display font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
                                 What is business banking readiness?
-                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-[#d4af37] shadow-sm">
+                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-gold shadow-sm">
                                     <MdKeyboardArrowDown className="h-6 w-6" />
                                 </span>
                             </summary>
                             <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
                                 <p className="mt-6 text-muted-foreground text-base leading-relaxed">
-                                    Business banking readiness refers to the overall level of preparation a company demonstrates before approaching a financial institution or <Link href="/services/fintech-banking-guidance" className="text-[#d4af37] hover:underline font-medium">payment provider</Link>. It includes corporate identity, documentation, operational readiness, financial planning and compliance rather than focusing solely on incorporation.
+                                    Business banking readiness refers to the overall level of preparation a company demonstrates before approaching a financial institution or <Link href="/services/fintech-banking-guidance" className="text-gold hover:underline font-medium">payment provider</Link>. It includes corporate identity, documentation, operational readiness, financial planning and compliance rather than focusing solely on incorporation.
                                 </p>
                             </div>
                         </details>
                         
-                        <details className="group rounded-3xl border border-border/20 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-[#d4af37]/20 overflow-hidden">
-                            <summary className="flex cursor-pointer items-center justify-between font-serif font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
+                        <details className="group rounded-3xl border border-border/60 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-gold/20 overflow-hidden">
+                            <summary className="flex cursor-pointer items-center justify-between font-display font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
                                 Can a non-UK resident open a UK business bank account?
-                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-[#d4af37] shadow-sm">
+                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-gold shadow-sm">
                                     <MdKeyboardArrowDown className="h-6 w-6" />
                                 </span>
                             </summary>
@@ -932,38 +933,38 @@ export default function BusinessBankingReadinessPage() {
                                     Many UK financial institutions and payment providers offer services to international entrepreneurs, although eligibility criteria, onboarding procedures and required documentation vary between providers. Each institution assesses applications according to its own policies.
                                 </p>
                                 <p className="mt-4 text-muted-foreground text-base leading-relaxed">
-                                    For tailored support, consider requesting an <Link href="/consultation" className="text-[#d4af37] hover:underline font-medium">Advisory Consultation</Link>.
+                                    For tailored support, consider requesting an <Link href="/consultation" className="text-gold hover:underline font-medium">Advisory Consultation</Link>.
                                 </p>
                             </div>
                         </details>
 
-                        <details className="group rounded-3xl border border-border/20 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-[#d4af37]/20 overflow-hidden">
-                            <summary className="flex cursor-pointer items-center justify-between font-serif font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
+                        <details className="group rounded-3xl border border-border/60 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-gold/20 overflow-hidden">
+                            <summary className="flex cursor-pointer items-center justify-between font-display font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
                                 Does incorporating a UK company automatically qualify me for business banking?
-                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-[#d4af37] shadow-sm">
+                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-gold shadow-sm">
                                     <MdKeyboardArrowDown className="h-6 w-6" />
                                 </span>
                             </summary>
                             <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
                                 <p className="mt-6 text-muted-foreground text-base leading-relaxed">
-                                    No. <Link href="/services/uk-company-formation-for-non-residents" className="text-[#d4af37] hover:underline font-medium">Company incorporation</Link> and business banking are separate processes. Incorporation establishes the legal entity, while financial institutions carry out their own onboarding and due diligence procedures before deciding whether to establish a banking relationship.
+                                    No. <Link href="/services/uk-company-formation-for-non-residents" className="text-gold hover:underline font-medium">Company incorporation</Link> and business banking are separate processes. Incorporation establishes the legal entity, while financial institutions carry out their own onboarding and due diligence procedures before deciding whether to establish a banking relationship.
                                 </p>
                             </div>
                         </details>
 
-                        <details className="group rounded-3xl border border-border/20 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-[#d4af37]/20 overflow-hidden">
-                            <summary className="flex cursor-pointer items-center justify-between font-serif font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
+                        <details className="group rounded-3xl border border-border/60 bg-card/20 backdrop-blur-md transition-all duration-300 open:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] hover:border-gold/20 overflow-hidden">
+                            <summary className="flex cursor-pointer items-center justify-between font-display font-bold text-lg md:text-xl p-6 md:p-8 marker:content-none select-none outline-none">
                                 What documents are commonly requested during onboarding?
-                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-[#d4af37] shadow-sm">
+                                <span className="transition-transform duration-300 group-open:rotate-180 flex shrink-0 items-center justify-center w-10 h-10 rounded-full bg-background border border-border/50 text-gold shadow-sm">
                                     <MdKeyboardArrowDown className="h-6 w-6" />
                                 </span>
                             </summary>
                             <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/10">
                                 <p className="mt-6 text-muted-foreground text-base leading-relaxed">
-                                    Requirements differ between institutions. Commonly requested information may include <Link href="/services/companies-house-verification" className="text-[#d4af37] hover:underline font-medium">identity documents</Link>, proof of address, company registration documents, information regarding business activities and documentation relating to the source of funds or commercial operations.
+                                    Requirements differ between institutions. Commonly requested information may include <Link href="/services/companies-house-verification" className="text-gold hover:underline font-medium">identity documents</Link>, proof of address, company registration documents, information regarding business activities and documentation relating to the source of funds or commercial operations.
                                 </p>
                                 <p className="mt-4 text-muted-foreground text-base leading-relaxed">
-                                    You may also find our <Link href="#" className="text-[#d4af37] hover:underline font-medium">Business Documentation Guide</Link> useful.
+                                    You may also find our <Link href="#" className="text-gold hover:underline font-medium">Business Documentation Guide</Link> useful.
                                 </p>
                             </div>
                         </details>
@@ -972,28 +973,28 @@ export default function BusinessBankingReadinessPage() {
             </section>
 
             {/* ── Download & CTA Section ── */}
-            <section id="download" className="relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+            <section id="download" className="section-dark relative px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
                 <div className="mx-auto max-w-6xl relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
                         
                         {/* Download Card */}
-                        <div className="relative group rounded-[2.5rem] border border-border/20 bg-card/20 p-8 md:p-12 backdrop-blur-md overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.1)] hover:bg-card/30 hover:border-[#d4af37]/30">
+                        <div className="relative group rounded-[2.5rem] border border-border/20 bg-card/20 p-8 md:p-12 backdrop-blur-md overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.1)] hover:bg-card/30 hover:border-gold/30">
                             {/* Inner gold glow */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
                             <div className="absolute -top-12 -right-12 p-8 opacity-[0.03] group-hover:opacity-10 transition-opacity duration-700 group-hover:scale-110 group-hover:-rotate-12 transform-gpu">
-                                <FaBuilding className="w-64 h-64 text-[#d4af37]" />
+                                <FaBuilding className="w-64 h-64 text-gold" />
                             </div>
                             
                             <div className="relative z-10 h-full flex flex-col">
-                                <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#d4af37] mb-4">Resource</p>
-                                <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-foreground mb-6">
+                                <p className="text-xs font-bold tracking-[0.3em] uppercase text-gold mb-4">Resource</p>
+                                <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground mb-6">
                                     Download the Executive Banking Readiness Checklist
                                 </h2>
                                 <p className="text-muted-foreground mb-10 text-lg leading-relaxed flex-grow">
                                     Preparing your business before approaching a financial institution can save valuable time and help ensure your documentation, corporate identity and operational information are organised.
                                 </p>
-                                <a href="/flies/Executive Framework & Due Diligence Checklist for International Entrepreneurs.pdf" download className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#d4af37] to-[#f3d066] px-8 py-5 text-base font-bold text-black shadow-xl hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-[1.02] transition-all w-full sm:w-auto self-start">
+                                <a href="/flies/Executive Framework & Due Diligence Checklist for International Entrepreneurs.pdf" download className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-gold to-[#f3d066] px-8 py-5 text-base font-bold text-black shadow-xl hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-[1.02] transition-all w-full sm:w-auto self-start">
                                     <FaDownload className="text-lg" /> Download Executive PDF
                                 </a>
                             </div>
@@ -1004,7 +1005,7 @@ export default function BusinessBankingReadinessPage() {
                             
                             <div className="relative z-10 h-full flex flex-col">
                                 <p className="text-xs font-bold tracking-[0.3em] uppercase text-muted-foreground mb-4">Advisory Services</p>
-                                <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-foreground mb-6">
+                                <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground mb-6">
                                     Request an Advisory Consultation
                                 </h2>
                                 <p className="text-muted-foreground mb-10 text-lg leading-relaxed flex-grow">
@@ -1021,25 +1022,25 @@ export default function BusinessBankingReadinessPage() {
             </section>
 
             {/* ── Author Block & Related Guides ── */}
-            <section className="relative px-4 py-24 sm:px-6 lg:px-8 border-t border-border/10 overflow-hidden">
+            <section className="section-parchment relative px-4 py-24 sm:px-6 lg:px-8 border-t border-border/10 overflow-hidden">
                 {/* Subtle bottom glow */}
-                <div className="absolute bottom-0 left-1/2 h-[300px] w-[800px] -translate-x-1/2 translate-y-1/2 rounded-full bg-[#d4af37]/[0.02] blur-[100px] pointer-events-none"></div>
+                <div className="absolute bottom-0 left-1/2 h-[300px] w-[800px] -translate-x-1/2 translate-y-1/2 rounded-full bg-gold/[0.02] blur-[100px] pointer-events-none"></div>
 
                 <div className="mx-auto max-w-4xl relative z-10 text-center">
                     <div className="inline-block rounded-[2rem] border border-border/20 bg-card/20 backdrop-blur-md px-8 md:px-12 py-8 md:py-10 mb-16 max-w-3xl hover:bg-card/30 transition-colors duration-500">
                         <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                            <strong className="text-foreground font-serif text-lg md:text-xl mb-3 block">Prepared by Seven Oak Prestige Ltd</strong>
+                            <strong className="text-foreground font-display text-lg md:text-xl mb-3 block">Prepared by Seven Oak Prestige Ltd</strong>
                             This guide has been prepared by Seven Oak Prestige Ltd to help international entrepreneurs understand the practical considerations involved in preparing a UK business for banking and payment provider onboarding. It is reviewed periodically to reflect changes in UK corporate compliance practices and is intended for general educational purposes.
                         </p>
                     </div>
                     
-                    <h3 className="font-serif text-xl md:text-2xl font-bold mb-8 text-foreground">Related Executive Guides</h3>
+                    <h3 className="font-display text-xl md:text-2xl font-bold mb-8 text-foreground">Related Executive Guides</h3>
                     <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-                        <Link href="/services/uk-company-formation-for-non-residents" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">UK Company Formation for Non-Residents</Link>
-                        <Link href="/services/companies-house-verification" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Companies House Identity Verification Guide</Link>
-                        <Link href="/services/registered-office-service" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Registered Office Guide</Link>
-                        <Link href="/services/vat-registration-uk" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">VAT Registration Guide</Link>
-                        <Link href="/services/fintech-banking-guidance" className="text-sm font-medium hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all border border-border/20 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Fintech & Banking Setup</Link>
+                        <Link href="/services/uk-company-formation-for-non-residents" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">UK Company Formation for Non-Residents</Link>
+                        <Link href="/services/companies-house-verification" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Companies House Identity Verification Guide</Link>
+                        <Link href="/services/registered-office-service" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Registered Office Guide</Link>
+                        <Link href="/services/vat-registration-uk" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">VAT Registration Guide</Link>
+                        <Link href="/services/fintech-banking-guidance" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Fintech & Banking Setup</Link>
                     </div>
                 </div>
             </section>

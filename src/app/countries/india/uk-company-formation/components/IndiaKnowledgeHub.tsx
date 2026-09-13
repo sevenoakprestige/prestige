@@ -55,9 +55,9 @@ export default function IndiaKnowledgeHub() {
                         }
                     ].map((article, idx, arr) => (
                         <div key={idx} className="flex items-center gap-2 mb-2">
-                            <Link href={article.url} className="group flex items-center gap-2 p-3 border border-border rounded-lg bg-card hover:border-[#d4af37] transition-colors shadow-sm">
+                            <Link href={article.url} className="group flex items-center gap-2 p-3 border border-border/30 rounded-xl bg-card/25 backdrop-blur-md hover:border-[#d4af37]/45 transition-all duration-500 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)]">
                                 <FaBookOpen className="text-[#d4af37] shrink-0" />
-                                <span className="text-sm font-semibold text-foreground group-hover:text-[#d4af37] transition-colors line-clamp-1">{article.title}</span>
+                                <span className="text-sm font-semibold text-foreground transition-colors line-clamp-1">{article.title}</span>
                             </Link>
                             {idx < arr.length - 1 && (
                                 <FaChevronRight className="text-muted-foreground hidden md:block shrink-0" />

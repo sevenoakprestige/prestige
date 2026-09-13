@@ -1,261 +1,165 @@
 "use client";
 
 import Link from "next/link";
-import { useCountry } from "@/contexts/CountryContext";
+import { Button } from "./ui/button";
 
-// UK-specific static services matching the image layout
-const ukServices = [
-    {
-        title: "UK Company\nFormation",
-        href: "/services/uk-company-formation-for-non-residents",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-        ),
-    },
-    {
-        title: "Registered\nOffice Service (RO)",
-        href: "/services/registered-office-service",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
-                <path d="M9 21V12h6v9" />
-            </svg>
-        ),
-    },
-    {
-        title: "Director Service\nAddress (DSA)",
-        href: "/services/director-service-address",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <circle cx="12" cy="8" r="4" />
-                <path d="M6 20v-1a6 6 0 0112 0v1" />
-                <path d="M12 12v2m0 0l-1.5 1.5M12 14l1.5 1.5" />
-            </svg>
-        ),
-    },
-    {
-        title: "Virtual Business\nAddress (VBA)",
-        href: "/services/virtual-business-address",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <circle cx="12" cy="10" r="3" />
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-            </svg>
-        ),
-    },
-    {
-        title: "VAT\nRegistration",
-        href: "/services/vat-registration-uk",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <path d="M7 10h10M7 14h6" />
-            </svg>
-        ),
-    },
-    {
-        title: "EORI\nRegistration",
-        href: "/services/eori-registration-uk",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
-            </svg>
-        ),
-    },
-    {
-        title: "Fintech & Payment\nGuidance",
-        href: "/services/fintech-banking-guidance",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                <path d="M12 6v6l4 2" />
-                <path d="M8 14s1 2 4 2 4-2 4-2" />
-            </svg>
-        ),
-    },
-    {
-        title: "Companies House\nVerification",
-        href: "/services/companies-house-verification",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                <path d="M9 12l2 2 4-4" />
-            </svg>
-        ),
-    },
+const SUPPORTED = [
+    ["E-commerce & Amazon FBA", "International sellers needing a credible UK structure."],
+    ["Consultants & Agencies", "Professional service businesses with international clients."],
+    ["SaaS & Digital Businesses", "Technology companies requiring a UK entity."],
+    ["International Founders", "Non-UK residents establishing a company remotely."],
+    ["Import / Export", "Trading businesses moving goods through the UK."],
+    ["International Expansion", "Established businesses opening a UK arm."],
 ];
 
-const usaServices = [
-    {
-        title: "USA LLC\nFormation",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-        ),
-    },
-    {
-        title: "Registered\nAgent Service",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-        ),
-    },
-    {
-        title: "US Mailing\nAddress",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
-                <path d="M9 21V12h6v9" />
-            </svg>
-        ),
-    },
-    {
-        title: "Operating\nAgreement & EIN",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <path d="M7 10h10M7 14h6" />
-            </svg>
-        ),
-    },
-    {
-        title: "Fintech Account\nSetup",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                <path d="M8 14s1 2 4 2 4-2 4-2" />
-                <path d="M9 9h.01M15 9h.01" />
-            </svg>
-        ),
-    },
+const INCLUDED = [
+    ["Company Incorporation", "Preparation and submission of your company incorporation to Companies House."],
+    ["Company Documents", "Certificate of Incorporation, Memorandum & Articles, Share Certificate, Company Register."],
+    ["Registered Office", "A prestigious London address for your company’s public record."],
+    ["Director Service Address", "Keep your residential address off the public register."],
+    ["Mail Scanning", "Official government mail scanned and emailed to you securely."],
+    ["Digital Copies", "All corporate documents delivered digitally upon incorporation."],
+    ["Compliance Review", "Manual review of your application before submission."],
+    ["Named Adviser", "A dedicated contact for any questions during the process."],
 ];
 
-const canadaServices = [
-    {
-        title: "Canada\nCorporation Formation",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-        ),
-    },
-    {
-        title: "Registered Address\n+ Digital Mail",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
-                <path d="M9 21V12h6v9" />
-            </svg>
-        ),
-    },
-    {
-        title: "Corporate\nDocuments",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <path d="M7 10h10M7 14h6" />
-            </svg>
-        ),
-    },
-    {
-        title: "Virtual Office\n(Optional)",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <circle cx="12" cy="10" r="3" />
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-            </svg>
-        ),
-    },
-    {
-        title: "Fintech\nSupport",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
-                <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                <path d="M8 14s1 2 4 2 4-2 4-2" />
-                <path d="M9 9h.01M15 9h.01" />
-            </svg>
-        ),
-    },
+const MAIL_STEPS = [
+    ["01", "Mail Arrives in London", "Eligible correspondence is received at the Seven Oak address."],
+    ["02", "We Identify and Review It", "Mail is matched to your company and checked for relevance."],
+    [
+        "03",
+        "Scanned & Transmitted Digitally",
+        "Where included in your package, eligible mail is scanned and transmitted electronically.",
+    ],
 ];
 
-type ServiceItem = {
-    title: string;
-    icon: React.ReactNode;
-    href?: string;
-};
-
-const allServices: Record<string, ServiceItem[]> = {
-    UK: ukServices,
-    USA: usaServices,
-    Canada: canadaServices,
-};
+const MAIL_FLOW = ["Mail received in London", "Reviewed", "Eligible mail scanned", "Transmitted digitally"];
 
 export default function Services() {
-    const { selectedCountry } = useCountry();
-    const services = allServices[selectedCountry] ?? ukServices;
-
     return (
-        <section id="services" className="relative overflow-hidden px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
-            {/* Subtle ambient glow */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4af37]/[0.03] blur-3xl"></div>
-            </div>
-
-            <div className="mx-auto max-w-7xl">
-                {/* Header */}
-                <div className="mb-10 text-center lg:mb-12">
-                    <h2 className="services-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                        Our Core Services
-                    </h2>
-                    <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
-                </div>
-
-                {/* Services Row — single scrollable row of square cards */}
-                <div className="mt-10 flex flex-wrap justify-center gap-5">
-                    {services.map((service, index) => {
-                        const hasLink = 'href' in service && service.href;
-                        const cardContent = (
-                            <>
-                                {/* Icon */}
-                                <div className="text-[#d4af37] transition-transform duration-300 group-hover:scale-110">
-                                    {service.icon}
-                                </div>
-
-                                {/* Title */}
-                                <p className="whitespace-pre-line text-sm font-medium leading-snug text-foreground/80">
-                                    {service.title}
-                                </p>
-                            </>
-                        );
-
-                        if (hasLink) {
-                            return (
-                                <Link
-                                    key={index}
-                                    href={(service as any).href}
-                                    className="group premium-service-card h-[160px] w-[150px] sm:h-[170px] sm:w-[160px]"
-                                >
-                                    {cardContent}
-                                </Link>
-                            );
-                        }
-
-                        return (
-                            <div
-                                key={index}
-                                className="group premium-service-card h-[160px] w-[150px] sm:h-[170px] sm:w-[160px]"
-                            >
-                                {cardContent}
+        <>
+            {/* Who we support */}
+            <section className="section-parchment border-t border-border px-6 py-24 sm:py-32">
+                <div className="mx-auto max-w-6xl">
+                    <div>
+                        <p className="eyebrow">Global founders</p>
+                        <div className="mt-4 h-px w-16 rule-gold" />
+                    </div>
+                    <h2 className="font-display mb-6 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Who We Support</h2>
+                    <div className="mt-12 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {SUPPORTED.map(([title, desc]) => (
+                            <div key={title} className="surface flex flex-col p-6">
+                                <h3 className="font-semibold text-foreground">{title}</h3>
+                                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>
                             </div>
-                        );
-                    })}
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* What is included */}
+            <section className="border-t border-border px-6 py-24 sm:py-32">
+                <div className="mx-auto max-w-6xl">
+                    <div>
+                        <p className="eyebrow">Comprehensive package</p>
+                        <div className="mt-4 h-px w-16 rule-gold" />
+                    </div>
+                    <h2 className="font-display mb-6 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Everything Required to Operate</h2>
+                    <p className="mt-6 max-w-2xl leading-relaxed text-muted-foreground">
+                        We do not strip out essential services to sell them back to you later. Our non-resident package
+                        includes the registered addresses, documents and support you actually need to open an account and
+                        trade.
+                    </p>
+                    <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                        {INCLUDED.map(([title, desc]) => (
+                            <div key={title} className="border border-border p-6">
+                                <h3 className="text-sm font-semibold text-foreground">{title}</h3>
+                                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* UK address + mail scanning */}
+            <section id="mail" className="border-t border-border px-6 py-24 sm:py-32">
+                <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                    <div>
+                        <div>
+                            <p className="eyebrow">Address & correspondence</p>
+                            <div className="mt-4 h-px w-16 rule-gold" />
+                        </div>
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
+                            Your UK Mail, Accessible From Anywhere
+                        </h2>
+                        <ol className="mt-12 divide-y divide-border border-t border-border">
+                            {MAIL_STEPS.map(([n, t, b]) => (
+                                <li key={n} className="flex gap-8 py-7">
+                                    <span className="font-display text-2xl text-gold">{n}</span>
+                                    <div>
+                                        <h3 className="text-base font-semibold">{t}</h3>
+                                        <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">{b}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
+                        <p className="mt-8 max-w-lg border-l-2 border-gold/60 pl-5 text-sm leading-relaxed text-foreground/85">
+                            Where included in your package, eligible company correspondence received at your Seven Oak address
+                            is identified and transmitted electronically according to the service scope. You do not need to
+                            travel to London to monitor it.
+                        </p>
+                        <ol className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                            {MAIL_FLOW.map((f, i) => (
+                                <li key={f} className="flex items-center gap-3">
+                                    <span>{f}</span>
+                                    {i < MAIL_FLOW.length - 1 ? <span className="text-gold">→</span> : null}
+                                </li>
+                            ))}
+                        </ol>
+                    </div>
+                    <img
+                        src="/assets/mail-handling.webp"
+                        alt="Company mail being scanned and processed at a London office desk"
+                        width={1408}
+                        height={1008}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full object-cover"
+                    />
+                </div>
+            </section>
+
+            {/* Identity verification */}
+            <section id="identity" className="section-parchment border-t border-border px-6 py-24 sm:py-32">
+                <div className="mx-auto max-w-6xl">
+                    <div>
+                        <p className="eyebrow">Verification</p>
+                        <div className="mt-4 h-px w-16 rule-gold" />
+                    </div>
+                    <h2 className="font-display mb-6 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
+                        Companies House Identity Verification
+                    </h2>
+                    <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                        Relevant directors and People with Significant Control may need to complete Companies House identity
+                        verification and obtain their Companies House personal code. For Seven Oak's verification service, the
+                        standard evidence requested is a valid passport and proof of residential address.
+                    </p>
+                    <ol className="mt-7 grid grid-cols-2 gap-px bg-border sm:grid-cols-4">
+                        {["Identity", "Verification", "Personal Code", "Incorporation"].map((s, i) => (
+                            <li key={s} className="flex items-baseline gap-2 bg-background px-4 py-3.5">
+                                <span className="font-display text-base text-gold">{`0${i + 1}`}</span>
+                                <p className="text-sm font-semibold text-foreground">{s}</p>
+                            </li>
+                        ))}
+                    </ol>
+                    <p className="mt-6 max-w-2xl border-l-2 border-gold/60 pl-4 text-sm leading-relaxed text-foreground/85">
+                        KYC onboarding and Companies House statutory identity verification are separate processes.
+                    </p>
+                    <Button asChild variant="ghost" className="mt-7">
+                        <Link href="/guides">Learn About Identity Verification</Link>
+                    </Button>
+                </div>
+            </section>
+        </>
     );
 }

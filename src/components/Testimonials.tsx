@@ -1,153 +1,200 @@
 "use client";
 
-import CountrySelector, { Country } from "./CountrySelector";
-import { useCountry } from "@/contexts/CountryContext";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-interface Testimonial {
-    quote: string;
-    name: string;
-    location: string;
-    image: string;
+const GOOGLE_REVIEWS_URL = "https://share.google/owyOtNunkhfg4c0dE";
+
+const REVIEWS = [
+    {
+        name: "Daniel K.",
+        rating: 5,
+        text: "The process was professional, efficient and clearly managed from start to finish. My company was operational without delays.",
+    },
+    {
+        name: "Ade S.",
+        rating: 5,
+        text: "Registered office and director address were set up alongside the incorporation. Everything arrived exactly as promised.",
+    },
+    {
+        name: "Sofia M.",
+        rating: 5,
+        text: "Clear guidance on the documents required, and a named adviser who answered every question along the way.",
+    },
+];
+
+const OVERALL_RATING = "5.0";
+
+function Stars({ n }: { n: number }) {
+    return (
+        <div className="flex gap-1.5 text-gold" aria-label={`Rated ${n} out of 5`}>
+            {Array.from({ length: n }).map((_, i) => (
+                <svg key={i} viewBox="0 0 20 20" className="h-5 w-5 fill-current" aria-hidden="true">
+                    <path d="M10 1.5l2.47 5.27 5.53.72-4.06 3.9 1.03 5.61L10 14.35 5.03 17l1.03-5.61L2 7.49l5.53-.72L10 1.5z" />
+                </svg>
+            ))}
+        </div>
+    );
 }
 
-const testimonialsData: Record<Country, Testimonial[]> = {
-    UK: [
-        {
-            quote: "Setting up my UK LTD from abroad was seamless and highly professional.",
-            name: "Harry T.",
-            location: "London, UK",
-            image: "https://randomuser.me/api/portraits/men/32.jpg"
-        },
-        {
-            quote: "Exceptional support throughout my formation process. Perfect for non-residents.",
-            name: "Ada S.",
-            location: "Sydney, Australia",
-            image: "https://randomuser.me/api/portraits/women/55.jpg"
-        },
-        {
-            quote: "My UK company setup process was smooth and well-structured for business operations.",
-            name: "Mark D.",
-            location: "Nairobi, Kenya",
-            image: "https://randomuser.me/api/portraits/men/53.jpg"
-        },
-    ],
-    USA: [
-        {
-            quote: "The EIN process was handled perfectly. My Stripe account was approved.",
-            name: "Sophia M.",
-            location: "Brazil",
-            image: "https://randomuser.me/api/portraits/women/68.jpg"
-        },
-        {
-            quote: "Fast and compliant Delaware LLC formation. Highly recommended.",
-            name: "Richard T.",
-            location: "South Africa",
-            image: "https://randomuser.me/api/portraits/men/22.jpg"
-        },
-    ],
-    Canada: [
-        {
-            quote: "Perfect solution for a non-resident incorporating in Canada.",
-            name: "Yuki S.",
-            location: "Japan",
-            image: "https://randomuser.me/api/portraits/women/44.jpg"
-        },
-        {
-            quote: "Professional, fast, and fully compliant. Highly recommended.",
-            name: "Omar E.",
-            location: "UAE",
-            image: "https://randomuser.me/api/portraits/men/78.jpg"
-        },
-    ],
-};
+function GoogleMark() {
+    return (
+        <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+            <path
+                fill="#4285F4"
+                d="M23.5 12.27c0-.85-.08-1.67-.22-2.45H12v4.63h6.45a5.5 5.5 0 0 1-2.39 3.62v3h3.86c2.26-2.08 3.58-5.15 3.58-8.8z"
+            />
+            <path
+                fill="#34A853"
+                d="M12 24c3.24 0 5.96-1.08 7.94-2.93l-3.86-3c-1.07.72-2.45 1.15-4.08 1.15-3.14 0-5.8-2.12-6.75-4.97H1.26v3.1A12 12 0 0 0 12 24z"
+            />
+            <path fill="#FBBC05" d="M5.25 14.25a7.2 7.2 0 0 1 0-4.5v-3.1H1.26a12 12 0 0 0 0 10.7l3.99-3.1z" />
+            <path
+                fill="#EA4335"
+                d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.23 0 12 0A12 12 0 0 0 1.26 6.65l3.99 3.1C6.2 6.87 8.86 4.75 12 4.75z"
+            />
+        </svg>
+    );
+}
 
 export default function Testimonials() {
-    const { selectedCountry, setSelectedCountry } = useCountry();
-    const activeTestimonials = testimonialsData[selectedCountry];
+    const scroller = useRef<HTMLDivElement>(null);
+    const [paused, setPaused] = useState(false);
+    const loop = [...REVIEWS, ...REVIEWS, ...REVIEWS];
+
+    const nudge = useCallback((dir: number) => {
+        const el = scroller.current;
+        if (!el) return;
+        el.scrollBy({ left: dir * (el.clientWidth * 0.6), behavior: "smooth" });
+    }, []);
+
+    // Continuous smooth drift; pauses on hover / touch.
+    useEffect(() => {
+        if (paused) return;
+        const el = scroller.current;
+        if (!el) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        let raf = 0;
+        let last = performance.now();
+        let fractional = el.scrollLeft;
+
+        const step = (now: number) => {
+            const dt = now - last;
+            last = now;
+            
+            fractional += (dt / 1000) * 35; // 35px per second
+            
+            // Sync if user manually scrolled (if actual scroll differs significantly from our tracked fraction)
+            if (Math.abs(el.scrollLeft - fractional) > 2) {
+                fractional = el.scrollLeft;
+            }
+            
+            el.scrollLeft = fractional;
+
+            const third = el.scrollWidth / 3;
+            if (el.scrollLeft >= third * 2) {
+                el.scrollLeft -= third;
+                fractional -= third;
+            }
+            raf = requestAnimationFrame(step);
+        };
+        raf = requestAnimationFrame(step);
+        return () => cancelAnimationFrame(raf);
+    }, [paused]);
+
+    // Start in the middle copy so manual back-scrolling works.
+    useEffect(() => {
+        const el = scroller.current;
+        if (el) el.scrollLeft = el.scrollWidth / 3;
+    }, []);
+
 
     return (
-        <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-            {/* Background decoration */}
-            <div className="absolute inset-0 -z-10 overflow-hidden">
-                <div className="absolute left-1/4 top-10 h-[500px] w-[500px] rounded-full bg-[#d4af37]/3 blur-[120px] dark:bg-[#d4af37]/5"></div>
-                <div className="absolute right-1/4 bottom-10 h-[500px] w-[500px] rounded-full bg-[#d4af37]/3 blur-[120px] dark:bg-[#d4af37]/5"></div>
-            </div>
-
-            <div className="mx-auto max-w-7xl">
-                {/* Header */}
-                <div className="mb-16 text-center">
-                    <span className="text-xs font-bold tracking-[0.25em] text-[#d4af37] uppercase mb-3 block">
-                        TRUSTED BY FOUNDERS
-                    </span>
-                    <h2 className="testimonials-heading mb-4 font-serif text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl uppercase">
-                        Client Testimonials
-                    </h2>
-                    <div className="mx-auto h-[1px] w-20 bg-[#d4af37]/50"></div>
+        <section className="section-parchment border-t border-border px-6 py-24 sm:py-32">
+            <div className="mx-auto max-w-6xl">
+                <div>
+                    <p className="eyebrow">Client reviews</p>
+                    <div className="mt-4 h-px w-16 rule-gold" />
                 </div>
-
-                {/* Country Selector */}
-                <CountrySelector
-                    selectedCountry={selectedCountry}
-                    onCountryChange={setSelectedCountry}
-                />
-
-                {/* Testimonials Grid */}
-                <div className={`mt-16 grid grid-cols-1 gap-8 ${activeTestimonials.length === 2
-                    ? "md:grid-cols-2 max-w-4xl mx-auto"
-                    : "md:grid-cols-3"
-                    } lg:gap-10`}>
-                    {activeTestimonials.map((testimonial, index) => (
-                        <div
-                            key={index}
-                            className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]"
-                            style={{
-                                animationDelay: `${index * 100}ms`,
-                            }}
-                        >
-                            {/* Verified Badge */}
-                            <div className="mb-6 flex justify-end">
-                                <div className="inline-flex items-center gap-1.5 rounded-full border border-[#d4af37]/20 bg-gradient-to-r from-[#d4af37]/10 to-transparent px-3 py-1">
-                                    <svg className="h-3 w-3 text-[#d4af37]" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l5-5z" clipRule="evenodd" />
-                                    </svg>
-                                    <span className="text-[9px] uppercase font-bold tracking-widest text-[#d4af37]">
-                                        Verified
-                                    </span>
-                                </div>
+                <h2 className="font-display mb-6 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
+                    What Our Clients Say About Our UK Setup Service
+                </h2>
+                <div className="mt-12">
+                    <div
+                        onMouseEnter={() => setPaused(true)}
+                        onMouseLeave={() => setPaused(false)}
+                        onTouchStart={() => setPaused(true)}
+                        onTouchEnd={() => setPaused(false)}
+                    >
+                        <div className="flex flex-wrap items-center justify-between gap-6 border-b border-border pb-6">
+                            <div className="flex items-center gap-3">
+                                <GoogleMark />
+                                <Stars n={5} />
+                                <span className="text-sm font-semibold text-foreground">{OVERALL_RATING} / 5 on Google</span>
                             </div>
-
-                            {/* Quote Section with Elegant Depth */}
-                            <div className="relative mb-6 flex-grow">
-                                <span className="absolute -left-3 -top-7 text-7xl font-serif text-[#d4af37]/15 pointer-events-none select-none">“</span>
-                                <p className="font-serif italic text-base md:text-lg leading-relaxed text-foreground/85 relative z-10 pl-2">
-                                    {testimonial.quote}
-                                </p>
+                            <div className="flex items-center gap-2">
+                                {[
+                                    ["Previous reviews", -1, "M15 5l-7 7 7 7"],
+                                    ["Next reviews", 1, "M9 5l7 7-7 7"],
+                                ].map(([label, dir, d]) => (
+                                    <button
+                                        key={label as string}
+                                        type="button"
+                                        aria-label={label as string}
+                                        onClick={() => nudge(dir as number)}
+                                        className="flex h-9 w-9 items-center justify-center border border-border text-gold-soft transition-colors hover:border-gold/60 hover:text-gold"
+                                    >
+                                        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                            <path d={d as string} strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </button>
+                                ))}
                             </div>
-
-                            {/* Author Information */}
-                            <div className="mt-auto border-t border-border/20 pt-5 flex items-center gap-4">
-                                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-[#d4af37]/30 bg-background/50 p-0.5 shadow-sm">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={testimonial.image}
-                                        alt={testimonial.name}
-                                        className="h-full w-full rounded-full object-cover"
-                                    />
-                                </div>
-                                <div>
-                                    <h4 className="font-serif text-base font-bold text-foreground tracking-wide">
-                                        {testimonial.name}
-                                    </h4>
-                                    <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-semibold mt-0.5">
-                                        {testimonial.location}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Decorative corner accent light */}
-                            <div className="absolute right-0 top-0 h-16 w-16 translate-x-8 -translate-y-8 rounded-full bg-[#d4af37]/5 blur-xl transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4"></div>
                         </div>
-                    ))}
+
+                        <div
+                            ref={scroller}
+                            className="mt-8 flex gap-px overflow-x-auto bg-border [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing"
+                        >
+                            {loop.map((r, idx) => (
+                                <a
+                                    key={`${r.name}-${idx}`}
+                                    href={GOOGLE_REVIEWS_URL}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="flex w-[85%] shrink-0 flex-col bg-background p-8 transition-colors hover:bg-accent sm:w-[48%] lg:w-[36%]"
+                                >
+                                    <div className="flex items-center justify-between">
+                                        <Stars n={r.rating} />
+                                        <GoogleMark />
+                                    </div>
+                                    <blockquote className="mt-6 flex-1 font-display text-lg leading-snug text-foreground/90">
+                                        “{r.text}”
+                                    </blockquote>
+                                    <span className="mt-8 border-t border-border pt-5 text-xs text-muted-foreground">
+                                        <span className="font-semibold text-foreground/85">{r.name}</span> · Google review
+                                    </span>
+                                </a>
+                            ))}
+                        </div>
+
+                        <a
+                            href={GOOGLE_REVIEWS_URL}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="mt-8 inline-block border-b border-gold/50 pb-1 text-xs uppercase tracking-[0.16em] text-gold-soft transition-colors hover:text-gold"
+                        >
+                            View all Google reviews
+                        </a>
+
+                        <div className="sr-only">
+                            {REVIEWS.map((r) => (
+                                <p key={r.name}>
+                                    {r.name}, {r.rating} stars: {r.text}
+                                </p>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

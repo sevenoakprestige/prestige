@@ -93,6 +93,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.90,
         },
         {
+            url: `${baseUrl}/contact`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.90,
+        },
+        {
             url: `${baseUrl}/consultation`,
             lastModified: now,
             changeFrequency: 'weekly',
@@ -120,12 +126,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'weekly',
             priority: 0.90,
         },
+        {
+            url: `${baseUrl}/resources/guides`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.90,
+        },
     ];
 
     // ── COUNTRY-SPECIFIC PAGES ──
     const countryPages: MetadataRoute.Sitemap = [
         {
+            url: `${baseUrl}/countries`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.90,
+        },
+        {
             url: `${baseUrl}/countries/india/uk-company-formation`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.95,
+        },
+        {
+            url: `${baseUrl}/countries/france/uk-company-formation`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.95,

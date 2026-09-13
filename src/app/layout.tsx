@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
@@ -8,9 +8,8 @@ import JsonLd from "@/components/JsonLd";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Footer from "@/components/Footer";
 
-
-
-const inter = Inter({ subsets: ["latin"] });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.sevenoakprestige.com"),
@@ -93,7 +92,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <GoogleTagManager gtmId={gtmId} />
-            <body className={inter.className}>
+            <body className={`${jakarta.variable} ${outfit.variable} font-sans antialiased bg-background text-foreground`} suppressHydrationWarning>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="dark"

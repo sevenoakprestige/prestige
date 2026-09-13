@@ -1,199 +1,222 @@
 "use client";
 
-import CountrySelector, { Country } from "./CountrySelector";
-import { useCountry } from "@/contexts/CountryContext";
-import { FaClock } from "react-icons/fa";
+import Image from "next/image";
 
-interface Step {
-    icon: React.ReactNode;
+const PROCESS_STEPS: Array<{
+    n: string;
     title: string;
-    description: string;
-}
-
-const howItWorksData: Record<Country, { steps: Step[]; footer: string }> = {
-    UK: {
-        steps: [
-            {
-                icon: (
-                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                ),
-                title: "SUBMIT YOUR APPLICATION",
-                description: "Choose your plan and complete the secure onboarding form. We handle all filings, documents, and SIC optimization for you.",
-            },
-            {
-                icon: (
-                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                ),
-                title: "WE REGISTER YOUR COMPANY",
-                description: "We submit your incorporation to Companies House (within 24 hours*). Your company is formed with the correct structure and legal details.",
-            },
-            {
-                icon: (
-                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                ),
-                title: "RECEIVE YOUR DOCUMENTS",
-                description: "Your official incorporation documents are delivered by email as soon as Companies House approves the registration.",
-            },
-        ],
-        footer: "* Subject to Companies House processing times.",
+    duration: string;
+    youDo: string[];
+    happensNext: string[];
+}> = [
+    {
+        n: "01",
+        title: "Choose Your Package & Confirm Your Company Name",
+        duration: "Approx. 10 minutes",
+        youDo: ["Check your company name", "Select your package", "Pay securely online"],
+        happensNext: ["Confirmation email", "Secure onboarding form", "Next-step instructions"],
     },
-    USA: {
-        steps: [
-            {
-                icon: (
-                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                ),
-                title: "Step 1: Choose Your Package",
-                description: "Provide basic details to form your Delaware LLC.",
-            },
-            {
-                icon: (
-                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                ),
-                title: "Step 2: LLC Filing",
-                description: "Your company is filed with Delaware Division of Corporations.",
-            },
-            {
-                icon: (
-                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                ),
-                title: "Step 3: EIN Application",
-                description: "We obtain the EIN necessary for business banking and fintech onboarding.",
-            },
+    {
+        n: "02",
+        title: "Complete Your KYC & Onboarding",
+        duration: "Approx. 20–30 minutes for most standard cases",
+        youDo: [
+            "Upload passport and proof of address",
+            "Complete the secure onboarding form",
+            "Provide director, shareholder and PSC information",
         ],
-        footer: "Your US LLC, ready to operate — hassle-free formation.",
-    },
-    Canada: {
-        steps: [
-            {
-                icon: (
-                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                ),
-                title: "Step 1: Select Federal or Provincial Incorporation",
-                description: "We advise based on your business activity.",
-            },
-            {
-                icon: (
-                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                ),
-                title: "Step 2: File Incorporation Documents",
-                description: "Your corporation is registered and official documents issued.",
-            },
-            {
-                icon: (
-                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                ),
-                title: "Step 3: Registered Address Setup",
-                description: "Digital mail system activated.",
-            },
+        happensNext: [
+            "Seven Oak reviews your file",
+            "Clarifications requested only if needed",
+            "File prepared for submission",
         ],
-        footer: "Your Canadian corporation, professionally established.",
     },
-};
+    {
+        n: "03",
+        title: "We Review & Submit to Companies House",
+        duration: "Typically 1–2 business days for standard incorporations",
+        youDo: ["Confirm final company details", "Respond promptly if clarification is required"],
+        happensNext: [
+            "Incorporation submitted to Companies House",
+            "Companies House processes the application",
+            "Seven Oak monitors the submission",
+        ],
+    },
+    {
+        n: "04",
+        title: "Receive Your Company Documents & Next Steps",
+        duration: "On successful incorporation",
+        youDo: ["Download your electronic company documents", "Review your post-incorporation checklist"],
+        happensNext: [
+            "Certificate of Incorporation delivered",
+            "Share Certificate and Company Register sent",
+            "Practical next-step guidance provided",
+        ],
+    },
+];
 
 export default function HowItWorks() {
-    const { selectedCountry, setSelectedCountry } = useCountry();
-    const data = howItWorksData[selectedCountry];
-
     return (
-        <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-            {/* Background decoration */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute left-1/3 top-0 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
-                <div className="absolute bottom-0 right-1/3 h-96 w-96 rounded-full bg-[#d4af37]/5 blur-3xl"></div>
-            </div>
-
-            <div className="mx-auto max-w-6xl">
-                {/* Header */}
-                <div className="mb-12 text-center lg:mb-16">
-                    <h2 className="how-it-works-heading mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                        How It Works
-                    </h2>
-                    <div className="mx-auto h-1 w-24 bg-gradient-to-r from-[#d4af37] to-[#f3d066]"></div>
+        <>
+            <section id="process" className="section-parchment border-t border-border scroll-mt-20 px-6 py-24 sm:py-32">
+                <div className="mx-auto max-w-4xl">
+                    <div>
+                        <p className="eyebrow">How it works</p>
+                        <div className="mt-4 h-px w-16 rule-gold" />
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">A Clear Process From Start to Finish</h2>
+                        <ol className="mt-12 space-y-10">
+                            {PROCESS_STEPS.map((s) => (
+                                <li key={s.n} className="border-t border-border pt-8">
+                                    <div className="flex items-start gap-6">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink-deep font-display text-lg text-cream">
+                                            {s.n}
+                                        </span>
+                                        <div className="flex-1">
+                                            <h3 className="text-xl font-semibold">{s.title}</h3>
+                                            <p className="mt-2 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-gold">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="14"
+                                                    height="14"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    aria-hidden="true"
+                                                >
+                                                    <circle cx="12" cy="12" r="10" />
+                                                    <polyline points="12 6 12 12 16 14" />
+                                                </svg>
+                                                {s.duration}
+                                            </p>
+                                            <div className="mt-6 grid gap-8 sm:grid-cols-2">
+                                                <div>
+                                                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
+                                                        What you do
+                                                    </p>
+                                                    <ul className="mt-4 space-y-3">
+                                                        {s.youDo.map((item) => (
+                                                            <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                                                                <span
+                                                                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold"
+                                                                    aria-hidden="true"
+                                                                >
+                                                                    <svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        width="12"
+                                                                        height="12"
+                                                                        viewBox="0 0 24 24"
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        strokeWidth="3"
+                                                                        strokeLinecap="round"
+                                                                        strokeLinejoin="round"
+                                                                    >
+                                                                        <polyline points="20 6 9 17 4 12" />
+                                                                    </svg>
+                                                                </span>
+                                                                {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
+                                                        What happens next
+                                                    </p>
+                                                    <ul className="mt-4 space-y-3">
+                                                        {s.happensNext.map((item) => (
+                                                            <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                                                                <span
+                                                                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold"
+                                                                    aria-hidden="true"
+                                                                >
+                                                                    <svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        width="12"
+                                                                        height="12"
+                                                                        viewBox="0 0 24 24"
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        strokeWidth="3"
+                                                                        strokeLinecap="round"
+                                                                        strokeLinejoin="round"
+                                                                    >
+                                                                        <polyline points="20 6 9 17 4 12" />
+                                                                    </svg>
+                                                                </span>
+                                                                {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
+                        <p className="mt-10 max-w-xl text-xs leading-relaxed text-muted-foreground">
+                            Timings are indicative and subject to complete information, verification and Companies House
+                            processing. Complex cases may take longer.
+                        </p>
+                    </div>
                 </div>
+            </section>
 
-                {/* Country Selector */}
-                <CountrySelector
-                    selectedCountry={selectedCountry}
-                    onCountryChange={setSelectedCountry}
-                />
-
-                {/* Steps Layout */}
-                <div className="relative mt-20 mb-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-                    {data.steps.map((step, index) => (
-                        <div key={index} className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/20 bg-card/20 p-8 sm:p-10 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-[#d4af37]/30 hover:bg-card/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.05)] text-left">
-                            {/* Giant Faint Number Background */}
-                            <div className="absolute right-4 top-4 select-none font-serif text-[120px] font-black leading-none text-foreground/[0.03] transition-all duration-500 group-hover:text-[#d4af37]/[0.05]">
-                                0{index + 1}
+            {/* Banking & payments (split layout) */}
+            <section id="banking" className="border-t border-border px-6 py-24 sm:py-32">
+                <div className="mx-auto max-w-6xl">
+                    <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
+                        <div>
+                            <div>
+                                <p className="eyebrow">Banking readiness</p>
+                                <div className="mt-4 h-px w-16 rule-gold" />
                             </div>
-
-                            {/* Icon Container */}
-                            <div className="relative z-10 mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-[#d4af37]/30 bg-gradient-to-br from-[#d4af37]/10 to-transparent text-[#d4af37] shadow-sm transition-transform duration-500 group-hover:scale-110">
-                                {step.icon}
-                            </div>
-
-                            {/* Content */}
-                            <div className="relative z-10">
-                                <div className="mb-3 inline-flex items-center gap-2">
-                                    <span className="h-[1px] w-4 bg-[#d4af37]/60"></span>
-                                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d4af37]">
-                                        Phase 0{index + 1}
-                                    </span>
-                                </div>
-
-                                <h3 className="mb-4 font-serif text-xl font-bold leading-tight text-foreground sm:text-2xl">
-                                    {step.title}
-                                </h3>
-
-                                <p className="text-sm leading-relaxed text-foreground/70 sm:text-base">
-                                    {step.description}
-                                </p>
-                            </div>
-
-                            {/* Hover light flare */}
-                            <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-[#d4af37]/10 blur-3xl transition-opacity duration-500 opacity-0 group-hover:opacity-100 pointer-events-none"></div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Footer Notice */}
-                <div className="mx-auto mt-12 max-w-2xl text-center">
-                    {data.footer.startsWith("*") ? (
-                        <div className="inline-flex flex-col items-center justify-center gap-3 rounded-2xl border border-[#d4af37]/30 bg-gradient-to-r from-[#d4af37]/5 via-[#d4af37]/10 to-[#d4af37]/5 px-6 py-4 shadow-[0_0_15px_rgba(212,175,55,0.1)] backdrop-blur-sm sm:flex-row">
-                            <div className="flex items-center gap-2">
-                                <FaClock className="h-4 w-4 text-[#d4af37]" />
-                            </div>
-                            <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                                Subject to{" "}
-                                <span className="font-semibold text-gray-900 dark:text-white">Companies House</span>{" "}
-                                processing times.
+                            <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
+                                Prepare Your Company for Banking and Payments
+                            </h2>
+                            <p className="mt-6 leading-relaxed text-muted-foreground">
+                                Forming the company is only step one. Opening a business bank account or a Stripe/PayPal merchant
+                                account as a non-resident requires a credible corporate structure.
+                            </p>
+                            <p className="mt-4 leading-relaxed text-muted-foreground">
+                                While we cannot guarantee bank approvals, our packages provide the foundational requirements: a
+                                UK registered office, a UK director correspondence address, and correctly formatted incorporation
+                                documents.
                             </p>
                         </div>
-                    ) : (
-                        <p className="how-it-works-footer text-lg font-medium italic sm:text-xl">
-                            {data.footer}
-                        </p>
-                    )}
+                        <div className="surface p-8 sm:p-10">
+                            <h3 className="text-xl font-semibold text-foreground">Common Requirements</h3>
+                            <ul className="mt-6 space-y-4">
+                                {[
+                                    "UK Registered Office Address",
+                                    "Director Service Address",
+                                    "Certificate of Incorporation",
+                                    "Memorandum & Articles of Association",
+                                    "Shareholder Register (PSCs)",
+                                ].map((item) => (
+                                    <li key={item} className="flex gap-3 text-sm text-foreground/90">
+                                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/20 text-[10px] text-gold">
+                                            ✓
+                                        </span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="mt-8 border-t border-border pt-6">
+                                <p className="text-xs leading-relaxed text-muted-foreground">
+                                    Note: We are not a bank. We provide the corporate structuring services that modern fintech
+                                    institutions (such as Wise, Tide, Revolut) and payment processors generally look for when
+                                    assessing non-resident applications.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }

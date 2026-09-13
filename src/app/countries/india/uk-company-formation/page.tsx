@@ -1,12 +1,11 @@
 import { Metadata } from "next";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CompanyChecker from "@/components/CompanyChecker";
 import { getExchangeRate } from "@/lib/getExchangeRate";
 
 import IndiaHero from "./components/IndiaHero";
 import IndiaFeatures from "./components/IndiaFeatures";
-import IndiaPricing from "./components/IndiaPricing";
+import Pricing from "@/components/Pricing";
 import IndiaProcess from "./components/IndiaProcess";
 import IndiaSpecialist from "./components/IndiaSpecialist";
 import IndiaKnowledgeHub from "./components/IndiaKnowledgeHub";
@@ -17,6 +16,12 @@ import IndiaGoogleReviews from "./components/IndiaGoogleReviews";
 export const metadata: Metadata = {
     title: "UK Company Formation for Indian Residents | Seven Oak Prestige",
     description: "Build and operate your UK business from India with specialist support for company formation, verification, UK addresses, banking readiness, VAT, and EORI.",
+    alternates: {
+        canonical: "https://www.sevenoakprestige.com/countries/india/uk-company-formation",
+        languages: {
+            "en-IN": "https://www.sevenoakprestige.com/countries/india/uk-company-formation",
+        }
+    },
     openGraph: {
         title: "UK Company Formation for Indian Residents | Seven Oak Prestige",
         description: "Build and operate your UK business from India with specialist support.",
@@ -29,7 +34,6 @@ export default async function IndiaLandingPage() {
 
     return (
         <main className="min-h-screen">
-            <Navbar />
             
             <IndiaHero />
             
@@ -39,7 +43,7 @@ export default async function IndiaLandingPage() {
 
             <IndiaGoogleReviews />
 
-            <IndiaPricing inrRate={inrRate} />
+            <Pricing inrRate={inrRate} />
             
             <IndiaProcess />
             

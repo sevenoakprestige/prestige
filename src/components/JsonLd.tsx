@@ -51,6 +51,13 @@ export default function JsonLd() {
             "postalCode": "EC1V 2NX",
             "addressCountry": "GB"
         },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+447447488755",
+            "email": "contact@sevenoakprestige.com",
+            "contactType": "customer service",
+            "url": "https://www.sevenoakprestige.com/contact"
+        },
         "sameAs": [
             "https://www.linkedin.com/company/sevenoakprestige",
             "https://www.facebook.com/sevenoakprestige",
@@ -59,6 +66,7 @@ export default function JsonLd() {
         "knowsAbout": [
             "UK Company Formation",
             "UK Company Formation for Indian Residents",
+            "UK Company Formation for French Residents",
             "Corporate Advisory for Non-Residents",
             "Companies House Identity Verification",
             "ACSP Compliance",

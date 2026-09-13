@@ -6,7 +6,14 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["react-icons", "lucide-react"],
   },
   images: {
-    qualities: [25, 50, 75, 90, 100],
+    // Serve AVIF first (best compression), then WebP — browser picks what it supports
+    formats: ['image/avif', 'image/webp'],
+    // Standard device breakpoints for responsive srcsets
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    // Sizes for images that don't fill the full viewport
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // All quality values used across the site
+    qualities: [25, 50, 75, 85, 90, 95, 100],
     remotePatterns: [
       {
         protocol: 'https',
