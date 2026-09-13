@@ -118,7 +118,7 @@ export default function Services() {
                         </ol>
                     </div>
                     <img
-                        src="/assets/mail-handling.jpg"
+                        src="/assets/mail-handling.webp"
                         alt="Company mail being scanned and processed at a London office desk"
                         width={1408}
                         height={1008}

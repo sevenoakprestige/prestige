@@ -35,7 +35,7 @@ export default function SuccessStories() {
                     <div className="w-full lg:sticky lg:top-32 lg:h-[calc(100vh-16rem)]">
                         <div className="relative aspect-[4/3] h-full w-full overflow-hidden bg-border lg:aspect-auto">
                             <Image
-                                src="/assets/documents.jpg"
+                                src="/assets/documents.webp"
                                 alt="Incorporation certificate, company documents and a fountain pen on a desk"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -70,7 +70,7 @@ export default function SuccessStories() {
                 <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
                     <div className="relative aspect-square w-full overflow-hidden bg-border">
                             <Image
-                                src="/assets/case-study.jpg"
+                                src="/assets/case-study.webp"
                                 alt="A founder in a cafe reviewing company documents on a laptop"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"

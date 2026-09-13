@@ -8,6 +8,7 @@ export interface LeadData {
     message?: string;
     businessActivity?: string;
     source: string;
+    lang?: string;
 }
 
 /**
@@ -100,20 +101,25 @@ export async function sendLeadEmails(
     };
 
     // ── 2. Client auto-reply ─────────────────────────────────────────────────
+    const isFr = data.lang === 'fr';
+    
     const clientMail = {
         from:    `Seven Oak Prestige <${senderEmail}>`,
         to:      data.email,
-        subject: `We received your enquiry — Seven Oak Prestige`,
+        subject: isFr ? `Nous avons bien reçu votre demande — Seven Oak Prestige` : `We received your enquiry — Seven Oak Prestige`,
         html: `
             <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:28px;color:#333">
-              <h2 style="color:#d4af37">Thank You for Reaching Out</h2>
-              <p>Dear ${data.fullName},</p>
-              <p>We have received your enquiry and a member of our team will be in touch shortly.</p>
-              <p>If you have any immediate questions, simply reply to this email or reach us at
-                <a href="mailto:${ADMIN_EMAIL}" style="color:#d4af37">${ADMIN_EMAIL}</a>.
+              <h2 style="color:#d4af37">${isFr ? 'Merci de nous avoir contactés' : 'Thank You for Reaching Out'}</h2>
+              <p>${isFr ? 'Bonjour' : 'Dear'} ${data.fullName},</p>
+              <p>${isFr 
+                ? 'Nous avons bien reçu votre demande et un membre de notre équipe vous contactera sous peu.'
+                : 'We have received your enquiry and a member of our team will be in touch shortly.'}</p>
+              <p>${isFr
+                ? `Si vous avez des questions immédiates, répondez simplement à cet e-mail ou contactez-nous à l'adresse <a href="mailto:${ADMIN_EMAIL}" style="color:#d4af37">${ADMIN_EMAIL}</a>.`
+                : `If you have any immediate questions, simply reply to this email or reach us at <a href="mailto:${ADMIN_EMAIL}" style="color:#d4af37">${ADMIN_EMAIL}</a>.`}
               </p>
               <br>
-              <p>Best regards,<br><strong>The Seven Oak Prestige Team</strong></p>
+              <p>${isFr ? 'Cordialement,' : 'Best regards,'}<br><strong>${isFr ? "L'équipe Seven Oak Prestige" : "The Seven Oak Prestige Team"}</strong></p>
               <p>
                 <a href="https://www.sevenoakprestige.com" style="color:#d4af37;text-decoration:none">
                   www.sevenoakprestige.com

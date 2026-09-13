@@ -13,7 +13,8 @@ export default function IndiaHero() {
                     src="/london-hero.jpg"
                     alt="London at Night"
                     fill
-                    quality={100}
+                    sizes="100vw"
+                    quality={85}
                     className="object-cover object-center"
                     priority
                 />

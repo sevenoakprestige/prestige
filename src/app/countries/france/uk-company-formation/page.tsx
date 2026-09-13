@@ -338,7 +338,7 @@ export default function FrancePage() {
       {/* Hero */}
       <div id="top" className="section-dark relative isolate overflow-hidden">
         <img
-          src="/assets/france-advisory.jpg"
+          src="/assets/france-advisory.webp"
           alt="Une entrepreneuse française examine les documents de sa société britannique avec un conseiller à Londres"
           width={1408}
           height={1008}
@@ -587,7 +587,7 @@ export default function FrancePage() {
             </a>
           </div>
           <img
-            src="/assets/advisory-team.jpg"
+            src="/assets/advisory-team.webp"
             alt="Conseillers Seven Oak Prestige examinant un dossier d’incorporation à Londres"
             width={1408}
             height={1008}
@@ -657,7 +657,7 @@ export default function FrancePage() {
             </a>
           </div>
           <img
-            src="/assets/documents.jpg"
+            src="/assets/documents.webp"
             alt="Documents de société britannique et correspondance sur un bureau"
             width={1408}
             height={1008}
@@ -746,7 +746,7 @@ export default function FrancePage() {
             </a>
           </div>
           <img
-            src="/assets/institution.jpg"
+            src="/assets/institution.webp"
             alt="Architecture institutionnelle londonienne"
             width={1920}
             height={912}
@@ -902,7 +902,7 @@ export default function FrancePage() {
       {/* CTA final */}
       <div id="final-cta" className="section-dark relative isolate overflow-hidden border-t border-border">
         <img
-          src="/assets/institution.jpg"
+          src="/assets/institution.webp"
           alt="Bureau londonien haut de gamme au crépuscule"
           width={1920}
           height={912}
@@ -986,7 +986,7 @@ export default function FrancePage() {
         </div>
 
         <div className="mt-20 max-w-2xl">
-          <LeadForm source="France UK Company Formation Landing Page" title="Contactez-nous" buttonText="Envoyer" />
+          <LeadForm source="France UK Company Formation Landing Page" title="Contactez-nous" buttonText="Envoyer" lang="fr" />
         </div>
       </Section>
 

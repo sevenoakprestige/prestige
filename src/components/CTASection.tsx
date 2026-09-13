@@ -11,7 +11,7 @@ export default function CTASection() {
     return (
         <div id="final-cta" className="section-dark relative isolate overflow-hidden border-t border-border">
             <Image
-                src="/assets/institution.jpg"
+                src="/assets/institution.webp"
                 alt="Refined London institutional architecture at dusk"
                 fill
                 priority

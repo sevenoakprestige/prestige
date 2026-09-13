@@ -93,7 +93,7 @@ export default function AboutPage() {
                 {/* Background Image */}
                 <div className="absolute inset-0 -z-20">
                     <Image
-                        src="/assets/aboutus/aboutussec.jpeg"
+                        src="/assets/aboutus/aboutussec.webp"
                         alt="Premium London skyline — Seven Oak Prestige LTD UK Company Formation"
                         fill
                         className="object-cover object-center"
@@ -229,7 +229,7 @@ export default function AboutPage() {
                         <div className="relative">
                             <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-2xl shadow-gold/10">
                                 <Image
-                                    src="/assets/aboutus/aboutus_section2.jpeg"
+                                    src="/assets/aboutus/aboutus_section2.webp"
                                     alt="Professional UK business environment — Seven Oak Prestige LTD"
                                     width={700}
                                     height={500}
@@ -446,7 +446,7 @@ export default function AboutPage() {
                 {/* Background: London skyline */}
                 <div className="absolute inset-0 -z-20">
                     <Image
-                        src="/assets/seven_oak_prestise.png"
+                        src="/assets/seven_oak_prestise.webp"
                         alt="Premium London skyline at night — Seven Oak Prestige LTD"
                         fill
                         className="object-cover object-center"

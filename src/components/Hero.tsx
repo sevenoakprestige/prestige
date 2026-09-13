@@ -101,7 +101,7 @@ export default function Hero() {
                 <div className="relative min-h-[320px] lg:min-h-full">
                     {/* Reusing existing hero image if possible or falling back to a placeholder */}
                     <Image
-                        src="/assets/hero-london.jpg"
+                        src="/assets/hero-london.webp"
                         alt="An international founder reviewing UK incorporation documents with an adviser in a bright London office"
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"

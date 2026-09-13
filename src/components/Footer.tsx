@@ -240,7 +240,7 @@ export default function Footer() {
                         {/* Living Wage */}
                         <div title="Living Wage Employer" className="transition-transform hover:scale-105">
                             <img
-                                src="/assets/footer/living-wage--white.png"
+                                src="/assets/footer/living-wage--white.webp"
                                 alt="Living Wage Employer"
                                 width={60}
                                 height={60}

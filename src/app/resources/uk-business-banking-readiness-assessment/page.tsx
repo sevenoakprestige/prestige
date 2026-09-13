@@ -356,7 +356,7 @@ export default function BusinessBankingReadinessPage() {
                         {/* Image Side */}
                         <div className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-border/20 shadow-2xl shadow-black/20 group min-h-[350px] lg:min-h-full">
                             <Image 
-                                src="/assets/resouces/banking-readiness.jpg"
+                                src="/assets/resouces/banking-readiness.webp"
                                 alt="Business Banking Readiness Documents"
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"

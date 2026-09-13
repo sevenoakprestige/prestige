@@ -20,6 +20,7 @@ export async function POST(req: Request) {
             companyName: body.companyName,
             message: body.message,
             source: body.source,
+            lang: body.lang,
         });
 
         if (!result.success) {
