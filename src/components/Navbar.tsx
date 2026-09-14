@@ -39,7 +39,7 @@ const menuCategories = [
     {
         title: "Company Services",
         links: [
-            { name: "UK Company Formation", href: "/services/uk-company-formation-for-non-residents" },
+            { name: "Non-Residents Package", href: "/services/uk-company-formation-for-non-residents" },
             { name: "Companies House Verification", href: "/services/companies-house-verification" },
             { name: "VAT Registration", href: "/services/vat-registration-uk" },
             { name: "EORI Registration", href: "/services/eori-registration-uk" },
