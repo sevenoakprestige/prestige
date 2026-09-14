@@ -1,10 +1,10 @@
 "use client";
 
 const TRUST_STRIP = [
-    ["UK-Registered Provider", "Seven Oak Prestige Ltd — Company No. 16903092"],
-    ["KYC & Due Diligence", "KYC and due-diligence procedures for international founders"],
-    ["Secure Data Handling", "Client information handled securely and confidentially"],
-    ["Transparent Pricing", "Package scope and renewal costs shown clearly before purchase"],
+    ["UK-Registered Provider", "Seven Oak Prestige Ltd — verify us at Companies House, No. 16903092"],
+    ["A Real Adviser, Not a Form", "One named London adviser checks your file before it is filed"],
+    ["5.0 / 5 on Google", "The highest possible rating, backed by genuine client feedback"],
+    ["One Price, Shown Up Front", "Government filing fee included; renewal prices shown before you pay"],
 ];
 
 export default function TrustSection() {

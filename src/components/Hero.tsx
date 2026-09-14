@@ -15,84 +15,47 @@ export default function Hero() {
                 <div className="px-6 pb-16 pt-16 sm:px-10 sm:pb-20 sm:pt-20 lg:py-24">
                     <p className="eyebrow">UK Company Formation for Non-Residents</p>
                     <div className="mt-4 h-px w-24 rule-gold" />
-                    <h1 className="mt-8 max-w-xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                        Form Your UK Company From <span className="text-gold">Anywhere</span> in the World
+                    <h1 className="font-display mt-8 max-w-xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-[3.4rem] text-foreground">
+                        Form Your UK Limited Company From Abroad
                     </h1>
-                    <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80 sm:text-xl">
-                        UK company formation for international founders, with address solutions, guided compliance
-                        support and one named adviser throughout the process.
+                    <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
+                        Set up remotely with support from a dedicated adviser. Every package includes Companies House
+                        incorporation and electronic company documents, with UK address services and additional support options
+                        available depending on your package.
                     </p>
-                    <div className="mt-9 flex flex-wrap items-center gap-4">
-                        <Button asChild className="!px-9 !py-4 !text-sm shadow-lg">
+                    <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                        Most standard incorporations can be completed within 1–2 business days after the required information
+                        and verification are complete, subject to Companies House processing and approval.
+                    </p>
+
+                    <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                        <Button asChild className="!px-8 !py-4 !text-sm shadow-lg">
                             <Link href="#pricing">
-                                Start My UK Company
+                                Compare Packages
                             </Link>
                         </Button>
                         <Button asChild variant="ghost">
                             <a href={WHATSAPP}>
-                                Speak to an Adviser
+                                Ask an Adviser on WhatsApp
                             </a>
                         </Button>
                     </div>
 
-                    <div className="mt-12 border-t border-border/70 pt-8">
-                        <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                    <div className="mt-10 border-t border-border/70 pt-8">
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-3 sm:flex sm:flex-wrap sm:gap-x-6">
                             {[
-                                ["100% online", "No travel or office visit required"],
-                                ["Government fees included", "Companies House filing fee covered"],
-                                ["Registered office & director address", "London address solutions included"],
-                                ["Secure payment", "Stripe-secured card, Apple Pay & Google Pay"],
-                                ["Typically 1–2 business days", "For standard incorporations after verification"],
-                                ["Human support throughout", "One named adviser for your setup"],
-                            ].map(([title, desc]) => (
-                                <li key={title} className="flex items-start gap-3">
-                                    <span
-                                        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gold/80 bg-gold/10"
-                                        aria-hidden="true"
-                                    >
-                                        <svg
-                                            width="10"
-                                            height="8"
-                                            viewBox="0 0 10 8"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                d="M1 4L3.5 6.5L9 1"
-                                                stroke="currentColor"
-                                                strokeWidth="1.5"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                className="text-gold"
-                                            />
-                                        </svg>
-                                    </span>
-                                    <div>
-                                        <p className="text-base font-semibold tracking-wide text-foreground">{title}</p>
-                                        <p className="mt-1 text-sm text-foreground/70">{desc}</p>
-                                    </div>
+                                "No UK travel required",
+                                "Companies House fee included",
+                                "Secure onboarding",
+                                "Human adviser support",
+                            ].map((item) => (
+                                <li key={item} className="inline-flex items-center gap-2 text-sm text-foreground/90">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />
+                                    {item}
                                 </li>
                             ))}
                         </ul>
-                        <div className="mt-8 flex flex-wrap items-center gap-3">
-                            <a
-                                href={COMPANIES_HOUSE}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center gap-2 rounded-sm border border-border/60 bg-background/5 px-3 py-1.5 text-xs text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
-                            >
-                                <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />
-                                UK-Registered Provider — Co. No. 16903092
-                            </a>
-                            <Link
-                                href="/refund"
-                                className="inline-flex items-center gap-2 rounded-sm border border-border/60 bg-background/5 px-3 py-1.5 text-xs text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
-                            >
-                                <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />
-                                Fair Refund Policy
-                            </Link>
-                        </div>
-                        <p className="mt-5 max-w-xl text-sm leading-relaxed text-foreground/60">
+                        <p className="mt-5 max-w-xl text-xs leading-relaxed text-muted-foreground">
                             Subject to complete information, identity checks and Companies House processing.
                         </p>
                     </div>
@@ -101,7 +64,7 @@ export default function Hero() {
                 <div className="relative min-h-[320px] lg:min-h-full">
                     {/* Reusing existing hero image if possible or falling back to a placeholder */}
                     <Image
-                        src="/assets/hero-london.webp"
+                        src="/assets/hero-london-928.webp"
                         alt="An international founder reviewing UK incorporation documents with an adviser in a bright London office"
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"

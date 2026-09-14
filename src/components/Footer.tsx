@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaWhatsapp, FaFacebook, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Button } from "./ui/button";
@@ -156,15 +156,7 @@ export default function Footer() {
                         <div className="mt-6">
                             <p className="eyebrow mt-10 mb-5">Follow Us</p>
                             <div className="flex items-center gap-4 mt-3">
-                                <Link
-                                    href="https://www.facebook.com/sevenoakprestige"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="footer-social-link"
-                                    aria-label="Facebook"
-                                >
-                                    <FaFacebook size={22} />
-                                </Link>
+
                                 <Link
                                     href="https://www.linkedin.com/company/sevenoakprestige"
                                     target="_blank"

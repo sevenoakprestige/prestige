@@ -7,6 +7,7 @@ import CookieConsent from "@/components/CookieConsent";
 import JsonLd from "@/components/JsonLd";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Footer from "@/components/Footer";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-display" });
@@ -92,7 +93,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <GoogleTagManager gtmId={gtmId} />
-            <body className={`${jakarta.variable} ${outfit.variable} font-sans antialiased bg-background text-foreground`} suppressHydrationWarning>
+            <body className={`${jakarta.variable} ${outfit.variable} font-sans antialiased bg-background text-foreground overflow-x-hidden`} suppressHydrationWarning>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="dark"
@@ -104,6 +105,7 @@ export default function RootLayout({
                     {/* <Footer /> */}
                     <CookieConsent />
                     <JsonLd />
+                    <WhatsAppFloat />
                 </ThemeProvider>
             </body>
         </html>

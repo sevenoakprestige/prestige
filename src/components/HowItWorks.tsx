@@ -59,7 +59,7 @@ export default function HowItWorks() {
     return (
         <>
             <section id="process" className="section-parchment border-t border-border scroll-mt-20 px-6 py-24 sm:py-32">
-                <div className="mx-auto max-w-4xl">
+                <div className="mx-auto max-w-7xl grid gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
                     <div>
                         <p className="eyebrow">How it works</p>
                         <div className="mt-4 h-px w-16 rule-gold" />
@@ -163,60 +163,17 @@ export default function HowItWorks() {
                             processing. Complex cases may take longer.
                         </p>
                     </div>
+                    <Image
+                        src="/assets/institution.webp"
+                        alt="Classical London institutional facade beside a modern glass tower"
+                        width={1200}
+                        height={805}
+                        className="h-full max-h-[620px] w-full object-cover"
+                    />
                 </div>
             </section>
 
-            {/* Banking & payments (split layout) */}
-            <section id="banking" className="border-t border-border px-6 py-24 sm:py-32">
-                <div className="mx-auto max-w-6xl">
-                    <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
-                        <div>
-                            <div>
-                                <p className="eyebrow">Banking readiness</p>
-                                <div className="mt-4 h-px w-16 rule-gold" />
-                            </div>
-                            <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-                                Prepare Your Company for Banking and Payments
-                            </h2>
-                            <p className="mt-6 leading-relaxed text-muted-foreground">
-                                Forming the company is only step one. Opening a business bank account or a Stripe/PayPal merchant
-                                account as a non-resident requires a credible corporate structure.
-                            </p>
-                            <p className="mt-4 leading-relaxed text-muted-foreground">
-                                While we cannot guarantee bank approvals, our packages provide the foundational requirements: a
-                                UK registered office, a UK director correspondence address, and correctly formatted incorporation
-                                documents.
-                            </p>
-                        </div>
-                        <div className="surface p-8 sm:p-10">
-                            <h3 className="text-xl font-semibold text-foreground">Common Requirements</h3>
-                            <ul className="mt-6 space-y-4">
-                                {[
-                                    "UK Registered Office Address",
-                                    "Director Service Address",
-                                    "Certificate of Incorporation",
-                                    "Memorandum & Articles of Association",
-                                    "Shareholder Register (PSCs)",
-                                ].map((item) => (
-                                    <li key={item} className="flex gap-3 text-sm text-foreground/90">
-                                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/20 text-[10px] text-gold">
-                                            ✓
-                                        </span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="mt-8 border-t border-border pt-6">
-                                <p className="text-xs leading-relaxed text-muted-foreground">
-                                    Note: We are not a bank. We provide the corporate structuring services that modern fintech
-                                    institutions (such as Wise, Tide, Revolut) and payment processors generally look for when
-                                    assessing non-resident applications.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
         </>
     );
 }
