@@ -19,7 +19,7 @@ const links = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "#services" },
-    { name: "Company Checker", href: "#checker" },
+    { name: "Company Checker", href: "#name-check" },
     { name: "Pricing", href: "#pricing" },
     { name: "Blogs", href: "/blog" },
     { name: "Countries", href: "/countries" },

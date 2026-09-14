@@ -1,25 +1,46 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const GOOGLE_REVIEWS_URL = "https://share.google/owyOtNunkhfg4c0dE";
 
 const REVIEWS = [
-    {
-        name: "Daniel K.",
-        rating: 5,
-        text: "The process was professional, efficient and clearly managed from start to finish. My company was operational without delays.",
-    },
-    {
-        name: "Ade S.",
-        rating: 5,
-        text: "Registered office and director address were set up alongside the incorporation. Everything arrived exactly as promised.",
-    },
-    {
-        name: "Sofia M.",
-        rating: 5,
-        text: "Clear guidance on the documents required, and a named adviser who answered every question along the way.",
-    },
+  {
+    name: "Safaat Siddhi",
+    rating: 5,
+    text: "The service was efficient, transparent, and delivered as promised.",
+    avatarUrl: "/assets/reviewers/safaat-siddhi.webp",
+  },
+  {
+    name: "Veridian",
+    rating: 5,
+    text: "I highly recommend their services!",
+    avatarUrl: "/assets/reviewers/veridian.webp",
+  },
+  {
+    name: "Mirvac",
+    rating: 5,
+    text: "Great service, super professional and easy to work with.",
+  },
+  {
+    name: "Vbvvb Bbjbb",
+    rating: 5,
+    text: "I had a great experience working with this company for my UK company registration. The entire process was smooth, professional, and well-organized. Their team was always responsive, answered my questions clearly, and kept me updated throughout every step. Everything was completed on time, exactly as promised.",
+    avatarUrl: "/assets/reviewers/vbvvb-bbjbb.webp",
+  },
+  {
+    name: "albalushi Mazan",
+    rating: 5,
+    text: "I am pleased to share my excellent experience with this company, where I witnessed a high level of professionalism and dedication. From what I observed, the team consists of hardworking employees with a strong sense of responsibility and commitment. I extend my sincere thanks and appreciation to them for their efforts and continued dedication.",
+    avatarUrl: "/assets/reviewers/albalushi-mazan.webp",
+  },
+  {
+    name: "Aleksandr Almataev",
+    rating: 5,
+    text: "Team made everything as it should be, eben in my hard case. Thanks a lot! Company Ltd incorporated just on time!",
+    avatarUrl: "/assets/reviewers/aleksandr-almataev.webp",
+  },
 ];
 
 const OVERALL_RATING = "5.0";
@@ -55,6 +76,34 @@ function GoogleMark() {
         </svg>
     );
 }
+
+function Avatar({ name, avatarUrl }: { name: string; avatarUrl: string | undefined }) {
+  const initials = name
+    .split(" ")
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+  return avatarUrl ? (
+    <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gold/40">
+        <Image
+          src={avatarUrl}
+          alt={`${name}'s Google profile`}
+          fill
+          sizes="40px"
+          className="object-cover"
+        />
+    </div>
+  ) : (
+    <span
+      aria-hidden="true"
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/10 font-display text-sm font-semibold text-gold"
+    >
+      {initials}
+    </span>
+  );
+}
+
 
 export default function Testimonials() {
     const scroller = useRef<HTMLDivElement>(null);
@@ -117,8 +166,11 @@ export default function Testimonials() {
                     <div className="mt-4 h-px w-16 rule-gold" />
                 </div>
                 <h2 className="font-display mb-6 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-                    What Our Clients Say About Our UK Setup Service
+                    Trusted by International Founders
                 </h2>
+                <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
+                    Real feedback from clients who have worked with Seven Oak Prestige.
+                </p>
                 <div className="mt-12">
                     <div
                         onMouseEnter={() => setPaused(true)}
@@ -171,8 +223,11 @@ export default function Testimonials() {
                                     <blockquote className="mt-6 flex-1 font-display text-lg leading-snug text-foreground/90">
                                         “{r.text}”
                                     </blockquote>
-                                    <span className="mt-8 border-t border-border pt-5 text-xs text-muted-foreground">
-                                        <span className="font-semibold text-foreground/85">{r.name}</span> · Google review
+                                    <span className="mt-8 flex items-center gap-3 border-t border-border pt-5 text-xs text-muted-foreground">
+                                        <Avatar name={r.name} avatarUrl={"avatarUrl" in r ? r.avatarUrl : undefined} />
+                                        <span>
+                                            <span className="font-semibold text-foreground/85">{r.name}</span> · Google review
+                                        </span>
                                     </span>
                                 </a>
                             ))}

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "./ui/button";
 
 const FAQS = [
     {
@@ -10,15 +9,15 @@ const FAQS = [
     },
     {
         q: "How is my identity verified?",
-        a: "Under the Economic Crime and Corporate Transparency Act, directors and people with significant control must verify their identity. We verify identities with our KYC and AML partners, Onfido and Credas, and we prepare and file your company with Companies House ourselves. In practice you supply a valid passport or national ID and your address details; further documents may be requested depending on your circumstances.",
+        a: "Your identity is verified through our secure KYC process using trusted third-party identity verification providers, including Credas and Onfido, where appropriate. These checks help us confirm your identity and complete our customer due-diligence requirements in line with applicable UK AML and data-protection requirements. Depending on the verification result and your circumstances, we may request additional information or supporting documents.",
     },
     {
         q: "What do I need to provide?",
-        a: "Valid identity documentation, residential address information and the company details required for incorporation — name, registered office, shareholding, directors and SIC codes. Additional KYC or proof-of-address documents may be requested.",
+        a: "For a standard application, we normally require: a valid passport or eligible identity document; proof of your current residential address, such as a utility bill or bank statement dated within the last three months; your proposed company name; and a clear description of the business activities you intend to carry out. Additional information may be requested where required by our compliance review.",
     },
     {
-        q: "How long does it take?",
-        a: "Many standard online incorporations are processed quickly once identity verification is complete, but timing depends on Companies House review and cannot be guaranteed.",
+        q: "How long does company registration take?",
+        a: "Once your KYC verification has been successfully completed and we have received the required company information, a standard UK company incorporation typically takes 1–2 business days. Processing remains subject to Companies House review and approval, so exact completion times cannot be guaranteed.",
     },
     {
         q: "What happens if my application is rejected?",
@@ -46,21 +45,15 @@ export default function FAQ() {
     const [open, setOpen] = useState<number | null>(0);
 
     return (
-        <section className="border-t border-border px-6 py-24 sm:py-32">
+        <section id="faq" className="section-parchment border-t border-border px-6 py-24 sm:py-32 scroll-mt-20">
             <div className="mx-auto max-w-6xl">
-                <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
+                <div className="grid gap-16 lg:grid-cols-[0.7fr_1.3fr]">
                     <div>
                         <div>
                             <p className="eyebrow">Common questions</p>
                             <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Questions? We Are Here to Help.</h2>
-                        <p className="mt-6 max-w-sm leading-relaxed text-muted-foreground">
-                            If your question isn’t answered here, contact our team.
-                        </p>
-                        <Button asChild variant="ghost" className="mt-8">
-                            <a href="mailto:contact@sevenoakprestige.com">contact@sevenoakprestige.com</a>
-                        </Button>
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Answers before you commit.</h2>
                     </div>
                     <div>
                         <div className="divide-y divide-border border-y border-border">
