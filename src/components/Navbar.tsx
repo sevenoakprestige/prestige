@@ -54,9 +54,6 @@ const resourceCategories = [
         links: [
             { name: "Guides & Insights", href: "/resources/guides" },
             { name: "UK Business Banking Readiness Assessment", href: "/resources/uk-business-banking-readiness-assessment" },
-            { name: "UK Corporate Compliance Framework", href: "#compliance-framework" },
-            { name: "International Founder Framework", href: "#founder-framework" },
-            { name: "UK Company Growth Framework", href: "#growth-framework" },
         ]
     }
 ];
@@ -76,7 +73,6 @@ const connectCategories = [
         title: "Get in Touch",
         links: [
             { name: "Contact", href: "/contact" },
-            { name: "Consultation", href: "/consultation" },
         ]
     }
 ];
