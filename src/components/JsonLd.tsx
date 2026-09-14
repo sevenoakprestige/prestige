@@ -31,8 +31,7 @@ export default function JsonLd() {
         },
         "sameAs": [
             "https://www.sevenoakprestige.com",
-            "https://www.linkedin.com/company/sevenoakprestige",
-            "https://www.facebook.com/sevenoakprestige"
+            "https://www.linkedin.com/company/sevenoakprestige"
         ]
     };
 
@@ -60,7 +59,6 @@ export default function JsonLd() {
         },
         "sameAs": [
             "https://www.linkedin.com/company/sevenoakprestige",
-            "https://www.facebook.com/sevenoakprestige",
             "https://find-and-update.company-information.service.gov.uk/company/16903092"
         ],
         "knowsAbout": [
