@@ -30,7 +30,7 @@ export default function Guidance() {
                     {GUIDES.map(([t, b]) => (
                         <Link
                             key={t}
-                            href={t === "France" ? "/countries/france/uk-company-formation" : "/countries"}
+                            href={`/countries/${t.toLowerCase()}/uk-company-formation`}
                             className="group block bg-background p-8 transition-colors hover:bg-accent"
                         >
                             <span
