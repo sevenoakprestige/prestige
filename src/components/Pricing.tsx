@@ -2,6 +2,7 @@
 
 import { FaCheckCircle } from "react-icons/fa";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 
 const PROVIDER_LOGOS = [
@@ -26,12 +27,10 @@ const PLANS: Array<{
     {
         name: "Starter",
         price: "£199",
-        note: "For founders who only need an address for Companies House and have their own UK business correspondence arrangements.",
+        note: "Formation only — for founders who already have suitable UK address arrangements.",
         features: [
-            "UK limited company formation",
-            "Companies House filing fee included",
-            "London Registered Office (1 year)",
-            "London Director Service Address (1 year)",
+            "UK company formation",
+            "Companies House filing",
             "Digital company documents",
             "Key compliance reminders",
         ],
@@ -42,11 +41,12 @@ const PLANS: Array<{
     {
         name: "Prestige",
         price: "£299",
-        note: "For founders needing a complete London setup, including mail handling and additional compliance support.",
+        note: "The natural choice for most non-residents: formation plus UK address infrastructure.",
         features: [
             "Everything in Starter",
-            "Virtual Business Address (1 year) — Use our London address on your website, invoices and eligible correspondence",
-            "Mail scanning and forwarding for statutory and eligible business mail",
+            "Registered Office — 12 months",
+            "Director Service Address — 12 months",
+            "Eligible mail handling and scanning according to service scope",
             "Annual compliance support according to package scope",
         ],
         cta: "Choose Prestige",
@@ -57,15 +57,13 @@ const PLANS: Array<{
     {
         name: "Elite",
         price: "£399",
-        note: "For founders requiring broader establishment and structured support preparing for UK banking providers.",
+        note: "Prestige plus enhanced identity-verification and banking-readiness assistance.",
         features: [
             "Everything in Prestige",
-            "Companies House Identity Verification for 1 Director (mandatory requirement)",
-            "Bank Account Opening Support",
-            "Best-fit provider recommendations",
-            "Business profile review and application guidance",
-            "Enhanced compliance-document support",
-            "High-priority WhatsApp and email support",
+            "Virtual business address for 12 months",
+            "High priority support",
+            "Direct banking & EMI assistance where applicable",
+            "Compliance assistance",
         ],
         logos: true,
         footnote:
@@ -177,6 +175,11 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                 <p className="mt-10 max-w-3xl text-xs leading-relaxed text-muted-foreground">
                     Financial-provider approval is not guaranteed and remains subject to each provider's eligibility, KYC
                     and risk assessment.
+                </p>
+                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                    Prices, renewals and cancellation terms are shown clearly before purchase. See our{" "}
+                    <Link href="/terms" className="text-gold-soft underline-offset-4 hover:underline">Terms</Link> and{" "}
+                    <Link href="/refund" className="text-gold-soft underline-offset-4 hover:underline">Refund Policy</Link>.
                 </p>
             </div>
         </section>
