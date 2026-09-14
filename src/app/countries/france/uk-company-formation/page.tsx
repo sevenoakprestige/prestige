@@ -845,7 +845,7 @@ export default function FrancePage() {
             </h2>
           </div>
           <Link
-            href="/guides"
+            href="/resources/guides"
             className="border-b border-gold/50 pb-1 text-xs uppercase tracking-[0.16em] text-gold-soft transition-colors hover:text-gold"
           >
             Voir tous les guides France
