@@ -6,6 +6,10 @@ export const metadata: Metadata = {
     description: 'Get in touch with Seven Oak Prestige for all your UK company formation and business support needs.',
     alternates: {
         canonical: "https://www.sevenoakprestige.com/contact",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/contact",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/contact",
+        },
     },
 };
 

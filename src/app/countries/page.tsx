@@ -8,6 +8,10 @@ export const metadata: Metadata = {
     description: "Seven Oak Prestige supports founders in Africa, the Middle East, Asia, Europe and the Americas forming UK limited companies, subject to KYC and eligibility checks.",
     alternates: {
         canonical: "https://www.sevenoakprestige.com/countries",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/countries",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/countries",
+        },
     }
 };
 
