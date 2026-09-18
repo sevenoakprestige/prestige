@@ -187,7 +187,7 @@ export default function UKCompanyFormationForNonResidents() {
                             <Link href="https://wa.me/447447488755" className="btn-ghost">
                                 {data.hero.btn1}
                             </Link>
-                            <Link href="/#pricing" className="btn-gold">
+                            <Link href={`${prefix}/#pricing`} className="btn-gold">
                                 {data.hero.btn2}
                             </Link>
                         </div>

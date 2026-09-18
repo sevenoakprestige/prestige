@@ -33,6 +33,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 function IdentityVerificationContent() {
   const { t, locale } = useTranslation();
   const data = t.servicesPages.companiesHouseIdentityVerification;
+  const prefix = locale === 'en' ? '' : `/${locale}`;
 
   return (
     <div className="bg-background pt-16 lg:pt-20">
@@ -140,8 +141,8 @@ function IdentityVerificationContent() {
           </div>
           <div className="mt-8 flex flex-col gap-4 text-sm text-muted-foreground sm:flex-row sm:flex-wrap sm:items-center sm:gap-8">
             <span>ICO Registration No. ZC181349</span>
-            <Link href="/privacy" className="text-gold-soft hover:text-foreground">{data.dataProtection.links.privacy}</Link>
-            <Link href="/data-protection" className="text-gold-soft hover:text-foreground">{data.dataProtection.links.dataProtection}</Link>
+            <Link href={`${prefix}/privacy`} className="text-gold-soft hover:text-foreground">{data.dataProtection.links.privacy}</Link>
+            <Link href={`${prefix}/data-protection`} className="text-gold-soft hover:text-foreground">{data.dataProtection.links.dataProtection}</Link>
           </div>
         </Section>
 

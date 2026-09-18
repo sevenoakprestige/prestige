@@ -150,16 +150,16 @@ export default function SecurityPageFr() {
             Seven Oak Prestige Ltd est le responsable du traitement des informations que vous nous fournissez et est enregistré auprès de l'Information Commissioner's Office (ICO) du Royaume-Uni en tant que responsable du traitement des données ; notre référence d'enregistrement est disponible sur demande. Nous traitons les données personnelles conformément au RGPD britannique et au Data Protection Act 2018. Nous ne vendons pas vos données et ne les utilisons pas pour le marketing par des tiers.
           </p>
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-gold-soft">
-            <Link href="/privacy" className="hover:text-gold">
+            <Link href="/fr/privacy" className="hover:text-gold">
               Politique de Confidentialité →
             </Link>
-            <Link href="/terms" className="hover:text-gold">
+            <Link href="/fr/terms" className="hover:text-gold">
               Conditions Générales →
             </Link>
-            <Link href="/data-protection" className="hover:text-gold">
-              Protection des Données &amp; LBC →
+            <Link href="/fr/data-protection" className="hover:text-gold">
+              Protection des Données & LBC →
             </Link>
-            <Link href="/refund" className="hover:text-gold">
+            <Link href="/fr/refund" className="hover:text-gold">
               Politique de Remboursement →
             </Link>
           </div>

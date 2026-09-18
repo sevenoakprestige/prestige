@@ -51,7 +51,7 @@ export default function CompaniesHouseVerification() {
                             <Link href="https://wa.me/447447488755" className="btn-ghost">
                                 {data.hero.btn1}
                             </Link>
-                            <Link href="https://buy.stripe.com/14A7sD6cEaHP1RP6Bmfw40g" target="_blank" className="btn-gold">
+                            <Link href="https://buy.stripe.com/bJe8wHbwY5nv8gde3Ofw40h" target="_blank" className="btn-gold">
                                 {data.hero.btn2}
                             </Link>
                         </div>

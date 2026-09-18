@@ -23,7 +23,7 @@ const FRENCH_SPEAKING_COUNTRIES = new Set([
   'MG', // Madagascar
 ]);
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Skip middleware for Next.js internal requests, API routes, and static files

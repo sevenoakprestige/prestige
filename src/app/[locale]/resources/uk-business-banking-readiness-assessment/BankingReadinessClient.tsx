@@ -9,8 +9,9 @@ import InteractiveAssessment from "@/components/InteractiveAssessment";
 import { useTranslation } from "@/i18n/TranslationContext";
 
 export default function BusinessBankingReadinessClient() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const dict = t.resourcesPages.bankingReadiness;
+  const prefix = locale === 'en' ? '' : `/${locale}`;
     return (
         <article className="w-full">
             {/* ─── Hero ─────────────────────────────────────────────────────── */}
@@ -979,7 +980,7 @@ export default function BusinessBankingReadinessClient() {
                                 <p className="text-muted-foreground mb-10 text-lg leading-relaxed flex-grow">
                                     Seven Oak Prestige assists international entrepreneurs in preparing their businesses, documentation, and operational profiles to support a structured and professional UK expansion.
                                 </p>
-                                <Link href="/consultation" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-foreground text-background px-8 py-5 text-base font-bold hover:bg-foreground/90 hover:scale-[1.02] transition-all shadow-xl w-full sm:w-auto self-start">
+                                <Link href={`${prefix}/consultation`} className="inline-flex items-center justify-center gap-3 rounded-2xl bg-foreground text-background px-8 py-5 text-base font-bold hover:bg-foreground/90 hover:scale-[1.02] transition-all shadow-xl w-full sm:w-auto self-start">
                                     {dict.cta.btnConsultation} <FaArrowRight className="text-lg" />
                                 </Link>
                             </div>
@@ -1004,11 +1005,11 @@ export default function BusinessBankingReadinessClient() {
                     
                     <h3 className="font-display text-xl md:text-2xl font-bold mb-8 text-foreground">{dict.relatedGuides.title}</h3>
                     <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-                        <Link href="/services/uk-company-formation-for-non-residents" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">UK Company Formation</Link>
-                        <Link href="/services/companies-house-verification" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Companies House Identity Verification Guide</Link>
-                        <Link href="/services/registered-office-service" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Registered Office Guide</Link>
-                        <Link href="/services/vat-registration-uk" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">VAT Registration Guide</Link>
-                        <Link href="/services/fintech-banking-guidance" className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Fintech & Banking Setup</Link>
+                        <Link href={`${prefix}/services/uk-company-formation-for-non-residents`} className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">UK Company Formation</Link>
+                        <Link href={`${prefix}/services/companies-house-verification`} className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Companies House Identity Verification Guide</Link>
+                        <Link href={`${prefix}/services/registered-office-service`} className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Registered Office Guide</Link>
+                        <Link href={`${prefix}/services/vat-registration-uk`} className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">VAT Registration Guide</Link>
+                        <Link href={`${prefix}/services/fintech-banking-guidance`} className="text-sm font-medium hover:text-gold hover:border-gold/50 transition-all border border-border/60 rounded-full px-5 py-3 bg-card/20 backdrop-blur-md hover:shadow-[0_0_15px_rgba(212,175,55,0.15)] text-foreground/80 hover:bg-card/30">Fintech & Banking Setup</Link>
                     </div>
                 </div>
             </section>

@@ -77,7 +77,8 @@ const PLANS: Array<{
 ];
 
 export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
-    const { t } = useTranslation();
+    const { t, locale } = useTranslation();
+    const prefix = locale === 'en' ? '' : `/${locale}`;
 
     const formatINR = (priceStr: string) => {
         if (!inrRate) return null;
@@ -186,8 +187,8 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                 </p>
                 <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                     {t.pricing.termsText}{" "}
-                    <Link href="/terms" className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.terms}</Link> {t.pricing.and}{" "}
-                    <Link href="/refund" className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.refundPolicy}</Link>.
+                    <Link href={`${prefix}/terms`} className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.terms}</Link> {t.pricing.and}{" "}
+                    <Link href={`${prefix}/refund`} className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.refundPolicy}</Link>.
                 </p>
             </div>
         </section>
