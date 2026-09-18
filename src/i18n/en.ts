@@ -1,5 +1,9 @@
 // English translation dictionary
 export type Locale = 'en' | 'fr';
+import { servicesEn } from './services/en';
+import { type ServicesTranslations } from './services/types';
+import { resourcesEn } from './resources/en';
+import { type ResourcesTranslation } from './resources/types';
 
 export const en = {
   locale: 'en' as Locale,
@@ -49,10 +53,15 @@ export const en = {
     bookConsultation: 'Book Consultation',
     sitemap: 'Sitemap',
     whatsappNow: 'WhatsApp Now',
-    followUs: 'Follow Us',
+    followUs: 'Follow us',
     allRightsReserved: 'All rights reserved.',
-    footerDisclaimer: 'Seven Oak Prestige Ltd is not a law firm, accountancy firm, or regulated financial institution. All information provided is for general guidance only.',
-    visitsByAppointment: 'Visits by appointment only'
+    footerDisclaimer: 'Seven Oak Prestige Ltd is not a law firm, accounting practice, or regulated financial institution. Information is provided for general guidance only.',
+    visitsByAppointment: 'Visits by appointment only',
+    registeredIn: 'Registered in England & Wales',
+    unitedKingdom: 'United Kingdom',
+    companyNo: 'Company No. 16903092',
+    icoRegistration: 'ICO Registration No: ZC181349',
+    googleReviews: 'Google Reviews',
   },
   hero: {
     eyebrow: 'UK Company Formation for Non-Residents',
@@ -75,6 +84,16 @@ export const en = {
     ['5.0 / 5 on Google', 'The highest possible rating, backed by genuine client feedback'],
     ['One Price, Shown Up Front', 'Government filing fee included; renewal prices shown before you pay'],
   ],
+  testimonials: {
+    eyebrow: 'Client reviews',
+    headline: 'Trusted by International Founders',
+    body: 'Real feedback from clients who have worked with Seven Oak Prestige.',
+    onGoogle: 'on Google',
+    googleReview: 'Google review',
+    viewAll: 'View all Google reviews',
+    prev: 'Previous reviews',
+    next: 'Next reviews',
+  },
   pricing: {
     eyebrow: 'Packages',
     headline: 'Fixed pricing. Everything stated up front.',
@@ -86,6 +105,75 @@ export const en = {
     terms: 'Terms',
     and: 'and',
     refundPolicy: 'Refund Policy',
+    plans: [
+      {
+        name: "Starter",
+        note: "Formation only — for founders who already have suitable UK address arrangements.",
+        features: [
+            "UK company formation",
+            "Companies House filing",
+            "Digital company documents",
+            "Key compliance reminders",
+        ],
+        cta: "Choose Starter",
+      },
+      {
+        name: "Prestige",
+        note: "The natural choice for most non-residents: formation plus UK address infrastructure.",
+        features: [
+            "Everything in Starter",
+            "Registered Office — 12 months",
+            "Director Service Address — 12 months",
+            "Eligible mail handling and scanning according to service scope",
+            "Annual compliance support according to package scope",
+        ],
+        cta: "Choose Prestige",
+        tag: "Recommended for non-resident founders",
+      },
+      {
+        name: "Elite",
+        note: "Prestige plus enhanced identity-verification and banking-readiness assistance.",
+        features: [
+            "Everything in Prestige",
+            "Virtual business address for 12 months",
+            "High priority support",
+            "Direct banking & EMI assistance where applicable",
+            "Compliance assistance",
+        ],
+        footnote: "One director included. Additional directors or relevant persons are handled separately.",
+        cta: "Choose Elite",
+        tag: "Most comprehensive",
+      }
+    ]
+  },
+  identity: {
+      eyebrow: 'Verification',
+      heading: 'Companies House Identity Verification & Personal Code Assistance — £74',
+      body1: 'Relevant directors and People with Significant Control may need to complete Companies House identity verification and obtain their Companies House personal code. We provide guided assistance for directors, PSCs and non-UK residents, with the required evidence confirmed for each applicant and verification route.',
+      steps: ["Identity", "Verification", "Personal Code", "Incorporation"],
+      body2: 'KYC onboarding and Companies House statutory identity verification are separate processes.',
+      cta: 'View Verification Assistance — £74'
+  },
+  banking: {
+      eyebrow: 'Banking readiness',
+      heading: 'Prepare Your Company for Banking and Payments',
+      body1: 'We assess your founder and business profile, help prepare a consistent application and support the document review for suitable providers. Providers considered may include {providers}.',
+      body2: 'Banking and payment-provider approval cannot be guaranteed. Final decisions remain with each provider and depend on residence, activity, ownership, KYC and risk assessment.',
+      cta: 'Prepare My Banking Profile'
+  },
+  success: {
+    caption: 'A genuine Seven Oak international-founder case.',
+    eyebrow: 'Client case study',
+    headline: 'Almataev — Forming a UK Company from Thailand',
+    body1: 'Almataev, a Russian founder residing in Thailand, needed a compliant UK company structure for an international digital business without travelling to the UK.',
+    challenge: 'The challenge',
+    challengeText: 'Complete onboarding from abroad, including review of the relevant Thailand residence evidence.',
+    support: 'Our support',
+    supportText: 'KYC and document review, structure preparation, Companies House submission, post-incorporation guidance and banking-readiness support.',
+    outcome: 'The outcome',
+    outcomeText: 'The UK company was incorporated in approximately two business days after the required information and verification were complete.',
+    disclaimer: 'This is a genuine client scenario. Timelines vary with document completeness, required checks and Companies House processing.',
+    cta: 'Compare Packages'
   },
   renewals: {
     eyebrow: 'Renewals',
@@ -139,6 +227,59 @@ export const en = {
       ['Beyond Incorporation', 'Prestige and Elite add address, mail, verification and banking-readiness support where required.'],
     ],
   },
+  howItWorks: {
+    eyebrow: 'Process & Timeline',
+    heading: 'Clear Expectations, No Ambiguity',
+    whatYouDo: 'What you do',
+    whatHappensNext: 'What happens next',
+    steps: [
+      {
+        n: '01',
+        title: 'Choose Your Package & Confirm Your Company Name',
+        duration: 'Approx. 10 minutes',
+        youDo: ['Check your company name', 'Select your package', 'Pay securely online'],
+        happensNext: ['Confirmation email', 'Secure onboarding form', 'Next-step instructions'],
+      },
+      {
+        n: '02',
+        title: 'Complete Your KYC & Onboarding',
+        duration: 'Approx. 20–30 minutes for most standard cases',
+        youDo: [
+          'Upload passport and proof of address',
+          'Complete the secure onboarding form',
+          'Provide director, shareholder and PSC information',
+        ],
+        happensNext: [
+          'Seven Oak reviews your file',
+          'Clarifications requested only if needed',
+          'File prepared for submission',
+        ],
+      },
+      {
+        n: '03',
+        title: 'We Review & Submit to Companies House',
+        duration: 'Typically 1–2 business days for standard incorporations',
+        youDo: ['Confirm final company details', 'Respond promptly if clarification is required'],
+        happensNext: [
+          'Incorporation submitted to Companies House',
+          'Companies House processes the application',
+          'Seven Oak monitors the submission',
+        ],
+      },
+      {
+        n: '04',
+        title: 'Receive Your Company Documents & Next Steps',
+        duration: 'On successful incorporation',
+        youDo: ['Download your electronic company documents', 'Review your post-incorporation checklist'],
+        happensNext: [
+          'Certificate of Incorporation delivered',
+          'Share Certificate and Company Register sent',
+          'Practical next-step guidance provided',
+        ],
+      },
+    ],
+    footer: 'Timings are indicative and subject to complete information, verification and Companies House processing. Complex cases may take longer.',
+  },
   deliverables: {
     eyebrow: 'What you receive',
     headline: 'Your Company Documentation',
@@ -160,6 +301,18 @@ export const en = {
       ['France', 'Créer une société UK depuis la France.'],
     ],
   },
+  
+  mailHandling: {
+    eyebrow: 'Address & correspondence',
+    headline: 'Your UK Mail, Accessible From Anywhere',
+    body: 'Where included in your package, eligible company correspondence received at your Seven Oak address is identified and transmitted electronically according to the service scope. You do not need to travel to London to monitor it.',
+    steps: [
+      ['01', 'Mail Arrives in London', 'Eligible correspondence is received at the Seven Oak address.'],
+      ['02', 'We Identify and Review It', 'Mail is matched to your company and checked for relevance.'],
+      ['03', 'Scanned & Transmitted Digitally', 'Where included in your package, eligible mail is scanned and transmitted electronically.'],
+    ],
+    flow: ['Mail received in London', 'Reviewed', 'Eligible mail scanned', 'Transmitted digitally']
+  },
   faq: {
     eyebrow: 'Common questions',
     headline: 'Answers before you commit.',
@@ -175,6 +328,17 @@ export const en = {
       { q: 'Are there hidden or renewal fees?', a: 'No. Package prices are fixed and stated up front, including the Companies House incorporation fee. Address services renew annually at the published rates.' },
     ],
   },
+  relatedServices: {
+    eyebrow: 'Related Services',
+    headline: 'Other Services You Might Need',
+    items: [
+      { title: "Virtual Business Address", body: "A premium London address for your company’s everyday business and marketing needs.", href: "/services/virtual-business-address" },
+      { title: "VAT Registration", body: "Professional assistance with HMRC VAT registration and ongoing compliance support.", href: "/services/vat-registration-uk" },
+      { title: "Non-Residents Package", body: "Complete company formation, address services and verification for international founders.", href: "/services/uk-company-formation-for-non-residents" }
+    ],
+  },
+  servicesPages: servicesEn,
+  resourcesPages: resourcesEn,
   cta: {
     headline: 'Ready to Form Your UK Company?',
     body: 'Choose the package that fits your needs and complete the process remotely with adviser support. Companies House filing is included, with UK address and additional compliance support available depending on your package.',
@@ -200,20 +364,40 @@ export type Translations = {
     eoriRegistration: string; fintechGuidance: string; registeredOffice: string;
     serviceAddress: string; businessAddress: string; guidesAndInsights: string;
     bankingReadiness: string; france: string; india: string; contact: string;
-    legal: string; useful: string; termsAndConditions: string; refundPolicy: string;
-    privacyPolicy: string; trustAndSecurity: string; bookConsultation: string;
-    sitemap: string; whatsappNow: string; followUs: string; allRightsReserved: string;
+    legal: string; useful: string; termsAndConditions: string; refundPolicy: string; privacyPolicy: string;
+    trustAndSecurity: string; bookConsultation: string; sitemap: string;
+    whatsappNow: string; followUs: string; allRightsReserved: string;
     footerDisclaimer: string; visitsByAppointment: string;
+    registeredIn: string; unitedKingdom: string; companyNo: string;
+    icoRegistration: string; googleReviews: string;
   };
   hero: {
     eyebrow: string; headline: string; body: string; subBody: string;
     cta1: string; cta2: string; bullets: readonly string[]; disclaimer: string;
   };
   trust: readonly (readonly string[])[];
+  testimonials: {
+    eyebrow: string;
+    headline: string;
+    body: string;
+    onGoogle: string;
+    googleReview: string;
+    viewAll: string;
+    prev: string;
+    next: string;
+  };
   pricing: {
     eyebrow: string; headline: string; providerNote: string; providerDisclaimer: string;
     askExpert: string; financialDisclaimer: string; termsText: string;
     terms: string; and: string; refundPolicy: string;
+    plans: readonly {
+      name: string;
+      note: string;
+      features: readonly string[];
+      cta: string;
+      tag?: string;
+      footnote?: string;
+    }[];
   };
   renewals: {
     eyebrow: string; headline: string; body: string; serviceLabel: string;
@@ -228,9 +412,26 @@ export type Translations = {
     eyebrow: string; headline: string;
     items: readonly (readonly string[])[];
   };
+  identity: {
+    eyebrow: string; heading: string; body1: string; steps: readonly string[]; body2: string; cta: string;
+  };
+  banking: {
+    eyebrow: string; heading: string; body1: string; body2: string; cta: string;
+  };
+  success: {
+    caption: string; eyebrow: string; headline: string; body1: string; challenge: string; challengeText: string; support: string; supportText: string; outcome: string; outcomeText: string; disclaimer: string; cta: string;
+  };
   why: {
     eyebrow: string; headline: string; body: string;
     items: readonly (readonly string[])[];
+  };
+  howItWorks: {
+    eyebrow: string; heading: string; whatYouDo: string; whatHappensNext: string;
+    steps: readonly {
+      n: string; title: string; duration: string;
+      youDo: readonly string[]; happensNext: readonly string[];
+    }[];
+    footer: string;
   };
   deliverables: {
     eyebrow: string; headline: string;
@@ -240,10 +441,17 @@ export type Translations = {
     eyebrow: string; headline: string; exploreAll: string;
     guides: readonly (readonly string[])[];
   };
+  mailHandling: { eyebrow: string; headline: string; body: string; steps: readonly (readonly string[])[]; flow: readonly string[] };
   faq: {
     eyebrow: string; headline: string;
     items: readonly { q: string; a: string }[];
   };
+  relatedServices: {
+    eyebrow: string; headline: string;
+    items: readonly { title: string; body: string; href: string }[];
+  };
+  servicesPages: ServicesTranslations;
+  resourcesPages: ResourcesTranslation;
   cta: { headline: string; body: string; cta1: string; cta2: string };
   langBanner: { message: string; switchTo: string; dismiss: string };
 };

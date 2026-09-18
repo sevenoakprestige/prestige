@@ -7,12 +7,12 @@ import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Button } from "./ui/button";
-import { getTranslations } from '@/i18n';
+import { useTranslation } from '@/i18n/TranslationContext';
 
 export default function Footer() {
     const pathname = usePathname();
-    const isFr = pathname.startsWith('/fr');
-    const t = getTranslations(isFr ? 'fr' : 'en');
+    const { t, locale } = useTranslation();
+    const isFr = locale === 'fr';
     const prefix = isFr ? '/fr' : '';
 
     const { theme, resolvedTheme } = useTheme();
@@ -59,11 +59,11 @@ export default function Footer() {
 
                         {/* Company Registration */}
                         <div className="mt-5 space-y-1 text-muted-foreground leading-relaxed">
-                            <p>Registered in England & Wales</p>
+                            <p>{t.nav.registeredIn}</p>
                             <p>124 City Road, London EC1V 2NX</p>
-                            <p>United Kingdom</p>
-                            <p className="mt-3">Company No. 16903092</p>
-                            <p>ICO Registration No: ZC181349</p>
+                            <p>{t.nav.unitedKingdom}</p>
+                            <p className="mt-3">{t.nav.companyNo}</p>
+                            <p>{t.nav.icoRegistration}</p>
                         </div>
 
                         {/* Contact Info */}
@@ -193,7 +193,7 @@ export default function Footer() {
                                 </svg>
                                 
                                 <div className="flex flex-col justify-center">
-                                    <span className="text-lg font-medium text-white leading-none mb-1">Google Reviews</span>
+                                    <span className="text-lg font-medium text-white leading-none mb-1">{t.nav.googleReviews}</span>
                                     <div className="flex items-center gap-2">
                                         <span className="text-2xl font-bold text-white leading-none">5.00</span>
                                         <div className="flex text-[#FBBC05] gap-0.5">

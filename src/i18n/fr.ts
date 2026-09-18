@@ -1,5 +1,9 @@
 // French translation dictionary
 import type { Translations, Locale } from './en';
+import { servicesFr } from './services/fr';
+import { type ServicesTranslations } from './services/types';
+import { resourcesFr } from './resources/fr';
+import { type ResourcesTranslation } from './resources/types';
 
 export const fr: Translations = {
   locale: 'fr' as Locale,
@@ -52,7 +56,12 @@ export const fr: Translations = {
     followUs: 'Suivez-nous',
     allRightsReserved: 'Tous droits réservés.',
     footerDisclaimer: 'Seven Oak Prestige Ltd n\'est pas un cabinet d\'avocats, un cabinet d\'expertise comptable, ou une institution financière réglementée. Les informations sont fournies à titre indicatif uniquement.',
-    visitsByAppointment: 'Visites sur rendez-vous uniquement'
+    visitsByAppointment: 'Visites sur rendez-vous uniquement',
+    registeredIn: 'Enregistrée en Angleterre et au Pays de Galles',
+    unitedKingdom: 'Royaume-Uni',
+    companyNo: 'N° de société 16903092',
+    icoRegistration: 'N° d\'enregistrement ICO : ZC181349',
+    googleReviews: 'Avis Google',
   },
   hero: {
     eyebrow: 'Création de société UK pour non-résidents',
@@ -70,11 +79,21 @@ export const fr: Translations = {
     disclaimer: 'Sous réserve d\'informations complètes, de vérifications d\'identité et du traitement par le Companies House.',
   },
   trust: [
-    ['Prestataire enregistré au Royaume-Uni', 'Seven Oak Prestige Ltd — vérifiez-nous au Companies House, n° 16903092'],
-    ['Un vrai conseiller, pas un formulaire', 'Un conseiller londonien dédié vérifie votre dossier avant tout dépôt'],
-    ['5,0 / 5 sur Google', 'La meilleure note possible, étayée par de vrais avis clients'],
-    ['Un prix, affiché dès le départ', 'Frais d\'immatriculation inclus ; renouvellements affichés avant paiement'],
+    ['Prestataire enregistré au Royaume-Uni', 'Seven Oak Prestige Ltd — vérifiez-nous à la Companies House, N° 16903092'],
+    ['Un vrai conseiller, pas un formulaire', 'Un conseiller nommé à Londres vérifie votre dossier avant le dépôt'],
+    ['5,0 / 5 sur Google', 'La note maximale, soutenue par de vrais avis clients'],
+    ['Un prix unique, annoncé clairement', 'Frais gouvernementaux inclus ; tarifs de renouvellement affichés avant paiement'],
   ],
+  testimonials: {
+    eyebrow: 'Avis clients',
+    headline: 'La confiance des fondateurs internationaux',
+    body: 'Vrais retours des clients ayant travaillé avec Seven Oak Prestige.',
+    onGoogle: 'sur Google',
+    googleReview: 'Avis Google',
+    viewAll: 'Voir tous les avis Google',
+    prev: 'Avis précédents',
+    next: 'Avis suivants',
+  },
   pricing: {
     eyebrow: 'Formules',
     headline: 'Tarifs fixes. Tout annoncé clairement.',
@@ -86,6 +105,46 @@ export const fr: Translations = {
     terms: 'Conditions générales',
     and: 'et notre',
     refundPolicy: 'Politique de remboursement',
+    plans: [
+      {
+        name: "Starter",
+        note: "Création seule — pour les fondateurs ayant déjà une adresse adaptée au Royaume-Uni.",
+        features: [
+            "Création de la société UK",
+            "Dépôt au Companies House",
+            "Documents d'entreprise numériques",
+            "Rappels clés de conformité",
+        ],
+        cta: "Choisir Starter",
+      },
+      {
+        name: "Prestige",
+        note: "Le choix naturel pour les non-résidents : création et infrastructure d'adresse.",
+        features: [
+            "Tout ce qui est dans Starter",
+            "Siège social — 12 mois",
+            "Adresse de service du directeur — 12 mois",
+            "Gestion du courrier selon le forfait",
+            "Assistance à la conformité annuelle",
+        ],
+        cta: "Choisir Prestige",
+        tag: "Recommandé pour les non-résidents",
+      },
+      {
+        name: "Elite",
+        note: "Prestige avec vérification d'identité avancée et préparation bancaire.",
+        features: [
+            "Tout ce qui est dans Prestige",
+            "Adresse professionnelle virtuelle pour 12 mois",
+            "Assistance prioritaire",
+            "Assistance bancaire directe où applicable",
+            "Assistance de conformité",
+        ],
+        footnote: "Un directeur inclus. Les directeurs supplémentaires sont gérés séparément.",
+        cta: "Choisir Elite",
+        tag: "Le plus complet",
+      }
+    ]
   },
   renewals: {
     eyebrow: 'Renouvellements',
@@ -139,6 +198,88 @@ export const fr: Translations = {
       ['Au-delà de l\'immatriculation', 'Les formules Prestige et Elite ajoutent adresse, courrier, vérification et soutien bancaire selon vos besoins.'],
     ],
   },
+  howItWorks: {
+    eyebrow: 'Processus et calendrier',
+    heading: 'Des attentes claires, aucune ambiguïté',
+    whatYouDo: 'Ce que vous faites',
+    whatHappensNext: 'Ce qui se passe ensuite',
+    steps: [
+      {
+        n: "01",
+        title: "Choisissez votre forfait et confirmez le nom de votre entreprise",
+        duration: "Environ 10 minutes",
+        youDo: ["Vérifiez le nom de votre entreprise", "Sélectionnez votre forfait", "Payez en ligne en toute sécurité"],
+        happensNext: ["E-mail de confirmation", "Formulaire d'intégration sécurisé", "Instructions pour les prochaines étapes"],
+      },
+      {
+        n: "02",
+        title: "Complétez votre KYC et votre intégration",
+        duration: "Environ 20 à 30 minutes pour la plupart des cas standard",
+        youDo: [
+          "Téléchargez votre passeport et votre justificatif de domicile",
+          "Remplissez le formulaire d'intégration sécurisé",
+          "Fournissez les informations sur les directeurs, actionnaires et PSC",
+        ],
+        happensNext: [
+          "Seven Oak examine votre dossier",
+          "Des clarifications sont demandées uniquement si nécessaire",
+          "Dossier préparé pour la soumission",
+        ],
+      },
+      {
+        n: "03",
+        title: "Nous examinons et soumettons à Companies House",
+        duration: "Généralement 1 à 2 jours ouvrables pour les constitutions standard",
+        youDo: ["Confirmez les détails finaux de l'entreprise", "Répondez rapidement si des clarifications sont requises"],
+        happensNext: [
+          "Constitution soumise à Companies House",
+          "Companies House traite la demande",
+          "Seven Oak suit la soumission",
+        ],
+      },
+      {
+        n: "04",
+        title: "Recevez les documents de votre entreprise et les prochaines étapes",
+        duration: "Dès la constitution réussie",
+        youDo: ["Téléchargez les documents électroniques de votre entreprise", "Consultez votre liste de contrôle post-constitution"],
+        happensNext: [
+          "Certificat de constitution délivré",
+          "Certificat d'actions et registre de l'entreprise envoyés",
+          "Conseils pratiques pour les prochaines étapes fournis",
+        ],
+      }
+    ],
+    footer: 'Les délais sont donnés à titre indicatif et sont soumis à des informations complètes, à une vérification et au traitement par Companies House. Les cas complexes peuvent prendre plus de temps.'
+  },
+  identity: {
+    eyebrow: 'Vérification',
+    heading: 'Vérification d\'identité de la Companies House et aide pour le code personnel — 74 £',
+    body1: 'Les administrateurs concernés et les personnes exerçant un contrôle important peuvent devoir se soumettre à une vérification d\'identité auprès de la Companies House et obtenir un code personnel. Nous fournissons une assistance guidée aux administrateurs, aux personnes exerçant un contrôle important et aux non-résidents britanniques, les justificatifs requis étant confirmés pour chaque demandeur et parcours de vérification.',
+    steps: ["Identité", "Vérification", "Code personnel", "Constitution"],
+    body2: 'L\'intégration KYC et la vérification d\'identité légale de la Companies House sont deux processus distincts.',
+    cta: 'Voir l\'aide à la vérification — 74 £'
+  },
+  banking: {
+    eyebrow: 'Préparation bancaire',
+    heading: 'Préparez votre entreprise pour les services bancaires et les paiements',
+    body1: 'Nous évaluons le profil de votre fondateur et de votre entreprise, vous aidons à préparer une demande cohérente et soutenons l\'examen des documents pour les fournisseurs appropriés. Les fournisseurs considérés peuvent inclure {providers}.',
+    body2: 'L\'approbation des services bancaires et de paiement ne peut être garantie. Les décisions finales appartiennent à chaque fournisseur et dépendent de la résidence, de l\'activité, de la propriété, du KYC et de l\'évaluation des risques.',
+    cta: 'Préparer mon profil bancaire'
+  },
+  success: {
+    caption: 'Un cas authentique de fondateur international chez Seven Oak.',
+    eyebrow: 'Étude de cas client',
+    headline: 'Almataev — Création d\'une société britannique depuis la Thaïlande',
+    body1: 'Almataev, un fondateur russe résidant en Thaïlande, avait besoin d\'une structure de société britannique conforme pour une entreprise numérique internationale sans avoir à se rendre au Royaume-Uni.',
+    challenge: 'Le défi',
+    challengeText: 'Réaliser l\'intégration depuis l\'étranger, y compris l\'examen des preuves de résidence en Thaïlande.',
+    support: 'Notre accompagnement',
+    supportText: 'Examen KYC et documentaire, préparation de la structure, soumission à Companies House, conseils post-constitution et aide à la préparation bancaire.',
+    outcome: 'Le résultat',
+    outcomeText: 'La société britannique a été constituée en environ deux jours ouvrables une fois les informations requises et la vérification complétées.',
+    disclaimer: 'Il s\'agit d\'un scénario client authentique. Les délais varient en fonction de l\'exhaustivité des documents, des vérifications requises et du traitement par Companies House.',
+    cta: 'Comparer les forfaits'
+  },
   deliverables: {
     eyebrow: 'Ce que vous recevez',
     headline: 'La documentation de votre société',
@@ -160,6 +301,29 @@ export const fr: Translations = {
       ['France', 'Créer une société UK depuis la France.'],
     ],
   },
+  
+  mailHandling: {
+    eyebrow: 'Adresse & correspondance',
+    headline: 'Votre courrier britannique, accessible de partout',
+    body: 'Lorsqu\'inclus dans votre forfait, la correspondance d\'entreprise éligible reçue à votre adresse Seven Oak est identifiée et transmise électroniquement selon le périmètre du service. Vous n\'avez pas besoin de vous rendre à Londres pour la suivre.',
+    steps: [
+      ['01', 'Le courrier arrive à Londres', 'La correspondance éligible est reçue à l\'adresse Seven Oak.'],
+      ['02', 'Nous l\'identifions et l\'examinons', 'Le courrier est associé à votre entreprise et sa pertinence est vérifiée.'],
+      ['03', 'Numérisé & Transmis numériquement', 'Lorsqu\'inclus dans votre forfait, le courrier éligible est numérisé et transmis électroniquement.'],
+    ],
+    flow: ['Courrier reçu à Londres', 'Examiné', 'Courrier éligible numérisé', 'Transmis numériquement']
+  },
+  relatedServices: {
+    eyebrow: 'Services Connexes',
+    headline: 'Autres Services Dont Vous Pourriez Avoir Besoin',
+    items: [
+      { title: "Adresse Commerciale Virtuelle", body: "Une adresse londonienne premium pour les besoins commerciaux et marketing quotidiens de votre entreprise.", href: "/services/virtual-business-address" },
+      { title: "Enregistrement TVA", body: "Assistance professionnelle pour l'enregistrement à la TVA auprès du HMRC et soutien continu en matière de conformité.", href: "/services/vat-registration-uk" },
+      { title: "Forfait Non-Résidents", body: "Création complète de société, services d'adresse et vérification pour les fondateurs internationaux.", href: "/services/uk-company-formation-for-non-residents" }
+    ]
+  },
+  servicesPages: servicesFr as any,
+  resourcesPages: resourcesFr,
   faq: {
     eyebrow: 'Questions fréquentes',
     headline: 'Réponses avant de vous engager.',

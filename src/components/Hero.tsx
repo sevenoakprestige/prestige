@@ -2,53 +2,47 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { FaWhatsapp, FaSearch, FaStar } from "react-icons/fa";
 import { Button } from "./ui/button";
+import { useTranslation } from "@/i18n/TranslationContext";
 
 const WHATSAPP = "https://wa.me/447447488755";
-const COMPANIES_HOUSE = "https://find-and-update.company-information.service.gov.uk/company/16903092";
 
 export default function Hero() {
+    const { t } = useTranslation();
+    const heroContent = t.hero;
+
     return (
         <section id="top" className="section-dark relative isolate overflow-hidden">
             <div className="mx-auto grid max-w-7xl items-stretch gap-0 lg:grid-cols-[1.05fr_0.95fr]">
                 <div className="px-6 pb-16 pt-16 sm:px-10 sm:pb-20 sm:pt-20 lg:py-24">
-                    <p className="eyebrow">UK Company Formation for Non-Residents</p>
+                    <p className="eyebrow">{heroContent.eyebrow}</p>
                     <div className="mt-4 h-px w-24 rule-gold" />
                     <h1 className="font-display mt-8 max-w-xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-[3.4rem] text-foreground">
-                        Form Your UK Limited Company From Abroad
+                        {heroContent.headline}
                     </h1>
                     <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
-                        Set up remotely with support from a dedicated adviser. Every package includes Companies House
-                        incorporation and electronic company documents, with UK address services and additional support options
-                        available depending on your package.
+                        {heroContent.body}
                     </p>
                     <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                        Most standard incorporations can be completed within 1–2 business days after the required information
-                        and verification are complete, subject to Companies House processing and approval.
+                        {heroContent.subBody}
                     </p>
 
                     <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                         <Button asChild className="!px-8 !py-4 !text-sm shadow-lg">
                             <Link href="#pricing">
-                                Compare Packages
+                                {heroContent.cta1}
                             </Link>
                         </Button>
                         <Button asChild variant="ghost">
                             <a href={WHATSAPP}>
-                                Ask an Adviser on WhatsApp
+                                {heroContent.cta2}
                             </a>
                         </Button>
                     </div>
 
                     <div className="mt-10 border-t border-border/70 pt-8">
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-3 sm:flex sm:flex-wrap sm:gap-x-6">
-                            {[
-                                "No UK travel required",
-                                "Companies House fee included",
-                                "Secure onboarding",
-                                "Human adviser support",
-                            ].map((item) => (
+                            {heroContent.bullets.map((item) => (
                                 <li key={item} className="inline-flex items-center gap-2 text-sm text-foreground/90">
                                     <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />
                                     {item}
@@ -56,7 +50,7 @@ export default function Hero() {
                             ))}
                         </ul>
                         <p className="mt-5 max-w-xl text-xs leading-relaxed text-muted-foreground">
-                            Subject to complete information, identity checks and Companies House processing.
+                            {heroContent.disclaimer}
                         </p>
                     </div>
                 </div>

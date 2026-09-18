@@ -161,7 +161,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.95,
         },
         {
-            url: `${baseUrl}/countries/france/uk-company-formation`,
+            url: `${baseUrl}/fr/countries/france/uk-company-formation`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.95,

@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslation } from "@/i18n/TranslationContext";
 import { FaCheckCircle } from "react-icons/fa";
 import { Button } from "./ui/button";
 import Link from "next/link";
@@ -76,6 +77,8 @@ const PLANS: Array<{
 ];
 
 export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
+    const { t } = useTranslation();
+
     const formatINR = (priceStr: string) => {
         if (!inrRate) return null;
         const gbp = parseInt(priceStr.replace(/[^0-9]/g, ''));
@@ -87,14 +90,16 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
         <section id="pricing" className="border-t border-border scroll-mt-20 px-6 py-14 sm:py-18">
             <div className="mx-auto max-w-6xl">
                 <div>
-                    <p className="eyebrow">Packages</p>
+                    <p className="eyebrow">{t.pricing.eyebrow}</p>
                     <div className="mt-4 h-px w-16 rule-gold" />
                 </div>
                 <h2 className="font-display mb-6 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-                    Fixed pricing. Everything stated up front.
+                    {t.pricing.headline}
                 </h2>
                 <div className="mt-14 grid gap-px bg-border lg:grid-cols-3">
-                    {PLANS.map((p) => (
+                    {PLANS.map((p, index) => {
+                        const tp = t.pricing.plans?.[index] || p;
+                        return (
                         <article
                             key={p.name}
                             className={`relative flex flex-col p-8 sm:p-10 ${p.featured
@@ -102,9 +107,9 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                                     : "bg-background"
                                 }`}
                         >
-                            <h3 className="font-display text-2xl">{p.name}</h3>
+                            <h3 className="font-display text-2xl">{tp.name}</h3>
                             <p className="mt-1 h-4 text-[0.6rem] uppercase tracking-[0.14em] text-gold">
-                                {p.tag ? p.tag : ""}
+                                {tp.tag ? tp.tag : ""}
                             </p>
                             <div className="mt-8">
                                 <p className="font-display text-4xl text-foreground">{p.price}</p>
@@ -114,9 +119,9 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                                     </p>
                                 )}
                             </div>
-                            <p className="mt-3 text-sm text-muted-foreground">{p.note}</p>
+                            <p className="mt-3 text-sm text-muted-foreground">{tp.note}</p>
                             <ul className="mt-8 flex-1 space-y-2.5 border-t border-border pt-8 text-sm text-foreground/85">
-                                {p.features.map((f) => (
+                                {tp.features.map((f) => (
                                     <li key={f} className="flex items-start gap-2.5">
                                         <span className="mt-2 h-1 w-1 shrink-0 bg-gold" aria-hidden="true" />
                                         {f}
@@ -125,7 +130,7 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                             </ul>
                             {p.logos ? (
                                 <div className="mt-8 border-t border-border pt-6">
-                                    <p className="eyebrow">Providers considered</p>
+                                    <p className="eyebrow">{t.pricing.providerNote}</p>
                                     <ul className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-4">
                                         {PROVIDER_LOGOS.map((b) => (
                                             <li key={b.name} className="flex items-center gap-2">
@@ -141,16 +146,15 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                                         ))}
                                     </ul>
                                     <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-                                        Provider availability depends on founder residence, business activity, ownership, KYC and
-                                        individual eligibility. Final approval remains with the provider.
+                                        {t.pricing.providerDisclaimer}
                                     </p>
                                 </div>
                             ) : null}
-                            {p.footnote ? (
-                                <p className="mt-6 text-xs leading-relaxed text-muted-foreground">{p.footnote}</p>
+                            {tp.footnote ? (
+                                <p className="mt-6 text-xs leading-relaxed text-muted-foreground">{tp.footnote}</p>
                             ) : null}
                             <Button asChild variant={p.featured ? "default" : "ghost"} className="mt-10">
-                                <a href={p.href}>{p.cta}</a>
+                                <a href={p.href}>{tp.cta}</a>
                             </Button>
                             <a
                                 href={`https://wa.me/447447488755?text=${encodeURIComponent(
@@ -158,12 +162,17 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                                         ? `Hi, I'm from India and interested in the ${p.name} package.`
                                         : `Hello Seven Oak Prestige, I have a question about the ${p.name} package.`
                                 )}`}
-                                className="mt-4 inline-block text-xs text-muted-foreground underline-offset-4 transition-colors hover:text-gold hover:underline"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`mt-3 block text-center text-xs font-medium transition-colors hover:underline ${
+                                    p.featured ? "text-gold" : "text-muted-foreground hover:text-foreground"
+                                }`}
                             >
-                                Have a question? Talk to an expert
+                                {t.pricing.askExpert}
                             </a>
                         </article>
-                    ))}
+                        );
+                    })}
                 </div>
                 
                 {inrRate && (
@@ -173,13 +182,12 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                 )}
                 
                 <p className="mt-10 max-w-3xl text-xs leading-relaxed text-muted-foreground">
-                    Financial-provider approval is not guaranteed and remains subject to each provider's eligibility, KYC
-                    and risk assessment.
+                    {t.pricing.financialDisclaimer}
                 </p>
                 <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-                    Prices, renewals and cancellation terms are shown clearly before purchase. See our{" "}
-                    <Link href="/terms" className="text-gold-soft underline-offset-4 hover:underline">Terms</Link> and{" "}
-                    <Link href="/refund" className="text-gold-soft underline-offset-4 hover:underline">Refund Policy</Link>.
+                    {t.pricing.termsText}{" "}
+                    <Link href="/terms" className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.terms}</Link> {t.pricing.and}{" "}
+                    <Link href="/refund" className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.refundPolicy}</Link>.
                 </p>
             </div>
         </section>

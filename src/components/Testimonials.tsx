@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useTranslation } from "@/i18n/TranslationContext";
 
 const GOOGLE_REVIEWS_URL = "https://share.google/owyOtNunkhfg4c0dE";
 
@@ -106,6 +107,7 @@ function Avatar({ name, avatarUrl }: { name: string; avatarUrl: string | undefin
 
 
 export default function Testimonials() {
+    const { t } = useTranslation();
     const scroller = useRef<HTMLDivElement>(null);
     const [paused, setPaused] = useState(false);
     const loop = [...REVIEWS, ...REVIEWS, ...REVIEWS];
@@ -162,14 +164,14 @@ export default function Testimonials() {
         <section className="section-parchment border-t border-border px-6 py-24 sm:py-32">
             <div className="mx-auto max-w-6xl">
                 <div>
-                    <p className="eyebrow">Client reviews</p>
+                    <p className="eyebrow">{t.testimonials.eyebrow}</p>
                     <div className="mt-4 h-px w-16 rule-gold" />
                 </div>
                 <h2 className="font-display mb-6 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-                    Trusted by International Founders
+                    {t.testimonials.headline}
                 </h2>
                 <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
-                    Real feedback from clients who have worked with Seven Oak Prestige.
+                    {t.testimonials.body}
                 </p>
                 <div className="mt-12">
                     <div
@@ -182,12 +184,12 @@ export default function Testimonials() {
                             <div className="flex items-center gap-3">
                                 <GoogleMark />
                                 <Stars n={5} />
-                                <span className="text-sm font-semibold text-foreground">{OVERALL_RATING} / 5 on Google</span>
+                                <span className="text-sm font-semibold text-foreground">{OVERALL_RATING} / 5 {t.testimonials.onGoogle}</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 {[
-                                    ["Previous reviews", -1, "M15 5l-7 7 7 7"],
-                                    ["Next reviews", 1, "M9 5l7 7-7 7"],
+                                    [t.testimonials.prev, -1, "M15 5l-7 7 7 7"],
+                                    [t.testimonials.next, 1, "M9 5l7 7-7 7"],
                                 ].map(([label, dir, d]) => (
                                     <button
                                         key={label as string}
@@ -226,7 +228,7 @@ export default function Testimonials() {
                                     <span className="mt-8 flex items-center gap-3 border-t border-border pt-5 text-xs text-muted-foreground">
                                         <Avatar name={r.name} avatarUrl={"avatarUrl" in r ? r.avatarUrl : undefined} />
                                         <span>
-                                            <span className="font-semibold text-foreground/85">{r.name}</span> · Google review
+                                            <span className="font-semibold text-foreground/85">{r.name}</span> · {t.testimonials.googleReview}
                                         </span>
                                     </span>
                                 </a>
@@ -239,7 +241,7 @@ export default function Testimonials() {
                             rel="noreferrer"
                             className="mt-8 inline-block border-b border-gold/50 pb-1 text-xs uppercase tracking-[0.16em] text-gold-soft transition-colors hover:text-gold"
                         >
-                            View all Google reviews
+                            {t.testimonials.viewAll}
                         </a>
 
                         <div className="sr-only">

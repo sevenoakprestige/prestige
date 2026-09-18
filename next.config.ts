@@ -33,6 +33,11 @@ const nextConfig: NextConfig = {
         destination: '/services/uk-company-formation-for-non-residents',
         permanent: true,
       },
+      {
+        source: '/countries/france/uk-company-formation',
+        destination: '/fr/countries/france/uk-company-formation',
+        permanent: true,
+      },
     ];
   },
 };
