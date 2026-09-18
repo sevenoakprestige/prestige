@@ -27,6 +27,10 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.sevenoakprestige.com/services/registered-office-service",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/services/registered-office-service",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/services/registered-office-service",
+        },
     },
 };
 

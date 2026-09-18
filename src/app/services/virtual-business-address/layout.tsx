@@ -27,6 +27,10 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.sevenoakprestige.com/services/virtual-business-address",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/services/virtual-business-address",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/services/virtual-business-address",
+        },
     },
 };
 

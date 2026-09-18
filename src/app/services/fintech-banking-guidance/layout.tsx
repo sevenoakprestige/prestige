@@ -28,6 +28,10 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.sevenoakprestige.com/services/fintech-banking-guidance",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/services/fintech-banking-guidance",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/services/fintech-banking-guidance",
+        },
     },
 };
 

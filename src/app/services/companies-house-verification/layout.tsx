@@ -27,6 +27,10 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.sevenoakprestige.com/services/companies-house-verification",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/services/companies-house-verification",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/services/companies-house-verification",
+        },
     },
 };
 

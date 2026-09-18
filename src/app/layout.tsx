@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Footer from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { LangBanner } from "@/components/LangBanner";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-display" });
@@ -75,6 +76,13 @@ export const metadata: Metadata = {
             "max-snippet": -1,
         },
     },
+    alternates: {
+        canonical: "https://www.sevenoakprestige.com",
+        languages: {
+            "en": "https://www.sevenoakprestige.com",
+            "fr": "https://www.sevenoakprestige.com/fr",
+        },
+    },
 };
 
 
@@ -106,6 +114,7 @@ export default function RootLayout({
                     <CookieConsent />
                     <JsonLd />
                     <WhatsAppFloat />
+                    <LangBanner />
                 </ThemeProvider>
             </body>
         </html>

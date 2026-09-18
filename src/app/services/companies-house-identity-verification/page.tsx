@@ -57,6 +57,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: PATH,
+    languages: {
+      "en-US": "https://www.sevenoakprestige.com/services/companies-house-identity-verification",
+      "fr-FR": "https://www.sevenoakprestige.com/fr/services/companies-house-identity-verification",
+    },
   },
 };
 

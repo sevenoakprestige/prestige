@@ -35,6 +35,10 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.sevenoakprestige.com/services/uk-company-formation-for-non-residents",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/services/uk-company-formation-for-non-residents",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/services/uk-company-formation-for-non-residents",
+        },
     },
 };
 

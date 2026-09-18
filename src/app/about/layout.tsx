@@ -31,6 +31,10 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.sevenoakprestige.com/about",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/about",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/about",
+        },
     },
 };
 

@@ -27,6 +27,10 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.sevenoakprestige.com/services/eori-registration-uk",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/services/eori-registration-uk",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/services/eori-registration-uk",
+        },
     },
 };
 

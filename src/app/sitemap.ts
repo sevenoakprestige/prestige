@@ -18,6 +18,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'daily',
             priority: 1.0,
         },
+        {
+            url: `${baseUrl}/fr`,
+            lastModified: now,
+            changeFrequency: 'daily',
+            priority: 0.95,
+        },
     ];
 
     // ── CORE SERVICE PAGES (highest commercial value) ──

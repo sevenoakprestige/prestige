@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.sevenoakprestige.com/services/director-service-address",
+        languages: {
+            "en-US": "https://www.sevenoakprestige.com/services/director-service-address",
+            "fr-FR": "https://www.sevenoakprestige.com/fr/services/director-service-address",
+        },
     },
 };
 

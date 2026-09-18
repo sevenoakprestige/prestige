@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import * as React from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { TbMenu3 } from "react-icons/tb";
 import { FaWhatsapp, FaBuilding, FaMapMarkerAlt, FaUserTie, FaCity, FaShieldAlt, FaUniversity } from "react-icons/fa";
 import { MdArrowOutward, MdKeyboardArrowDown } from "react-icons/md";
@@ -14,71 +14,117 @@ import {
     SheetTitle,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "@/i18n";
 
-const links = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "#services" },
-    { name: "Company Checker", href: "#name-check" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Blogs", href: "/blog" },
-    { name: "Countries", href: "/countries" },
-    { name: "Resources", href: "#resources" },
-    { name: "Connect", href: "#connect" },
-];
+function LanguageSwitcher({ className }: { className?: string }) {
+    const pathname = usePathname();
+    const router = useRouter();
+    const isFr = pathname.startsWith('/fr');
 
-const menuCategories = [
-    {
-        title: "Address Services",
-        links: [
-            { name: "UK Registered Office", href: "/services/registered-office-service" },
-            { name: "UK Service Address", href: "/services/director-service-address" },
-            { name: "UK Business Address", href: "/services/virtual-business-address" },
-        ]
-    },
-    {
-        title: "Company Services",
-        links: [
-            { name: "Non-Residents Package", href: "/services/uk-company-formation-for-non-residents" },
-            { name: "Companies House Verification", href: "/services/companies-house-verification" },
-            { name: "VAT Registration", href: "/services/vat-registration-uk" },
-            { name: "EORI Registration", href: "/services/eori-registration-uk" },
-            { name: "Fintech & Payment Guidance", href: "/services/fintech-banking-guidance" },
-        ]
+    function switchLang() {
+        // Set locale cookie
+        const newLocale = isFr ? 'en' : 'fr';
+        document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+        // Clear suggestion cookie
+        document.cookie = 'LOCALE_SUGGESTION=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+
+        if (isFr) {
+            // Going en: strip /fr prefix
+            const enPath = pathname.replace(/^\/fr/, '') || '/';
+            router.push(enPath);
+        } else {
+            // Going fr: add /fr prefix
+            const frPath = pathname === '/' ? '/fr' : `/fr${pathname}`;
+            router.push(frPath);
+        }
     }
-];
 
-const resourceCategories = [
-    {
-        title: "Executive Frameworks",
-        links: [
-            { name: "Guides & Insights", href: "/resources/guides" },
-            { name: "UK Business Banking Readiness Assessment", href: "/resources/uk-business-banking-readiness-assessment" },
-        ]
-    }
-];
+    return (
+        <button
+            type="button"
+            onClick={switchLang}
+            aria-label={isFr ? 'Switch to English' : 'Passer en français'}
+            className={cn(
+                'flex items-center gap-1 rounded-md border border-gold/30 px-2.5 py-1 text-xs font-semibold tracking-widest text-gold-soft transition-all hover:border-gold hover:text-gold',
+                className
+            )}
+        >
+            <span aria-hidden="true">{isFr ? '🇬🇧' : '🇫🇷'}</span>
+            <span>{isFr ? 'EN' : 'FR'}</span>
+        </button>
+    );
+}
 
-const countryCategories = [
-    {
-        title: "International Founders",
-        links: [
-            { name: "France", href: "/countries/france/uk-company-formation", icon: "/assets/flags/fr.svg" },
-            { name: "India", href: "/countries/india/uk-company-formation", icon: "/assets/flags/in.svg" },
-        ]
-    }
-];
-
-const connectCategories = [
-    {
-        title: "Get in Touch",
-        links: [
-            { name: "Contact", href: "/contact" },
-        ]
-    }
-];
+// Categories removed from here and moved inside Navbar
 
 export default function Navbar() {
     const pathname = usePathname();
+    const isFr = pathname.startsWith('/fr');
+    const t = getTranslations(isFr ? 'fr' : 'en');
+    const prefix = isFr ? '/fr' : '';
+
+    const links = [
+        { name: t.nav.home, href: `${prefix}/` },
+        { name: t.nav.about, href: `${prefix}/about` },
+        { name: t.nav.services, href: `${prefix}/#services` },
+        { name: t.nav.companyChecker, href: `${prefix}/#name-check` },
+        { name: t.nav.pricing, href: `${prefix}/#pricing` },
+        { name: t.nav.blogs, href: `${prefix}/blog` },
+        { name: t.nav.countries, href: `${prefix}/countries` },
+        { name: t.nav.resources, href: `${prefix}/#resources` },
+        { name: t.nav.connect, href: `${prefix}/#connect` },
+    ];
+
+    const menuCategories = [
+        {
+            title: t.nav.addressServices,
+            links: [
+                { name: t.nav.registeredOffice, href: `${prefix}/services/registered-office-service` },
+                { name: t.nav.serviceAddress, href: `${prefix}/services/director-service-address` },
+                { name: t.nav.businessAddress, href: `${prefix}/services/virtual-business-address` },
+            ]
+        },
+        {
+            title: t.nav.companyServices,
+            links: [
+                { name: t.nav.nonResidentsPackage, href: `${prefix}/services/uk-company-formation-for-non-residents` },
+                { name: t.nav.chVerification, href: `${prefix}/services/companies-house-verification` },
+                { name: t.nav.vatRegistration, href: `${prefix}/services/vat-registration-uk` },
+                { name: t.nav.eoriRegistration, href: `${prefix}/services/eori-registration-uk` },
+                { name: t.nav.fintechGuidance, href: `${prefix}/services/fintech-banking-guidance` },
+            ]
+        }
+    ];
+
+    const resourceCategories = [
+        {
+            title: t.nav.executiveFrameworks,
+            links: [
+                { name: t.nav.guidesAndInsights, href: `${prefix}/resources/guides` },
+                { name: t.nav.bankingReadiness, href: `${prefix}/resources/uk-business-banking-readiness-assessment` },
+            ]
+        }
+    ];
+
+    const countryCategories = [
+        {
+            title: t.nav.internationalFounders,
+            links: [
+                { name: t.nav.france, href: `${prefix}/countries/france/uk-company-formation`, icon: "/assets/flags/fr.svg" },
+                { name: t.nav.india, href: `${prefix}/countries/india/uk-company-formation`, icon: "/assets/flags/in.svg" },
+            ]
+        }
+    ];
+
+    const connectCategories = [
+        {
+            title: t.nav.getInTouch,
+            links: [
+                { name: t.nav.contact, href: `${prefix}/contact` },
+            ]
+        }
+    ];
+
     const [isOpen, setIsOpen] = React.useState(false);
     const [isVisible, setIsVisible] = React.useState(true);
     const [lastScrollY, setLastScrollY] = React.useState(0);
@@ -163,7 +209,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between gap-4">
                     {/* Logo Section */}
                     <Link
-                        href="/"
+                        href={`${prefix}/`}
                         className="transition-transform hover:scale-[1.02] active:scale-[0.98]"
                     >
                         <div className="flex items-center">
@@ -244,13 +290,15 @@ export default function Navbar() {
                                     <span>WhatsApp</span>
                                 </Link>
                             </li>
-                            <li className="ml-4">
+                            <li className="ml-3">
+                                <LanguageSwitcher />
                             </li>
                         </ul>
                     </nav>
 
                     {/* Mobile Navigation */}
-                    <div className="flex items-center gap-4 lg:hidden">
+                    <div className="flex items-center gap-3 lg:hidden">
+                        <LanguageSwitcher />
                         <Link
                             href="https://wa.me/447447488755"
                             className="flex items-center justify-center rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f3d066] p-2 text-black shadow-md shadow-[#d4af37]/40 transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#d4af37]/60 active:scale-95"
