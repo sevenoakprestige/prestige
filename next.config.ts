@@ -48,6 +48,11 @@ const nextConfig: NextConfig = {
         destination: '/fr/countries/france/uk-company-formation',
         permanent: true,
       },
+      {
+        source: '/fr/blog/:path*',
+        destination: '/blog/:path*',
+        permanent: true,
+      },
     ];
   },
 };

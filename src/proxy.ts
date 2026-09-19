@@ -26,11 +26,12 @@ const FRENCH_SPEAKING_COUNTRIES = new Set([
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip middleware for Next.js internal requests, API routes, and static files
+  // Skip middleware for Next.js internal requests, API routes, static files, and blog
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/studio') ||
+    pathname.startsWith('/blog') || // Add blog to ignored paths
     pathname.includes('.') // Assumes files have extensions (e.g. .jpg, .css)
   ) {
     return NextResponse.next();
