@@ -28,12 +28,12 @@ export default function Hero() {
                     </p>
 
                     <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                        <Button asChild className="!px-8 !py-4 !text-sm shadow-lg">
+                        <Button asChild className="!px-8 !py-4 !text-sm shadow-lg whitespace-normal h-auto text-center">
                             <Link href="#pricing">
                                 {heroContent.cta1}
                             </Link>
                         </Button>
-                        <Button asChild variant="ghost">
+                        <Button asChild variant="ghost" className="whitespace-normal h-auto text-center">
                             <a href={WHATSAPP}>
                                 {heroContent.cta2}
                             </a>
@@ -41,11 +41,11 @@ export default function Hero() {
                     </div>
 
                     <div className="mt-10 border-t border-border/70 pt-8">
-                        <ul className="grid grid-cols-2 gap-x-4 gap-y-3 sm:flex sm:flex-wrap sm:gap-x-6">
+                        <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6">
                             {heroContent.bullets.map((item) => (
-                                <li key={item} className="inline-flex items-center gap-2 text-sm text-foreground/90">
-                                    <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />
-                                    {item}
+                                <li key={item} className="inline-flex items-start sm:items-center gap-2 text-sm text-foreground/90">
+                                    <span className="mt-1.5 sm:mt-0 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                                    <span>{item}</span>
                                 </li>
                             ))}
                         </ul>
