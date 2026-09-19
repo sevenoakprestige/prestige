@@ -1,47 +1,11 @@
 "use client";
 
+import { useTranslation } from "@/i18n/TranslationContext";
+
 import { useState } from "react";
 
-const FAQS = [
-    {
-        q: "Is this legal for non-residents?",
-        a: "Yes. UK residency is not generally required to own shares in or act as a director of a UK private limited company. The incorporation remains subject to Companies House requirements, identity verification and applicable eligibility rules.",
-    },
-    {
-        q: "How is my identity verified?",
-        a: "Your identity is verified through our secure KYC process using trusted third-party identity verification providers, including Credas and Onfido, where appropriate. These checks help us confirm your identity and complete our customer due-diligence requirements in line with applicable UK AML and data-protection requirements. Depending on the verification result and your circumstances, we may request additional information or supporting documents.",
-    },
-    {
-        q: "What do I need to provide?",
-        a: "For a standard application, we normally require: a valid passport or eligible identity document; proof of your current residential address, such as a utility bill or bank statement dated within the last three months; your proposed company name; and a clear description of the business activities you intend to carry out. Additional information may be requested where required by our compliance review.",
-    },
-    {
-        q: "How long does company registration take?",
-        a: "Once your KYC verification has been successfully completed and we have received the required company information, a standard UK company incorporation typically takes 1–2 business days. Processing remains subject to Companies House review and approval, so exact completion times cannot be guaranteed.",
-    },
-    {
-        q: "What happens if my application is rejected?",
-        a: "Rejections are usually caused by a name conflict or a document issue. We tell you the reason, correct the filing and resubmit at no extra service fee. If the company genuinely cannot be formed, our refund policy applies.",
-    },
-    {
-        q: "Will my home address appear on the public register?",
-        a: "A director's residential address is generally kept private where a separate service address is used. The company must still maintain an appropriate registered office, which appears on the public register.",
-    },
-    {
-        q: "Can I open a UK business bank account?",
-        a: "Potentially. Eligibility depends on the provider, founder residence, business activity, KYC, source of funds and expected transactions. Forming a UK company does not guarantee banking approval, and we never promise it.",
-    },
-    {
-        q: "Do you help with banking and fintech applications?",
-        a: "Yes. We provide banking-readiness and application support where included in your package or purchased separately. Final approval is always made by the financial provider.",
-    },
-    {
-        q: "Are there hidden or renewal fees?",
-        a: "No. Package prices are fixed and stated up front, including the Companies House incorporation fee. Address services renew annually at the published rates — registered office £59/year and director service address £35/year — and we tell you the renewal date in advance.",
-    },
-];
-
 export default function FAQ() {
+    const { t } = useTranslation();
     const [open, setOpen] = useState<number | null>(0);
 
     return (
@@ -50,14 +14,14 @@ export default function FAQ() {
                 <div className="grid gap-16 lg:grid-cols-[0.7fr_1.3fr]">
                     <div>
                         <div>
-                            <p className="eyebrow">Common questions</p>
+                            <p className="eyebrow">{t.faq.eyebrow}</p>
                             <div className="mt-4 h-px w-16 rule-gold" />
                         </div>
-                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">Answers before you commit.</h2>
+                        <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">{t.faq.headline}</h2>
                     </div>
                     <div>
                         <div className="divide-y divide-border border-y border-border">
-                            {FAQS.map((item, i) => {
+                            {t.faq.items.map((item, i) => {
                                 const isOpen = open === i;
                                 return (
                                     <div key={item.q}>

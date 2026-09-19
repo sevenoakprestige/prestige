@@ -55,8 +55,11 @@ const COPY = {
   }
 } as const;
 
-export default function CompanyChecker({ lang = "en" }: { lang?: "en" | "fr" }) {
-    const t = COPY[lang];
+import { useTranslation } from "@/i18n/TranslationContext";
+
+export default function CompanyChecker() {
+    const { locale } = useTranslation();
+    const t = COPY[locale];
     const [companyName, setCompanyName] = useState('');
     const [result, setResult] = useState<{
         type: 'success' | 'error' | 'warning' | 'info' | null;

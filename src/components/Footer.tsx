@@ -2,12 +2,19 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaWhatsapp, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaStar } from "react-icons/fa";
 import { useTheme } from 'next-themes';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Button } from "./ui/button";
+import { useTranslation } from '@/i18n/TranslationContext';
 
 export default function Footer() {
+    const pathname = usePathname();
+    const { t, locale } = useTranslation();
+    const isFr = locale === 'fr';
+    const prefix = isFr ? '/fr' : '';
+
     const { theme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
@@ -52,11 +59,11 @@ export default function Footer() {
 
                         {/* Company Registration */}
                         <div className="mt-5 space-y-1 text-muted-foreground leading-relaxed">
-                            <p>Registered in England & Wales</p>
+                            <p>{t.nav.registeredIn}</p>
                             <p>124 City Road, London EC1V 2NX</p>
-                            <p>United Kingdom</p>
-                            <p className="mt-3">Company No. 16903092</p>
-                            <p>ICO Registration No: ZC181349</p>
+                            <p>{t.nav.unitedKingdom}</p>
+                            <p className="mt-3">{t.nav.companyNo}</p>
+                            <p>{t.nav.icoRegistration}</p>
                         </div>
 
                         {/* Contact Info */}
@@ -71,90 +78,90 @@ export default function Footer() {
                             </a>
                             <div className="flex items-center gap-3 hover:text-gold-soft transition-colors">
                                 <FaMapMarkerAlt className="text-gold shrink-0 text-base" />
-                                <span className="italic">Visits by appointment only</span>
+                                <span className="italic">{t.nav.visitsByAppointment}</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Column 2: Our Services */}
                     <div className="text-sm">
-                        <p className="eyebrow">Our Services</p>
+                        <p className="eyebrow">{t.nav.services}</p>
                         <ul className="mt-5 space-y-3 text-muted-foreground">
                             <li>
-                                <Link href="/services/uk-company-formation-for-non-residents" className="transition-colors hover:text-gold-soft">UK Company Formation</Link>
+                                <Link href={`${prefix}/services/uk-company-formation-for-non-residents`} className="transition-colors hover:text-gold-soft">{t.nav.nonResidentsPackage}</Link>
                             </li>
                             <li>
-                                <Link href="/services/registered-office-service" className="transition-colors hover:text-gold-soft">Registered Office Address</Link>
+                                <Link href={`${prefix}/services/registered-office-service`} className="transition-colors hover:text-gold-soft">{t.nav.registeredOffice}</Link>
                             </li>
                             <li>
-                                <Link href="/services/director-service-address" className="transition-colors hover:text-gold-soft">Director Service Address</Link>
+                                <Link href={`${prefix}/services/director-service-address`} className="transition-colors hover:text-gold-soft">{t.nav.serviceAddress}</Link>
                             </li>
                             <li>
-                                <Link href="/services/virtual-business-address" className="transition-colors hover:text-gold-soft">Virtual Business Address</Link>
+                                <Link href={`${prefix}/services/virtual-business-address`} className="transition-colors hover:text-gold-soft">{t.nav.businessAddress}</Link>
                             </li>
                             <li>
-                                <Link href="/services/fintech-banking-guidance" className="transition-colors hover:text-gold-soft">Fintech & Banking Guidance</Link>
+                                <Link href={`${prefix}/services/fintech-banking-guidance`} className="transition-colors hover:text-gold-soft">{t.nav.fintechGuidance}</Link>
                             </li>
                             <li>
-                                <Link href="/services/vat-registration-uk" className="transition-colors hover:text-gold-soft">VAT Registration</Link>
+                                <Link href={`${prefix}/services/vat-registration-uk`} className="transition-colors hover:text-gold-soft">{t.nav.vatRegistration}</Link>
                             </li>
                             <li>
-                                <Link href="/services/eori-registration-uk" className="transition-colors hover:text-gold-soft">EORI Registration</Link>
+                                <Link href={`${prefix}/services/eori-registration-uk`} className="transition-colors hover:text-gold-soft">{t.nav.eoriRegistration}</Link>
                             </li>
                         </ul>
                     </div>
 
                     {/* Column 3: Legal */}
                     <div className="text-sm">
-                        <p className="eyebrow">Legal</p>
+                        <p className="eyebrow">{t.nav.legal}</p>
                         <ul className="mt-5 space-y-3 text-muted-foreground">
                             <li>
-                                <Link href="/terms" className="transition-colors hover:text-gold-soft">Terms & Conditions</Link>
+                                <Link href={`${prefix}/terms`} className="transition-colors hover:text-gold-soft">{t.nav.termsAndConditions}</Link>
                             </li>
                             <li>
-                                <Link href="/refund" className="transition-colors hover:text-gold-soft">Refund Policy</Link>
+                                <Link href={`${prefix}/refund`} className="transition-colors hover:text-gold-soft">{t.nav.refundPolicy}</Link>
                             </li>
                             <li>
-                                <Link href="/privacy" className="transition-colors hover:text-gold-soft">Privacy Policy</Link>
+                                <Link href={`${prefix}/privacy`} className="transition-colors hover:text-gold-soft">{t.nav.privacyPolicy}</Link>
                             </li>
                             <li>
-                                <Link href="/security" className="transition-colors hover:text-gold-soft">Trust & Security</Link>
+                                <Link href={`${prefix}/security`} className="transition-colors hover:text-gold-soft">{t.nav.trustAndSecurity}</Link>
                             </li>
                         </ul>
 
-                        <p className="eyebrow mt-8">Useful</p>
+                        <p className="eyebrow mt-8">{t.nav.useful}</p>
                         <ul className="mt-5 space-y-3 text-muted-foreground">
                             <li>
-                                <Link href="/about" className="transition-colors hover:text-gold-soft">About Us</Link>
+                                <Link href={`${prefix}/about`} className="transition-colors hover:text-gold-soft">{t.nav.about}</Link>
                             </li>
                             <li>
-                                <Link href="/blog" className="transition-colors hover:text-gold-soft">Blog</Link>
+                                <Link href={`${prefix}/blog`} className="transition-colors hover:text-gold-soft">{t.nav.blogs}</Link>
                             </li>
                             <li>
-                                <Link href="/consultation" className="transition-colors hover:text-gold-soft">Book Consultation</Link>
+                                <Link href={`${prefix}/consultation`} className="transition-colors hover:text-gold-soft">{t.nav.bookConsultation}</Link>
                             </li>
                             <li>
-                                <Link href="/site-map" className="transition-colors hover:text-gold-soft">Sitemap</Link>
+                                <Link href={`${prefix}/site-map`} className="transition-colors hover:text-gold-soft">{t.nav.sitemap}</Link>
                             </li>
                         </ul>
                     </div>
 
                     {/* Column 4: Get in Touch + Socials */}
                     <div className="text-sm">
-                        <p className="eyebrow">Get in Touch</p>
+                        <p className="eyebrow">{t.nav.getInTouch}</p>
                         <p className="mt-5 text-muted-foreground mb-6 leading-relaxed">
-                            Have questions about our services? Reach out to our team for a free consultation.
+                            {isFr ? 'Vous avez des questions sur nos services ? Contactez notre équipe pour une consultation gratuite.' : 'Have questions about our services? Reach out to our team for a free consultation.'}
                         </p>
                         <Button
                             onClick={handleWhatsAppClick}
                             className="w-full"
                         >
                             <FaWhatsapp size={18} />
-                            WhatsApp Now
+                            {t.nav.whatsappNow}
                         </Button>
 
                         <div className="mt-6">
-                            <p className="eyebrow mt-10 mb-5">Follow Us</p>
+                            <p className="eyebrow mt-10 mb-5">{t.nav.followUs}</p>
                             <div className="flex items-center gap-4 mt-3">
 
                                 <Link
@@ -186,7 +193,7 @@ export default function Footer() {
                                 </svg>
                                 
                                 <div className="flex flex-col justify-center">
-                                    <span className="text-lg font-medium text-white leading-none mb-1">Google Reviews</span>
+                                    <span className="text-lg font-medium text-white leading-none mb-1">{t.nav.googleReviews}</span>
                                     <div className="flex items-center gap-2">
                                         <span className="text-2xl font-bold text-white leading-none">5.00</span>
                                         <div className="flex text-[#FBBC05] gap-0.5">
@@ -276,10 +283,10 @@ export default function Footer() {
             <div className="border-t border-border/40 py-8 text-xs text-muted-foreground">
                 <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
                     <p>
-                        © {currentYear} Seven Oak Prestige Ltd. All rights reserved.
+                        © {currentYear} Seven Oak Prestige Ltd. {t.nav.allRightsReserved}
                     </p>
                     <p className="max-w-2xl text-center md:text-right opacity-60 leading-relaxed">
-                        Seven Oak Prestige Ltd is not a law firm, accountancy firm, or regulated financial institution. All information provided is for general guidance only.
+                        {t.nav.footerDisclaimer}
                     </p>
                 </div>
             </div>

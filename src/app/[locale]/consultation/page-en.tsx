@@ -1,0 +1,19 @@
+import StrategicAdvisorySection from '@/components/consultation/StrategicAdvisorySection';
+import AdvisoryServices from '@/components/consultation/AdvisoryServices';
+import HowEngagementWorks from '@/components/consultation/HowEngagementWorks';
+import WhatYouWillGet from '@/components/consultation/WhatYouWillGet';
+import WhoThisIsFor from '@/components/consultation/WhoThisIsFor';
+import ConsultationFooter from '@/components/consultation/ConsultationFooter';
+
+export default function ConsultationPageEn() {
+    return (
+        <>
+            <StrategicAdvisorySection />
+            <AdvisoryServices />
+            <HowEngagementWorks />
+            <WhatYouWillGet />
+            <WhoThisIsFor />
+            <ConsultationFooter />
+        </>
+    );
+}

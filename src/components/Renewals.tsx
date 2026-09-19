@@ -1,38 +1,35 @@
 "use client";
 
+import { useTranslation } from "@/i18n/TranslationContext";
+
 import Link from "next/link";
 
-const RENEWALS = [
-    ["Registered Office", "Prestige and Elite · 12 months", "£59 / year"],
-    ["Director Service Address", "Prestige and Elite · 12 months", "£35 / year"],
-    ["Virtual Business Address", "Elite · 12 months", "£150 / year"],
-];
-
 export default function Renewals() {
+    const { t } = useTranslation();
     return (
         <section id="renewals" className="section-parchment border-t border-border scroll-mt-20 px-6 py-14 sm:py-20">
             <div className="mx-auto max-w-6xl">
                 <div>
-                    <p className="eyebrow">Renewals</p>
+                    <p className="eyebrow">{t.renewals.eyebrow}</p>
                     <div className="mt-4 h-px w-16 rule-gold" />
                 </div>
                 <h2 className="mt-6 max-w-2xl text-3xl leading-tight sm:text-4xl text-foreground font-display font-bold">
-                    Clear Year-Two Address Pricing
+                    {t.renewals.headline}
                 </h2>
                 <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-                    No surprise renewals. These address-service prices apply from year two and are shown before purchase.
+                    {t.renewals.body}
                 </p>
 
                 {/* Mobile: stacked service blocks */}
                 <ul className="mt-8 divide-y divide-border border-y border-border md:hidden">
-                    {RENEWALS.map(([s, i, r]) => (
+                    {t.renewals.items.map(([s, i, r]) => (
                         <li key={s} className="py-5">
                             <p className="text-sm font-semibold text-foreground">{s}</p>
                             <p className="mt-2 text-sm text-muted-foreground">
-                                <span className="text-foreground/80">Initial period:</span> {i}
+                                <span className="text-foreground/80">{t.renewals.initialPeriodMobile}</span> {i}
                             </p>
                             <p className="mt-1 text-sm text-muted-foreground">
-                                <span className="text-foreground/80">Renewal:</span> {r}
+                                <span className="text-foreground/80">{t.renewals.renewalMobile}</span> {r}
                             </p>
                         </li>
                     ))}
@@ -44,18 +41,18 @@ export default function Renewals() {
                         <thead>
                             <tr className="border-y border-border">
                                 <th className="py-4 pr-6 text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
-                                    Service
+                                    {t.renewals.serviceLabel}
                                 </th>
                                 <th className="py-4 pr-6 text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
-                                    Initial period
+                                    {t.renewals.initialPeriod}
                                 </th>
                                 <th className="py-4 text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
-                                    Renewal
+                                    {t.renewals.renewal}
                                 </th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-border">
-                            {RENEWALS.map(([s, i, r]) => (
+                            {t.renewals.items.map(([s, i, r]) => (
                                 <tr key={s}>
                                     <td className="py-4 pr-6 font-semibold text-foreground">{s}</td>
                                     <td className="py-4 pr-6 text-muted-foreground">{i}</td>

@@ -29,8 +29,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/fr/services/uk-company-formation',
+        destination: '/fr/services/uk-company-formation-for-non-residents',
+        permanent: true,
+      },
+      {
         source: '/services/uk-company-formation-non-residents',
         destination: '/services/uk-company-formation-for-non-residents',
+        permanent: true,
+      },
+      {
+        source: '/fr/services/uk-company-formation-non-residents',
+        destination: '/fr/services/uk-company-formation-for-non-residents',
+        permanent: true,
+      },
+      {
+        source: '/countries/france/uk-company-formation',
+        destination: '/fr/countries/france/uk-company-formation',
         permanent: true,
       },
     ];

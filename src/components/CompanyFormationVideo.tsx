@@ -1,6 +1,10 @@
 import Link from 'next/link';
+import { useTranslation } from '@/i18n/TranslationContext';
 
 export default function CompanyFormationVideo() {
+    const { locale } = useTranslation();
+    const prefix = locale === 'en' ? '' : `/${locale}`;
+
     return (
         <section className="relative overflow-hidden px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
             {/* Subtle ambient glow matching the site aesthetics */}
@@ -14,7 +18,7 @@ export default function CompanyFormationVideo() {
                 </h2>
                 <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-foreground/80">
                     Created for beginners, this short video will provide you with everything you need to know about the{' '}
-                    <Link href="/services/uk-company-formation-for-non-residents" className="text-[#d4af37] font-medium hover:underline transition-colors">
+                    <Link href={`${prefix}/services/uk-company-formation-for-non-residents`} className="text-[#d4af37] font-medium hover:underline transition-colors">
                         company formation process
                     </Link>{' '}
                     - in the simplest of terms. Watch it and register your company today.
