@@ -2900,11 +2900,11 @@ RESPONSIVE DESIGN
 
 @layer components {
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-all uppercase tracking-[0.09em] bg-gradient-to-b from-gold-soft to-gold text-on-gold font-bold shadow-[0_12px_30px_-16px_rgba(0,0,0,0.8)] hover:-translate-y-[2px] text-[0.8125rem] px-7 py-4;
+    @apply inline-flex items-center justify-center gap-2 whitespace-normal text-center h-auto rounded-md transition-all uppercase tracking-[0.09em] bg-gradient-to-b from-gold-soft to-gold text-on-gold font-bold shadow-[0_12px_30px_-16px_rgba(0,0,0,0.8)] hover:-translate-y-[2px] text-[0.8125rem] px-7 py-4;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-all uppercase tracking-[0.09em] border border-gold/[.45] text-gold-soft font-semibold hover:bg-gold/[.12] text-[0.8125rem] px-7 py-4;
+    @apply inline-flex items-center justify-center gap-2 whitespace-normal text-center h-auto rounded-md transition-all uppercase tracking-[0.09em] border border-gold/[.45] text-gold-soft font-semibold hover:bg-gold/[.12] text-[0.8125rem] px-7 py-4;
   }
 }
 

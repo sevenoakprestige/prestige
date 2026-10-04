@@ -16,6 +16,7 @@ export const en = {
     blogs: 'Blogs',
     countries: 'Countries',
     resources: 'Resources',
+    partners: 'Partners',
     connect: 'Connect',
     whatsapp: 'WhatsApp',
     switchLang: 'FR',
@@ -356,7 +357,7 @@ export type Translations = {
   locale: Locale;
   nav: {
     home: string; about: string; services: string; companyChecker: string;
-    pricing: string; blogs: string; countries: string; resources: string;
+    pricing: string; blogs: string; countries: string; partners: string; resources: string;
     connect: string; whatsapp: string; switchLang: string; switchLangLabel: string;
     addressServices: string; companyServices: string; executiveFrameworks: string;
     internationalFounders: string; getInTouch: string;
