@@ -162,8 +162,8 @@ export default function AboutPageFr() {
                   De la création d'entreprise et des services d'adresse au Royaume-Uni à la conformité avec la Companies House et à la préparation bancaire, nous vous aidons à comprendre ce qui est requis, ce qui se passe ensuite et où l'approbation de tiers s'applique toujours.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <a href={WHATSAPP} className="btn-gold">Discutez de votre installation au R-U sur WhatsApp</a>
-                  <Link href="/fr/#pricing" className="btn-ghost">Voir les forfaits de création</Link>
+                  <a href={WHATSAPP} className="btn-gold w-full sm:w-auto">Discutez de votre installation au R-U sur WhatsApp</a>
+                  <Link href="/fr/#pricing" className="btn-ghost w-full sm:w-auto">Voir les forfaits de création</Link>
                 </div>
               </div>
             </div>
@@ -265,7 +265,7 @@ export default function AboutPageFr() {
               <p className="mt-6 leading-relaxed text-muted-foreground">Nos clients reçoivent des conseils directs tout au long de l'intégration, de la création et des services post-constitution convenus.</p>
               <p className="mt-5 leading-relaxed text-muted-foreground">Là où nous pouvons aider directement, nous le faisons.</p>
               <p className="mt-5 leading-relaxed text-muted-foreground">Lorsqu'une question nécessite une expertise comptable, juridique, fiscale ou d'immigration spécialisée, nous faisons clairement cette distinction plutôt que de prétendre qu'un seul fournisseur peut légitimement tout faire.</p>
-              <a href={WHATSAPP} className="btn-gold mt-9">Demandez à notre équipe pour votre installation</a>
+              <a href={WHATSAPP} className="btn-gold mt-9 w-full sm:w-auto">Demandez à notre équipe pour votre installation</a>
             </div>
           </div>
         </section>
@@ -335,8 +335,8 @@ export default function AboutPageFr() {
                 <p className="mt-6 max-w-2xl leading-relaxed text-muted-foreground">Que vous formiez votre première société au Royaume-Uni ou que vous établissiez une présence au Royaume-Uni pour une entreprise étrangère existante, nous pouvons vous aider à comprendre le processus, à sélectionner les services appropriés et à terminer la configuration à distance.</p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">
-                <a href={WHATSAPP} className="btn-gold">Discutez de votre installation au R-U sur WhatsApp</a>
-                <Link href="/fr/#pricing" className="btn-ghost">Comparer les forfaits de création</Link>
+                <a href={WHATSAPP} className="btn-gold w-full sm:w-auto">Discutez de votre installation au R-U sur WhatsApp</a>
+                <Link href="/fr/#pricing" className="btn-ghost w-full sm:w-auto">Comparer les forfaits de création</Link>
               </div>
             </div>
             <ul className="mt-14 grid border-y border-border sm:grid-cols-2 lg:grid-cols-4">

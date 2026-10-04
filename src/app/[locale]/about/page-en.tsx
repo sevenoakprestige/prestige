@@ -162,8 +162,8 @@ export default function AboutPageEn() {
                   From company formation and UK address services to Companies House compliance and banking readiness, we help you understand what is required, what happens next and where third-party approval still applies.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <a href={WHATSAPP} className="btn-gold">Discuss Your UK Setup on WhatsApp</a>
-                  <Link href="/#pricing" className="btn-ghost">View Formation Packages</Link>
+                  <a href={WHATSAPP} className="btn-gold w-full sm:w-auto">Discuss Your UK Setup on WhatsApp</a>
+                  <Link href="/#pricing" className="btn-ghost w-full sm:w-auto">View Formation Packages</Link>
                 </div>
               </div>
             </div>
@@ -265,7 +265,7 @@ export default function AboutPageEn() {
               <p className="mt-6 leading-relaxed text-muted-foreground">Our clients receive direct guidance throughout onboarding, incorporation and the agreed post-incorporation services.</p>
               <p className="mt-5 leading-relaxed text-muted-foreground">Where we can assist directly, we do.</p>
               <p className="mt-5 leading-relaxed text-muted-foreground">Where a matter requires specialist accounting, legal, tax or immigration expertise, we make that distinction clearly rather than pretending one provider can legitimately do everything.</p>
-              <a href={WHATSAPP} className="btn-gold mt-9">Ask Our Team About Your Setup</a>
+              <a href={WHATSAPP} className="btn-gold mt-9 w-full sm:w-auto">Ask Our Team About Your Setup</a>
             </div>
           </div>
         </section>
@@ -335,8 +335,8 @@ export default function AboutPageEn() {
                 <p className="mt-6 max-w-2xl leading-relaxed text-muted-foreground">Whether you are forming your first UK company or establishing a UK presence for an existing overseas business, we can help you understand the process, select the appropriate services and complete the setup remotely.</p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">
-                <a href={WHATSAPP} className="btn-gold">Discuss Your UK Setup on WhatsApp</a>
-                <Link href="/#pricing" className="btn-ghost">Compare Formation Packages</Link>
+                <a href={WHATSAPP} className="btn-gold w-full sm:w-auto">Discuss Your UK Setup on WhatsApp</a>
+                <Link href="/#pricing" className="btn-ghost w-full sm:w-auto">Compare Formation Packages</Link>
               </div>
             </div>
             <ul className="mt-14 grid border-y border-border sm:grid-cols-2 lg:grid-cols-4">
