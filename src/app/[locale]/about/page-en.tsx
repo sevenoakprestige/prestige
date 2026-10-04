@@ -1,529 +1,361 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp, FaCheck, FaBuilding, FaMapMarkerAlt, FaUserTie, FaCity, FaShieldAlt, FaUniversity, FaBolt, FaGlobe, FaHandshake, FaStar } from "react-icons/fa";
 import Footer from "@/components/Footer";
 
-const services = [
-    {
-        icon: <FaBuilding className="h-7 w-7" />,
-        title: "UK Company Formation",
-        description: "Fast, compliant company incorporation with Companies House for UK residents and non-residents alike.",
-        href: "/services/uk-company-formation-for-non-residents",
-    },
-    {
-        icon: <FaMapMarkerAlt className="h-7 w-7" />,
-        title: "Registered Office Address",
-        description: "A professional UK registered office address at 124 City Road, London — fully compliant with Companies House requirements.",
-        href: "/services/registered-office-service",
-    },
-    {
-        icon: <FaUserTie className="h-7 w-7" />,
-        title: "Director Service Address",
-        description: "Protect your personal address with a professional director service address for Companies House filings.",
-        href: "/services/director-service-address",
-    },
-    {
-        icon: <FaCity className="h-7 w-7" />,
-        title: "Virtual Business Address",
-        description: "A prestigious London business address for your correspondence, giving your company a professional UK presence.",
-        href: "/services/virtual-business-address",
-    },
-    {
-        icon: <FaShieldAlt className="h-7 w-7" />,
-        title: "Compliance Support",
-        description: "Expert guidance on Companies House compliance, identity verification, and ongoing regulatory requirements.",
-        href: "/services/companies-house-verification",
-    },
-    {
-        icon: <FaUniversity className="h-7 w-7" />,
-        title: "Banking Assistance",
-        description: "Practical support preparing for UK business banking applications and fintech account setup.",
-        href: "/services/fintech-banking-guidance",
-    },
+const WHATSAPP =
+  "https://wa.me/447447488755?text=Hello%20Seven%20Oak%20Prestige%2C%20I%20would%20like%20to%20discuss%20my%20UK%20company%20setup.";
+
+const TRUST_ITEMS = [
+  ["UK-Registered Company", "Seven Oak Prestige Ltd · Company No. 16903092"],
+  ["London Registered Office", "124 City Road, London EC1V 2NX"],
+  ["ICO Registered", "Registration No. ZC181349"],
+  ["International Founder Support", "Remote onboarding for eligible overseas clients"],
 ];
 
-const approach = [
-    "Professional guidance",
-    "Responsive support",
-    "Compliance-focused processes",
-    "Clear communication",
-    "Long-term business readiness",
+const LIMITS = [
+  ["Companies House approval", "Final incorporation decisions remain with Companies House."],
+  [
+    "Bank or fintech approval",
+    "Banks, EMIs and payment providers make their own KYC, eligibility and risk decisions.",
+  ],
+  [
+    "Tax, legal or regulatory outcomes",
+    "These depend on the client’s circumstances and may require assessment by an appropriately qualified professional.",
+  ],
+  ["Immigration outcomes", "UK company ownership does not itself provide residence or work rights."],
 ];
 
-const whyChoose = [
-    {
-        icon: <FaBolt className="h-7 w-7" />,
-        title: "Fast Incorporation Support",
-        description: "Efficient company formation support designed to get your UK business registered quickly and professionally.",
-    },
-    {
-        icon: <FaGlobe className="h-7 w-7" />,
-        title: "International Expertise",
-        description: "We work with entrepreneurs from a wide range of countries establishing UK companies and international business credibility.",
-    },
-    {
-        icon: <FaBuilding className="h-7 w-7" />,
-        title: "Professional UK Presence",
-        description: "Premium London business addresses that give your company the credibility and professionalism it deserves.",
-    },
-    {
-        icon: <FaShieldAlt className="h-7 w-7" />,
-        title: "Compliance Focused",
-        description: "Every service we provide is built around UK regulatory compliance, ensuring your business is properly structured from day one.",
-    },
-    {
-        icon: <FaUniversity className="h-7 w-7" />,
-        title: "Banking Assistance",
-        description: "Practical banking readiness support to help you prepare for UK business banking and fintech applications.",
-    },
-    {
-        icon: <FaHandshake className="h-7 w-7" />,
-        title: "Responsive Client Support",
-        description: "A client-focused approach with clear, timely communication throughout every stage of your business journey.",
-    },
+const AUDIENCES = [
+  ["International founders", "Setting up their first UK limited company while continuing to live overseas."],
+  ["Established overseas businesses", "Creating a UK subsidiary or UK presence as part of international expansion."],
+  ["E-commerce and digital businesses", "Needing a UK company, address infrastructure and banking readiness."],
+  [
+    "Consultants, agencies and technology companies",
+    "Establishing a professional UK structure for international business.",
+  ],
+  [
+    "Founders with more complex profiles",
+    "Where residence, ownership or documentation requires more careful preparation before applying.",
+  ],
 ];
+
+const DIFFERENTIATORS = [
+  [
+    "Human review before filing",
+    "Your incorporation details are reviewed before submission, helping identify inconsistencies that automated formation portals may miss.",
+  ],
+  [
+    "Built around non-resident founders",
+    "Our process is designed around overseas documents, remote onboarding, international ownership and banking-readiness issues.",
+  ],
+  [
+    "Clear pricing before commitment",
+    "Our formation packages and year-two address renewal fees are published upfront so you can understand the commercial commitment before purchasing.",
+  ],
+  [
+    "Banking readiness, not banking promises",
+    "We help eligible clients prepare and apply for suitable business banking or fintech solutions. Final decisions always remain with the provider.",
+  ],
+];
+
+const PROCESS = [
+  [
+    "Understand the proposed business",
+    "We establish the founder profile, business activity, ownership and services required.",
+  ],
+  [
+    "Select the appropriate setup",
+    "You choose the formation package and any additional services relevant to your case.",
+  ],
+  [
+    "Complete secure onboarding",
+    "Identity, address and company information are collected through the appropriate onboarding and verification process.",
+  ],
+  ["Adviser review", "We review the information and resolve material inconsistencies before filing."],
+  [
+    "Incorporation",
+    "Once the required checks are complete, the application is prepared and submitted to Companies House.",
+  ],
+  [
+    "Post-incorporation support",
+    "Depending on your package and requirements, we can assist with address services, documentation, banking readiness and other agreed services.",
+  ],
+];
+
+const REVIEWS = [
+  {
+    name: "Vbvvb Bbjbb",
+    text: "I had a great experience working with this company for my UK company registration. The entire process was smooth, professional, and well-organized. Their team was always responsive, answered my questions clearly, and kept me updated throughout every step. Everything was completed on time, exactly as promised.",
+  },
+  {
+    name: "Safaat Siddhi",
+    text: "The service was efficient, transparent, and delivered as promised.",
+  },
+  {
+    name: "albalushi Mazan",
+    text: "I am pleased to share my excellent experience with this company, where I witnessed a high level of professionalism and dedication. From what I observed, the team consists of hardworking employees with a strong sense of responsibility and commitment. I extend my sincere thanks and appreciation to them for their efforts and continued dedication.",
+  },
+];
+
+const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=seven+oak+prestige+reviews";
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <div>
+      <p className="eyebrow">{children}</p>
+      <div className="mt-4 h-px w-16 rule-gold" />
+    </div>
+  );
+}
+
+function SectionHeading({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {
+  return (
+    <div className="max-w-3xl">
+      <Eyebrow>{eyebrow}</Eyebrow>
+      <h2 className="mt-6 text-3xl leading-[1.12] sm:text-4xl lg:text-[2.75rem]">{children}</h2>
+    </div>
+  );
+}
+
+function Stars() {
+  return (
+    <div className="flex gap-1 text-gold" aria-label="Rated 5 out of 5">
+      {Array.from({ length: 5 }).map((_, index) => (
+        <svg key={index} viewBox="0 0 20 20" className="h-3.5 w-3.5 fill-current" aria-hidden="true">
+          <path d="M10 1.5l2.47 5.27 5.53.72-4.06 3.9 1.03 5.61L10 14.35 5.03 17l1.03-5.61L2 7.49l5.53-.72L10 1.5z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function GoogleMark() {
+  return (
+    <svg viewBox="0 0 48 48" className="h-5 w-5" aria-hidden="true">
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+    </svg>
+  );
+}
 
 export default function AboutPageEn() {
-    return (
-        <>
-            {/* ── SECTION 1: HERO BANNER ── */}
-            <section className="section-dark relative min-h-[90vh] flex items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
-                {/* Background Image */}
-                <div className="absolute inset-0 -z-20">
-                    <Image
-                        src="/assets/aboutus/aboutussec.webp"
-                        alt="Premium London skyline — Seven Oak Prestige LTD UK Company Formation"
-                        fill
-                        className="object-cover object-center"
-                        priority
-                        quality={95}
-                    />
-                    {/* Dark overlay for readability */}
-                    <div className="absolute inset-0 bg-black/65" />
-                    {/* Gradient fade at bottom */}
-                    <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-black/80 to-transparent" />
+  return (
+    <div className="bg-background">
+      <main>
+        <section className="section-dark border-b border-border">
+          <div className="mx-auto max-w-6xl px-6 pb-0 pt-20 sm:pt-28">
+            <div className="grid gap-12 pb-16 lg:grid-cols-[1.18fr_0.82fr] lg:items-end lg:pb-24">
+              <div>
+                <Eyebrow>About Seven Oak Prestige</Eyebrow>
+                <h1 className="mt-8 max-w-4xl text-4xl leading-[1.06] sm:text-5xl lg:text-[4rem]">
+                  UK Company Formation Built Around International Founders
+                </h1>
+              </div>
+              <div className="border-l border-border pl-6 sm:pl-8">
+                <p className="text-base leading-relaxed text-foreground/90">
+                  Seven Oak Prestige Ltd helps international entrepreneurs establish and maintain UK companies with clear guidance, secure onboarding and practical support beyond incorporation.
+                </p>
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                  From company formation and UK address services to Companies House compliance and banking readiness, we help you understand what is required, what happens next and where third-party approval still applies.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <a href={WHATSAPP} className="btn-gold">Discuss Your UK Setup on WhatsApp</a>
+                  <Link href="/#pricing" className="btn-ghost">View Formation Packages</Link>
                 </div>
+              </div>
+            </div>
 
-                {/* Animated gold orbs */}
-                <div className="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
-                    <div className="hero-circle-1 absolute -top-40 -right-40 h-96 w-96 rounded-full bg-gold/15 blur-3xl" />
-                    <div className="hero-circle-2 absolute -bottom-40 -left-40 h-[30rem] w-[30rem] rounded-full bg-gold/10 blur-3xl" />
+            <div className="grid border-t border-border sm:grid-cols-2 lg:grid-cols-4">
+              {TRUST_ITEMS.map(([title, detail], index) => (
+                <div key={title} className="relative border-b border-border py-7 sm:px-6 sm:first:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0">
+                  <span className="absolute left-0 top-0 h-px w-10 bg-gold" aria-hidden="true" />
+                  <p className="text-xs font-semibold text-foreground">{title}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{detail}</p>
+                  <span className="sr-only">Verified item {index + 1}</span>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                <div className="relative z-10 mx-auto max-w-5xl text-center">
-                    {/* Badge */}
-                    <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2 backdrop-blur-sm">
-                        <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
-                        </span>
-                        <span className="text-sm font-medium text-gold tracking-wide">
-                            Seven Oak Prestige LTD
-                        </span>
-                    </div>
+        <section className="section-parchment border-b border-border px-6 py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl">
+            <SectionHeading eyebrow="Transparency matters">What We Will Never Promise You</SectionHeading>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              A professional adviser should tell you where its responsibility ends.
+            </p>
+            <div className="mt-12 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+              {LIMITS.map(([title, detail]) => (
+                <article key={title} className="bg-background p-7 sm:p-8">
+                  <div className="h-0.5 w-8 bg-gold" />
+                  <h3 className="mt-6 text-lg leading-snug">{title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{detail}</p>
+                </article>
+              ))}
+            </div>
+            <blockquote className="mt-10 border-l-2 border-gold bg-primary px-7 py-8 font-display text-xl leading-snug text-primary-foreground sm:px-10 sm:py-10 sm:text-2xl">
+              “Our commitment is not to promise every outcome. It is to prepare your case professionally, communicate clearly and tell you when specialist advice is required.”
+            </blockquote>
+          </div>
+        </section>
 
-                    {/* Headline */}
-                    <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                        Building Professional{" "}
-                        <span className="text-gold">
-                            UK Business Foundations
-                        </span>{" "}
-                        for Entrepreneurs Worldwide
-                    </h1>
+        <section className="border-b border-border px-6 py-20 sm:py-28">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.82fr_1.18fr]">
+            <SectionHeading eyebrow="Why Seven Oak exists">Incorporation Is the Beginning, Not the Whole Setup</SectionHeading>
+            <div className="space-y-5 text-base leading-relaxed text-muted-foreground lg:pt-12">
+              <p className="font-display text-2xl leading-snug text-foreground">
+                Registering a UK company can be straightforward. Building a structure that is usable afterwards is where international founders often need more support.
+              </p>
+              <p>Identity verification, a suitable UK address, Companies House correspondence, banking eligibility, tax registrations and ongoing compliance can all become important after incorporation.</p>
+              <p>Seven Oak Prestige was built to help founders understand not only how to register a UK company, but what must happen afterwards.</p>
+              <p className="border-t border-border pt-5 font-medium text-foreground">We do not believe in selling an incorporation and leaving the founder to work out the rest alone.</p>
+            </div>
+          </div>
+        </section>
 
-                    {/* Subheadline */}
-                    <p className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-foreground/80 sm:text-xl md:text-2xl">
-                        Supporting entrepreneurs with UK company formation, registered office services, compliance guidance, and banking assistance.
-                    </p>
+        <section className="section-parchment border-b border-border px-6 py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl">
+            <SectionHeading eyebrow="Who we support">Built for International Business Owners</SectionHeading>
+            <p className="mt-6 max-w-2xl leading-relaxed text-muted-foreground">
+              Seven Oak Prestige supports entrepreneurs and overseas businesses establishing a genuine UK company for commercial purposes.
+            </p>
+            <div className="mt-12 grid gap-px bg-border md:grid-cols-2 lg:grid-cols-5">
+              {AUDIENCES.map(([title, detail], index) => (
+                <article key={title} className="min-h-64 bg-background p-7 transition-colors duration-300 hover:bg-accent">
+                  <p className="font-display text-3xl text-gold">{String(index + 1).padStart(2, "0")}</p>
+                  <h3 className="mt-10 text-lg leading-snug">{title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{detail}</p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-8 max-w-4xl border-l-2 border-gold pl-5 text-sm leading-relaxed text-muted-foreground">
+              Every case is assessed on its actual facts. Residence, nationality, business activity, ownership and documentation can affect which services and providers are available.
+            </p>
+          </div>
+        </section>
 
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-                        <Link
-                            href="https://wa.me/447447488755"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn-gold"
-                        >
-                            <span>Contact Us</span>
-                        </Link>
-                        <Link
-                            href="#about-content"
-                            className="btn-ghost"
-                        >
-                            Learn More
-                        </Link>
-                    </div>
+        <section className="border-b border-border px-6 py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl">
+            <SectionHeading eyebrow="More than an online formation form">A More Considered Way to Establish Your UK Company</SectionHeading>
+            <div className="mt-14 divide-y divide-border border-y border-border">
+              {DIFFERENTIATORS.map(([title, detail], index) => (
+                <article key={title} className="grid gap-5 py-8 sm:grid-cols-[5rem_0.75fr_1.25fr] sm:items-start sm:gap-8">
+                  <p className="font-display text-3xl text-gold">{String(index + 1).padStart(2, "0")}</p>
+                  <h3 className="text-xl leading-snug">{title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {detail}{" "}
+                    {index === 2 && <Link href="/#pricing" className="font-semibold text-gold-soft underline decoration-gold/40 underline-offset-4">View formation packages.</Link>}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                    {/* Trust indicators */}
-                    <div className="mt-14 flex flex-wrap items-center justify-center gap-6 text-sm sm:gap-10">
-                        {["UK Registered Company", "Companies House Compliant", "International Clients Supported"].map((item) => (
-                            <div key={item} className="flex items-center gap-2 text-foreground/70">
-                                <FaCheck className="h-4 w-4 text-gold" />
-                                <span className="font-medium">{item}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+        <section className="section-dark border-b border-border px-6 py-20 sm:py-28">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.78fr_1.22fr]">
+            <SectionHeading eyebrow="Founder-led">Human Support, Not an Anonymous Portal</SectionHeading>
+            <div className="lg:border-l lg:border-border lg:pl-12">
+              <p className="font-display text-2xl leading-snug text-foreground">
+                Seven Oak Prestige operates with a hands-on, founder-led approach rather than as an anonymous automated formation platform.
+              </p>
+              <p className="mt-6 leading-relaxed text-muted-foreground">Our clients receive direct guidance throughout onboarding, incorporation and the agreed post-incorporation services.</p>
+              <p className="mt-5 leading-relaxed text-muted-foreground">Where we can assist directly, we do.</p>
+              <p className="mt-5 leading-relaxed text-muted-foreground">Where a matter requires specialist accounting, legal, tax or immigration expertise, we make that distinction clearly rather than pretending one provider can legitimately do everything.</p>
+              <a href={WHATSAPP} className="btn-gold mt-9">Ask Our Team About Your Setup</a>
+            </div>
+          </div>
+        </section>
 
-            {/* ── SECTION 2: ABOUT SEVEN OAK PRESTIGE ── */}
-            <section id="about-content" className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-                {/* Background decoration */}
-                <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-                    <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-                </div>
+        <section className="border-b border-border px-6 py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl">
+            <SectionHeading eyebrow="How we work">A Clear Process From Enquiry to Incorporation</SectionHeading>
+            <div className="relative mt-14 grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+              {PROCESS.map(([title, detail], index) => (
+                <article key={title} className="relative bg-background p-8">
+                  <span className="absolute left-0 top-0 h-px w-full bg-gold/50" aria-hidden="true" />
+                  <p className="font-display text-3xl text-gold">{String(index + 1).padStart(2, "0")}</p>
+                  <h3 className="mt-7 text-xl leading-snug">{title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{detail}</p>
+                </article>
+              ))}
+            </div>
 
-                <div className="mx-auto max-w-7xl">
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-                        {/* Left: Text Content */}
-                        <div>
-                            <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-3 block">
-                                ABOUT US
-                            </span>
-                            <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-                                About Seven Oak{" "}
-                                <span className="text-gold">
-                                    Prestige LTD
-                                </span>
-                            </h2>
-                            <div className="mx-auto mb-8 h-px w-24 rule-gold" />
+            <div className="mt-24 flex flex-wrap items-end justify-between gap-6 border-b border-border pb-6">
+              <div>
+                <Eyebrow>Client experience</Eyebrow>
+                <h3 className="mt-6 text-3xl sm:text-4xl">In Their Own Words</h3>
+              </div>
+              <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-gold-soft transition-colors hover:text-gold">
+                <GoogleMark /> View Our Google Reviews
+              </a>
+            </div>
+            <div className="grid gap-px bg-border lg:grid-cols-3">
+              {REVIEWS.map((review) => (
+                <a key={review.name} href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer" className="flex min-h-72 flex-col bg-background p-8 transition-colors duration-300 hover:bg-accent">
+                  <div className="flex items-center justify-between"><Stars /><GoogleMark /></div>
+                  <blockquote className="mt-7 flex-1 font-display text-lg leading-snug text-foreground/90">“{review.text}”</blockquote>
+                  <p className="mt-8 border-t border-border pt-5 text-xs font-semibold text-foreground">{review.name} <span className="font-normal text-muted-foreground">· Google review</span></p>
+                </a>
+              ))}
+            </div>
 
-                            <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                                <p>
-                                    Seven Oak Prestige LTD supports UK residents and international entrepreneurs with UK company formation, registered office services, director service addresses, virtual business addresses, compliance guidance, and banking assistance.
-                                </p>
-                                <p>
-                                    We understand that establishing a business is about more than simply incorporating a company. It is about creating the right foundation for future growth, credibility, and opportunity.
-                                </p>
-                                <p>
-                                    Whether you are launching your first venture, expanding internationally, or establishing a presence in the United Kingdom, our goal is to help make the process clear, professional, and efficient.
-                                </p>
-                            </div>
+            <div className="section-parchment mt-24 grid gap-10 border border-border p-8 sm:p-10 lg:grid-cols-[0.7fr_1.3fr] lg:p-14">
+              <div>
+                <Eyebrow>A real international founder case</Eyebrow>
+                <h3 className="mt-6 text-3xl leading-tight">UK Company Formation From Overseas</h3>
+              </div>
+              <div className="divide-y divide-border border-y border-border">
+                {[
+                  ["Situation", "An international founder residing overseas required a UK company for a digital business without travelling to the UK."],
+                  ["Challenge", "Remote onboarding, review of overseas residence documentation and preparation of a consistent company structure."],
+                  ["Our role", "KYC and document support, company structure, Companies House submission and post-incorporation banking readiness."],
+                  ["Result", "The company was successfully incorporated once the required information and verification were complete."],
+                ].map(([label, detail]) => (
+                  <div key={label} className="grid gap-2 py-5 sm:grid-cols-[7rem_1fr] sm:gap-6">
+                    <p className="text-xs font-semibold uppercase text-gold-soft">{label}</p>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{detail}</p>
+                  </div>
+                ))}
+                <p className="py-5 text-xs leading-relaxed text-muted-foreground">Individual circumstances and processing times vary. Companies House and third-party providers retain their own approval and processing responsibilities.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                            {/* Our Approach */}
-                            <div className="mt-10">
-                                <h3 className="mb-5 text-xl font-bold text-foreground">Our Approach</h3>
-                                <p className="mb-5 text-muted-foreground leading-relaxed">
-                                    At Seven Oak Prestige LTD, we focus on helping entrepreneurs navigate these important stages with confidence. Our approach is built on:
-                                </p>
-                                <div className="space-y-3">
-                                    {approach.map((item) => (
-                                        <div key={item} className="flex items-center gap-3">
-                                            <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold">
-                                                <FaCheck className="h-3 w-3" />
-                                            </div>
-                                            <span className="text-base font-medium text-foreground">{item}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                                <p className="mt-6 text-muted-foreground italic leading-relaxed">
-                                    We believe that strong businesses are built on strong foundations.
-                                </p>
-                            </div>
-                        </div>
+        <section className="section-dark px-6 py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-12 lg:grid-cols-[1fr_0.86fr] lg:items-end">
+              <div>
+                <Eyebrow>Ready when you are</Eyebrow>
+                <h2 className="mt-7 max-w-3xl text-4xl leading-[1.08] sm:text-5xl">Start With a UK Company Setup You Understand</h2>
+                <p className="mt-6 max-w-2xl leading-relaxed text-muted-foreground">Whether you are forming your first UK company or establishing a UK presence for an existing overseas business, we can help you understand the process, select the appropriate services and complete the setup remotely.</p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">
+                <a href={WHATSAPP} className="btn-gold">Discuss Your UK Setup on WhatsApp</a>
+                <Link href="/#pricing" className="btn-ghost">Compare Formation Packages</Link>
+              </div>
+            </div>
+            <ul className="mt-14 grid border-y border-border sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                "No UK travel required for standard eligible formations",
+                "Companies House filing included in every formation package",
+                "Clear year-two address pricing",
+                "Human support throughout onboarding",
+              ].map((item) => (
+                <li key={item} className="flex gap-3 border-b border-border py-5 text-sm text-foreground/90 sm:px-5 sm:first:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0">
+                  <span className="mt-2 h-1 w-1 shrink-0 bg-gold" aria-hidden="true" />{item}
+                </li>
+              ))}
+            </ul>
 
-                        {/* Right: Image */}
-                        <div className="relative">
-                            <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-2xl shadow-gold/10">
-                                <Image
-                                    src="/assets/aboutus/aboutus_section2.webp"
-                                    alt="Professional UK business environment — Seven Oak Prestige LTD"
-                                    width={700}
-                                    height={500}
-                                    className="object-cover w-full h-auto"
-                                    quality={90}
-                                />
-                                {/* Gold overlay gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-tr from-gold/10 via-transparent to-transparent pointer-events-none" />
-                            </div>
-                            {/* Decorative element */}
-                            <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-gold/10 blur-2xl pointer-events-none" />
-                            <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-gold/10 blur-2xl pointer-events-none" />
-
-                            {/* Floating badge */}
-                            <div className="absolute -bottom-4 left-6 rounded-2xl border border-gold/30 bg-card/90 px-5 py-4 shadow-xl backdrop-blur-md">
-                                <div className="flex items-center gap-3">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 text-gold">
-                                        🇬🇧
-                                    </div>
-                                    <div>
-                                        <p className="text-xs font-bold text-gold tracking-wider uppercase">Registered in</p>
-                                        <p className="text-sm font-semibold text-foreground">England &amp; Wales</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 3: SERVICES OVERVIEW ── */}
-            <section className="section-parchment border-y border-border relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-                <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/3 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-                    <div className="absolute bottom-0 right-1/3 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-                </div>
-
-                <div className="mx-auto max-w-7xl">
-                    <div className="mb-14 text-center">
-                        <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-3 block">
-                            WHAT WE DO
-                        </span>
-                        <h2 className="font-display mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-                            Services We Provide
-                        </h2>
-                        <div className="mx-auto mb-5 h-px w-24 rule-gold" />
-                        <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
-                            By combining company formation services with practical business support, we help entrepreneurs establish a professional UK presence from the very beginning.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-                        {services.map((service, index) => (
-                            <Link
-                                key={index}
-                                href={service.href}
-                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-gold/45 hover:bg-card/40 hover:shadow-[0_20px_40px_rgba(212,175,55,0.12)] block"
-                            >
-                                {/* Background glow on hover */}
-                                <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent" />
-                                </div>
-                                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/10 blur-2xl transition-all duration-500 group-hover:bg-gold/20 pointer-events-none" />
-
-                                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/30 bg-gradient-to-br from-gold/15 to-transparent text-gold shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-gold/50">
-                                    {service.icon}
-                                </div>
-                                <h3 className="mb-3 text-lg font-bold text-foreground">{service.title}</h3>
-                                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
-                                <span className="inline-flex items-center gap-1 text-sm font-semibold text-gold transition-all group-hover:gap-2">
-                                    Learn more <span className="transition-transform group-hover:translate-x-1">→</span>
-                                </span>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 4: SUPPORTING INTERNATIONAL ENTREPRENEURS ── */}
-            <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-                <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-                    <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-                </div>
-
-                <div className="mx-auto max-w-7xl">
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-                        {/* Left: Globe visual */}
-                        <div className="relative order-2 lg:order-1 h-full w-full">
-                            <div className="relative h-full w-full min-h-[400px] lg:min-h-[600px] overflow-hidden rounded-3xl border border-gold/20 shadow-2xl shadow-gold/10">
-                                <Image
-                                    src="/assets/aboutus/gobal_support.webp"
-                                    alt="Global Reach and Support"
-                                    fill
-                                    className="object-cover object-center"
-                                    quality={95}
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-tr from-gold/10 via-transparent to-transparent pointer-events-none" />
-                            </div>
-                            <div className="absolute -bottom-8 -left-8 h-40 w-40 rounded-full bg-gold/15 blur-3xl pointer-events-none" />
-                        </div>
-
-                        {/* Right: Text */}
-                        <div className="order-1 lg:order-2">
-                            <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-3 block">
-                                INTERNATIONAL SUPPORT
-                            </span>
-                            <h2 className="font-display mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-                                Supporting{" "}
-                                <span className="text-gold">
-                                    International Entrepreneurs
-                                </span>
-                            </h2>
-                            <div className="mb-8 h-px w-24 rule-gold" />
-
-                            <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                                <p className="text-xl font-medium text-foreground">
-                                    Connecting global entrepreneurs to opportunities in the United Kingdom.
-                                </p>
-                                <p>
-                                    The United Kingdom remains one of the world&apos;s most recognised business environments. We work with entrepreneurs from a wide range of countries who wish to establish a UK company and build credibility within international markets.
-                                </p>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
-                                    <div className="flex items-center gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/10 border border-gold/20 text-gold">
-                                            <FaGlobe className="h-5 w-5" />
-                                        </div>
-                                        <span className="font-semibold text-foreground text-sm uppercase tracking-wide">Global<br />Entrepreneurs</span>
-                                    </div>
-                                    <div className="flex items-center gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/10 border border-gold/20 text-gold">
-                                            <FaBuilding className="h-5 w-5" />
-                                        </div>
-                                        <span className="font-semibold text-foreground text-sm uppercase tracking-wide">UK Business<br />Expertise</span>
-                                    </div>
-                                    <div className="flex items-center gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/10 border border-gold/20 text-gold">
-                                            <FaShieldAlt className="h-5 w-5" />
-                                        </div>
-                                        <span className="font-semibold text-foreground text-sm uppercase tracking-wide">Trusted &<br />Compliant</span>
-                                    </div>
-                                    <div className="flex items-center gap-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/10 border border-gold/20 text-gold">
-                                            <FaHandshake className="h-5 w-5" />
-                                        </div>
-                                        <span className="font-semibold text-foreground text-sm uppercase tracking-wide">Long-term<br />Partnership</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="mt-10">
-                                <Link
-                                    href="https://wa.me/447447488755"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn-gold"
-                                >
-                                    <span>Enquire Now</span>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 5: WHY CHOOSE SEVEN OAK PRESTIGE ── */}
-            <section className="section-parchment border-y border-border relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-                <div className="absolute inset-0 -z-10 pointer-events-none">
-                    <div className="absolute left-1/3 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-                    <div className="absolute bottom-0 right-1/3 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-                </div>
-
-                <div className="mx-auto max-w-7xl">
-                    <div className="mb-14 text-center">
-                        <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-3 block">
-                            WHY CHOOSE US
-                        </span>
-                        <h2 className="font-display mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-                            Why Choose Seven Oak{" "}
-                            <span className="text-gold">
-                                Prestige LTD?
-                            </span>
-                        </h2>
-                        <div className="mx-auto mb-5 h-px w-24 rule-gold" />
-                        <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
-                            Our objective is not only to help establish a company, but to support entrepreneurs in creating a business structure that is prepared for future opportunities.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-                        {whyChoose.map((item, index) => (
-                            <div
-                                key={index}
-                                className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-gold/45 hover:bg-card/40 hover:shadow-[0_20px_40px_rgba(212,175,55,0.12)]"
-                            >
-                                <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent" />
-                                </div>
-                                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/10 blur-2xl transition-all duration-500 group-hover:bg-gold/20 pointer-events-none" />
-
-                                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/30 bg-gradient-to-br from-gold/15 to-transparent text-gold shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-gold/50">
-                                    {item.icon}
-                                </div>
-                                <h3 className="mb-3 text-lg font-bold text-foreground">{item.title}</h3>
-                                <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 6: FINAL CTA BANNER ── */}
-            <section className="section-dark relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-                {/* Background: London skyline */}
-                <div className="absolute inset-0 -z-20">
-                    <Image
-                        src="/assets/seven_oak_prestise.webp"
-                        alt="Premium London skyline at night — Seven Oak Prestige LTD"
-                        fill
-                        className="object-cover object-center"
-                        quality={90}
-                    />
-                    <div className="absolute inset-0 bg-black/75" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-gold/5" />
-                </div>
-
-                {/* Gold orbs */}
-                <div className="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
-                    <div className="hero-circle-1 absolute -top-32 -right-32 h-80 w-80 rounded-full bg-gold/15 blur-3xl" />
-                    <div className="hero-circle-2 absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
-                </div>
-
-                <div className="mx-auto max-w-4xl text-center">
-                    {/* Section label */}
-                    <span className="text-xs font-bold tracking-[0.3em] text-gold uppercase mb-5 block">
-                        GET STARTED TODAY
-                    </span>
-
-                    {/* Main headline */}
-                    <h2 className="mb-6 font-display text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                        Ready to Establish Your{" "}
-                        <span className="text-gold">
-                            UK Business?
-                        </span>
-                    </h2>
-
-                    {/* Subtext */}
-                    <p className="mx-auto mb-10 max-w-2xl text-lg text-foreground/75 sm:text-xl">
-                        UK Company Formation &bull; Business Addresses &bull; Compliance Guidance &bull; Banking Assistance
-                    </p>
-
-                    {/* WhatsApp CTA */}
-                    <div className="flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-6">
-                        <Link
-                            href="https://wa.me/447447488755"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn-gold"
-                        >
-                            <span>Contact Us Now</span>
-                        </Link>
-                    </div>
-
-                    <p className="mt-6 text-gold/80 text-base font-medium tracking-wide">
-                        +44 7447 488755
-                    </p>
-
-                    {/* Trustpilot nudge */}
-                    <div className="mt-12 inline-flex flex-col items-center gap-4 rounded-2xl border border-[#00B67A]/20 bg-gradient-to-b from-white/10 to-transparent px-10 py-6 backdrop-blur-md shadow-xl transition-transform hover:scale-[1.02]">
-                        <div className="flex gap-1">
-                            {[1, 2, 3, 4, 5].map((star) => (
-                                <div key={star} className="flex h-8 w-8 items-center justify-center bg-[#00B67A]">
-                                    <FaStar className="h-5 w-5 text-white" />
-                                </div>
-                            ))}
-                        </div>
-                        <p className="text-foreground font-medium text-lg tracking-wide">Excellent</p>
-                        <p className="text-foreground/70 text-sm max-w-sm text-center">
-                            We value your feedback. Review us on <strong>Trustpilot</strong>, it takes less than a minute.
-                        </p>
-                        <Link
-                            href="https://www.trustpilot.com/review/sevenoakprestige.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-2 group flex items-center gap-2 rounded-full border border-[#00B67A]/50 bg-[#00B67A]/10 px-6 py-2 text-[#00B67A] font-semibold text-sm transition-all hover:bg-[#00B67A]/20 hover:border-[#00B67A]"
-                        >
-                            <span>Leave a Review</span>
-                            <span className="transition-transform group-hover:translate-x-1">→</span>
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            <Footer />
-        </>
-    );
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
 }
