@@ -135,6 +135,9 @@ export default function Footer() {
                                 <Link href={`${prefix}/about`} className="transition-colors hover:text-gold-soft">{t.nav.about}</Link>
                             </li>
                             <li>
+                                <Link href={`${prefix}/partners`} className="transition-colors hover:text-gold-soft">{t.nav.partners}</Link>
+                            </li>
+                            <li>
                                 <Link href={`/blog`} className="transition-colors hover:text-gold-soft">{t.nav.blogs}</Link>
                             </li>
                             <li>

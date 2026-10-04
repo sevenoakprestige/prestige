@@ -111,14 +111,34 @@ export default function CountriesPage() {
                             <h2 className="font-display text-2xl">{r.region}</h2>
                             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{r.note}</p>
                             <ul className="mt-6 flex flex-wrap gap-2">
-                                {r.countries.map((c) => (
-                                    <li
-                                        key={c}
-                                        className="border border-border px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-foreground/80"
-                                    >
-                                        {c}
-                                    </li>
-                                ))}
+                                {r.countries.map((c) =>
+                                    c === "India" ? (
+                                        <li key={c}>
+                                            <Link
+                                                href="/countries/india/uk-company-formation"
+                                                className="block border border-gold/50 px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-gold-soft transition-colors hover:bg-accent"
+                                            >
+                                                India
+                                            </Link>
+                                        </li>
+                                    ) : c === "France" ? (
+                                        <li key={c}>
+                                            <Link
+                                                href="/countries/france/uk-company-formation"
+                                                className="block border border-gold/50 px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-gold-soft transition-colors hover:bg-accent"
+                                            >
+                                                France
+                                            </Link>
+                                        </li>
+                                    ) : (
+                                        <li
+                                            key={c}
+                                            className="border border-border px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-foreground/80"
+                                        >
+                                            {c}
+                                        </li>
+                                    )
+                                )}
                             </ul>
                             <p className="mt-7 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">
                                 <span className="text-gold-soft">How the packages work here: </span>

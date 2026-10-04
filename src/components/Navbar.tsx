@@ -71,6 +71,7 @@ export default function Navbar() {
         { name: t.nav.pricing, href: `${prefix}/#pricing` },
         { name: t.nav.blogs, href: `/blog` },
         { name: t.nav.countries, href: `${prefix}/countries` },
+        { name: t.nav.partners, href: `${prefix}/partners` },
         { name: t.nav.resources, href: `${prefix}/#resources` },
         { name: t.nav.connect, href: `${prefix}/contact` },
     ];

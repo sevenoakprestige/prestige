@@ -16,6 +16,7 @@ export const fr: Translations = {
     blogs: 'Blog',
     countries: 'Pays',
     resources: 'Ressources',
+    partners: 'Partenaires',
     connect: 'Contact',
     whatsapp: 'WhatsApp',
     switchLang: 'EN',
