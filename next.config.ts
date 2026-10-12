@@ -53,6 +53,16 @@ const nextConfig: NextConfig = {
         destination: '/blog/:path*',
         permanent: true,
       },
+      {
+        source: '/services/uk-accounting-services',
+        destination: '/services/uk-accounting-non-residents',
+        permanent: true,
+      },
+      {
+        source: '/fr/services/uk-accounting-services',
+        destination: '/fr/services/uk-accounting-non-residents',
+        permanent: true,
+      },
     ];
   },
 };

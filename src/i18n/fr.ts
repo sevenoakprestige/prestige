@@ -36,6 +36,7 @@ export const fr: Translations = {
     registeredOffice: 'Siège social enregistré',
     serviceAddress: 'Adresse de service',
     businessAddress: 'Adresse professionnelle',
+    accounting: 'Services Comptables UK',
     
     // Resources & Countries
     guidesAndInsights: 'Guides & Analyses',
