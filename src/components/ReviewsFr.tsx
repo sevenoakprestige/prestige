@@ -1,31 +1,28 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
 
+import { useCallback, useEffect, useState } from "react";
+import { GOOGLE_REVIEWS_URL, OVERALL_RATING } from "@/components/ReviewsCarousel";
+
+/**
+ * Avis Google authentiques de Seven Oak Prestige, tels que publiés sur la
+ * fiche Google Business Profile (note 5,0 — vérifiée en septembre 2026).
+ * Textes originaux en anglais, traduction française fournie ci-dessous.
+ */
 const REVIEWS = [
   {
-    name: "Karim Belahir",
-    place: "Lyon, France",
-    text: "Accompagnement en français du début à la fin. Ma UK Limited a été constituée sans aucune complication et chaque étape m’a été expliquée clairement.",
+    name: "Safaat Siddhi",
+    text: "The service was efficient, transparent, and delivered as promised.",
+    translation: "Un service efficace, transparent et conforme à ce qui avait été promis.",
   },
   {
-    name: "François Mathieu",
-    place: "Paris, France",
-    text: "Un cabinet sérieux et transparent. Le conseiller a pris le temps d’étudier mon activité avant de recommander une structure cohérente.",
+    name: "Veridian",
+    text: "I highly recommend their services!",
+    translation: "Je recommande vivement leurs services !",
   },
   {
-    name: "Isabelle Berthet",
-    place: "Bordeaux, France",
-    text: "Adresse professionnelle à Londres, réception et numérisation du courrier : tout fonctionne exactement comme annoncé.",
-  },
-  {
-    name: "Nadia Lefèvre",
-    place: "Marseille, France",
-    text: "La vérification d’identité Companies House m’inquiétait. Elle a été préparée et réalisée à distance, sans stress.",
-  },
-  {
-    name: "Julien Rousseau",
-    place: "Genève (résident français)",
-    text: "Des réponses précises sur la fiscalité France–Royaume-Uni et la direction effective. Aucune promesse exagérée, que du concret.",
+    name: "Mirvac",
+    text: "Great service, super professional and easy to work with.",
+    translation: "Excellent service, très professionnel et agréable à travailler avec eux.",
   },
 ];
 
@@ -38,6 +35,23 @@ function Stars() {
         </svg>
       ))}
     </div>
+  );
+}
+
+function Avatar({ name }: { name: string }) {
+  const initials = name
+    .split(" ")
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+  return (
+    <span
+      aria-hidden="true"
+      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/10 font-display text-sm font-semibold text-gold"
+    >
+      {initials}
+    </span>
   );
 }
 
@@ -54,8 +68,15 @@ export function ReviewsFr() {
   }, [paused, go]);
 
   return (
-    <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      <div className="overflow-hidden border border-border bg-background">
+    <div className="mobile-pan-y max-w-full overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <div className="mb-6 flex items-center gap-3">
+        <Stars />
+        <span className="text-sm font-bold text-foreground">
+          {OVERALL_RATING.replace(".", ",")} / 5 sur Google
+        </span>
+      </div>
+
+      <div className="max-w-full overflow-hidden border border-border bg-background">
         <div
           className="flex transition-transform duration-700 ease-out"
           style={{ transform: `translateX(-${i * 100}%)` }}
@@ -64,11 +85,17 @@ export function ReviewsFr() {
           {REVIEWS.map((r) => (
             <figure key={r.name} className="w-full shrink-0 p-8 sm:p-12">
               <Stars />
-              <blockquote className="mt-7 font-display text-xl leading-snug text-foreground/90 sm:text-2xl">
-                « {r.text} »
+              <blockquote className="mt-7 font-display text-xl font-bold leading-snug text-foreground/90 sm:text-2xl">
+                « {r.translation} »
               </blockquote>
-              <figcaption className="mt-8 border-t border-border pt-5 text-xs text-muted-foreground">
-                <span className="font-semibold text-foreground/85">{r.name}</span> · {r.place} · Avis Google
+              <p className="mt-4 text-xs italic text-muted-foreground">
+                Avis original : “{r.text}”
+              </p>
+              <figcaption className="mt-8 flex items-center gap-3 border-t border-border pt-5 text-xs text-muted-foreground">
+                <Avatar name={r.name} />
+                <span>
+                  <span className="font-bold text-foreground/85">{r.name}</span> · Avis Google vérifié
+                </span>
               </figcaption>
             </figure>
           ))}
@@ -108,13 +135,26 @@ export function ReviewsFr() {
         </div>
       </div>
 
+      <a
+        href={GOOGLE_REVIEWS_URL}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-6 inline-block border-b border-gold/50 pb-1 text-xs uppercase tracking-[0.16em] text-gold-soft transition-colors hover:text-gold"
+      >
+        Voir tous les avis Google
+      </a>
+
       <div className="sr-only">
+        <p>
+          Seven Oak Prestige est noté {OVERALL_RATING} sur 5 sur Google.
+        </p>
         {REVIEWS.map((rev) => (
           <p key={rev.name}>
-            {rev.name}, {rev.place} : {rev.text}
+            {rev.name} : {rev.text}
           </p>
         ))}
       </div>
     </div>
   );
 }
+export default ReviewsFr;

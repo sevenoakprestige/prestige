@@ -28,10 +28,11 @@ export async function generateMetadata({
         type: 'website',
     },
     alternates: {
-        canonical: "https://www.sevenoakprestige.com/consultation",
+        canonical: locale === 'fr' ? "https://www.sevenoakprestige.com/fr/consultation" : "https://www.sevenoakprestige.com/consultation",
         languages: {
-            "en-US": "https://www.sevenoakprestige.com/consultation",
-            "fr-FR": "https://www.sevenoakprestige.com/fr/consultation",
+            en: "https://www.sevenoakprestige.com/consultation",
+            fr: "https://www.sevenoakprestige.com/fr/consultation",
+            "x-default": "https://www.sevenoakprestige.com/consultation",
         },
     },
   };
