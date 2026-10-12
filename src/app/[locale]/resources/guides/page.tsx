@@ -13,6 +13,9 @@ export async function generateMetadata({
   const t = getTranslations(locale as Locale);
   const meta = t.resourcesPages.guides.meta;
   
+  const isFr = locale === 'fr';
+  const canonical = isFr ? `https://www.sevenoakprestige.com/fr${PATH}` : `https://www.sevenoakprestige.com${PATH}`;
+  
   return {
     title: meta.title,
     description: meta.description,
@@ -20,16 +23,18 @@ export async function generateMetadata({
       title: meta.ogTitle,
       description: meta.ogDescription,
       type: "website",
-      url: PATH,
+      url: canonical,
+      locale: isFr ? "fr_FR" : "en_GB",
     },
     twitter: {
       card: "summary_large_image",
     },
     alternates: {
-      canonical: `https://www.sevenoakprestige.com${PATH}`,
+      canonical,
       languages: {
-        "en-US": `https://www.sevenoakprestige.com${PATH}`,
-        "fr-FR": `https://www.sevenoakprestige.com/fr${PATH}`,
+        en: `https://www.sevenoakprestige.com${PATH}`,
+        fr: `https://www.sevenoakprestige.com/fr${PATH}`,
+        "x-default": `https://www.sevenoakprestige.com${PATH}`,
       },
     },
   };

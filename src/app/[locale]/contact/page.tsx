@@ -9,19 +9,29 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === 'fr' ? 'Contactez-Nous | Seven Oak Prestige' : 'Contact Us | Seven Oak Prestige',
-    description: locale === 'fr' 
-      ? 'Contactez Seven Oak Prestige pour tous vos besoins de création d\'entreprise et d\'assistance commerciale au Royaume-Uni.'
-      : 'Get in touch with Seven Oak Prestige for all your UK company formation and business support needs.',
-    alternates: {
-        canonical: "https://www.sevenoakprestige.com/contact",
-        languages: {
-            "en-US": "https://www.sevenoakprestige.com/contact",
-            "fr-FR": "https://www.sevenoakprestige.com/fr/contact",
-        },
-    },
-  };
+    const isFr = locale === 'fr';
+    return {
+      title: isFr ? 'Contactez-Nous | Seven Oak Prestige' : 'Contact Us | Seven Oak Prestige',
+      description: isFr 
+        ? 'Contactez Seven Oak Prestige pour tous vos besoins de création d\'entreprise et d\'assistance commerciale au Royaume-Uni.'
+        : 'Get in touch with Seven Oak Prestige for all your UK company formation and business support needs.',
+      openGraph: {
+        title: isFr ? 'Contactez-Nous | Seven Oak Prestige' : 'Contact Us | Seven Oak Prestige',
+        description: isFr 
+          ? 'Contactez Seven Oak Prestige pour vos besoins au Royaume-Uni.'
+          : 'Get in touch with Seven Oak Prestige for your UK business needs.',
+        url: isFr ? "https://www.sevenoakprestige.com/fr/contact" : "https://www.sevenoakprestige.com/contact",
+        locale: isFr ? "fr_FR" : "en_GB",
+      },
+      alternates: {
+          canonical: isFr ? "https://www.sevenoakprestige.com/fr/contact" : "https://www.sevenoakprestige.com/contact",
+          languages: {
+              en: "https://www.sevenoakprestige.com/contact",
+              fr: "https://www.sevenoakprestige.com/fr/contact",
+              "x-default": "https://www.sevenoakprestige.com/contact",
+          },
+      },
+    };
 }
 
 export default async function ContactPage({

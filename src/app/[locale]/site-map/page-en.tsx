@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaBuilding, FaFileAlt, FaShieldAlt, FaCreditCard, FaNewspaper, FaGavel, FaHome, FaMapSigns } from "react-icons/fa";
+import { FaBuilding, FaFileAlt, FaShieldAlt, FaCreditCard, FaNewspaper, FaGavel, FaHome, FaMapSigns, FaCalculator } from "react-icons/fa";
 import Footer from "@/components/Footer";
 
 const sitemapSections = [
@@ -22,6 +22,14 @@ const sitemapSections = [
         ],
     },
     {
+        title: "Accounting & Tax",
+        icon: <FaCalculator className="h-5 w-5" />,
+        description: "Year-end accounts, Corporation Tax & ongoing compliance",
+        links: [
+            { name: "UK Accounting for Non-Residents", href: "/services/uk-accounting-non-residents", description: "Annual statutory accounts, CT600, bookkeeping, VAT & payroll" },
+        ],
+    },
+    {
         title: "Compliance & Registration",
         icon: <FaShieldAlt className="h-5 w-5" />,
         description: "Stay compliant with UK regulations",
@@ -29,6 +37,7 @@ const sitemapSections = [
             { name: "VAT Registration UK", href: "/services/vat-registration-uk", description: "HMRC VAT registration & compliance guidance" },
             { name: "EORI Registration UK", href: "/services/eori-registration-uk", description: "EORI number for UK import & export trading" },
             { name: "Companies House Verification", href: "/services/companies-house-verification", description: "Verify your company details with Companies House" },
+            { name: "Identity Verification Support", href: "/services/companies-house-identity-verification", description: "IDV compliance support for UK company directors" },
         ],
     },
     {
@@ -75,8 +84,10 @@ const sitemapSections = [
         description: "Main site pages",
         links: [
             { name: "Homepage", href: "/", description: "Seven Oak Prestige — UK Company Formation Services" },
+            { name: "About Us", href: "/about", description: "Our firm, standards, and international advisory team" },
+            { name: "Partners Program", href: "/partners", description: "Referral, reseller, and white-label partnership opportunities" },
             { name: "Contact", href: "/contact", description: "Get in touch with our team" },
-            { name: "Consultation", href: "/consultation", description: "Book a free consultation with our team" },
+            { name: "Consultation", href: "/consultation", description: "Book a strategic consultation with our team" },
         ],
     },
     {
@@ -87,6 +98,7 @@ const sitemapSections = [
             { name: "Terms & Conditions", href: "/terms", description: "Our terms of service" },
             { name: "Privacy Policy", href: "/privacy", description: "How we handle your data" },
             { name: "Refund Policy", href: "/refund", description: "Our refund and cancellation policy" },
+            { name: "Security & Data Protection", href: "/security", description: "Our commitment to security, confidentiality & ICO compliance" },
         ],
     },
 ];

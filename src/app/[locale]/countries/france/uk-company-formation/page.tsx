@@ -45,16 +45,17 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: {
-    canonical: "https://www.sevenoakprestige.com/countries/france/uk-company-formation",
+    canonical: "https://www.sevenoakprestige.com/fr/countries/france/uk-company-formation",
     languages: {
-      fr: "https://www.sevenoakprestige.com/countries/france/uk-company-formation",
-      "fr-FR": "https://www.sevenoakprestige.com/countries/france/uk-company-formation",
+      fr: "https://www.sevenoakprestige.com/fr/countries/france/uk-company-formation",
+      "fr-FR": "https://www.sevenoakprestige.com/fr/countries/france/uk-company-formation",
+      "x-default": "https://www.sevenoakprestige.com/fr/countries/france/uk-company-formation",
     },
   },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: "https://www.sevenoakprestige.com/countries/france/uk-company-formation",
+    url: "https://www.sevenoakprestige.com/fr/countries/france/uk-company-formation",
     type: "website",
     locale: "fr_FR",
   },

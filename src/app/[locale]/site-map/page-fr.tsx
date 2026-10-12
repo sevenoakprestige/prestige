@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaBuilding, FaFileAlt, FaShieldAlt, FaCreditCard, FaNewspaper, FaGavel, FaHome, FaMapSigns } from "react-icons/fa";
+import { FaBuilding, FaFileAlt, FaShieldAlt, FaCreditCard, FaNewspaper, FaGavel, FaHome, FaMapSigns, FaCalculator } from "react-icons/fa";
 import Footer from "@/components/Footer";
 
 const sitemapSections = [
@@ -8,7 +8,7 @@ const sitemapSections = [
         icon: <FaBuilding className="h-5 w-5" />,
         description: "Enregistrez facilement votre société à responsabilité limitée (LTD) au Royaume-Uni",
         links: [
-            { name: "Création de Société au Royaume-Uni pour Non-Résidents", href: "/services/uk-company-formation-for-non-residents", description: "Créez une société britannique depuis n'importe où dans le monde" },
+            { name: "Création de Société au Royaume-Uni pour Non-Résidents", href: "/fr/services/uk-company-formation-for-non-residents", description: "Créez une société britannique depuis n'importe où dans le monde" },
         ],
     },
     {
@@ -16,9 +16,17 @@ const sitemapSections = [
         icon: <FaMapSigns className="h-5 w-5" />,
         description: "Guides d'installation sur mesure pour les fondateurs internationaux",
         links: [
-            { name: "Aperçu des Juridictions Mondiales", href: "/countries", description: "Sélectionnez votre pays de résidence" },
+            { name: "Aperçu des Juridictions Mondiales", href: "/fr/countries", description: "Sélectionnez votre pays de résidence" },
             { name: "Création de Société au Royaume-Uni depuis l'Inde", href: "/countries/india/uk-company-formation", description: "Créez une société britannique depuis l'Inde" },
             { name: "Création de Société au Royaume-Uni depuis la France", href: "/fr/countries/france/uk-company-formation", description: "Créez une société britannique depuis la France" },
+        ],
+    },
+    {
+        title: "Comptabilité & Fiscalité",
+        icon: <FaCalculator className="h-5 w-5" />,
+        description: "Comptes annuels, déclaration fiscale CT600 et conformité légale",
+        links: [
+            { name: "Comptabilité UK pour Non-Résidents", href: "/fr/services/uk-accounting-non-residents", description: "Comptes annuels, liasse CT600, tenue de livres, TVA & gestion de paie" },
         ],
     },
     {
@@ -26,9 +34,10 @@ const sitemapSections = [
         icon: <FaShieldAlt className="h-5 w-5" />,
         description: "Restez en conformité avec la réglementation britannique",
         links: [
-            { name: "Enregistrement TVA au Royaume-Uni", href: "/services/vat-registration-uk", description: "Conseils pour l'enregistrement et la conformité à la TVA (HMRC)" },
-            { name: "Enregistrement EORI au Royaume-Uni", href: "/services/eori-registration-uk", description: "Numéro EORI pour l'import-export au Royaume-Uni" },
-            { name: "Vérification Companies House", href: "/services/companies-house-verification", description: "Vérifiez les détails de votre société avec Companies House" },
+            { name: "Enregistrement TVA au Royaume-Uni", href: "/fr/services/vat-registration-uk", description: "Conseils pour l'enregistrement et la conformité à la TVA (HMRC)" },
+            { name: "Enregistrement EORI au Royaume-Uni", href: "/fr/services/eori-registration-uk", description: "Numéro EORI pour l'import-export au Royaume-Uni" },
+            { name: "Vérification Companies House", href: "/fr/services/companies-house-verification", description: "Vérifiez les détails de votre société avec Companies House" },
+            { name: "Vérification d'Identité Companies House", href: "/fr/services/companies-house-identity-verification", description: "Accompagnement à la vérification d'identité des dirigeants" },
         ],
     },
     {
@@ -36,9 +45,9 @@ const sitemapSections = [
         icon: <FaFileAlt className="h-5 w-5" />,
         description: "Adresses commerciales britanniques professionnelles",
         links: [
-            { name: "Service de Siège Social", href: "/services/registered-office-service", description: "Adresse officielle de siège social au Royaume-Uni" },
-            { name: "Adresse de Service du Directeur", href: "/services/director-service-address", description: "Protégez votre adresse personnelle des registres publics" },
-            { name: "Adresse Commerciale Virtuelle", href: "/services/virtual-business-address", description: "Adresse commerciale britannique de prestige pour votre société" },
+            { name: "Service de Siège Social", href: "/fr/services/registered-office-service", description: "Adresse officielle de siège social au Royaume-Uni" },
+            { name: "Adresse de Service du Directeur", href: "/fr/services/director-service-address", description: "Protégez votre adresse personnelle des registres publics" },
+            { name: "Adresse Commerciale Virtuelle", href: "/fr/services/virtual-business-address", description: "Adresse commerciale britannique de prestige pour votre société" },
         ],
     },
     {
@@ -46,7 +55,7 @@ const sitemapSections = [
         icon: <FaCreditCard className="h-5 w-5" />,
         description: "Solutions bancaires et de paiement pour les entreprises",
         links: [
-            { name: "Conseils Fintech & Banque", href: "/services/fintech-banking-guidance", description: "Conseils sur Stripe, Wise, Revolut et les services bancaires britanniques" },
+            { name: "Conseils Fintech & Banque", href: "/fr/services/fintech-banking-guidance", description: "Conseils sur Stripe, Wise, Revolut et les services bancaires britanniques" },
         ],
     },
     {
@@ -54,8 +63,8 @@ const sitemapSections = [
         icon: <FaNewspaper className="h-5 w-5" />,
         description: "Guides, articles & informations utiles",
         links: [
-            { name: "Guides & Ressources", href: "/resources/guides", description: "Guides approfondis pour la création de sociétés au Royaume-Uni" },
-            { name: "Évaluation de la Préparation Bancaire", href: "/resources/uk-business-banking-readiness-assessment", description: "Évaluez la préparation bancaire de votre société" },
+            { name: "Guides & Ressources", href: "/fr/resources/guides", description: "Guides approfondis pour la création de sociétés au Royaume-Uni" },
+            { name: "Évaluation de la Préparation Bancaire", href: "/fr/resources/uk-business-banking-readiness-assessment", description: "Évaluez la préparation bancaire de votre société" },
             { name: "Blog", href: "/blog", description: "Derniers articles et guides sur la création de sociétés au Royaume-Uni" },
             { name: "Guide de Création de Société 2026", href: "/blog/company-formation-guide-2026", description: "Guide complet pour la création d'une société britannique" },
             { name: "Guide Pratique de Création 2026", href: "/blog/uk-company-formation-guide-2026", description: "Marche à suivre étape par étape pour créer une société au Royaume-Uni" },
@@ -74,9 +83,11 @@ const sitemapSections = [
         icon: <FaHome className="h-5 w-5" />,
         description: "Pages principales du site",
         links: [
-            { name: "Accueil", href: "/", description: "Seven Oak Prestige — Services de Création de Société au Royaume-Uni" },
-            { name: "Contact", href: "/contact", description: "Contactez notre équipe" },
-            { name: "Consultation", href: "/consultation", description: "Réservez une consultation gratuite avec notre équipe" },
+            { name: "Accueil", href: "/fr", description: "Seven Oak Prestige — Services de Création de Société au Royaume-Uni" },
+            { name: "À Propos", href: "/fr/about", description: "Notre cabinet, nos standards et notre équipe de conseil international" },
+            { name: "Programme Partenaires", href: "/fr/partners", description: "Opportunités de partenariat d'apport d'affaires et marque blanche" },
+            { name: "Contact", href: "/fr/contact", description: "Contactez notre équipe" },
+            { name: "Consultation", href: "/fr/consultation", description: "Réservez une consultation stratégique avec notre équipe" },
         ],
     },
     {
@@ -84,9 +95,10 @@ const sitemapSections = [
         icon: <FaGavel className="h-5 w-5" />,
         description: "Conditions, politiques de confidentialité et de remboursement",
         links: [
-            { name: "Conditions Générales", href: "/terms", description: "Nos conditions d'utilisation" },
-            { name: "Politique de Confidentialité", href: "/privacy", description: "Comment nous gérons vos données" },
-            { name: "Politique de Remboursement", href: "/refund", description: "Notre politique de remboursement et d'annulation" },
+            { name: "Conditions Générales", href: "/fr/terms", description: "Nos conditions d'utilisation" },
+            { name: "Politique de Confidentialité", href: "/fr/privacy", description: "Comment nous gérons vos données" },
+            { name: "Politique de Remboursement", href: "/fr/refund", description: "Notre politique de remboursement et d'annulation" },
+            { name: "Sécurité & Protection des Données", href: "/fr/security", description: "Nos engagements en matière de sécurité, confidentialité et conformité ICO" },
         ],
     },
 ];

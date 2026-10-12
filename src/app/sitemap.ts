@@ -142,12 +142,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }),
     ];
 
+    // ── ACCOUNTING & TAX SERVICES ──
+    const accountingServices = [
+        ...entry('/services/uk-accounting-non-residents', {
+            frPath: '/fr/services/uk-accounting-non-residents',
+            changeFrequency: 'weekly',
+            priority: 0.90,
+            lastModified: now,
+        }),
+    ];
+
     // ── KEY LANDING PAGES ──
     const landingPages = [
         ...entry('/about', {
             frPath: '/fr/about',
             changeFrequency: 'monthly',
             priority: 0.90,
+            lastModified: now,
+        }),
+        ...entry('/partners', {
+            frPath: '/fr/partners',
+            changeFrequency: 'weekly',
+            priority: 0.85,
             lastModified: now,
         }),
         ...entry('/contact', {
@@ -279,6 +295,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ...complianceServices,
         ...addressServices,
         ...bankingServices,
+        ...accountingServices,
         ...landingPages,
         ...resourcePages,
         ...countryPages,
