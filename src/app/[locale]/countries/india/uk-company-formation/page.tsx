@@ -39,10 +39,10 @@ const GUIDES = {
 };
 
 const PROVIDER_LOGOS = [
-  { name: "Revolut", logo: "https://www.google.com/s2/favicons?domain=revolut.com&sz=128" },
-  { name: "Wise", logo: "https://www.google.com/s2/favicons?domain=wise.com&sz=128" },
-  { name: "Payoneer", logo: "https://www.google.com/s2/favicons?domain=payoneer.com&sz=128" },
-  { name: "Airwallex", logo: "https://www.google.com/s2/favicons?domain=airwallex.com&sz=128" },
+  { name: "Revolut", logo: "/assets/revolut.svg" },
+  { name: "Wise", logo: "/assets/wise.svg" },
+  { name: "Payoneer", logo: "/assets/payoneer.svg" },
+  { name: "Airwallex", logo: "/assets/airwallex.svg" },
 ];
 
 const PROCESS = [
