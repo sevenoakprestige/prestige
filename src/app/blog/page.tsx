@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const POSTS_QUERY = defineQuery(
-  `*[_type == "post" && defined(slug.current)] | order(date desc){ _id, title, "slug": slug.current, date, excerpt, tags }`
+  `*[_type == "post" && defined(slug.current)] | order(date desc){ _id, title, "slug": slug.current, date, excerpt, tags, keywords }`
 );
 
 const options = { next: { tags: ['post'] } };
