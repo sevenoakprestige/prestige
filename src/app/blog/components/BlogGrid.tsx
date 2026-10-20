@@ -98,7 +98,7 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
             <section className="section-parchment px-4 py-12 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                     {/* Results Counter / Filter Bar */}
-                    <div className="flex items-center justify-between mb-8 pb-3 border-b border-[#e5dfd3]/70 dark:border-white/10">
+                    <div className="flex items-center justify-between mb-8 pb-3 border-b border-[#e5dfd3]/70">
                         <p className="text-sm font-medium text-muted-foreground">
                             Showing <span className="font-semibold text-foreground">{filteredPosts.length}</span> {filteredPosts.length === 1 ? 'guide' : 'guides'}
                             {searchQuery && (
@@ -108,7 +108,7 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
                         {searchQuery && (
                             <button
                                 onClick={() => setSearchQuery("")}
-                                className="text-xs font-semibold text-[#8a6814] dark:text-[#f3d066] hover:underline"
+                                className="text-xs font-semibold text-[#8a6814] hover:underline"
                             >
                                 Clear filter
                             </button>
@@ -129,20 +129,20 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
                             return (
                                 <article
                                     key={slug}
-                                    className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#e5dfd3] bg-white text-card-foreground shadow-[0_4px_20px_-2px_rgba(22,39,61,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#d4af37] hover:shadow-[0_20px_35px_-8px_rgba(212,175,55,0.16),0_10px_20px_-5px_rgba(22,39,61,0.06)] dark:border-white/10 dark:bg-[#132238] dark:hover:border-[#d4af37]/70"
+                                    className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#e5dfd3] bg-white text-card-foreground shadow-[0_4px_20px_-2px_rgba(22,39,61,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#d4af37] hover:shadow-[0_20px_35px_-8px_rgba(212,175,55,0.16),0_10px_20px_-5px_rgba(22,39,61,0.06)]"
                                 >
                                     {/* Top Brand Accent Line */}
                                     <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent transition-all duration-500 group-hover:via-[#d4af37]" />
 
                                     {/* SEGMENT 1: Keywords / Category Shelf */}
-                                    <div className="flex items-center justify-between gap-2 border-b border-[#f0ebe1] bg-[#faf8f5]/90 px-6 py-3.5 dark:border-white/5 dark:bg-white/[0.02]">
+                                    <div className="flex items-center justify-between gap-2 border-b border-[#f0ebe1] bg-[#faf8f5]/90 px-6 py-3.5">
                                         <div className="flex items-center gap-1.5 min-w-0 overflow-hidden">
                                             <FaTag className="h-3 w-3 text-[#d4af37] shrink-0 mr-1" />
-                                            <span className="inline-flex items-center rounded-md border border-[#d4af37]/25 bg-[#d4af37]/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[#8a6814] whitespace-nowrap truncate dark:border-[#d4af37]/30 dark:bg-[#d4af37]/15 dark:text-[#f3d066]">
+                                            <span className="inline-flex items-center rounded-md border border-[#d4af37]/25 bg-[#d4af37]/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[#8a6814] whitespace-nowrap truncate">
                                                 {primaryTag}
                                             </span>
                                             {showSecondTag && (
-                                                <span className="hidden sm:inline-flex items-center rounded-md border border-[#d4af37]/25 bg-[#d4af37]/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[#8a6814] whitespace-nowrap truncate dark:border-[#d4af37]/30 dark:bg-[#d4af37]/15 dark:text-[#f3d066]">
+                                                <span className="hidden sm:inline-flex items-center rounded-md border border-[#d4af37]/25 bg-[#d4af37]/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[#8a6814] whitespace-nowrap truncate">
                                                     {secondTag}
                                                 </span>
                                             )}
@@ -161,7 +161,7 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
                                     {/* SEGMENT 2 & 3: Title & Description Body */}
                                     <div className="flex flex-1 flex-col p-6">
                                         {/* Title */}
-                                        <h2 className="text-xl font-display font-bold leading-snug text-[#0e1a2b] transition-colors duration-200 group-hover:text-[#96741d] dark:text-white dark:group-hover:text-[#f3d066] line-clamp-2 min-h-[3.25rem]">
+                                        <h2 className="text-xl font-display font-bold leading-snug text-[#0e1a2b] transition-colors duration-200 group-hover:text-[#96741d] line-clamp-2 min-h-[3.25rem]">
                                             <Link href={`/blog/${slug}`} className="focus:outline-none">
                                                 <span className="absolute inset-0" aria-hidden="true" />
                                                 {title}
@@ -172,20 +172,20 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
                                         <div className="my-3.5 h-[2px] w-8 rounded-full bg-[#d4af37]/40 transition-all duration-300 group-hover:w-16 group-hover:bg-[#d4af37]" />
 
                                         {/* Excerpt / Description */}
-                                        <p className="flex-1 text-sm leading-relaxed text-[#5b6472] dark:text-[#a0aec0] line-clamp-3">
+                                        <p className="flex-1 text-sm leading-relaxed text-[#5b6472] line-clamp-3">
                                             {excerpt}
                                         </p>
                                     </div>
 
                                     {/* SEGMENT 4: Read Blog / Footer Shelf */}
-                                    <div className="mt-auto flex items-center justify-between border-t border-[#ede8df] bg-[#fbf9f5] px-6 py-4 text-xs dark:border-white/5 dark:bg-[#0e1a2b]/30">
+                                    <div className="mt-auto flex items-center justify-between border-t border-[#ede8df] bg-[#fbf9f5] px-6 py-4 text-xs">
                                         <div className="flex items-center gap-2 font-medium text-muted-foreground">
                                             <FaCalendar className="h-3 w-3 text-[#d4af37]" />
                                             <time dateTime={date}>{formattedDate}</time>
                                         </div>
-                                        <div className="flex items-center gap-2 font-semibold text-[#8a6814] transition-colors group-hover:text-[#5a4209] dark:text-[#f3d066] dark:group-hover:text-white">
+                                        <div className="flex items-center gap-2 font-semibold text-[#8a6814] transition-colors group-hover:text-[#5a4209]">
                                             <span>Read Article</span>
-                                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#d4af37]/15 text-[#8a6814] transition-all duration-300 group-hover:bg-[#d4af37] group-hover:text-[#0e1a2b] dark:text-[#f3d066]">
+                                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#d4af37]/15 text-[#8a6814] transition-all duration-300 group-hover:bg-[#d4af37] group-hover:text-[#0e1a2b]">
                                                 <FaArrowRight className="h-2.5 w-2.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                                             </span>
                                         </div>
