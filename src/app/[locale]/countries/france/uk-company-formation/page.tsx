@@ -70,6 +70,12 @@ const WHATSAPP = "https://wa.me/447447488755";
 const COMPANIES_HOUSE = "https://find-and-update.company-information.service.gov.uk/company/16903092";
 const GOOGLE_REVIEWS = "https://share.google/owyOtNunkhfg4c0dE";
 const ARTICLE_FRANCE = "/blog/creer-societe-uk-depuis-france";
+const ARTICLE_VS_SASU = "/blog/uk-ltd-vs-sasu-france";
+const ARTICLE_FISCALITE = "/blog/fiscalite-uk-ltd-resident-francais";
+const ARTICLE_ADRESSE = "/blog/adresse-uk-ltd-france";
+const ARTICLE_VERIFICATION = "/blog/companies-house-identity-verification-france";
+const ARTICLE_COUT = "/blog/uk-ltd-france-prix-cout";
+const ARTICLE_BANQUE = "/blog/compte-bancaire-uk-ltd-france";
 const ARTICLE_NON_RESIDENTS = "/blog/uk-company-formation-for-non-residents";
 const ARTICLE_OFFICE = "/blog/registered-office-vs-director-service-address-uk";
 const ARTICLE_AFTER = "/blog/what-to-do-after-uk-company-formation-non-resident";
@@ -311,14 +317,30 @@ const GUIDES: [string, string, string | null][] = [
     "Le guide pilier : structure, direction effective, fiscalité et banque.",
     ARTICLE_FRANCE,
   ],
-  ["Coût d’une UK Ltd depuis la France", "Frais de création, adresses et renouvellements annuels.", null],
-  ["UK Ltd vs SASU", "Comparer les deux structures selon votre clientèle réelle.", null],
-  ["Fiscalité UK Ltd pour résident français", "Résidence, établissement stable et convention fiscale.", null],
-  ["Banque pour société UK depuis la France", "Préparer un dossier crédible pour les prestataires.", null],
+  [
+    "Coût d’une UK Ltd depuis la France",
+    "Frais de création, adresses et renouvellements annuels.",
+    ARTICLE_COUT,
+  ],
+  [
+    "UK Ltd vs SASU",
+    "Comparer les deux structures selon votre clientèle réelle.",
+    ARTICLE_VS_SASU,
+  ],
+  [
+    "Fiscalité UK Ltd pour résident français",
+    "Résidence, établissement stable et convention fiscale.",
+    ARTICLE_FISCALITE,
+  ],
+  [
+    "Banque pour société UK depuis la France",
+    "Préparer un dossier crédible pour les prestataires.",
+    ARTICLE_BANQUE,
+  ],
   [
     "Vérification Companies House depuis la France",
     "Identité, personal code et documents acceptés.",
-    ARTICLE_NON_RESIDENTS,
+    ARTICLE_VERIFICATION,
   ],
 ];
 
@@ -732,7 +754,7 @@ export default function FrancePage() {
                 de direction et de vos flux réels.
               </p>
               <Link
-                href={ARTICLE_FRANCE}
+                href={ARTICLE_VS_SASU}
                 className="mt-10 inline-block border-b border-gold/50 pb-1 text-xs uppercase tracking-[0.16em] text-gold-soft transition-colors hover:text-gold"
               >
                 Lire notre guide UK Ltd vs SASU / EURL
@@ -770,7 +792,7 @@ export default function FrancePage() {
             Une société britannique doit répondre à une logique commerciale réelle, et non à une promesse
             fiscale simplifiée.
           </p>
-          <Link href={ARTICLE_FRANCE} className="btn-ghost mt-10">
+          <Link href={ARTICLE_FISCALITE} className="btn-ghost mt-10">
             Comprendre la fiscalité France–UK
           </Link>
         </Section>
@@ -794,8 +816,8 @@ export default function FrancePage() {
           </p>
           <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
             Pour approfondir :{" "}
-            <Link href={ARTICLE_OFFICE} className="text-gold-soft hover:text-gold">
-              Registered Office et Director Service Address
+            <Link href={ARTICLE_ADRESSE} className="text-gold-soft hover:text-gold">
+              Guide de l’adresse pour UK Ltd depuis la France
             </Link>
             .
           </p>
@@ -841,7 +863,7 @@ export default function FrancePage() {
                 ))}
               </ul>
               <Link
-                href={ARTICLE_NON_RESIDENTS}
+                href={ARTICLE_VERIFICATION}
                 className="mt-10 inline-block border-b border-gold/50 pb-1 text-xs uppercase tracking-[0.16em] text-gold-soft transition-colors hover:text-gold"
               >
                 Voir le guide de vérification Companies House
