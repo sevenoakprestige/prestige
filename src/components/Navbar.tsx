@@ -5,7 +5,7 @@ import Image from "next/image";
 import * as React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { TbMenu3 } from "react-icons/tb";
-import { FaWhatsapp, FaBuilding, FaMapMarkerAlt, FaUserTie, FaCity, FaShieldAlt, FaUniversity } from "react-icons/fa";
+import { FaWhatsapp, FaBuilding, FaMapMarkerAlt, FaUserTie, FaCity, FaShieldAlt, FaUniversity, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { MdArrowOutward, MdKeyboardArrowDown } from "react-icons/md";
 import {
     Sheet,
@@ -190,15 +190,25 @@ export default function Navbar() {
             {/* Institutional utility bar */}
             <div className="hidden border-b border-border/40 lg:block">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-[0.68rem] tracking-[0.06em] text-muted-foreground">
-                    <span>Seven Oak Prestige Ltd · Company No. 16903092 · 124 City Road, London EC1V 2NX</span>
-                    <span className="flex items-center gap-6">
-                        <a href="mailto:contact@sevenoakprestige.com" className="transition-colors hover:text-gold-soft">
-                            contact@sevenoakprestige.com
+                    <span>Seven Oak Prestige Ltd · Company No. 16903092</span>
+                    <div className="flex items-center gap-4">
+                        <a
+                            href="tel:+442045780726"
+                            aria-label="Call +44 20 4578 0726"
+                            title="+44 20 4578 0726"
+                            className="group/phone flex items-center justify-center rounded-full p-1 text-muted-foreground transition-all duration-300 hover:text-gold hover:scale-110"
+                        >
+                            <FaPhoneAlt className="h-4 w-4 transition-transform group-hover/phone:scale-105" />
                         </a>
-                        <a href="tel:+442045780726" className="transition-colors hover:text-gold-soft">
-                            +44 20 4578 0726
+                        <a
+                            href="mailto:contact@sevenoakprestige.com"
+                            aria-label="Email contact@sevenoakprestige.com"
+                            title="contact@sevenoakprestige.com"
+                            className="group/mail flex items-center justify-center rounded-full p-1 text-muted-foreground transition-all duration-300 hover:text-gold hover:scale-110"
+                        >
+                            <FaEnvelope className="h-[18px] w-[18px] transition-transform group-hover/mail:scale-105" />
                         </a>
-                    </span>
+                    </div>
                 </div>
             </div>
 
