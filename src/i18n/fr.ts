@@ -45,6 +45,8 @@ export const fr: Translations = {
     bankingReadiness: 'Évaluation Bancaire Entreprise UK',
     france: 'France',
     india: 'Inde',
+    iraq: 'Irak (العراق)',
+    germany: 'Allemagne',
     contact: 'Contact',
 
     // Footer specific

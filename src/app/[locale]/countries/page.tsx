@@ -67,7 +67,7 @@ const REGIONS_EN = [
     },
     {
         region: "Middle East",
-        countries: ["United Arab Emirates", "Saudi Arabia", "Qatar", "Kuwait", "Bahrain", "Oman", "Jordan", "Turkey"],
+        countries: ["United Arab Emirates", "Saudi Arabia", "Iraq", "Qatar", "Kuwait", "Bahrain", "Oman", "Jordan", "Turkey"],
         note: "UK entities used alongside existing Gulf operations for UK-facing contracts and marketplace onboarding.",
         package: "Elite suits founders needing banking readiness and enhanced compliance documentation for cross-border activity.",
     },
@@ -113,7 +113,7 @@ const REGIONS_FR = [
     },
     {
         region: "Moyen-Orient",
-        countries: ["Émirats Arabes Unis", "Arabie Saoudite", "Qatar", "Koweït", "Bahreïn", "Oman", "Jordanie", "Turquie"],
+        countries: ["Émirats Arabes Unis", "Arabie Saoudite", "Irak", "Qatar", "Koweït", "Bahreïn", "Oman", "Jordanie", "Turquie"],
         note: "Entités UK utilisées en parallèle d'opérations dans le Golfe pour les contrats et marketplaces britanniques.",
         package: "Elite convient aux fondateurs ayant besoin de préparation bancaire et de documents de conformité renforcés.",
     },
@@ -228,6 +228,24 @@ export default async function CountriesPage({
                                                 className="block border border-gold/50 px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-gold-soft transition-colors hover:bg-accent"
                                             >
                                                 France
+                                            </Link>
+                                        </li>
+                                    ) : c === "Germany" || c === "Allemagne" ? (
+                                        <li key={c}>
+                                            <Link
+                                                href="/countries/germany/uk-company-formation"
+                                                className="block border border-gold/50 px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-gold-soft transition-colors hover:bg-accent"
+                                            >
+                                                {c}
+                                            </Link>
+                                        </li>
+                                    ) : c === "Iraq" || c === "Irak" ? (
+                                        <li key={c}>
+                                            <Link
+                                                href="/countries/iraq/uk-company-formation"
+                                                className="block border border-gold/50 px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-gold-soft transition-colors hover:bg-accent"
+                                            >
+                                                <bdi lang="ar" dir="rtl">العراق</bdi> / {c}
                                             </Link>
                                         </li>
                                     ) : (

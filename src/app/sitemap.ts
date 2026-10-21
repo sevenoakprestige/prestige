@@ -247,6 +247,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 },
             },
         },
+        // Iraq page — Arabic landing page
+        {
+            url: `${BASE}/countries/iraq/uk-company-formation`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.95,
+            alternates: {
+                languages: {
+                    'ar': `${BASE}/countries/iraq/uk-company-formation`,
+                    'x-default': `${BASE}/countries/iraq/uk-company-formation`,
+                },
+            },
+        },
+        // Germany page — German landing page
+        {
+            url: `${BASE}/countries/germany/uk-company-formation`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.95,
+            alternates: {
+                languages: {
+                    'de': `${BASE}/countries/germany/uk-company-formation`,
+                    'x-default': `${BASE}/countries/germany/uk-company-formation`,
+                },
+            },
+        },
     ];
 
     // ── LEGAL / POLICY PAGES ──

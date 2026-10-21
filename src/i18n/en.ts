@@ -45,6 +45,8 @@ export const en = {
     bankingReadiness: 'UK Business Banking Readiness Assessment',
     france: 'France',
     india: 'India',
+    iraq: 'Iraq (العراق)',
+    germany: 'Germany',
     contact: 'Contact',
 
     // Footer specific
@@ -367,7 +369,7 @@ export type Translations = {
     nonResidentsPackage: string; chVerification: string; vatRegistration: string;
     eoriRegistration: string; fintechGuidance: string; registeredOffice: string;
     serviceAddress: string; businessAddress: string; accounting: string; nomineeDirector: string; shelfCompany: string; guidesAndInsights: string;
-    bankingReadiness: string; france: string; india: string; contact: string;
+    bankingReadiness: string; france: string; india: string; iraq: string; germany: string; contact: string;
     legal: string; useful: string; termsAndConditions: string; refundPolicy: string; privacyPolicy: string;
     trustAndSecurity: string; bookConsultation: string; sitemap: string;
     whatsappNow: string; followUs: string; allRightsReserved: string;

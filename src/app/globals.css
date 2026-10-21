@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -2938,5 +2940,11 @@ RESPONSIVE DESIGN
     background: linear-gradient(90deg, #0e1a2b 0%, color-mix(in srgb, #0e1a2b 98%, transparent) 28%, color-mix(in srgb, #0e1a2b 94%, transparent) 46%, color-mix(in srgb, #0e1a2b 65%, transparent) 56%, transparent 74%);
   }
 }
+
+/* Arabic RTL landing page */
+.arabic-page main { font-family: "IBM Plex Sans Arabic", "Inter", sans-serif; }
+.arabic-page main .font-display { font-family: "Noto Naskh Arabic", "Source Serif 4", serif; }
+.arabic-page main .eyebrow { letter-spacing: 0; text-transform: none; }
+
 
 

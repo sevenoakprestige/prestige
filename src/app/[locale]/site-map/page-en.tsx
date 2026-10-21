@@ -19,8 +19,10 @@ const sitemapSections = [
         description: "Tailored setup guides for international founders",
         links: [
             { name: "Global Jurisdictions Overview", href: "/countries", description: "Select your country of residence" },
-            { name: "UK Company Formation from India", href: "/countries/india/uk-company-formation", description: "Setup a UK company from India" },
+            { name: "UK Company Formation from Germany (Deutschland)", href: "/countries/germany/uk-company-formation", description: "German remote setup guide & packages for German founders & GmbHs" },
             { name: "UK Company Formation from France", href: "/fr/countries/france/uk-company-formation", description: "Setup a UK company from France" },
+            { name: "UK Company Formation from India", href: "/countries/india/uk-company-formation", description: "Setup a UK company from India" },
+            { name: "UK Company Formation from Iraq (العراق)", href: "/countries/iraq/uk-company-formation", description: "Arabic remote setup guide & packages for Iraqi founders" },
         ],
     },
     {
@@ -77,6 +79,8 @@ const sitemapSections = [
             { name: "Start a UK Company from Pakistan", href: "/blog/how-to-start-a-uk-company-from-pakistan", description: "Pakistani entrepreneurs — form a UK company" },
             { name: "Start a UK Company from UAE", href: "/blog/how-to-start-a-uk-company-from-uae", description: "UAE entrepreneurs — form a UK company" },
             { name: "Start a UK Company from France", href: "/blog/how-to-start-a-uk-company-from-france", description: "French entrepreneurs — form a UK company" },
+            { name: "Start a UK Company from Germany", href: "/blog/uk-company-from-germany", description: "German entrepreneurs & GmbHs — form a UK company" },
+            { name: "Start a UK Company from Iraq", href: "/blog/uk-company-from-iraq", description: "Iraqi entrepreneurs — form a UK company" },
             { name: "Start a UK Company from Algeria", href: "/blog/how-to-start-a-uk-company-from-algeria", description: "Algerian entrepreneurs — form a UK company" },
         ],
     },

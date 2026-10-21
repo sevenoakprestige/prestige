@@ -115,7 +115,9 @@ export default function Navbar() {
             title: t.nav.internationalFounders,
             links: [
                 { name: t.nav.france, href: `${prefix}/countries/france/uk-company-formation`, icon: "/assets/flags/fr.svg" },
+                { name: t.nav.germany, href: `${prefix}/countries/germany/uk-company-formation`, icon: "/assets/flags/de.svg" },
                 { name: t.nav.india, href: `${prefix}/countries/india/uk-company-formation`, icon: "/assets/flags/in.svg" },
+                { name: t.nav.iraq, href: `${prefix}/countries/iraq/uk-company-formation`, icon: "/assets/flags/iq.svg" },
             ]
         }
     ];

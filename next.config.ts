@@ -83,6 +83,21 @@ const nextConfig: NextConfig = {
         destination: '/fr/services/buy-shelf-company-uk',
         permanent: true,
       },
+      {
+        source: '/ar/uk-company-formation-iraq',
+        destination: '/countries/iraq/uk-company-formation',
+        permanent: true,
+      },
+      {
+        source: '/uk-company-formation-iraq',
+        destination: '/countries/iraq/uk-company-formation',
+        permanent: true,
+      },
+      {
+        source: '/countries_/germany/uk-company-formation',
+        destination: '/countries/germany/uk-company-formation',
+        permanent: true,
+      },
     ];
   },
 };
