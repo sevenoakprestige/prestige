@@ -6,6 +6,7 @@ import * as React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { TbMenu3 } from "react-icons/tb";
 import { FaWhatsapp, FaBuilding, FaMapMarkerAlt, FaUserTie, FaCity, FaShieldAlt, FaUniversity, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 import { MdArrowOutward, MdKeyboardArrowDown } from "react-icons/md";
 import {
     Sheet,
@@ -192,25 +193,29 @@ export default function Navbar() {
         <header className="section-dark sticky top-0 z-50 w-full border-b border-border/60">
 
             {/* Institutional utility bar */}
-            <div className="hidden border-b border-border/40 lg:block">
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-[0.68rem] tracking-[0.06em] text-muted-foreground">
-                    <span>Seven Oak Prestige Ltd · Company No. 16903092</span>
-                    <div className="flex items-center gap-4">
+            <div className="hidden border-b border-border/40 sm:block">
+                <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 text-[0.68rem] tracking-[0.06em] text-muted-foreground sm:px-6">
+                    <span className="truncate">Seven Oak Prestige Ltd · Company No. 16903092</span>
+                    <div className="flex items-center gap-6 text-xs sm:text-sm font-bold text-white shrink-0">
                         <a
                             href="tel:+442045780726"
-                            aria-label="Call +44 20 4578 0726"
-                            title="+44 20 4578 0726"
-                            className="group/phone flex items-center justify-center rounded-full p-1 text-muted-foreground transition-all duration-300 hover:text-gold hover:scale-110"
+                            aria-label="Call 020 4578 0726"
+                            className="group flex items-center gap-2 transition-colors hover:text-gold"
                         >
-                            <FaPhoneAlt className="h-4 w-4 transition-transform group-hover/phone:scale-105" />
+                            <FaPhoneAlt className="h-3.5 w-3.5 text-white transition-colors group-hover:text-gold" />
+                            <span className="underline underline-offset-4 decoration-white/70 group-hover:decoration-gold">
+                                {isFr ? "+44 20 4578 0726" : "020 4578 0726"}
+                            </span>
                         </a>
                         <a
                             href="mailto:contact@sevenoakprestige.com"
                             aria-label="Email contact@sevenoakprestige.com"
-                            title="contact@sevenoakprestige.com"
-                            className="group/mail flex items-center justify-center rounded-full p-1 text-muted-foreground transition-all duration-300 hover:text-gold hover:scale-110"
+                            className="group flex items-center gap-2 transition-colors hover:text-gold"
                         >
-                            <FaEnvelope className="h-[18px] w-[18px] transition-transform group-hover/mail:scale-105" />
+                            <HiOutlineMail className="h-4 w-4 sm:h-[18px] sm:w-[18px] text-white transition-colors group-hover:text-gold" />
+                            <span className="underline underline-offset-4 decoration-white/70 group-hover:decoration-gold">
+                                {isFr ? "Écrivez-nous" : "Email Us"}
+                            </span>
                         </a>
                     </div>
                 </div>
