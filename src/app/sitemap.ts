@@ -80,6 +80,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.95,
             lastModified: now,
         }),
+        ...entry('/services/buy-shelf-company-uk', {
+            frPath: '/fr/services/buy-shelf-company-uk',
+            changeFrequency: 'weekly',
+            priority: 0.90,
+            lastModified: now,
+        }),
+        ...entry('/services/uk-nominee-director-service', {
+            frPath: '/fr/services/uk-nominee-director-service',
+            changeFrequency: 'weekly',
+            priority: 0.90,
+            lastModified: now,
+        }),
     ];
 
     // ── COMPLIANCE & REGISTRATION SERVICES ──

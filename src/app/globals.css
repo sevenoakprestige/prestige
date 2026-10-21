@@ -2908,3 +2908,35 @@ RESPONSIVE DESIGN
   }
 }
 
+/* Specialist Services (Nominee Director, etc.) styling */
+.specialist-page .eyebrow { letter-spacing: 0.14em; }
+.specialist-page .ss-section { padding: 3.5rem 1.25rem; scroll-margin-top: 7rem; }
+.specialist-page .ss-hero {
+  --ss-hero-surface: #0e1a2b;
+  padding: 7rem 0 3.5rem;
+  background: var(--ss-hero-surface);
+  color: #f7f5f0;
+}
+.specialist-page .ss-hero-image { object-position: 70% center; height: auto; aspect-ratio: 16 / 9; }
+.specialist-page .ss-hero-copy { max-width: 38rem; }
+.specialist-page .ss-hero-shade {
+  display: none;
+}
+.specialist-page .ss-action { min-height: 3rem; height: auto; white-space: normal; line-height: 1.5; padding: 0.85rem 1.25rem; text-align: left; justify-content: flex-start; }
+.specialist-page a:focus-visible, .specialist-page summary:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 4px; }
+.specialist-page summary::-webkit-details-marker { display: none; }
+@media (min-width: 768px) {
+  .specialist-page .ss-section { padding: 4.5rem 1.5rem; }
+  .specialist-page .ss-hero { padding: 8rem 0 4.5rem; }
+}
+@media (min-width: 1024px) {
+  .specialist-page .ss-hero { padding: 7rem 0 5rem; min-height: 44rem; }
+  .specialist-page .ss-hero-image { height: 100%; aspect-ratio: auto; object-position: 64% center; }
+  .specialist-page .ss-hero-copy { max-width: 38rem; }
+  .specialist-page .ss-hero-shade {
+    display: block;
+    background: linear-gradient(90deg, #0e1a2b 0%, color-mix(in srgb, #0e1a2b 98%, transparent) 28%, color-mix(in srgb, #0e1a2b 94%, transparent) 46%, color-mix(in srgb, #0e1a2b 65%, transparent) 56%, transparent 74%);
+  }
+}
+
+

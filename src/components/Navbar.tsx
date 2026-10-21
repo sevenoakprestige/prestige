@@ -89,6 +89,8 @@ export default function Navbar() {
             title: t.nav.companyServices,
             links: [
                 { name: t.nav.nonResidentsPackage, href: `${prefix}/services/uk-company-formation-for-non-residents` },
+                { name: t.nav.shelfCompany, href: `${prefix}/services/buy-shelf-company-uk` },
+                { name: t.nav.nomineeDirector, href: `${prefix}/services/uk-nominee-director-service` },
                 { name: t.nav.accounting, href: `${prefix}/services/uk-accounting-non-residents` },
                 { name: t.nav.chVerification, href: `${prefix}/services/companies-house-verification` },
                 { name: t.nav.vatRegistration, href: `${prefix}/services/vat-registration-uk` },

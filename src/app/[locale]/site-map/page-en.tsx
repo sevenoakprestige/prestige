@@ -4,11 +4,13 @@ import Footer from "@/components/Footer";
 
 const sitemapSections = [
     {
-        title: "Company Formation",
+        title: "Company Formation & Corporate Services",
         icon: <FaBuilding className="h-5 w-5" />,
-        description: "Register your UK limited company with ease",
+        description: "Register your UK limited company or acquire an established corporate structure",
         links: [
             { name: "UK Company Formation for Non-Residents", href: "/services/uk-company-formation-for-non-residents", description: "Start a UK company from anywhere in the world" },
+            { name: "Buy a UK Shelf Company", href: "/services/buy-shelf-company-uk", description: "Aged clean-balance-sheet UK companies for immediate credibility & fast operations" },
+            { name: "UK Nominee Director Service", href: "/services/uk-nominee-director-service", description: "Professional resident nominee director and corporate governance" },
         ],
     },
     {

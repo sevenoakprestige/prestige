@@ -4,11 +4,13 @@ import Footer from "@/components/Footer";
 
 const sitemapSections = [
     {
-        title: "Création de Société",
+        title: "Création de Société & Services Spécialisés",
         icon: <FaBuilding className="h-5 w-5" />,
-        description: "Enregistrez facilement votre société à responsabilité limitée (LTD) au Royaume-Uni",
+        description: "Enregistrez votre société LTD ou acquérez une structure d'entreprise établie",
         links: [
             { name: "Création de Société au Royaume-Uni pour Non-Résidents", href: "/fr/services/uk-company-formation-for-non-residents", description: "Créez une société britannique depuis n'importe où dans le monde" },
+            { name: "Société Ready-Made UK (Shelf Company)", href: "/fr/services/buy-shelf-company-uk", description: "Sociétés britanniques dormantes avec bilan certifié et ancienneté immédiate" },
+            { name: "Service de Nominee Director UK", href: "/fr/services/uk-nominee-director-service", description: "Gouvernance par administrateur résident britannique et confidentialité" },
         ],
     },
     {

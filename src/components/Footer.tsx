@@ -91,6 +91,12 @@ export default function Footer() {
                                 <Link href={`${prefix}/services/uk-company-formation-for-non-residents`} className="transition-colors hover:text-gold-soft">{t.nav.nonResidentsPackage}</Link>
                             </li>
                             <li>
+                                <Link href={`${prefix}/services/buy-shelf-company-uk`} className="transition-colors hover:text-gold-soft">{t.nav.shelfCompany}</Link>
+                            </li>
+                            <li>
+                                <Link href={`${prefix}/services/uk-nominee-director-service`} className="transition-colors hover:text-gold-soft">{t.nav.nomineeDirector}</Link>
+                            </li>
+                            <li>
                                 <Link href={`${prefix}/services/uk-accounting-non-residents`} className="transition-colors hover:text-gold-soft">{t.nav.accounting}</Link>
                             </li>
                             <li>
