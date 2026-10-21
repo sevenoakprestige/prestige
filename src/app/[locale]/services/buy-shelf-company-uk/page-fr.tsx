@@ -100,7 +100,7 @@ export default function ShelfCompanyPageFr() {
 
       <main id="main-content">
         {/* HERO SECTION */}
-        <section className="ss-hero relative isolate overflow-hidden">
+        <section className="ss-hero section-dark relative isolate overflow-hidden">
           <picture>
             <source srcSet="/assets/shelf-hero-1280.webp" media="(min-width: 641px)" />
             <img
@@ -113,26 +113,26 @@ export default function ShelfCompanyPageFr() {
           </picture>
           <div className="ss-hero-shade absolute inset-0 -z-10" />
 
-          <div className="mx-auto max-w-6xl px-5 sm:px-6">
-            <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-              <Link href="/fr" className="hover:text-foreground">Accueil</Link>
-              <span aria-hidden="true">/</span>
-              <span aria-current="page">Sociétés shelf & ready-made</span>
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+              <Link href="/fr" className="hover:text-foreground transition-colors">Accueil</Link>
+              <span aria-hidden="true" className="opacity-40">/</span>
+              <span aria-current="page" className="text-foreground/80">Sociétés shelf & ready-made</span>
             </nav>
 
             <div className="ss-hero-copy">
-              <p className="eyebrow">Seven Oak Prestige Ltd · Sociétés shelf & ready-made</p>
-              <h1 className="mt-5 text-3xl font-display font-bold leading-tight sm:text-4xl lg:text-5xl">
+              <p className="eyebrow text-gold font-semibold uppercase">Seven Oak Prestige Ltd · Sociétés shelf & ready-made</p>
+              <h1 className="mt-4 sm:mt-5 text-2xl font-display font-bold leading-tight sm:text-4xl lg:text-5xl text-foreground break-words">
                 Acheter une Société Ready-Made UK : Sociétés Clé en Main pour Non-Résidents
               </h1>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed sm:text-lg text-foreground/90">
+              <p className="mt-5 sm:mt-6 max-w-2xl text-base leading-relaxed sm:text-lg text-foreground/90">
                 Une société britannique existante, acquise avec une parfaite compréhension de ses antécédents et de ses obligations. Explorez une reprise sécurisée, encadrée par une rigoureuse due diligence.
               </p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
                   href={EMAIL_LINK}
-                  className="ss-action btn-gold inline-flex items-center gap-2.5 rounded-md text-xs font-bold uppercase tracking-wider shadow-md hover:-translate-y-0.5 transition-all"
+                  className="ss-action btn-gold inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2.5 rounded-md text-xs font-bold uppercase tracking-wider shadow-md hover:-translate-y-0.5 transition-all text-center sm:text-left"
                 >
                   <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
                   <span>Demander les disponibilités de sociétés</span>
@@ -141,7 +141,7 @@ export default function ShelfCompanyPageFr() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ss-action btn-ghost inline-flex items-center gap-2.5 rounded-md text-xs font-semibold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+                  className="ss-action btn-ghost inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2.5 rounded-md text-xs font-semibold uppercase tracking-wider transition-all hover:-translate-y-0.5 text-center sm:text-left"
                 >
                   <MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
                   <span>Échanger sur WhatsApp</span>

@@ -24,14 +24,18 @@ export type Post = {
     category?: string;
 };
 
-export const BLOG_CATEGORIES = [
-    "All",
+export const DEFAULT_CATEGORIES = [
     "Company Formation",
     "Banking & Payments",
     "Tax & Accounting",
     "Compliance & Legal",
     "Subsidiaries & Expansion",
     "Guides en Français",
+] as const;
+
+export const BLOG_CATEGORIES = [
+    "All",
+    ...DEFAULT_CATEGORIES,
 ] as const;
 
 export function getPostCategory(post: Post): string {
@@ -123,10 +127,20 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
+    // Dynamic list of categories from posts + defaults
+    const availableCategories = useMemo(() => {
+        const set = new Set<string>(["All", ...DEFAULT_CATEGORIES]);
+        posts.forEach((post) => {
+            const cat = getPostCategory(post);
+            if (cat) set.add(cat);
+        });
+        return Array.from(set);
+    }, [posts]);
+
     // Precalculate counts per category
     const categoryCounts = useMemo(() => {
         const counts: Record<string, number> = { All: posts.length };
-        BLOG_CATEGORIES.forEach((cat) => {
+        availableCategories.forEach((cat) => {
             if (cat !== "All") counts[cat] = 0;
         });
         posts.forEach((post) => {
@@ -134,7 +148,7 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
             counts[cat] = (counts[cat] || 0) + 1;
         });
         return counts;
-    }, [posts]);
+    }, [posts, availableCategories]);
 
     // Filter posts by category AND search query
     const filteredPosts = useMemo(() => {
@@ -225,7 +239,7 @@ export default function BlogGrid({ posts }: { posts: Post[] }) {
 
                     {/* Category Filter Tabs */}
                     <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-5xl mx-auto">
-                        {BLOG_CATEGORIES.map((category) => {
+                        {availableCategories.map((category) => {
                             const isSelected = selectedCategory === category;
                             const count = categoryCounts[category] || 0;
 
