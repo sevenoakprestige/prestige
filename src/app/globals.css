@@ -2915,18 +2915,45 @@ RESPONSIVE DESIGN
 .specialist-page .ss-section { padding: 3.5rem 1.25rem; scroll-margin-top: 7rem; }
 .specialist-page .ss-hero {
   --ss-hero-surface: #0e1a2b;
-  padding: 7rem 0 3.5rem;
+  padding: 6.5rem 0 3.5rem;
   background: var(--ss-hero-surface);
   color: #f7f5f0;
+  position: relative;
 }
-.specialist-page .ss-hero-image { object-position: 70% center; height: auto; aspect-ratio: 16 / 9; }
+.specialist-page .ss-hero-image {
+  object-position: 60% center;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: auto;
+}
 .specialist-page .ss-hero-copy { max-width: 38rem; }
 .specialist-page .ss-hero-shade {
-  display: none;
+  display: block;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 26, 43, 0.88) 0%,
+    rgba(14, 26, 43, 0.94) 55%,
+    #0e1a2b 100%
+  );
 }
-.specialist-page .ss-action { min-height: 3rem; height: auto; white-space: normal; line-height: 1.5; padding: 0.85rem 1.25rem; text-align: left; justify-content: flex-start; }
+.specialist-page .ss-action {
+  min-height: 3rem;
+  height: auto;
+  white-space: normal;
+  line-height: 1.5;
+  padding: 0.85rem 1.25rem;
+  text-align: center;
+  justify-content: center;
+}
 .specialist-page a:focus-visible, .specialist-page summary:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 4px; }
 .specialist-page summary::-webkit-details-marker { display: none; }
+@media (min-width: 640px) {
+  .specialist-page .ss-action {
+    text-align: left;
+    justify-content: flex-start;
+  }
+}
 @media (min-width: 768px) {
   .specialist-page .ss-section { padding: 4.5rem 1.5rem; }
   .specialist-page .ss-hero { padding: 8rem 0 4.5rem; }

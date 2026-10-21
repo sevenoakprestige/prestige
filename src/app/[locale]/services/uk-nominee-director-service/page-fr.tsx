@@ -100,7 +100,7 @@ export default function NomineeDirectorPageFr() {
 
       <main id="main-content">
         {/* HERO SECTION */}
-        <section className="ss-hero relative isolate overflow-hidden">
+        <section className="ss-hero section-dark relative isolate overflow-hidden">
           <picture>
             <source srcSet="/assets/director-hero-1280.webp" media="(min-width: 641px)" />
             <img
@@ -113,26 +113,26 @@ export default function NomineeDirectorPageFr() {
           </picture>
           <div className="ss-hero-shade absolute inset-0 -z-10" />
 
-          <div className="mx-auto max-w-6xl px-5 sm:px-6">
-            <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-              <Link href="/fr" className="hover:text-foreground">Accueil</Link>
-              <span aria-hidden="true">/</span>
-              <span aria-current="page">Évaluation de service de direction</span>
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+              <Link href="/fr" className="hover:text-foreground transition-colors">Accueil</Link>
+              <span aria-hidden="true" className="opacity-40">/</span>
+              <span aria-current="page" className="text-foreground/80">Évaluation de service de direction</span>
             </nav>
 
             <div className="ss-hero-copy">
-              <p className="eyebrow">Seven Oak Prestige Ltd · Évaluation de service de direction</p>
-              <h1 className="mt-5 text-3xl font-display font-bold leading-tight sm:text-4xl lg:text-5xl">
+              <p className="eyebrow text-gold font-semibold uppercase">Seven Oak Prestige Ltd · Évaluation de service de direction</p>
+              <h1 className="mt-4 sm:mt-5 text-2xl font-display font-bold leading-tight sm:text-4xl lg:text-5xl text-foreground break-words">
                 Services de Nominee Director au Royaume-Uni : Devoirs, Exigences et Accompagnement
               </h1>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed sm:text-lg text-foreground/90">
+              <p className="mt-5 sm:mt-6 max-w-2xl text-base leading-relaxed sm:text-lg text-foreground/90">
                 Être administrateur d&apos;une société est une responsabilité légale concrète, pas un simple nom sur un registre. Comprenez les devoirs statutaires, la transparence requise et le cadre légal avant tout accord.
               </p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
                   href={EMAIL_LINK}
-                  className="ss-action btn-gold inline-flex items-center gap-2.5 rounded-md text-xs font-bold uppercase tracking-wider shadow-md hover:-translate-y-0.5 transition-all"
+                  className="ss-action btn-gold inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2.5 rounded-md text-xs font-bold uppercase tracking-wider shadow-md hover:-translate-y-0.5 transition-all text-center sm:text-left"
                 >
                   <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
                   <span>Demander une évaluation de direction</span>
@@ -141,7 +141,7 @@ export default function NomineeDirectorPageFr() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ss-action btn-ghost inline-flex items-center gap-2.5 rounded-md text-xs font-semibold uppercase tracking-wider transition-all hover:-translate-y-0.5"
+                  className="ss-action btn-ghost inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2.5 rounded-md text-xs font-semibold uppercase tracking-wider transition-all hover:-translate-y-0.5 text-center sm:text-left"
                 >
                   <MessageCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
                   <span>Échanger sur WhatsApp</span>
