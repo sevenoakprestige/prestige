@@ -28,6 +28,22 @@ export const post = defineType({
       rows: 4,
     }),
     defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Company Formation', value: 'Company Formation' },
+          { title: 'Banking & Payments', value: 'Banking & Payments' },
+          { title: 'Tax & Accounting', value: 'Tax & Accounting' },
+          { title: 'Compliance & Legal', value: 'Compliance & Legal' },
+          { title: 'Subsidiaries & Expansion', value: 'Subsidiaries & Expansion' },
+          { title: 'Guides en Français', value: 'Guides en Français' },
+        ],
+        layout: 'dropdown',
+      },
+    }),
+    defineField({
       name: 'author',
       title: 'Author',
       type: 'string',
