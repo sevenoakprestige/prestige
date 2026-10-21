@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { CategoryInput } from '../components/CategoryInput'
 
 export const post = defineType({
   name: 'post',
@@ -31,16 +32,9 @@ export const post = defineType({
       name: 'category',
       title: 'Category',
       type: 'string',
-      options: {
-        list: [
-          { title: 'Company Formation', value: 'Company Formation' },
-          { title: 'Banking & Payments', value: 'Banking & Payments' },
-          { title: 'Tax & Accounting', value: 'Tax & Accounting' },
-          { title: 'Compliance & Legal', value: 'Compliance & Legal' },
-          { title: 'Subsidiaries & Expansion', value: 'Subsidiaries & Expansion' },
-          { title: 'Guides en Français', value: 'Guides en Français' },
-        ],
-        layout: 'dropdown',
+      description: 'Click any suggested category below or type your own custom category.',
+      components: {
+        input: CategoryInput,
       },
     }),
     defineField({
