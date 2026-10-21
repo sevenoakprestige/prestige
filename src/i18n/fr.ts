@@ -37,12 +37,16 @@ export const fr: Translations = {
     serviceAddress: 'Adresse de service',
     businessAddress: 'Adresse professionnelle',
     accounting: 'Services Comptables UK',
+    nomineeDirector: 'Service de Nominee Director',
+    shelfCompany: 'Société Ready-Made UK (Shelf Company)',
     
     // Resources & Countries
     guidesAndInsights: 'Guides & Analyses',
     bankingReadiness: 'Évaluation Bancaire Entreprise UK',
     france: 'France',
     india: 'Inde',
+    iraq: 'Irak (العراق)',
+    germany: 'Allemagne',
     contact: 'Contact',
 
     // Footer specific

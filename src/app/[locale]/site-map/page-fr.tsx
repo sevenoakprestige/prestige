@@ -4,11 +4,13 @@ import Footer from "@/components/Footer";
 
 const sitemapSections = [
     {
-        title: "Création de Société",
+        title: "Création de Société & Services Spécialisés",
         icon: <FaBuilding className="h-5 w-5" />,
-        description: "Enregistrez facilement votre société à responsabilité limitée (LTD) au Royaume-Uni",
+        description: "Enregistrez votre société LTD ou acquérez une structure d'entreprise établie",
         links: [
             { name: "Création de Société au Royaume-Uni pour Non-Résidents", href: "/fr/services/uk-company-formation-for-non-residents", description: "Créez une société britannique depuis n'importe où dans le monde" },
+            { name: "Société Ready-Made UK (Shelf Company)", href: "/fr/services/buy-shelf-company-uk", description: "Sociétés britanniques dormantes avec bilan certifié et ancienneté immédiate" },
+            { name: "Service de Nominee Director UK", href: "/fr/services/uk-nominee-director-service", description: "Gouvernance par administrateur résident britannique et confidentialité" },
         ],
     },
     {
@@ -17,8 +19,10 @@ const sitemapSections = [
         description: "Guides d'installation sur mesure pour les fondateurs internationaux",
         links: [
             { name: "Aperçu des Juridictions Mondiales", href: "/fr/countries", description: "Sélectionnez votre pays de résidence" },
-            { name: "Création de Société au Royaume-Uni depuis l'Inde", href: "/countries/india/uk-company-formation", description: "Créez une société britannique depuis l'Inde" },
+            { name: "Création de Société au Royaume-Uni depuis l'Allemagne (Deutschland)", href: "/countries/germany/uk-company-formation", description: "Guide complet en allemand et forfaits pour fondateurs allemands & GmbH" },
             { name: "Création de Société au Royaume-Uni depuis la France", href: "/fr/countries/france/uk-company-formation", description: "Créez une société britannique depuis la France" },
+            { name: "Création de Société au Royaume-Uni depuis l'Inde", href: "/countries/india/uk-company-formation", description: "Créez une société britannique depuis l'Inde" },
+            { name: "Création de Société au Royaume-Uni depuis l'Irak (العراق)", href: "/countries/iraq/uk-company-formation", description: "Guide complet en arabe et forfaits dédiés pour les fondateurs irakiens" },
         ],
     },
     {
@@ -75,6 +79,8 @@ const sitemapSections = [
             { name: "Créer une Société au Royaume-Uni depuis le Pakistan", href: "/blog/how-to-start-a-uk-company-from-pakistan", description: "Entrepreneurs pakistanais — créez une société britannique" },
             { name: "Créer une Société au Royaume-Uni depuis les EAU", href: "/blog/how-to-start-a-uk-company-from-uae", description: "Entrepreneurs des EAU — créez une société britannique" },
             { name: "Créer une Société au Royaume-Uni depuis la France", href: "/blog/how-to-start-a-uk-company-from-france", description: "Entrepreneurs français — créez une société britannique" },
+            { name: "Créer une Société au Royaume-Uni depuis l'Allemagne", href: "/blog/uk-company-from-germany", description: "Entrepreneurs allemands et GmbH — créez une société britannique" },
+            { name: "Créer une Société au Royaume-Uni depuis l'Irak", href: "/blog/uk-company-from-iraq", description: "Entrepreneurs irakiens — créez une société britannique" },
             { name: "Créer une Société au Royaume-Uni depuis l'Algérie", href: "/blog/how-to-start-a-uk-company-from-algeria", description: "Entrepreneurs algériens — créez une société britannique" },
         ],
     },

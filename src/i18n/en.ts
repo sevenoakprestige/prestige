@@ -37,12 +37,16 @@ export const en = {
     serviceAddress: 'UK Service Address',
     businessAddress: 'UK Business Address',
     accounting: 'UK Accounting Services',
+    nomineeDirector: 'UK Nominee Director Service',
+    shelfCompany: 'Buy a UK Shelf Company',
     
     // Resources & Countries
     guidesAndInsights: 'Guides & Insights',
     bankingReadiness: 'UK Business Banking Readiness Assessment',
     france: 'France',
     india: 'India',
+    iraq: 'Iraq (العراق)',
+    germany: 'Germany',
     contact: 'Contact',
 
     // Footer specific
@@ -364,8 +368,8 @@ export type Translations = {
     internationalFounders: string; getInTouch: string;
     nonResidentsPackage: string; chVerification: string; vatRegistration: string;
     eoriRegistration: string; fintechGuidance: string; registeredOffice: string;
-    serviceAddress: string; businessAddress: string; accounting: string; guidesAndInsights: string;
-    bankingReadiness: string; france: string; india: string; contact: string;
+    serviceAddress: string; businessAddress: string; accounting: string; nomineeDirector: string; shelfCompany: string; guidesAndInsights: string;
+    bankingReadiness: string; france: string; india: string; iraq: string; germany: string; contact: string;
     legal: string; useful: string; termsAndConditions: string; refundPolicy: string; privacyPolicy: string;
     trustAndSecurity: string; bookConsultation: string; sitemap: string;
     whatsappNow: string; followUs: string; allRightsReserved: string;

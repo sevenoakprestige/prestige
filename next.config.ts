@@ -63,6 +63,41 @@ const nextConfig: NextConfig = {
         destination: '/fr/services/uk-accounting-non-residents',
         permanent: true,
       },
+      {
+        source: '/uk-nominee-director-service',
+        destination: '/services/uk-nominee-director-service',
+        permanent: true,
+      },
+      {
+        source: '/fr/uk-nominee-director-service',
+        destination: '/fr/services/uk-nominee-director-service',
+        permanent: true,
+      },
+      {
+        source: '/buy-shelf-company-uk',
+        destination: '/services/buy-shelf-company-uk',
+        permanent: true,
+      },
+      {
+        source: '/fr/buy-shelf-company-uk',
+        destination: '/fr/services/buy-shelf-company-uk',
+        permanent: true,
+      },
+      {
+        source: '/ar/uk-company-formation-iraq',
+        destination: '/countries/iraq/uk-company-formation',
+        permanent: true,
+      },
+      {
+        source: '/uk-company-formation-iraq',
+        destination: '/countries/iraq/uk-company-formation',
+        permanent: true,
+      },
+      {
+        source: '/countries_/germany/uk-company-formation',
+        destination: '/countries/germany/uk-company-formation',
+        permanent: true,
+      },
     ];
   },
 };

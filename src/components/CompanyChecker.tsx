@@ -52,14 +52,41 @@ const COPY = {
     takenHelp: "Il vous faudra un nom distinguable. Votre conseiller peut vous proposer des alternatives conformes, sans frais.",
     similarNames: "Noms similaires au registre",
     cta: "Voir les offres"
+  },
+  de: {
+    title: "Namensprüfung",
+    heading: "Ist Ihr Wunschname noch frei?",
+    description: "Prüfen Sie die Verfügbarkeit in Echtzeit direkt im britischen Handelsregister.",
+    note: "Nur eine unverbindliche Indikation – die endgültige Entscheidung trifft Companies House.",
+    label: "Gewünschter Firmenname",
+    placeholder: "Ihr gewünschter Firmenname",
+    submit: "Verfügbarkeit prüfen",
+    loading: "Wird geprüft…",
+    searchNote: "Durchsucht das offizielle Register von Companies House. Die Verfügbarkeit ist unverbindlich – die Entscheidung liegt bei Companies House.",
+    error: "Fehler bei der Prüfung. Bitte versuchen Sie es erneut.",
+    taken: "Dieser Firmenname ist bereits vergeben. Bitte wählen Sie einen anderen Namen.",
+    highlySimilar: (title: string, match: number) => `Ein sehr ähnlicher Name existiert bereits: „${title}“ (${match}% Übereinstimmung)`,
+    similar: (count: number) => `Der Name scheint frei zu sein, es existieren jedoch ${count} ähnliche(r) Name(n). Wir empfehlen einen unterscheidbareren Namen.`,
+    available: "Der Firmenname ist verfügbar. Sie können ihn jetzt registrieren.",
+    freeHelp: "Der Name scheint frei zu sein. Namen, die bestehenden Unternehmen zu ähnlich sind oder sensible Begriffe enthalten, können dennoch abgelehnt werden.",
+    takenHelp: "Sie benötigen einen unterscheidbaren Namen. Ihr Berater schlägt Ihnen gerne kostenfrei Alternativen vor.",
+    similarNames: "Ähnliche Namen im Register",
+    cta: "Zu den Paketen"
   }
 } as const;
 
 import { useTranslation } from "@/i18n/TranslationContext";
 
-export default function CompanyChecker() {
+export default function CompanyChecker({
+    lang,
+    targetHref = "#pricing",
+}: {
+    lang?: "en" | "fr" | "de";
+    targetHref?: string;
+} = {}) {
     const { locale } = useTranslation();
-    const t = COPY[locale];
+    const activeLang = lang || (locale in COPY ? locale : 'en');
+    const t = COPY[activeLang as keyof typeof COPY] || COPY.en;
     const [companyName, setCompanyName] = useState('');
     const [result, setResult] = useState<{
         type: 'success' | 'error' | 'warning' | 'info' | null;
@@ -578,7 +605,7 @@ export default function CompanyChecker() {
                                 )}
 
                                 <Button asChild variant="ghost" className="mt-8">
-                                    <a href="#pricing">{t.cta}</a>
+                                    <a href={targetHref}>{t.cta}</a>
                                 </Button>
                             </div>
                         )}

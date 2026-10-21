@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600">
+	<title>Flag of Iraq</title>
+	<rect width="900" height="200" fill="#ce1126"/>
+	<rect y="200" width="900" height="200" fill="#ffffff"/>
+	<rect y="400" width="900" height="200" fill="#000000"/>
+	<g fill="#007a3d" transform="translate(450,300) scale(1.15)">
+		<!-- Kufic script: Allahu Akbar -->
+		<text x="0" y="32" font-family="'Noto Kufi Arabic', 'Scheherazade New', 'Amiri', 'Traditional Arabic', sans-serif" font-size="115" font-weight="bold" text-anchor="middle" direction="rtl">الله أكبر</text>
+	</g>
+</svg>
