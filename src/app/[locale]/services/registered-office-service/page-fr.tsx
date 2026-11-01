@@ -428,14 +428,10 @@ export default function RegisteredOfficeServicePageFr() {
                 className="aspect-[16/9] h-full w-full object-cover"
               />
             </picture>
-            <figcaption className="flex flex-col justify-between gap-4 p-6 sm:p-8">
+            <figcaption className="flex flex-col justify-center gap-4 p-6 sm:p-8">
               <span className="font-display text-2xl leading-snug text-foreground">
                 Une adresse distincte pour le courrier officiel de votre société.
               </span>
-              <small className="text-xs leading-relaxed text-muted-foreground">
-                Image d’illustration — ne représente pas nos locaux ni une adresse de service
-                disponible
-              </small>
             </figcaption>
           </figure>
         </section>

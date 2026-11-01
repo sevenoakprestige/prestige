@@ -428,13 +428,10 @@ export default function RegisteredOfficeServicePageEn() {
                 className="aspect-[16/9] h-full w-full object-cover"
               />
             </picture>
-            <figcaption className="flex flex-col justify-between gap-4 p-6 sm:p-8">
+            <figcaption className="flex flex-col justify-center gap-4 p-6 sm:p-8">
               <span className="font-display text-2xl leading-snug text-foreground">
                 A separate address for official company post.
               </span>
-              <small className="text-xs leading-relaxed text-muted-foreground">
-                Illustrative image — not our premises or an available service location
-              </small>
             </figcaption>
           </figure>
         </section>

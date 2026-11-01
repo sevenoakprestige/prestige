@@ -10,40 +10,38 @@ export async function generateMetadata({
     const path = "/services/vat-registration-uk";
     const canonical = isFr ? `https://www.sevenoakprestige.com/fr${path}` : `https://www.sevenoakprestige.com${path}`;
 
+    const title = isFr
+        ? "Service d'Enregistrement à la TVA UK pour Non-Résidents & Sociétés Étrangères | £144"
+        : "VAT Registration Service UK for Non-Residents & Overseas Companies | £144";
+
+    const description = isFr
+        ? "Assistance à l'enregistrement à la TVA au Royaume-Uni : £144 au total. Pour fondateurs non-résidents, sociétés étrangères et vendeurs Amazon FBA. Examen d'éligibilité, préparation du dossier et soumission convenue."
+        : "UK VAT registration assistance: £144 total. For non-resident founders, overseas companies and Amazon FBA sellers. Eligibility review, application preparation and agreed submission.";
+
     return {
-        title: isFr
-            ? "Service d'Enregistrement à la TVA UK | Seven Oak Prestige"
-            : "UK VAT Registration Service | Register for VAT with HMRC Support",
-        description: isFr
-            ? "Service rapide d'enregistrement à la TVA au Royaume-Uni avec accompagnement HMRC pour entreprises et non-résidents."
-            : "Fast UK VAT registration service with HMRC compliance guidance for businesses and non-residents.",
+        title,
+        description,
         keywords: [
             "UK VAT registration",
-            "VAT registration service",
+            "VAT registration service UK",
+            "VAT registration for non-residents",
+            "VAT registration overseas company",
             "HMRC VAT registration",
             "register for VAT UK",
-            "VAT for non-residents",
+            "Amazon FBA UK VAT registration",
             "UK VAT number",
         ],
         openGraph: {
-            title: isFr
-                ? "Service d'Enregistrement à la TVA UK | Seven Oak Prestige"
-                : "UK VAT Registration Service | Register for VAT with HMRC Support",
-            description: isFr
-                ? "Service rapide d'enregistrement à la TVA au Royaume-Uni avec accompagnement HMRC pour entreprises et non-résidents."
-                : "Fast UK VAT registration service with HMRC compliance guidance for businesses and non-residents.",
+            title,
+            description,
             url: canonical,
             type: "website",
             locale: isFr ? "fr_FR" : "en_GB",
         },
         twitter: {
             card: "summary_large_image",
-            title: isFr
-                ? "Service d'Enregistrement à la TVA UK | Seven Oak Prestige"
-                : "UK VAT Registration Service | Seven Oak Prestige",
-            description: isFr
-                ? "Service rapide d'enregistrement à la TVA au Royaume-Uni."
-                : "Fast UK VAT registration with HMRC compliance guidance.",
+            title,
+            description,
         },
         alternates: {
             canonical,
