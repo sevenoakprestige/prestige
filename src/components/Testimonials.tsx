@@ -170,6 +170,14 @@ export default function Testimonials() {
                 <h2 className="font-display mb-6 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                     {t.testimonials.headline}
                 </h2>
+                <a
+                    href={GOOGLE_REVIEWS_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-3 text-sm font-semibold text-gold-soft underline underline-offset-4 hover:text-gold"
+                >
+                    <span aria-hidden="true">★★★★★</span> {OVERALL_RATING}/5 {t.testimonials.onGoogle} — {t.testimonials.viewAll}
+                </a>
                 <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
                     {t.testimonials.body}
                 </p>

@@ -10,40 +10,37 @@ export async function generateMetadata({
     const path = "/services/eori-registration-uk";
     const canonical = isFr ? `https://www.sevenoakprestige.com/fr${path}` : `https://www.sevenoakprestige.com${path}`;
 
+    const title = isFr
+        ? "Service d'Enregistrement EORI UK | Demander un EORI GB | £60 au Total"
+        : "EORI Registration Service UK | Apply for a GB EORI | £60 Total";
+
+    const description = isFr
+        ? "Assistance à l'enregistrement EORI GB : £60 au total. Pour importateurs, exportateurs UK et sociétés étrangères éligibles. Vérification des besoins, préparation du dossier et confirmation du numéro. XI et UE non inclus."
+        : "GB EORI registration assistance: £60 total. For UK importers, exporters and eligible non-UK companies. Requirement check, application preparation and number confirmed. XI and EU not included.";
+
     return {
-        title: isFr
-            ? "Numéro EORI Royaume-Uni (Import / Export) | Seven Oak Prestige"
-            : "EORI Registration UK | Import & Export Business Registration",
-        description: isFr
-            ? "Obtenez votre numéro EORI pour commercer au Royaume-Uni (import / export) avec un accompagnement rapide auprès de HMRC."
-            : "Get your EORI number for UK import/export trading with fast registration support.",
+        title,
+        description,
         keywords: [
             "EORI registration UK",
+            "GB EORI number",
+            "apply for GB EORI",
             "EORI number UK",
             "UK import export registration",
             "EORI for non-residents",
-            "UK trading EORI",
             "HMRC EORI registration",
         ],
         openGraph: {
-            title: isFr
-                ? "Numéro EORI Royaume-Uni (Import / Export) | Seven Oak Prestige"
-                : "EORI Registration UK | Import & Export Business Registration",
-            description: isFr
-                ? "Obtenez votre numéro EORI pour commercer au Royaume-Uni avec un accompagnement rapide."
-                : "Get your EORI number for UK import/export trading with fast registration support.",
+            title,
+            description,
             url: canonical,
             type: "website",
             locale: isFr ? "fr_FR" : "en_GB",
         },
         twitter: {
             card: "summary_large_image",
-            title: isFr
-                ? "Numéro EORI Royaume-Uni | Seven Oak Prestige"
-                : "EORI Registration UK | Seven Oak Prestige",
-            description: isFr
-                ? "Obtenez votre numéro EORI pour commercer au Royaume-Uni."
-                : "Fast UK EORI registration for import and export businesses.",
+            title,
+            description,
         },
         alternates: {
             canonical,

@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslation } from "@/i18n/TranslationContext";
-import { FaCheckCircle } from "react-icons/fa";
 import { Button } from "./ui/button";
 import Link from "next/link";
 
@@ -42,7 +41,7 @@ const PLANS: Array<{
     {
         name: "Prestige",
         price: "£299",
-        note: "The natural choice for most non-residents: formation plus UK address infrastructure.",
+        note: "Formation plus UK address infrastructure — the natural choice for most founders.",
         features: [
             "Everything in Starter",
             "Registered Office — 12 months",
@@ -58,7 +57,7 @@ const PLANS: Array<{
     {
         name: "Elite",
         price: "£399",
-        note: "Prestige plus enhanced identity-verification and banking-readiness assistance.",
+        note: "Prestige plus administrative identity-verification assistance for ONE director and banking application readiness.",
         features: [
             "Everything in Prestige",
             "Virtual business address for 12 months",
@@ -68,9 +67,9 @@ const PLANS: Array<{
         ],
         logos: true,
         footnote:
-            "One director included. Additional directors or relevant persons are handled separately.",
+            "Administrative identity-verification assistance for ONE director is included, separate from official Companies House verification. Additional directors, PSCs or other persons and any additional verification costs are separately scoped. Banking support covers application readiness, documents and guidance; approval remains with the provider.",
         cta: "Choose Elite",
-        href: "https://buy.stripe.com/3cI9ALfNeaHP2VTgbWfw40v",
+        href: "https://buy.stripe.com/9B6fZ958AbLT5417Fqfw402",
         featured: true,
         tag: "Most comprehensive",
     },
@@ -78,6 +77,7 @@ const PLANS: Array<{
 
 export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
     const { t, locale } = useTranslation();
+    const isFr = locale === 'fr';
     const prefix = locale === 'en' ? '' : `/${locale}`;
 
     const formatINR = (priceStr: string) => {
@@ -181,11 +181,29 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                         * Payments are charged in GBP. Rupee amounts are provided for convenience and are indicative based on exchange rates (updated daily).
                     </p>
                 )}
-                
-                <p className="mt-10 max-w-3xl text-xs leading-relaxed text-muted-foreground">
-                    {t.pricing.financialDisclaimer}
+
+                <p className="mt-8 text-sm text-muted-foreground">
+                    {isFr ? (
+                        <>
+                            Les comptes annuels, l’impôt sur les sociétés et la TVA ne sont pas inclus dans les formules de création —{" "}
+                            <Link href={`${prefix}/services/uk-accounting-non-residents`} className="text-gold-soft underline-offset-4 hover:underline">
+                                un accompagnement comptable est disponible séparément après l’immatriculation
+                            </Link>
+                            .
+                        </>
+                    ) : (
+                        <>
+                            Annual accounts, Corporation Tax and VAT are not included in formation packages —{" "}
+                            <Link href={`${prefix}/services/uk-accounting-non-residents`} className="text-gold-soft underline-offset-4 hover:underline">
+                                accounting support is available separately after incorporation
+                            </Link>
+                            .
+                        </>
+                    )}
                 </p>
-                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                
+                <p className="mt-6 max-w-3xl text-xs leading-relaxed text-muted-foreground">
+                    {t.pricing.financialDisclaimer}{" "}
                     {t.pricing.termsText}{" "}
                     <Link href={`${prefix}/terms`} className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.terms}</Link> {t.pricing.and}{" "}
                     <Link href={`${prefix}/refund`} className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.refundPolicy}</Link>.

@@ -70,29 +70,28 @@ export const en = {
     googleReviews: 'Google Reviews',
   },
   hero: {
-    eyebrow: 'UK Company Formation for Non-Residents',
-    headline: 'Form Your UK Limited Company From Abroad',
-    body: 'Set up remotely with support from a dedicated adviser. Every package includes Companies House incorporation and electronic company documents, with UK address services and additional support options available depending on your package.',
-    subBody: 'Most standard incorporations can be completed within 1–2 business days after the required information and verification are complete, subject to Companies House processing and approval.',
-    cta1: 'Compare Packages',
-    cta2: 'Ask an Adviser on WhatsApp',
+    eyebrow: 'UK company formation for international and non-resident founders — from £199, including the Companies House filing fee.',
+    headline: 'Form Your UK Limited Company Online',
+    body: 'Register your UK limited company with clear, fixed pricing and a dedicated adviser reviewing your company details before submission. Choose the UK address services you need, complete secure onboarding, and receive practical guidance beyond incorporation.',
+    subBody: 'Already have a UK company? Explore our compliance, address and banking-readiness support.',
+    cta1: 'Check Your Company Name',
+    cta2: 'Compare Formation Packages',
     bullets: [
       'No UK travel required',
       'Companies House fee included',
       'Secure onboarding',
       'Human adviser support',
     ],
-    disclaimer: 'Subject to complete information, identity checks and Companies House processing.',
+    disclaimer: 'No UK travel required for standard online incorporation. Subject to identity verification, complete documentation and Companies House approval.',
   },
   trust: [
-    ['UK-Registered Provider', 'Seven Oak Prestige Ltd — verify us at Companies House, No. 16903092'],
-    ['A Real Adviser, Not a Form', 'One named London adviser checks your file before it is filed'],
-    ['5.0 / 5 on Google', 'The highest possible rating, backed by genuine client feedback'],
-    ['One Price, Shown Up Front', 'Government filing fee included; renewal prices shown before you pay'],
+    ['Human Review', 'A dedicated adviser reviews your company details before submission.'],
+    ['Transparent Prices', 'Formation from £199, filing fee included; address options and renewals stated separately.'],
+    ['Post-Incorporation Support', 'Practical next-step guidance, with ongoing services scoped to your company’s needs.'],
   ],
   testimonials: {
     eyebrow: 'Client reviews',
-    headline: 'Trusted by International Founders',
+    headline: 'Feedback From International Founders',
     body: 'Real feedback from clients who have worked with Seven Oak Prestige.',
     onGoogle: 'on Google',
     googleReview: 'Google review',
@@ -101,13 +100,13 @@ export const en = {
     next: 'Next reviews',
   },
   pricing: {
-    eyebrow: 'Packages',
+    eyebrow: 'Limited company formation packages',
     headline: 'Fixed pricing. Everything stated up front.',
     providerNote: 'Providers considered',
     providerDisclaimer: 'Provider availability depends on founder residence, business activity, ownership, KYC and individual eligibility. Final approval remains with the provider.',
     askExpert: 'Have a question? Talk to an expert',
     financialDisclaimer: "Financial-provider approval is not guaranteed and remains subject to each provider's eligibility, KYC and risk assessment.",
-    termsText: 'Prices, renewals and cancellation terms are shown clearly before purchase. See our',
+    termsText: 'Prices, renewals and cancellation terms are shown clearly before purchase — see our',
     terms: 'Terms',
     and: 'and',
     refundPolicy: 'Refund Policy',
@@ -125,7 +124,7 @@ export const en = {
       },
       {
         name: "Prestige",
-        note: "The natural choice for most non-residents: formation plus UK address infrastructure.",
+        note: "Formation plus UK address infrastructure — the natural choice for most founders.",
         features: [
             "Everything in Starter",
             "Registered Office — 12 months",
@@ -138,7 +137,7 @@ export const en = {
       },
       {
         name: "Elite",
-        note: "Prestige plus enhanced identity-verification and banking-readiness assistance.",
+        note: "Prestige plus administrative identity-verification assistance for ONE director and banking application readiness.",
         features: [
             "Everything in Prestige",
             "Virtual business address for 12 months",
@@ -146,7 +145,7 @@ export const en = {
             "Direct banking & EMI assistance where applicable",
             "Compliance assistance",
         ],
-        footnote: "One director included. Additional directors or relevant persons are handled separately.",
+        footnote: "Administrative identity-verification assistance for ONE director is included, separate from official Companies House verification. Additional directors, PSCs or other persons and any additional verification costs are separately scoped. Banking support covers application readiness, documents and guidance; approval remains with the provider.",
         cta: "Choose Elite",
         tag: "Most comprehensive",
       }
@@ -155,7 +154,7 @@ export const en = {
   identity: {
       eyebrow: 'Verification',
       heading: 'Companies House Identity Verification & Personal Code Assistance — £74',
-      body1: 'Relevant directors and People with Significant Control may need to complete Companies House identity verification and obtain their Companies House personal code. We provide guided assistance for directors, PSCs and non-UK residents, with the required evidence confirmed for each applicant and verification route.',
+      body1: 'Directors and people with significant control must meet the applicable Companies House identity-verification requirements. We assist you through the identity-verification process so you can obtain your Companies House personal code. Our service is administrative assistance, separate from official verification through the applicable authorised route; we do not act as an ACSP.',
       steps: ["Identity", "Verification", "Personal Code", "Incorporation"],
       body2: 'KYC onboarding and Companies House statutory identity verification are separate processes.',
       cta: 'View Verification Assistance — £74'
@@ -168,7 +167,7 @@ export const en = {
       cta: 'Prepare My Banking Profile'
   },
   success: {
-    caption: 'A genuine Seven Oak international-founder case.',
+    caption: 'Illustrative image accompanying the Almataev client case.',
     eyebrow: 'Client case study',
     headline: 'Almataev — Forming a UK Company from Thailand',
     body1: 'Almataev, a Russian founder residing in Thailand, needed a compliant UK company structure for an international digital business without travelling to the UK.',
@@ -178,7 +177,7 @@ export const en = {
     supportText: 'KYC and document review, structure preparation, Companies House submission, post-incorporation guidance and banking-readiness support.',
     outcome: 'The outcome',
     outcomeText: 'The UK company was incorporated in approximately two business days after the required information and verification were complete.',
-    disclaimer: 'This is a genuine client scenario. Timelines vary with document completeness, required checks and Companies House processing.',
+    disclaimer: 'Timelines vary with document completeness, required checks and Companies House processing.',
     cta: 'Compare Packages'
   },
   renewals: {
@@ -205,37 +204,38 @@ export const en = {
       ['02', 'Account created', 'Your secure client portal account is created for you.'],
       ['03', 'Welcome email', 'You receive clear instructions and the documents required for your case.'],
       ['04', 'Secure onboarding', 'Complete the form and upload your identity and address evidence.'],
-      ['05', 'Adviser review', 'A named adviser checks the details and asks for clarification only when needed.'],
+      ['05', 'Adviser review', 'An adviser checks the details and asks for clarification only when needed.'],
       ['06', 'Filing', 'Once the required checks are complete, we prepare and submit the incorporation.'],
     ],
   },
   services: {
-    eyebrow: 'Scope of service',
-    headline: 'What Is Included in Your UK Company Setup?',
+    eyebrow: 'Ongoing company services',
+    headline: 'Already Have a UK Company? Explore Ongoing Support',
     items: [
-      ['Company Incorporation', 'Preparation and submission of your company incorporation to Companies House.'],
-      ['Company Documents', 'Certificate of Incorporation, Memorandum & Articles, Share Certificate, Company Register.'],
-      ['KYC & Onboarding Review', 'We review the identification, proof-of-address and onboarding information required for our compliance and company-formation process.'],
-      ['UK Address Services', 'A London registered office and director service address, so your home address stays off the public register.'],
-      ['Mail Handling', 'Your company mail is received in London, checked and scanned to you by email.'],
-      ['Banking Readiness', 'We prepare your business profile and documents so applications are not rejected on avoidable detail.'],
-      ['Compliance Support', 'Filing reminders before deadlines, and clear guidance on what to do after incorporation.'],
+      ['Corporate Administration', 'Discuss company changes and administrative support, scoped to your existing company.', '#final-cta'],
+      ['Registered Office Address', 'A London registered office for your company, shown on the public register.', '/services/registered-office-service'],
+      ['Director Service Address', 'Keep your home address off the public register with a separate service address.', '/services/director-service-address'],
+      ['Mail Handling & Scanning', 'Eligible company mail received in London and sent to you electronically.', '#mail'],
+      ['Identity Verification', 'Administrative assistance through the Companies House verification process — £74 separately, subject to scope.', '/services/companies-house-identity-verification'],
+      ['Banking & Payments Readiness', 'Application preparation for suitable providers; approval remains with the provider.', '#banking'],
+      ['Accounting & Compliance', 'Annual accounts, confirmation statements and ongoing compliance support.', '/services/uk-accounting-non-residents'],
+      ['VAT, EORI & Corporate Admin', 'VAT registration and returns, EORI numbers and day-to-day corporate administration.', '/services/uk-accounting-non-residents'],
     ],
   },
   why: {
-    eyebrow: 'Why Seven Oak',
-    headline: 'More Than an Incorporation Platform',
-    body: 'One named adviser stays with you throughout your setup, from the first review to your post-incorporation next steps.',
+    eyebrow: 'Why choose Seven Oak Prestige',
+    headline: 'UK Company Registration, Made Clear and Straightforward',
+    body: 'Choose the company documents, address arrangements and application support appropriate to your business.',
     items: [
-      ['UK-Based Advisory Firm', 'Deal directly with Seven Oak Prestige Ltd, a registered UK company.'],
-      ['Human Review', 'A named adviser reviews your residence, activity, ownership and company details before filing.'],
-      ['Built for Non-Residents', 'Remote onboarding, UK address options and document checks are designed around international founders.'],
-      ['Beyond Incorporation', 'Prestige and Elite add address, mail, verification and banking-readiness support where required.'],
+      ['Company Details, Clearly Set Out', 'Names, officers, shareholdings and SIC codes organised for your incorporation application.'],
+      ['Documents for Your Next Steps', 'Electronic company documents and address services according to your selected package.'],
+      ['Privacy-Minded Address Options', 'Use a separate director service address rather than displaying your residential address as your correspondence address.'],
+      ['Banking Application Readiness', 'Business-profile preparation, KYC documentation and application guidance; decisions remain with independent providers.'],
     ],
   },
   howItWorks: {
-    eyebrow: 'Process & Timeline',
-    heading: 'Clear Expectations, No Ambiguity',
+    eyebrow: 'How it works',
+    heading: 'A Clear Process From Start to Finish',
     whatYouDo: 'What you do',
     whatHappensNext: 'What happens next',
     steps: [
@@ -290,10 +290,10 @@ export const en = {
     eyebrow: 'What you receive',
     headline: 'Your Company Documentation',
     items: [
-      ['Certificate of Incorporation', 'Issued by Companies House after successful incorporation.'],
-      ['Memorandum & Articles of Association', "Your company's constitutional documents."],
-      ['Share Certificate', 'Issued for the shareholder(s) according to the agreed allocation.'],
-      ['Company Register', 'A structured record of ownership and key corporate information.'],
+      ['Certificate of Incorporation', 'Issued by Companies House on successful incorporation.'],
+      ['Memorandum & Articles', "Your company's constitutional documents."],
+      ['Share Certificate', 'Issued for the shareholder(s) as agreed.'],
+      ['Company Register', 'A structured record of ownership and corporate information.'],
       ['Company Number', 'Issued on incorporation and shown on the public register.'],
       ['UTR Support', 'The Corporation Tax UTR is forwarded when received from HMRC.'],
     ],
@@ -303,8 +303,8 @@ export const en = {
     headline: 'Guidance for International Founders',
     exploreAll: 'Explore All Countries',
     guides: [
-      ['India', 'UK company formation for Indian founders.'],
       ['France', 'Créer une société UK depuis la France.'],
+      ['India', 'UK company formation for Indian founders.'],
     ],
   },
   
@@ -323,15 +323,62 @@ export const en = {
     eyebrow: 'Common questions',
     headline: 'Answers before you commit.',
     items: [
-      { q: 'Is this legal for non-residents?', a: 'Yes. UK residency is not generally required to own shares in or act as a director of a UK private limited company. The incorporation remains subject to Companies House requirements, identity verification and applicable eligibility rules.' },
-      { q: 'How is my identity verified?', a: 'Your identity is verified through our secure KYC process using trusted third-party identity verification providers, including Credas and Onfido, where appropriate.' },
-      { q: 'What do I need to provide?', a: 'For a standard application, we normally require: a valid passport or eligible identity document; proof of your current residential address; your proposed company name; and a clear description of the business activities you intend to carry out.' },
-      { q: 'How long does company registration take?', a: 'Once your KYC verification has been successfully completed and we have received the required company information, a standard UK company incorporation typically takes 1–2 business days.' },
-      { q: 'What happens if my application is rejected?', a: 'Rejections are usually caused by a name conflict or a document issue. We tell you the reason, correct the filing and resubmit at no extra service fee. If the company genuinely cannot be formed, our refund policy applies.' },
-      { q: 'Will my home address appear on the public register?', a: "A director's residential address is generally kept private where a separate service address is used. The company must still maintain an appropriate registered office, which appears on the public register." },
-      { q: 'Can I open a UK business bank account?', a: 'Potentially. Eligibility depends on the provider, founder residence, business activity, KYC, source of funds and expected transactions. Forming a UK company does not guarantee banking approval.' },
-      { q: 'Do you help with banking and fintech applications?', a: 'Yes. We provide banking-readiness and application support where included in your package or purchased separately. Final approval is always made by the financial provider.' },
-      { q: 'Are there hidden or renewal fees?', a: 'No. Package prices are fixed and stated up front, including the Companies House incorporation fee. Address services renew annually at the published rates.' },
+      {
+        q: 'How do I register a limited company in the UK?',
+        a: 'Choose a company name, appoint at least one director and shareholder, provide a registered office address and adopt articles of association. The application is then filed with Companies House. With Seven Oak Prestige you choose a package, complete secure online onboarding, and we review and submit the application for you.',
+      },
+      {
+        q: 'How much does it cost to register a company in the UK?',
+        a: 'Our formation packages start at £199 and include the Companies House incorporation fee. Prestige (£299) adds a registered office and director service address for 12 months, and Elite (£399) adds a virtual business address and banking assistance. Year-two address renewals are shown before you pay.',
+      },
+      {
+        q: 'How long does company formation take?',
+        a: 'Once your KYC has been completed and we hold the required company information, a standard incorporation typically takes 1–2 business days. Approval remains with Companies House, so exact timing cannot be guaranteed.',
+      },
+      {
+        q: 'Can I register a UK company online?',
+        a: 'Yes. Company registration is completed electronically with Companies House, and our onboarding, identity checks and document collection all take place online. No UK visit is normally required.',
+      },
+      {
+        q: 'What documents are required to register a company?',
+        a: 'We normally require a valid passport or eligible identity document, proof of residential address dated within the last three months, your proposed company name and a description of your business activities. Additional information may be requested during our compliance review.',
+      },
+      {
+        q: 'Can one person be the sole director and shareholder?',
+        a: 'Yes. A private limited company can be formed with one person acting as both the only director and the only shareholder. Directors must be at least 16 years old and must not be disqualified.',
+      },
+      {
+        q: 'Do I need a UK registered office address?',
+        a: 'Yes. Every UK company must have a registered office address in the same UK jurisdiction where it is registered, and it appears on the public register. If you do not have a suitable address, our Prestige and Elite packages include a London registered office for 12 months.',
+      },
+      {
+        q: 'What is a director service address?',
+        a: 'It is the correspondence address for a director shown on the public register. Using a separate service address generally keeps your residential address private; Companies House still holds your home address on a protected record.',
+      },
+      {
+        q: 'Can I form a UK company without living in the UK?',
+        a: 'Yes. UK residency is not generally required to be a director or shareholder, subject to Companies House requirements and identity verification. Our non-resident formation guide explains the process in more detail.',
+      },
+      {
+        q: 'Do I need Companies House identity verification?',
+        a: 'Directors and people with significant control are now required to verify their identity with Companies House and obtain a personal code. This is separate from our own KYC checks. We offer guided personal-code assistance for £74 where needed.',
+      },
+      {
+        q: 'Can I open a UK business bank account?',
+        a: 'Potentially. Eligibility depends on the provider, founder residence, business activity, KYC and expected transactions, and forming a company does not guarantee approval. We help prepare your banking profile and application where included in your package.',
+      },
+      {
+        q: 'What happens after incorporation?',
+        a: 'You receive your Certificate of Incorporation, company number and electronic company documents. HMRC normally issues a Corporation Tax UTR afterwards, and you should consider registering for Corporation Tax, VAT (if applicable) and setting up your bookkeeping.',
+      },
+      {
+        q: 'What annual filings does a UK limited company need?',
+        a: 'Each year a company must file a confirmation statement and annual accounts with Companies House, and a Corporation Tax return (CT600) with HMRC. These filings are not part of the formation packages; our accounting service can handle them for you.',
+      },
+      {
+        q: 'When does my company need to register for VAT?',
+        a: 'VAT registration is compulsory once VAT-taxable turnover exceeds the current HMRC threshold, and voluntary registration is possible below it. VAT registration is not included in the formation packages and is available as a separate service.',
+      },
     ],
   },
   relatedServices: {
