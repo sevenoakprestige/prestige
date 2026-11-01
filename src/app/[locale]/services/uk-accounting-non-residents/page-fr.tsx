@@ -1,273 +1,351 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import { StickyCta } from "@/components/StickyCta";
 
-const wa = (message: string) =>
-  `https://wa.me/447447488755?text=${encodeURIComponent(message)}`;
-
-const PACKAGE_FINDER = wa(
-  "Bonjour Seven Oak Prestige, je souhaite obtenir de l'aide pour choisir un forfait comptable pour ma société UK. Nom de la société : ... / Pays du dirigeant : ... / Activité : ... / Statut d'activité : ... / Volume mensuel approximatif de transactions : ... / TVA ou paie : ... / Banque ou EMI principale : ... / Expert-comptable actuel : oui/non"
-);
-
-type Package = {
+type PackageItem = {
+  fit: string;
   name: string;
-  price: string;
-  description: string;
+  amount: string;
+  amountSuffix: string;
+  mini: string;
   features: string[];
-  note?: string;
-  bestFor: string;
   cta: string;
-  message: string;
+  dataPackage: string;
+  exclude: string;
   featured?: boolean;
 };
 
-const PACKAGES: Package[] = [
+const PACKAGES: PackageItem[] = [
   {
+    fit: "Pour les micro-entités éligibles",
     name: "Essential Accounting",
-    price: "£699 / an",
-    description:
-      "Pour les entreprises qui gèrent leur propre tenue de livres et recherchent principalement la conformité annuelle.",
+    amount: "£699",
+    amountSuffix: "/an",
+    mini: "Conformité annuelle, sans tenue de livres",
     features: [
       "Comptes statutaires annuels (Annual Accounts)",
       "Déclaration d’impôt sur les sociétés (CT600)",
-      "Préparation et dépôt du Confirmation Statement",
-      "Revue de conformité de clôture d’exercice",
-      "Coordination du calendrier de dépôt légal",
+      "Un Confirmation Statement, frais de dépôt en ligne standard inclus",
+      "Coordination des échéances de conformité",
     ],
-    note: "La tenue de livres continue et les déclarations de TVA ne sont pas incluses et peuvent être ajoutées séparément selon vos besoins.",
-    bestFor:
-      "Entreprises ayant une comptabilité interne ordonnée nécessitant principalement leurs comptes annuels, leur Corporation Tax et leur conformité Companies House.",
-    cta: "Choisir Essential",
-    message:
-      "Bonjour Seven Oak Prestige, je souhaite discuter du forfait Essential Accounting pour ma société britannique.",
+    cta: "Commencer — Essential →",
+    dataPackage: "Essential Accounting",
+    exclude: "Exclut la tenue de livres, les déclarations de TVA et les logiciels.",
   },
   {
+    fit: "Pour les sociétés actives",
     name: "Managed Accounting",
-    price: "£1,699 / an",
-    description:
-      "Tout le contenu Essential, avec la tenue de livres continue entièrement prise en charge pour vous.",
+    amount: "£1,699",
+    amountSuffix: "/an",
+    mini: "Tenue de livres mensuelle + conformité annuelle",
     features: [
-      "Tout le contenu du forfait Essential",
-      "Tenue de livres incluse, jusqu’à 50 transactions par mois",
-      "Revue comptable trimestrielle",
-      "Comptes annuels établis à partir des registres tenus",
-      "Coordination comptable continue",
+      "Tout ce qui est inclus dans Essential",
+      "Tenue de livres mensuelle, jusqu’à 25 transactions",
+      "Mises à jour mensuelles des écritures",
+      "Coordination des justificatifs et questions sur les transactions",
     ],
-    note: "Le seuil de 50 transactions mensuelles est validé au regard de vos comptes et flux réels lors de l’onboarding.",
-    bestFor:
-      "Consultants, agences, éditeurs SaaS et entreprises à volume modéré souhaitant confier ensemble leur tenue de livres et leur clôture annuelle.",
-    cta: "Choisir Managed",
-    message:
-      "Bonjour Seven Oak Prestige, je souhaite discuter du forfait Managed Accounting pour ma société britannique.",
+    cta: "Commencer — Managed →",
+    dataPackage: "Managed Accounting",
+    exclude: "Exclut les déclarations de TVA et l’abonnement Xero.",
     featured: true,
   },
   {
+    fit: "Pour les entreprises en croissance",
     name: "Managed Plus",
-    price: "À partir de £2,199 / an",
-    description:
-      "Pour les entreprises assujetties à la TVA, en pleine croissance ou aux opérations plus complexes.",
+    amount: "£2,199",
+    amountSuffix: "/an à partir de",
+    mini: "Capacité de transactions supérieure + déclaration personnelle",
     features: [
-      "Tout le contenu du forfait Managed",
-      "Déclarations de TVA trimestrielles incluses dans le périmètre initial",
-      "Volumes de transactions supérieurs disponibles",
-      "Gestion de la paie disponible sur demande",
-      "Prise en charge multidevises et multiples canaux de paiement",
-      "Rapports de gestion complémentaires sur demande",
+      "Tout ce qui est inclus dans Managed",
+      "Tenue de livres mensuelle, jusqu’à 50 transactions au total",
+      "Une déclaration Self Assessment dirigeant, le cas échéant",
+      "Coordination client renforcée",
     ],
-    note: "Le tarif final est confirmé après analyse de vos volumes de transactions, de votre assujettissement à la TVA, de la paie et de vos opérations.",
-    bestFor:
-      "Entreprises assujetties à la TVA, activités e-commerce, entreprises multi-comptes ou multi-devises, sociétés avec salariés et filiales britanniques nécessitant un suivi étendu.",
-    cta: "Demander une étude de périmètre",
-    message:
-      "Bonjour Seven Oak Prestige, je souhaite demander une étude de périmètre pour le forfait Managed Plus.",
+    cta: "Commencer — Managed Plus →",
+    dataPackage: "Managed Plus",
+    exclude:
+      "Exclut les déclarations de TVA, Xero et la fiscalité transfrontalière complexe.",
   },
 ];
 
-const STANDALONE: [string, string, string?][] = [
-  ["Comptes de société dormante (Dormant Accounts)", "£249 / an"],
-  ["Comptes faible volume + CT600", "£449 / an"],
-  ["Comptes petite société active + CT600", "£649 / an"],
-  [
-    "Déclaration de TVA trimestrielle",
-    "£119 / trimestre",
-    "Une déclaration trimestrielle dans le cadre d’un périmètre standard.",
-  ],
-  ["Tenue de livres — jusqu’à 50 transactions / mois", "£99 / mois"],
-  ["Tenue de livres — 51 à 100 transactions / mois", "£149 / mois"],
-  [
-    "Gestion de la paie — 1 dirigeant ou salarié",
-    "£45 / mois",
-    "Bulletins standard. Retraite obligatoire (auto-enrolment) et cas complexes étudiés séparément.",
-  ],
-  ["Salarié supplémentaire", "£10 / mois"],
-  [
-    "Préparation et dépôt du Confirmation Statement",
-    "£199 au total",
-    "Frais légaux de greffe Companies House inclus.",
-  ],
-  ["Enregistrement à la TVA (VAT Registration)", "£144", "La décision d’enregistrement appartient à HMRC."],
-  ["Enregistrement EORI", "£60", "Délivrance et délais soumis aux services des douanes de HMRC."],
-  ["Déclaration personnelle britannique (Self Assessment)", "Devis après étude du dossier"],
+const COMPARISON_ROWS: [string, string, string, string][] = [
+  ["Comptes annuels + CT600", "✓", "✓", "✓"],
+  ["Confirmation statement", "✓", "✓", "✓"],
+  ["Tenue de livres mensuelle", "—", "25 transactions", "50 transactions"],
+  ["Self Assessment dirigeant", "—", "—", "1 le cas échéant"],
+  ["Déclarations de TVA", "Séparé", "Séparé", "Séparé"],
+  ["Abonnement Xero", "Séparé", "Séparé", "Séparé"],
 ];
 
-const REASONS = [
+const STEPS: [string, string, string][] = [
   [
-    "Un interlocuteur unique",
-    "Seven Oak maintient la cohérence entre la création, l’adresse, la conformité et la comptabilité.",
+    "01 / CHOISIR",
+    "Choisissez votre forfait",
+    "Sélectionnez le niveau de conformité annuelle et de tenue de livres mensuelle dont vous avez besoin.",
   ],
   [
-    "Une équipe qualifiée aux commandes",
-    "Vos déclarations sont traitées par nos partenaires comptables agréés ACCA, et non par des équipes non certifiées.",
+    "02 / VÉRIFIER",
+    "Complétez les contrôles AML/KYC",
+    "Nous confirmons l’éligibilité de la société, l’actionnariat, l’identité et les informations anti-blanchiment requises avant le début des travaux.",
   ],
   [
-    "Pensé pour les dirigeants à distance",
-    "Onboarding, transmission des pièces, validations et communication s’effectuent 100 % à distance.",
+    "03 / AUTORISER",
+    "Partagez vos documents en sécurité",
+    "Transmettez vos pièces comptables et les autorisations nécessaires pour la mission convenue.",
   ],
   [
-    "Aucun dépassement imprévu",
-    "Si votre charge de travail réelle dépasse le forfait initial, nous vous en informons avant d’engager les travaux.",
-  ],
-  [
-    "Visibilité continue sur vos échéances",
-    "Nous coordonnons votre calendrier légal et réclamons vos documents bien avant les dates limites.",
+    "04 / AVANCER",
+    "Sachez quelle est la suite",
+    "Nous coordonnons le service convenu et vous informons des éléments attendus et des prochaines étapes.",
   ],
 ];
 
-const OBLIGATIONS = [
-  [
-    "Comptes annuels (Annual Accounts)",
-    "Dus à Companies House 9 mois après la clôture de l’exercice financier. Les premiers comptes sont dus 21 mois après l’immatriculation.",
-  ],
-  [
-    "Impôt sur les sociétés (Corporation Tax)",
-    "Payable généralement 9 mois et 1 jour après la clôture de la période comptable.",
-  ],
-  [
-    "Déclaration fiscale de société (CT600)",
-    "Normalement exigée 12 mois après la fin de la période comptable auprès de HMRC.",
-  ],
-  [
-    "Confirmation Statement",
-    "Doit être déposé au minimum une fois par an auprès de Companies House. Les frais de greffe numériques s’élèvent à £50.",
-  ],
-];
+type FaqGroup = {
+  id: string;
+  navLabel: string;
+  title: string;
+  items: [string, string][];
+};
 
-const INTERNATIONAL = [
-  [
-    "Multiples devises",
-    "Les registres en GBP doivent souvent être réconciliés avec des flux en EUR, USD, AED ou autres monnaies.",
-  ],
-  [
-    "Banques, EMIs et processeurs",
-    "Les transactions réparties sur des comptes bancaires, des établissements de monnaie électronique et Stripe nécessitent une réconciliation unifiée.",
-  ],
-  [
-    "Commerce international",
-    "Les écritures britanniques doivent justifier des opérations avec des clients et fournisseurs situés partout dans le monde.",
-  ],
-  [
-    "TVA et gestion de la paie",
-    "Les obligations dépendent de la réalité de votre activité et de vos flux — pas simplement du fait d’avoir une société UK.",
-  ],
-  [
-    "Actionnariat à l’étranger",
-    "La détention par une société mère ou un non-résident soulève des questions de prix de transfert et de groupe à cadrer au préalable.",
-  ],
-];
-
-const AUDIENCES = [
-  "Fondateurs non-résidents dirigeant une société UK tout en résidant en France ou à l’étranger",
-  "Dirigeants résidents au Royaume-Uni recherchant une tarification annuelle claire et un suivi coordonné",
-  "Filiales britanniques de sociétés étrangères nécessitant une gestion comptable et fiscale locale",
-  "Agences, consultants internationaux, activités SaaS, technologies et e-commerce",
-  "Clients Seven Oak passant de la phase d’incorporation au suivi de conformité continue",
-  "Sociétés souhaitant changer de cabinet comptable, que Seven Oak ait créé la société ou non",
-];
-
-const STEPS = [
-  [
-    "01",
-    "Présentez votre entreprise",
-    "Partagez votre secteur d’activité, la résidence des dirigeants, vos volumes mensuels, votre statut de TVA et vos comptes principaux.",
-  ],
-  [
-    "02",
-    "Recevez un périmètre clair",
-    "Nous validons par écrit le forfait et le tarif adaptés, en signalant toute éventuelle prestation hors périmètre standard.",
-  ],
-  [
-    "03",
-    "Complétez votre onboarding",
-    "Vérification d’identité, lettre de mission et transmission des accès nécessaires s’effectuent de façon sécurisée en ligne.",
-  ],
-  [
-    "04",
-    "Gestion comptable et déclarative",
-    "Nous assurons la tenue de livres convenue, les comptes annuels, la liasse CT600 et le suivi légal tout au long de l’exercice.",
-  ],
-];
-
-const FAQS = [
-  [
-    "Seven Oak est-il un cabinet d’experts-comptables agréés ?",
-    "Vos comptes statutaires et déclarations fiscales sont établis par nos partenaires comptables agréés ACCA, Seven Oak Prestige assurant le pilotage de la mission et demeurant votre interlocuteur francophone unique.",
-  ],
-  [
-    "Un dirigeant non-résident peut-il travailler avec un comptable UK à distance ?",
-    "Oui. Tout le processus d’onboarding, de transmission des justificatifs et de signature s’effectue en ligne, sans qu’aucun déplacement au Royaume-Uni ne soit nécessaire.",
-  ],
-  [
-    "Quelles sont les obligations annuelles obligatoires de toute UK Ltd ?",
-    "Toute société doit déposer des comptes annuels (y compris pour une société dormante dans la majorité des cas), ainsi qu’un Confirmation Statement annuel. Une société en activité doit également soumettre une liasse fiscale CT600.",
-  ],
-  [
-    "Dois-je déposer des comptes si ma société n’a pas exercé d’activité ?",
-    "Oui, en règle générale. Une société dormante (dormant company) doit déposer des comptes dormants simplifiés ainsi que son Confirmation Statement annuel.",
-  ],
-  [
-    "Toute société doit-elle obligatoirement soumettre un formulaire CT600 ?",
-    "Dès lors que HMRC émet un avis de déclaration (Notice to deliver a Company Tax Return), celle-ci est obligatoire, même si la société est déficitaire ou n’a aucun impôt sur les sociétés à régler.",
-  ],
-  [
-    "La TVA est-elle incluse dans les forfaits Essential ou Managed ?",
-    "Non. Les déclarations trimestrielles de TVA sont proposées en prestation autonome ou intégrées dans le forfait étendu Managed Plus.",
-  ],
-  [
-    "Que se passe-t-il si je dépasse 50 transactions par mois ?",
-    "Nous analysons votre volume réel pour vous orienter vers Managed Plus ou vers un forfait de tenue de livres ajusté à votre cadence réelle.",
-  ],
-  [
-    "Pouvez-vous reprendre la comptabilité de mon précédent comptable ?",
-    "Oui, après avoir examiné la situation actuelle de votre société, les derniers comptes déposés et l’état des déclarations en cours.",
-  ],
-  [
-    "Prenez-vous en charge mes impôts personnels à l’étranger ?",
-    "Non automatiquement. Nos forfaits couvrent les obligations de la société britannique. Votre fiscalité personnelle dans votre pays de résidence doit faire l’objet de conseils spécifiques auprès d’un fiscaliste local.",
-  ],
-  [
-    "Dois-je me déplacer au Royaume-Uni ?",
-    "Non. L’ensemble des démarches, de l’onboarding au dépôt des comptes, s’effectue à distance.",
-  ],
-  [
-    "Pouvez-vous garantir que HMRC et Companies House accepteront tout sans contrôle ?",
-    "Nous établissons et vérifions vos déclarations avec rigueur selon les normes en vigueur, mais la décision finale d’acceptation et tout éventuel contrôle restent du ressort exclusif des autorités britanniques.",
-  ],
+const FAQ_GROUPS: FaqGroup[] = [
+  {
+    id: "faq-foundation",
+    navLabel: "Obligations de la société",
+    title: "Obligations d’une société britannique",
+    items: [
+      [
+        "Puis-je engager un comptable britannique si je vis hors du Royaume-Uni ?",
+        "Oui. Vous pouvez organiser le suivi comptable à distance pour une société UK Limited tout en vivant à l’étranger. L’acceptation dépend des activités de votre société, de ses registres, de son actionnariat et des vérifications d’identité requises.",
+      ],
+      [
+        "Ma société UK Limited a-t-elle besoin de comptes annuels si je suis dirigeant non-résident ?",
+        "Oui. Une société UK Limited doit généralement préparer et déposer des comptes annuels quel que soit le lieu de résidence de ses dirigeants. Le dirigeant reste légalement responsable même lorsqu’un comptable assure la préparation.",
+      ],
+      [
+        "Quelle est la différence entre les comptes annuels et un CT600 ?",
+        "Les comptes annuels présentent la situation financière et la performance de la société. Le CT600 est la déclaration d’impôt sur les sociétés soumise à HMRC avec les calculs fiscaux correspondants. Ils ont des objectifs et des échéances différents.",
+      ],
+      [
+        "Une société UK Limited a-t-elle besoin d’un comptable si elle n’a aucune vente ?",
+        "Elle peut tout de même avoir des obligations déclaratives. Une société qui n’a jamais exercé d’activité ou qui est dormante peut avoir des exigences comptables et fiscales différentes. Indiquez-nous son activité réelle afin d’évaluer si un service pour société dormante est plus adapté.",
+      ],
+      [
+        "Que faire si ma société britannique est dormante ?",
+        "Les sociétés dormantes conservent généralement des obligations auprès de Companies House, notamment le dépôt de comptes et d’un confirmation statement. Un devis spécifique pour société dormante peut être plus approprié qu’un forfait pour société active.",
+      ],
+      [
+        "Dois-je déposer des comptes au Royaume-Uni si tous mes clients sont hors du Royaume-Uni ?",
+        "Généralement oui. L’immatriculation au Royaume-Uni entraîne normalement des obligations déclaratives statutaires britanniques quel que soit le pays des clients. Votre modèle d’activité peut également soulever des questions fiscales hors du Royaume-Uni.",
+      ],
+      [
+        "Seven Oak peut-il m’aider si ma société n’a jamais exercé d’activité depuis sa création ?",
+        "Oui, sous réserve d’examen. Une société sans activité commerciale peut être éligible aux services pour société dormante, chiffrés séparément. Nous vérifions d’abord ses registres et si certaines transactions affectent son statut dormant.",
+      ],
+      [
+        "Que se passe-t-il si mes comptes Companies House ou mon CT600 sont déjà en retard ?",
+        "Indiquez-nous votre numéro de société et les périodes en retard. Nous pouvons examiner la situation et établir un devis séparé pour la régularisation. Les pénalités de retard et intérêts existants ne sont pas inclus dans les forfaits standards.",
+      ],
+      [
+        "Un confirmation statement est-il identique aux comptes annuels ?",
+        "Non. Un confirmation statement met à jour ou confirme les informations de la société auprès de Companies House. Les comptes annuels présentent les informations financières. Les deux peuvent être requis et ont des échéances différentes.",
+      ],
+    ],
+  },
+  {
+    id: "faq-package",
+    navLabel: "Forfaits et tenue de livres",
+    title: "Forfaits, tenue de livres et TVA",
+    items: [
+      [
+        "Que comprend le forfait Essential Accounting ?",
+        "Pour une micro-entité éligible : les comptes statutaires annuels, une déclaration d’impôt sur les sociétés (CT600) et un confirmation statement annuel. La tenue de livres, les déclarations de TVA et les logiciels comptables ne sont pas inclus.",
+      ],
+      [
+        "Que comprend le forfait Managed Accounting ?",
+        "Managed inclut Essential Accounting ainsi que la tenue de livres mensuelle jusqu’à 25 transactions par mois. Nous coordonnons les mises à jour régulières des registres et les questions tout au long de l’année.",
+      ],
+      [
+        "Que comprend le forfait Managed Plus ?",
+        "Managed Plus inclut les services Managed, porte la tenue de livres mensuelle à 50 transactions et inclut une déclaration Self Assessment dirigeant le cas échéant. Les autres travaux fiscaux personnels ou internationaux ne sont pas automatiquement inclus.",
+      ],
+      [
+        "Les déclarations de TVA sont-elles incluses dans vos forfaits ?",
+        "Non. L’enregistrement à la TVA et les déclarations de TVA font l’objet d’un périmètre et d’une tarification séparés. Nous vérifions d’abord si l’enregistrement ou les déclarations de TVA concernent votre société.",
+      ],
+      [
+        "Xero est-il inclus dans le prix annuel du forfait ?",
+        "Non. Un abonnement Xero adapté représente un coût logiciel supplémentaire. Nous vous expliquons la formule applicable et son tarif avant validation de l’onboarding.",
+      ],
+      [
+        "Pouvez-vous travailler avec mon compte Xero existant ?",
+        "Potentiellement. Nous vérifions d’abord les accès, la formule d’abonnement, la qualité des écritures existantes et si une mise à jour comptable est nécessaire.",
+      ],
+      [
+        "Qu’est-ce qui compte comme une transaction de tenue de livres ?",
+        "Une transaction correspond généralement à un élément devant être enregistré ou rapproché, tel qu’un reçu, un paiement ou un mouvement bancaire. Les règles précises de décompte et le traitement des versements de plateformes de paiement sont confirmés avant l’onboarding.",
+      ],
+      [
+        "Que se passe-t-il si je dépasse 25 ou 50 transactions au cours d’un mois ?",
+        "Nous examinons le volume supplémentaire et vous expliquons tout ajustement ou frais complémentaire avant de l’appliquer. Les volumes supérieurs et le rattrapage comptable ne sont pas automatiquement couverts par le tarif affiché.",
+      ],
+      [
+        "Puis-je envoyer mes reçus et documents depuis l’étranger ?",
+        "Oui. Nous coordonnons la collecte sécurisée des documents à distance. Le cas échéant, les pièces peuvent être transmises via les canaux numériques convenus ; nous confirmerons le format requis et les délais.",
+      ],
+      [
+        "Vos tarifs annuels incluent-ils les frais Companies House du confirmation statement ?",
+        "Oui. Les forfaits annuels indiqués incluent le dépôt d’un confirmation statement standard et ses frais statutaires de dépôt en ligne standard, dans le cadre du périmètre convenu.",
+      ],
+      [
+        "Puis-je payer mensuellement plutôt que de régler le forfait annuel d’avance ?",
+        "Des mensualités peuvent être proposées dans le cadre d’un engagement à durée déterminée après validation de l’onboarding. Il s’agit d’une modalité de paiement pour un service annuel, et non d’un abonnement mensuel résiliable à tout moment. Les conditions sont confirmées avant accord.",
+      ],
+      [
+        "Comment est calculée une transaction comptable par mois ?",
+        "Le nombre de transactions est évalué à partir de vos pièces réelles, telles que les mouvements bancaires, ventes et achats. Nous confirmons la méthode de décompte et le palier adapté lors de l’onboarding. Des volumes élevés ou des dossiers complexes peuvent nécessiter un devis distinct.",
+      ],
+      [
+        "Puis-je envoyer mes factures et justificatifs depuis l’étranger ?",
+        "Oui. Les documents peuvent être transmis à distance via les canaux sécurisés convenus. Nous confirmerons la méthode privilégiée et les accès logiciels lors de l’onboarding.",
+      ],
+      [
+        "Dois-je obligatoirement souscrire à Xero pour utiliser Managed Accounting ?",
+        "Un logiciel comptable peut être nécessaire pour la tenue de livres mensuelle. Tout abonnement Xero est distinct du prix du forfait affiché, sauf mention expresse dans votre devis individuel. Nous vous présentons l’option adaptée et son coût avant tout engagement.",
+      ],
+    ],
+  },
+  {
+    id: "faq-international",
+    navLabel: "Fondateurs internationaux et fiscalité",
+    title: "Dirigeants non-résidents et fiscalité internationale",
+    items: [
+      [
+        "Quand les comptes annuels d’une société britannique sont-ils dus ?",
+        "Pour la plupart des sociétés privées, les comptes annuels sont normalement dus neuf mois après la date de clôture de référence ; les premiers comptes peuvent avoir des délais différents. Nous confirmons vos dates exactes à partir du dossier de votre société.",
+      ],
+      [
+        "Quand le CT600 est-il dû et quand l’impôt sur les sociétés doit-il être payé ?",
+        "La déclaration d’impôt sur les sociétés (CT600) est généralement due 12 mois après la fin de la période comptable concernée, tandis que l’impôt sur les sociétés est habituellement payable neuf mois et un jour après la fin de cette période (hors régime d’acomptes trimestriels). Votre situation spécifique peut différer.",
+      ],
+      [
+        "Qu’est-ce qu’un confirmation statement et ses frais de dépôt sont-ils inclus ?",
+        "Il s’agit d’une confirmation annuelle auprès de Companies House attestant que les informations clés de la société sont à jour. Pour les forfaits éligibles, un confirmation statement standard en ligne et ses frais statutaires actuels sont inclus selon le périmètre convenu ; les modifications statutaires peuvent entraîner des frais supplémentaires.",
+      ],
+      [
+        "Les dirigeants non-résidents doivent-ils effectuer la vérification d’identité Companies House ?",
+        "Les dirigeants et personnes exerçant un contrôle significatif (PSC) sont soumis aux exigences de vérification d’identité et aux délais applicables. Nous vérifions la situation de la société et expliquons toute assistance distincte nécessaire.",
+      ],
+      [
+        "Dois-je enregistrer ma société UK Limited à la TVA ?",
+        "Toutes les sociétés ne sont pas tenues de s’enregistrer. L’enregistrement dépend notamment du chiffre d’affaires taxable, de la nature et du lieu des prestations, et de l’établissement ou non de l’activité au Royaume-Uni. Une analyse au cas par cas est essentielle.",
+      ],
+      [
+        "Ma société britannique paie-t-elle l’impôt sur les sociétés si tous les clients sont à l’étranger ?",
+        "Une société constituée au Royaume-Uni relève généralement du cadre de la Corporation Tax britannique, sous réserve des règles de résidence applicables et des conventions fiscales. Avoir des clients à l’étranger ne supprime pas en soi les obligations fiscales au Royaume-Uni.",
+      ],
+      [
+        "Devrai-je payer de l’impôt personnel au Royaume-Uni sur mes dividendes ou mon salaire si je vis à l’étranger ?",
+        "Cela dépend de votre résidence fiscale personnelle, du lieu d’exercice des fonctions, du type de revenu et des conventions fiscales applicables. L’impôt de la société UK et votre impôt personnel sont deux questions distinctes. Le conseil fiscal personnel transfrontalier n’est pas automatiquement inclus.",
+      ],
+      [
+        "Ai-je besoin d’un dirigeant résident au Royaume-Uni ou de me rendre au Royaume-Uni pour utiliser votre service ?",
+        "En général, ni un dirigeant résident au Royaume-Uni ni un déplacement au Royaume-Uni ne sont requis uniquement pour organiser la comptabilité d’une société UK Limited existante. Des vérifications complémentaires peuvent s’appliquer selon la structure ou l’activité.",
+      ],
+      [
+        "Une société UK Limited fait-elle de moi un résident fiscal personnel au Royaume-Uni ?",
+        "Pas automatiquement. Votre résidence fiscale personnelle dépend des règles applicables et de votre situation personnelle. La résidence fiscale de la société et celle de la personne physique sont distinctes.",
+      ],
+      [
+        "Si je vis en Inde, en France ou aux Émirats arabes unis, devrai-je payer des impôts dans les deux pays ?",
+        "C’est possible, selon votre résidence, la gestion de la société, vos revenus et les règles conventionnelles applicables. Une société britannique ne supprime pas automatiquement les obligations fiscales dans votre pays de résidence. Le conseil fiscal transfrontalier fait l’objet d’un périmètre séparé.",
+      ],
+      [
+        "Un dirigeant non-résident peut-il percevoir des dividendes ou un salaire d’une société UK Limited ?",
+        "Potentiellement, mais le traitement fiscal et déclaratif diffère entre salaire et dividendes et dépend de votre résidence et de votre situation. La paie et le conseil fiscal personnel ou transfrontalier ne sont pas automatiquement inclus.",
+      ],
+      [
+        "Ma société UK Limited a-t-elle besoin d’un numéro de TVA si je vends en ligne ou sur Amazon ?",
+        "Cela dépend du lieu des opérations, des biens ou services concernés et des règles de TVA applicables. Le e-commerce et le commerce transfrontalier peuvent nécessiter une analyse TVA spécialisée. L’enregistrement et les déclarations de TVA sont chiffrés séparément.",
+      ],
+    ],
+  },
+  {
+    id: "faq-start",
+    navLabel: "Démarrage et changement de comptable",
+    title: "Démarrer, changer de comptable et paiements",
+    items: [
+      [
+        "Pouvez-vous reprendre mon dossier auprès de mon comptable britannique actuel ?",
+        "Généralement oui, sous réserve d’acceptation. Nous pourrons demander les comptes des exercices précédents, déclarations fiscales, exports comptables, autorisations et informations de transfert professionnel.",
+      ],
+      [
+        "Pouvez-vous m’aider si mes comptes ou mon confirmation statement sont en retard ?",
+        "Nous pouvons examiner la situation, identifier les pièces manquantes et proposer un périmètre distinct de rattrapage ou de régularisation. Les prix des forfaits annuels standards ne couvrent pas automatiquement les retards historiques ou pénalités.",
+      ],
+      [
+        "Puis-je payer mensuellement plutôt qu’annuellement ?",
+        "Un paiement mensuel peut être disponible dans le cadre d’un contrat à durée déterminée une fois l’éligibilité et les modalités confirmées. Les mensualités ne constituent pas nécessairement un service résiliable d’un mois sur l’autre.",
+      ],
+      [
+        "Puis-je utiliser ces forfaits si je vends via Amazon, Shopify, Stripe ou à l’international ?",
+        "C’est possible. Les frais de marketplace, règlements multidevises, TVA étrangère et volumes de transactions peuvent accroître la complexité. Nous évaluons le modèle d’activité et pouvons proposer un devis adapté avant acceptation.",
+      ],
+      [
+        "Le service convient-il à une filiale britannique détenue par une société étrangère ?",
+        "Potentiellement, mais les structures de groupe, soldes intragroupe, transactions entre parties liées et questions fiscales transfrontalières peuvent nécessiter une tarification sur mesure plutôt qu’un forfait micro-entité standard.",
+      ],
+      [
+        "Qui prépare réellement mes comptes et dépose les déclarations ?",
+        "Seven Oak Prestige coordonne la relation et demeure votre interlocuteur privilégié. Les travaux techniques de comptabilité et de déclarations fiscales sont réalisés par un cabinet comptable professionnel partenaire, sous réserve d’engagement, d’autorisation et des contrôles de conformité.",
+      ],
+      [
+        "De quels documents ai-je besoin pour commencer ?",
+        "Généralement le numéro de société, les informations sur les dirigeants et l’actionnariat, les derniers comptes ou relevés bancaires, les éléments de tenue de livres et les justificatifs d’identité ou d’origine des fonds requis. Nous envoyons une liste personnalisée après le choix du forfait.",
+      ],
+      [
+        "Engager un comptable supprime-t-il mes responsabilités légales en tant que dirigeant ?",
+        "Non. Les dirigeants restent légalement responsables des registres et des obligations statutaires de leur société même lorsque des professionnels les assistent pour la préparation et le dépôt.",
+      ],
+      [
+        "Vos services comptables sont-ils délivrés par des professionnels accrédités ?",
+        "Oui. Les services techniques de comptabilité et de déclarations fiscales sont assurés par notre partenaire comptable britannique accrédité ACCA. Seven Oak Prestige coordonne la relation client, l’onboarding et le suivi de service.",
+      ],
+      [
+        "Pourquoi demandez-vous une vérification AML et d’identité avant le début des travaux comptables ?",
+        "Nous effectuons les contrôles obligatoires d’identité et de lutte contre le blanchiment d’argent avant le début de la mission. Selon la société, cela peut inclure l’identification des dirigeants et bénéficiaires effectifs, les informations sur l’activité et des pièces justificatives.",
+      ],
+      [
+        "Puis-je commencer si je n’ai pas encore de compte bancaire professionnel au Royaume-Uni ?",
+        "Potentiellement. Nous examinerons le statut de votre société et les pièces disponibles. Certains flux de tenue de livres nécessitent des données bancaires et de transactions appropriées, et toute assistance bancaire constitue un service distinct.",
+      ],
+      [
+        "Combien de temps prend l’onboarding d’une société britannique dirigée par un non-résident ?",
+        "Le délai dépend de l’exhaustivité des informations de votre société, de la vérification AML/KYC, des pièces comptables et des autorisations. Nous confirmons les prochaines étapes après examen de votre dossier plutôt que de promettre un délai d’approbation fixe.",
+      ],
+    ],
+  },
 ];
 
 function Section({
   children,
   className = "",
   id,
+  ariaLabelledBy,
 }: {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  ariaLabelledBy?: string;
 }) {
   return (
-    <section id={id} className={`px-5 py-16 sm:px-6 sm:py-24 ${className}`}>
+    <section
+      id={id}
+      aria-labelledby={ariaLabelledBy}
+      className={`px-5 py-16 sm:px-6 sm:py-24 ${className}`}
+    >
       <div className="mx-auto max-w-6xl">{children}</div>
     </section>
   );
@@ -282,527 +360,950 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Mark() {
-  return <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" aria-hidden="true" />;
-}
-
-function AccountingFaq() {
-  const [open, setOpen] = useState<number | null>(0);
-  return (
-    <div className="divide-y divide-border border-y border-border">
-      {FAQS.map(([question, answer], index) => {
-        const isOpen = open === index;
-        return (
-          <div key={question}>
-            <h3>
-              <button
-                type="button"
-                aria-expanded={isOpen}
-                onClick={() => setOpen(isOpen ? null : index)}
-                className="flex w-full items-start justify-between gap-5 py-6 text-left transition-colors hover:text-gold-soft"
-              >
-                <span className="font-sans text-base font-bold sm:text-lg text-foreground">
-                  {question}
-                </span>
-                <span
-                  className={`mt-1 shrink-0 text-gold transition-transform duration-200 ${
-                    isOpen ? "rotate-45" : ""
-                  }`}
-                  aria-hidden="true"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4">
-                    <path
-                      d="M12 5v14M5 12h14"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      fill="none"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-            <div
-              className={`grid transition-all duration-200 ${
-                isOpen ? "grid-rows-[1fr] pb-6" : "grid-rows-[0fr]"
-              }`}
-            >
-              <div className="overflow-hidden">
-                <p className="max-w-3xl text-sm leading-7 text-muted-foreground">
-                  {answer}
-                </p>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 export default function AccountingPageFr() {
+  const [selectedPackage, setSelectedPackage] = useState("Not sure yet");
+  const [companyName, setCompanyName] = useState("");
+  const [country, setCountry] = useState("");
+  const [activity, setActivity] = useState("Trading / active business");
+  const [note, setNote] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleStartCta = (pkgName: string) => {
+    setSelectedPackage(pkgName || "Not sure yet");
+  };
+
+  const handleSendEmail = () => {
+    if (formRef.current && !formRef.current.reportValidity()) {
+      return;
+    }
+    const message = [
+      "Hello Seven Oak Prestige,",
+      "I would like to enquire about your UK limited company accounting services.",
+      "Reference: LANDING-ACCOUNTING-NONRESIDENT",
+      "Package: " + selectedPackage,
+      "Company: " + (companyName.trim() || "Not provided"),
+      "Country of residence: " + country.trim(),
+      "Company activity: " + activity,
+      "Additional information: " + (note.trim() || "None"),
+      "Please advise the next steps.",
+    ].join("\n");
+
+    window.location.href =
+      "mailto:hello@sevenoakprestige.com?subject=" +
+      encodeURIComponent("UK Accounting Enquiry | " + selectedPackage) +
+      "&body=" +
+      encodeURIComponent(message);
+  };
+
+  const allFaqs = FAQ_GROUPS.flatMap((group) => group.items);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Accueil",
+            item: "https://www.sevenoakprestige.com/fr",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Comptabilité de Société UK Limited pour Non-Résidents",
+            item: "https://www.sevenoakprestige.com/fr/services/uk-accounting-non-residents",
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Comptabilité de Société UK Limited pour Non-Résidents",
+        description:
+          "Comptabilité de société UK Limited pour dirigeants non-résidents. Comptes annuels, CT600, confirmation statements et tenue de livres mensuelle. Comparez nos forfaits à prix fixe dès £699/an.",
+        url: "https://www.sevenoakprestige.com/fr/services/uk-accounting-non-residents",
+        provider: { "@type": "Organization", name: "Seven Oak Prestige Ltd" },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: allFaqs.map(([q, a]) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <main>
         {/* HERO SECTION */}
-        <section className="section-dark border-b border-border px-5 py-16 sm:px-6 sm:py-24">
-          <div className="mx-auto max-w-6xl">
-            <div className="max-w-4xl">
-              <p className="eyebrow">Comptabilité &amp; Conformité UK</p>
-              <div className="mt-4 h-px w-24 rule-gold" />
-              <h1 className="mt-7 max-w-4xl font-display text-4xl font-bold tracking-tight leading-[1.08] sm:text-5xl lg:text-6xl text-foreground">
-                Services de Comptabilité UK pour Sociétés &amp; Dirigeants Non-Résidents
-              </h1>
-              <p className="mt-6 max-w-3xl text-base leading-7 text-foreground/90 sm:text-lg">
-                Comptes annuels, déclarations d’impôt sur les sociétés (CT600), tenue de livres, TVA et paie pour les sociétés UK Limited gérées depuis l’étranger — avec un périmètre défini par écrit avant tout engagement.
+        <section className="section-dark relative isolate overflow-hidden border-b border-border">
+          <div className="block h-[245px] w-full sm:hidden">
+            <img
+              src="/assets/accounting-hero-640.webp"
+              alt="Bureau exécutif à Londres"
+              width={640}
+              height={423}
+              className="h-full w-full object-cover object-[55%_48%]"
+            />
+          </div>
+
+          <picture className="pointer-events-none hidden sm:block">
+            <source
+              srcSet="/assets/accounting-hero-1280.webp"
+              media="(min-width: 641px)"
+            />
+            <img
+              src="/assets/accounting-hero-640.webp"
+              alt=""
+              aria-hidden="true"
+              width={1280}
+              height={846}
+              className="
+                absolute inset-y-0 right-0 left-[30%] -z-20 h-full w-[70%]
+                object-cover object-[56%_50%]
+                lg:left-[42%] lg:w-[58%] lg:object-[62%_52%]
+              "
+            />
+          </picture>
+          <div
+            aria-hidden="true"
+            className="
+              pointer-events-none absolute inset-0 -z-10 hidden sm:block
+              bg-[linear-gradient(90deg,#0e1a2b_0%,rgba(14,26,43,0.97)_38%,rgba(14,26,43,0.66)_100%)]
+              lg:bg-[linear-gradient(90deg,#0e1a2b_0%,#0e1a2b_40%,rgba(14,26,43,0.88)_56%,rgba(14,26,43,0.38)_100%)]
+            "
+          />
+
+          <div className="mx-auto max-w-6xl px-5 py-10 sm:min-h-[610px] sm:px-6 sm:pt-24 sm:pb-16">
+            <div className="max-w-[660px]">
+              <p className="eyebrow">
+                Comptabilité de société UK Limited pour non-résidents
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-4 h-px w-24 rule-gold" />
+              <h1 className="mt-6 font-display text-4xl font-bold tracking-tight leading-[1.12] text-foreground sm:text-5xl lg:text-6xl">
+                Votre société UK a des échéances.
+                <br />
+                Votre vie est ailleurs.
+              </h1>
+              <p className="mt-6 max-w-[590px] text-base leading-7 text-foreground/90 sm:text-lg">
+                Gardez le contrôle sur vos comptes annuels, votre Corporation Tax
+                et vos échéances déclaratives au Royaume-Uni, même lorsque vous
+                dirigez votre activité depuis l’étranger. Choisissez
+                l’accompagnement adapté, complétez notre onboarding sécurisé
+                AML/KYC et sachez exactement qui coordonne vos opérations.
+              </p>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
-                  href={PACKAGE_FINDER}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#start"
+                  onClick={() => handleStartCta("Not sure yet")}
                   className="btn-gold text-center"
                 >
-                  Trouver mon forfait comptable
+                  Commencer — Dès £699/an →
                 </a>
-                <a href="#packages" className="btn-ghost text-center">
-                  Voir les forfaits
+                <a href="#how" className="btn-ghost text-center">
+                  Voir comment ça marche
                 </a>
               </div>
+              <p className="mt-6 text-sm text-muted-foreground">
+                Onboarding à distance · Conformité annuelle · Tenue de livres
+                selon vos besoins
+              </p>
             </div>
-            <ul className="mt-12 grid border border-border sm:grid-cols-2 lg:grid-cols-4">
+
+            <div className="mt-11 flex max-w-[800px] flex-wrap gap-y-3 border-t border-border/40 pt-6 text-xs sm:text-sm text-foreground/90">
               {[
+                "Partenaire comptable accrédité ACCA",
+                "Vérifications AML/KYC avant démarrage",
+                "Onboarding à distance pour non-résidents",
                 "Forfaits annuels dès £699",
-                "Onboarding à distance, sans visite requise",
-                "Périmètre et tarif validés avant engagement",
-                "Partenaires comptables agréés ACCA",
-              ].map((item) => (
-                <li
+              ].map((item, idx, arr) => (
+                <span
                   key={item}
-                  className="flex min-h-24 items-center gap-3 border-b border-border px-5 py-5 text-sm font-medium leading-6 text-foreground/90 last:border-b-0 sm:border-r sm:[&:nth-child(2)]:border-r-0 lg:border-b-0 lg:[&:nth-child(2)]:border-r"
+                  className={`w-full sm:w-auto ${
+                    idx < arr.length - 1
+                      ? "sm:mr-4 sm:border-r sm:border-border/40 sm:pr-4"
+                      : ""
+                  }`}
                 >
-                  <Mark />
+                  <strong className="mr-1.5 text-gold">✓</strong>
                   {item}
-                </li>
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
         </section>
 
-        {/* WHO PREPARES */}
-        <Section>
-          <div className="grid gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-            <Eyebrow>Qui prépare réellement vos comptes</Eyebrow>
-            <div>
-              <h2 className="max-w-3xl font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-                Sachez qui est responsable du travail
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-foreground/90 font-medium">
-                Vous confiez la comptabilité et les déclarations légales de votre entreprise à un tiers. Il est essentiel de comprendre comment ce travail est encadré et supervisé avant de vous engager.
+        {/* BENEFITS SECTION */}
+        <Section id="benefits" className="scroll-mt-24">
+          <div className="max-w-3xl">
+            <Eyebrow>Plus de contrôle. Moins de relances.</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Dirigez votre société. Sachez ce qui est pris en charge.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-muted-foreground sm:text-lg">
+              Vivre à l’étranger ne devrait pas signifier deviner quelle
+              déclaration britannique arrive ensuite. Nous vous aidons à
+              organiser les travaux, les pièces et les professionnels chargés de
+              préparer les comptes de votre société.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <article className="rounded-xl border border-border bg-card/30 p-7">
+              <div
+                aria-hidden="true"
+                className="mb-5 grid h-11 w-11 place-items-center rounded-lg border border-gold/30 bg-gold/10 text-xl text-gold"
+              >
+                ▣
+              </div>
+              <h3 className="font-display text-xl font-bold text-foreground">
+                Sachez ce qui doit être déposé
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                Comptes annuels, CT600 et confirmation statement — clairement
+                définis, avec les échéances vérifiées pour votre société.{" "}
+                <Link
+                  href="/blog/do-i-need-accountant-uk-company-non-resident"
+                  className="font-semibold text-gold hover:underline"
+                >
+                  Découvrez quelles déclarations UK s’appliquent lorsque vous
+                  vivez à l’étranger.
+                </Link>
               </p>
-              <p className="mt-5 leading-7 text-muted-foreground">
-                Vos travaux de tenue de livres et de conformité fiscale sont réalisés par nos partenaires comptables — une équipe externalisée agréée ACCA — Seven Oak Prestige agissant comme votre interlocuteur unique tout au long de la mission. Vous bénéficiez ainsi d’une relation directe et d’une équipe certifiée derrière chaque déclaration.
+            </article>
+
+            <article className="rounded-xl border border-border bg-card/30 p-7">
+              <div
+                aria-hidden="true"
+                className="mb-5 grid h-11 w-11 place-items-center rounded-lg border border-gold/30 bg-gold/10 text-xl text-gold"
+              >
+                ↻
+              </div>
+              <h3 className="font-display text-xl font-bold text-foreground">
+                Gardez vos comptes à jour
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                Choisissez une tenue de livres mensuelle pour 25 ou 50
+                transactions, afin que les reçus et questions ne s’accumulent
+                pas jusqu’à la clôture annuelle.
               </p>
-            </div>
+            </article>
+
+            <article className="rounded-xl border border-border bg-card/30 p-7">
+              <div
+                aria-hidden="true"
+                className="mb-5 grid h-11 w-11 place-items-center rounded-lg border border-gold/30 bg-gold/10 text-xl text-gold"
+              >
+                ◎
+              </div>
+              <h3 className="font-display text-xl font-bold text-foreground">
+                Une seule équipe à contacter
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                Seven Oak coordonne votre service tandis qu’un partenaire
+                comptable professionnel assure la préparation technique et les
+                dépôts.
+              </p>
+            </article>
           </div>
         </Section>
 
-        {/* PACKAGES */}
-        <Section id="packages" className="section-parchment border-y border-border scroll-mt-24">
-          <Eyebrow>Trois forfaits transparents</Eyebrow>
-          <h2 className="mt-6 max-w-3xl font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-            Choisissez selon votre charge de travail réelle, sans devinettes
-          </h2>
-          <p className="mt-5 max-w-3xl leading-7 text-muted-foreground">
-            Aucun coût caché ni périmètre imprévu. Vous savez exactement ce qui est inclus et ce qui ne l’est pas avant de vous engager — chaque forfait est confirmé au regard de la réalité de votre entreprise lors de l’onboarding.
-          </p>
+        {/* PACKAGES SECTION */}
+        <Section
+          id="packages"
+          className="section-parchment border-y border-border scroll-mt-24"
+        >
+          <div className="max-w-3xl">
+            <Eyebrow>Forfaits comptables transparents</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Forfaits Comptables Société UK Limited pour Non-Résidents
+            </h2>
+            <p className="mt-4 text-base leading-7 text-muted-foreground sm:text-lg">
+              Des déclarations annuelles simples jusqu’à la tenue de livres
+              mensuelle. Tous les prix ci-dessous sont des tarifs annuels, sous
+              réserve d’éligibilité et d’acceptation lors de l’onboarding.{" "}
+              <Link
+                href="/blog/uk-ltd-accounting-cost"
+                className="font-semibold text-gold hover:underline"
+              >
+                Comprendre les honoraires d’un comptable UK.
+              </Link>
+            </p>
+          </div>
+
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {PACKAGES.map((pkg) => (
               <article
                 key={pkg.name}
-                className={`relative flex flex-col border bg-background p-6 sm:p-8 ${
+                className={`relative flex flex-col rounded-xl border bg-background p-6 sm:p-7 ${
                   pkg.featured
-                    ? "border-gold shadow-lg lg:-translate-y-2"
+                    ? "border-2 border-gold shadow-lg lg:-translate-y-2"
                     : "border-border"
                 }`}
               >
                 {pkg.featured && (
-                  <p className="absolute -top-3 left-6 bg-gold px-3 py-1 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-primary-foreground">
-                    Recommandé pour la plupart des fondateurs
+                  <p className="absolute -top-3.5 left-5 rounded bg-gold px-3 py-1.5 text-[0.67rem] font-extrabold uppercase tracking-[0.06em] text-on-gold">
+                    RECOMMANDÉ POUR LES SOCIÉTÉS ACTIVES
                   </p>
                 )}
-                <h3 className="font-display text-2xl font-bold text-foreground">{pkg.name}</h3>
-                <p className="mt-5 font-display text-4xl font-bold text-gold">{pkg.price}</p>
-                <p className="mt-4 min-h-12 text-sm leading-6 text-muted-foreground">
-                  {pkg.description}
-                </p>
-                <ul className="mt-6 flex-1 space-y-3 border-t border-border pt-6 text-sm leading-6">
+                <div className="text-sm font-bold text-gold">{pkg.fit}</div>
+                <h3 className="mt-1 font-display text-2xl font-bold text-foreground">
+                  {pkg.name}
+                </h3>
+                <div className="mt-4 font-display text-4xl font-extrabold tracking-tight text-foreground">
+                  {pkg.amount}{" "}
+                  <small className="font-sans text-sm font-semibold tracking-normal text-muted-foreground">
+                    {pkg.amountSuffix}
+                  </small>
+                </div>
+                <div className="mt-1 text-sm text-muted-foreground">
+                  {pkg.mini}
+                </div>
+
+                <ul className="my-6 flex-1 divide-y divide-border/60 text-sm">
                   {pkg.features.map((feature) => (
-                    <li key={feature} className="flex gap-3 text-foreground/85">
-                      <Mark />
-                      {feature}
+                    <li
+                      key={feature}
+                      className="flex items-start gap-2.5 py-2.5 text-foreground/90"
+                    >
+                      <span
+                        className="font-extrabold text-gold"
+                        aria-hidden="true"
+                      >
+                        ✓
+                      </span>
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                {pkg.note && (
-                  <p className="mt-5 border-l-2 border-gold pl-4 text-xs leading-5 text-muted-foreground">
-                    {pkg.note}
-                  </p>
-                )}
-                <p className="mt-6 text-sm leading-6 text-foreground/90">
-                  <span className="font-bold text-foreground">Idéal pour :</span> {pkg.bestFor}
-                </p>
+
                 <a
-                  href={wa(pkg.message)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${pkg.featured ? "btn-gold" : "btn-ghost"} mt-7 w-full text-center`}
+                  href="#start"
+                  onClick={() => handleStartCta(pkg.dataPackage)}
+                  className={`${
+                    pkg.featured ? "btn-gold" : "btn-ghost"
+                  } w-full text-center`}
                 >
                   {pkg.cta}
                 </a>
+                <p className="mt-4 text-xs text-muted-foreground">
+                  {pkg.exclude}
+                </p>
               </article>
             ))}
           </div>
-          <div className="mt-10 max-w-4xl border-l-2 border-gold pl-5">
-            <p className="leading-7 font-medium text-foreground/90">
-              Chaque entreprise est unique. Avant l’onboarding, nous validons le périmètre comptable en fonction de vos volumes de transactions, de votre situation de TVA, de vos besoins de paie et de la complexité de votre activité. Tout travail complémentaire fait l’objet d’un accord préalable écrit avec vous.
-            </p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Les abonnements aux logiciels comptables, les frais gouvernementaux et les missions spécialisées hors périmètre sont facturés séparément, sauf lorsqu’un service mentionne expressément que les frais légaux sont inclus.
-            </p>
+
+          <p className="mt-6 text-xs leading-6 text-muted-foreground">
+            Des mensualités peuvent être proposées sous réserve d’un accord à
+            durée déterminée. Elles ne sont ni automatiques ni résiliables
+            librement d’un mois sur l’autre. L’éligibilité au forfait et tout
+            travail supplémentaire sont confirmés avant l’engagement.
+          </p>
+
+          {/* COMPARISON TABLE */}
+          <div className="mt-7 overflow-x-auto rounded-xl border border-border bg-background">
+            <table className="w-full border-collapse text-sm">
+              <thead className="hidden sm:table-header-group">
+                <tr className="border-b border-border bg-muted/70">
+                  <th className="px-4 py-3.5 text-left font-bold text-foreground">
+                    Ce qui est inclus
+                  </th>
+                  <th className="px-4 py-3.5 text-center font-bold text-foreground">
+                    Essential
+                  </th>
+                  <th className="px-4 py-3.5 text-center font-bold text-foreground">
+                    Managed
+                  </th>
+                  <th className="px-4 py-3.5 text-center font-bold text-foreground">
+                    Managed Plus
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {COMPARISON_ROWS.map(([label, col1, col2, col3]) => (
+                  <tr key={label} className="grid grid-cols-2 sm:table-row">
+                    <td className="col-span-2 bg-muted/60 px-4 py-2.5 text-left font-extrabold text-foreground sm:bg-transparent sm:py-3.5 sm:font-medium">
+                      {label}
+                    </td>
+                    <td className="px-4 py-2 text-left text-foreground/90 sm:py-3.5 sm:text-center">
+                      <span className="font-bold sm:hidden">Essential : </span>
+                      {col1}
+                    </td>
+                    <td className="px-4 py-2 text-left text-foreground/90 sm:py-3.5 sm:text-center">
+                      <span className="font-bold sm:hidden">Managed : </span>
+                      {col2}
+                    </td>
+                    <td className="col-span-2 px-4 py-2 text-left text-foreground/90 sm:col-span-1 sm:py-3.5 sm:text-center">
+                      <span className="font-bold sm:hidden">Plus : </span>
+                      {col3}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </Section>
 
-        {/* STANDALONE */}
-        <Section>
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
+        {/* BRIDGE SECTION (#ask) */}
+        <Section id="ask" className="border-b border-border bg-card/40">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_0.6fr] lg:gap-12">
             <div>
-              <Eyebrow>Besoin d’une seule prestation ?</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-                Ne payez que pour le travail dont vous avez besoin
+              <Eyebrow>Vous hésitez sur le forfait adapté ?</Eyebrow>
+              <h2 className="mt-5 font-display text-2xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Expliquez-nous l’activité de votre société UK. Nous vous
+                aiderons à choisir.
               </h2>
-              <p className="mt-5 text-sm leading-7 text-muted-foreground">
-                Vous n’avez pas besoin de souscrire un forfait annuel complet pour une déclaration ponctuelle ou un dépôt spécifique.
+              <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
+                Déjà en activité, récemment immatriculée, dormante ou avec des
+                déclarations à rattraper ? Partagez quelques détails et nous
+                vous indiquerons l’étape appropriée — sans obligation d’achat
+                avant confirmation de votre périmètre.
               </p>
+            </div>
+            <div className="flex flex-col items-start gap-4">
               <a
-                href={wa(
-                  "Bonjour Seven Oak Prestige, je souhaite un devis pour un service comptable ou déclaratif ponctuel. Le service demandé est : ..."
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost mt-8 inline-block text-center"
+                href="#start"
+                onClick={() => handleStartCta("Help me choose")}
+                className="btn-gold w-full sm:w-auto text-center"
               >
-                Demander un devis à la carte
+                Demander à notre équipe →
               </a>
-            </div>
-            <div className="border-y border-border">
-              {STANDALONE.map(([service, price, note]) => (
-                <div
-                  key={service}
-                  className="flex flex-col gap-1 border-b border-border py-4 last:border-b-0 sm:flex-row sm:items-start sm:justify-between sm:gap-6"
-                >
-                  <div>
-                    <h3 className="font-sans text-sm font-bold text-foreground">{service}</h3>
-                    {note && (
-                      <p className="mt-1 text-xs leading-5 text-muted-foreground">{note}</p>
-                    )}
-                  </div>
-                  <p className="shrink-0 text-sm font-bold text-gold sm:text-right">{price}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Section>
-
-        {/* REASONS */}
-        <Section className="section-dark border-y border-border">
-          <Eyebrow>Pourquoi les fondateurs choisissent Seven Oak</Eyebrow>
-          <h2 className="mt-6 max-w-3xl font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-            Responsabilité claire. Périmètre transparent.
-          </h2>
-          <div className="mt-12 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">
-            {REASONS.map(([title, body]) => (
-              <article key={title} className="bg-ink p-6">
-                <h3 className="font-display text-lg font-bold text-foreground">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">{body}</p>
-              </article>
-            ))}
-          </div>
-          <p className="mt-6 text-xs leading-5 text-muted-foreground">
-            Les dirigeants conservent la responsabilité légale finale des dépôts de leur société, comme avec n’importe quel cabinet comptable.
-          </p>
-        </Section>
-
-        {/* OBLIGATIONS */}
-        <Section>
-          <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-            <div>
-              <Eyebrow>Votre calendrier légal</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-                Ce que votre société UK doit réellement déposer
-              </h2>
-            </div>
-            <div className="grid gap-px bg-border sm:grid-cols-2">
-              {OBLIGATIONS.map(([title, body]) => (
-                <article key={title} className="bg-background p-6">
-                  <h3 className="font-display text-lg font-bold text-foreground">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-          <p className="mt-8 max-w-3xl border-l-2 border-gold pl-5 text-sm leading-7 text-muted-foreground">
-            Ces différentes échéances ne tombent pas toutes à la même date — d’où l’importance d’un suivi rigoureux de votre calendrier de conformité.
-          </p>
-        </Section>
-
-        {/* INTERNATIONAL */}
-        <Section className="section-parchment border-y border-border">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <div>
-              <Eyebrow>Comptabilité transfrontalière</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-                La comptabilité pour non-résidents ne se résume pas à « une comptabilité en ligne standard »
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-muted-foreground">
-                Une société peut être constituée en Angleterre et au Pays de Galles alors que son fondateur vit à Paris, Dubaï, New York ou Singapour. Les écritures doivent fidèlement traduire la réalité opérationnelle de l’activité.
-              </p>
-            </div>
-            <div className="space-y-0 border-y border-border">
-              {INTERNATIONAL.map(([title, body]) => (
-                <div key={title} className="border-b border-border py-5 last:border-b-0">
-                  <h3 className="font-sans text-sm font-bold text-foreground">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Section>
-
-        {/* TAX BOUNDARY */}
-        <Section>
-          <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <Eyebrow>La frontière fiscale transfrontalière</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-                Les comptes de la société UK ne règlent pas toutes les questions fiscales à l’étranger
-              </h2>
-            </div>
-            <div className="space-y-5 text-sm leading-7 text-muted-foreground">
-              <p>
-                Notre mission comptable au Royaume-Uni couvre les exigences déclaratives et légales de la société britannique. Elle ne préjuge pas automatiquement de votre résidence fiscale personnelle, de l’imposition de vos salaires ou dividendes dans votre pays de résidence, des déclarations de comptes étrangers, ni de l’existence d’un établissement stable hors du Royaume-Uni.
-              </p>
-              <p>
-                Lorsqu’une situation nécessite l’avis d’un spécialiste dans une autre juridiction, nous identifions le point de vigilance et pouvons vous orienter vers un professionnel qualifié. La comptabilité britannique ne se substitue pas à un conseil fiscal personnalisé dans votre pays de résidence.
-              </p>
-            </div>
-          </div>
-        </Section>
-
-        {/* AUDIENCES */}
-        <Section className="section-parchment border-y border-border">
-          <Eyebrow>À qui s’adresse ce service</Eyebrow>
-          <h2 className="mt-6 max-w-3xl font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-            Un accompagnement pour les sociétés britanniques gérées depuis n’importe où
-          </h2>
-          <ul className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {AUDIENCES.map((item, index) => (
-              <li key={item} className="flex gap-4 bg-background p-6 text-sm leading-6">
-                <span className="font-display text-xl font-bold text-gold">0{index + 1}</span>
-                <span className="text-foreground/90">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 text-sm text-muted-foreground">
-            Pas encore immatriculé ? Découvrez notre service de{" "}
-            <Link
-              href="/services/uk-company-formation-for-non-residents"
-              className="text-gold font-medium hover:underline"
-            >
-              Création de société UK pour non-résidents
-            </Link>
-            .
-          </p>
-        </Section>
-
-        {/* SWITCHING */}
-        <Section>
-          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-            <div>
-              <Eyebrow>Vous avez déjà un expert-comptable ?</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-                Changer de cabinet en clarifiant d’abord la situation existante
-              </h2>
-            </div>
-            <div>
-              <p className="leading-7 text-muted-foreground">
-                Nous analysons préalablement l’état de votre société : derniers comptes déposés, situation d’impôt sur les sociétés, état de la tenue de livres, assujettissement à la TVA, paie et échéances imminentes. Si vous poursuivez, la transition est coordonnée avec le transfert formel d’informations et d’autorisations professionnelles.
-              </p>
               <a
-                href={wa(
-                  "Bonjour Seven Oak Prestige, je souhaite discuter du changement de cabinet comptable pour ma société UK."
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost mt-8 inline-block text-center"
+                href="#faqs"
+                className="text-sm font-bold text-gold hover:underline"
               >
-                Discuter d’un changement de cabinet
+                Lire les questions fréquentes ↓
               </a>
             </div>
           </div>
         </Section>
 
-        {/* SOFTWARE */}
-        <Section className="section-parchment border-y border-border">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <Eyebrow>Logiciels de comptabilité</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-                Vous utilisez déjà un logiciel comptable ? Nous nous adaptons à vos outils.
-              </h2>
-              <p className="mt-5 leading-7 text-muted-foreground">
-                Si votre entreprise utilise déjà une solution de comptabilité en ligne, nous pouvons travailler directement sur votre environnement lorsque c’est pertinent. Nous prenons en charge les principales plateformes cloud telles que Xero et QuickBooks, et étudions tout autre système lors de l’onboarding.
-              </p>
-              <p className="mt-4 leading-7 text-muted-foreground">
-                Si une souscription logicielle doit être mise en place, nous validons avec vous la plateforme et l’abonnement les plus adaptés avant le démarrage.
-              </p>
-              <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                Vous n’avez donc pas à bouleverser vos habitudes de facturation et de gestion simplement pour confier votre comptabilité à Seven Oak Prestige.
-              </p>
-              <p className="mt-6 border-l-2 border-gold pl-4 text-sm font-medium leading-6 text-foreground/90">
-                Les abonnements aux logiciels comptables sont facturés séparément et ne sont pas inclus dans les prix des forfaits affichés, sauf mention explicite contraire.
-              </p>
-              <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                Compatible avec les plateformes comptables de référence
-              </p>
-              <p className="mt-2 text-sm font-bold text-foreground">
-                Xero <span className="text-gold">•</span> QuickBooks{" "}
-                <span className="text-gold">•</span>{" "}
-                <span className="font-normal text-muted-foreground">
-                  Autres systèmes examinés lors de l’onboarding
-                </span>
-              </p>
-            </div>
-            <img
-              src="/assets/accounting-order-1280.webp"
-              srcSet="/assets/accounting-order-640.webp 640w, /assets/accounting-order-1280.webp 1280w"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              width={1280}
-              height={800}
-              loading="lazy"
-              decoding="async"
-              alt="Gestion comptable et conformité légale"
-              className="aspect-[16/10] w-full border border-border object-cover"
-            />
-          </div>
-        </Section>
-
-        {/* HOW IT WORKS */}
-        <Section className="section-dark border-y border-border">
-          <Eyebrow>Comment ça fonctionne</Eyebrow>
-          <h2 className="mt-6 max-w-3xl font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-            Un périmètre clair avant d’entamer les travaux
-          </h2>
-          <ol className="mt-12 grid gap-px bg-border md:grid-cols-2 lg:grid-cols-4">
-            {STEPS.map(([number, title, body]) => (
-              <li key={number} className="bg-ink p-6 sm:p-7">
-                <span className="font-display text-2xl font-bold text-gold">{number}</span>
-                <h3 className="mt-5 font-display text-lg font-bold text-foreground">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">{body}</p>
-              </li>
-            ))}
-          </ol>
-        </Section>
-
-        {/* WHAT WE NEED */}
+        {/* FOUNDERS ABROAD / TRUST SECTION */}
         <Section>
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
             <div>
-              <Eyebrow>Ce que nous attendons de vous</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-                Des justificatifs complets pour une gestion fluide
+              <Eyebrow>Conçu pour les fondateurs à l’étranger</Eyebrow>
+              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Une société UK. Une vie internationale. Un plan plus clair.
               </h2>
+              <p className="mt-5 text-base leading-7 text-muted-foreground">
+                Que vous dirigiez votre UK Ltd depuis la France, l’Inde, les
+                Émirats arabes unis, l’Europe ou ailleurs, vos obligations
+                comptables ne disparaissent pas lorsque vous résidez hors du
+                Royaume-Uni.
+              </p>
+              <p className="mt-4 text-base leading-7 text-muted-foreground">
+                Nous aidons les dirigeants à l’étranger à comprendre les travaux
+                annuels requis, à coordonner leurs pièces à distance et à
+                identifier les cas nécessitant une analyse distincte en matière
+                de TVA, d’impôt personnel ou de fiscalité transfrontalière.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {[
+                  "Dirigeants à l’étranger",
+                  "Propriétaires de UK Ltd",
+                  "Fondateurs e-commerce",
+                  "Consultants internationaux",
+                ].map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-block rounded-full border border-gold/30 bg-gold/10 px-3.5 py-1.5 text-xs font-bold text-gold"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-            <p className="leading-7 text-muted-foreground">
-              Même lorsque la tenue de livres est incluse, l’entreprise doit fournir des informations sources complètes : relevés bancaires et EMI, exports Stripe/processeurs, factures clients et fournisseurs, justificatifs de dépenses, éléments de paie, contrats et explications sur les opérations exceptionnelles. Des pièces manquantes ou retardées peuvent nécessiter des travaux complémentaires hors périmètre initial.
-            </p>
+            <div>
+              <figure className="overflow-hidden rounded-xl border border-border bg-muted">
+                <img
+                  src="/assets/accounting-founders-1280.webp"
+                  srcSet="/assets/accounting-founders-640.webp 640w, /assets/accounting-founders-1280.webp 1280w"
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  alt="Professionnels examinant ensemble les documents d'une entreprise lors d'une réunion"
+                  width={1320}
+                  height={890}
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-[210px] w-full object-cover object-[center_47%] sm:h-[265px]"
+                />
+              </figure>
+            </div>
           </div>
         </Section>
 
-        {/* FAQ */}
-        <Section className="section-parchment border-y border-border">
-          <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-            <div>
-              <Eyebrow>Questions courantes</Eyebrow>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-                Comptabilité UK pour dirigeants résidant hors du Royaume-Uni
-              </h2>
-            </div>
-            <AccountingFaq />
+        {/* HOW IT WORKS (#how) */}
+        <Section
+          id="how"
+          className="section-parchment border-y border-border scroll-mt-24"
+        >
+          <div className="max-w-3xl">
+            <Eyebrow>Un processus d’onboarding pratique</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Du choix de votre forfait à l’organisation de vos comptes.
+            </h2>
+          </div>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {STEPS.map(([badge, title, desc]) => (
+              <div key={badge} className="border-t-2 border-gold pt-5">
+                <b className="text-xs font-bold tracking-wider text-gold">
+                  {badge}
+                </b>
+                <h3 className="mt-2 font-display text-lg font-bold text-foreground">
+                  {title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  {desc}
+                </p>
+              </div>
+            ))}
           </div>
         </Section>
 
-        {/* FINAL CTA */}
-        <section id="final-cta" className="section-dark px-5 py-16 sm:px-6 sm:py-24">
-          <div className="mx-auto max-w-6xl">
-            <div className="max-w-3xl">
-              <p className="eyebrow">Vous hésitez sur le bon forfait ?</p>
-              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight leading-tight sm:text-5xl text-foreground">
-                Laissez votre charge de travail définir le périmètre
+        {/* PROFESSIONAL DELIVERY (DARK BAND) */}
+        <Section className="section-dark border-b border-border">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+            <div>
+              <Eyebrow>Exécution professionnelle</Eyebrow>
+              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Expertise comptable accréditée. Un interlocuteur de confiance
+                unique.
               </h2>
-              <p className="mt-6 max-w-2xl leading-7 text-muted-foreground">
-                Expliquez-nous comment fonctionne votre société britannique. Nous analyserons la charge réelle avant de vous recommander une formule — jamais l’inverse.
+              <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
+                Seven Oak Prestige est votre point de contact principal et
+                coordonne vos services comptables convenus. Les comptes
+                techniques et déclarations fiscales sont préparés par notre
+                partenaire comptable britannique accrédité ACCA sous les
+                autorisations appropriées. Nos vérifications d’identité client
+                et contrôles AML/KYC ont lieu avant le début des travaux.
               </p>
-              <p className="mt-5 max-w-2xl text-sm leading-6 text-muted-foreground">
-                Nous recueillerons le nom de votre société, votre pays de résidence, votre secteur d’activité, votre statut d’activité, vos volumes mensuels, vos besoins de TVA/paie, vos comptes bancaires et la présence éventuelle d’un comptable actuel.
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={PACKAGE_FINDER}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-gold text-center"
-                >
-                  Trouver mon forfait comptable
-                </a>
-                <a
-                  href={wa(
-                    "Bonjour Seven Oak Prestige, je souhaite un devis comptable pour ma société britannique."
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-ghost text-center"
-                >
-                  Demander un devis
+              <div className="mt-8">
+                <a href="#packages" className="btn-gold text-center">
+                  Choisir votre forfait →
                 </a>
               </div>
-              <p className="mt-6 text-xs text-muted-foreground">
-                Aucun déplacement au Royaume-Uni requis. Périmètre et tarification validés par écrit avant tout engagement.
+            </div>
+            <div className="rounded-2xl border border-border/40 bg-card/40 p-7 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-foreground">
+                Standards professionnels. Responsabilités claires.
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                Vos comptes et déclarations fiscales sont préparés via notre
+                partenaire comptable britannique accrédité ACCA. Seven Oak
+                Prestige coordonne votre service, met à votre disposition un
+                interlocuteur dédié et réalise les contrôles AML/KYC requis
+                avant le démarrage.
               </p>
+            </div>
+          </div>
+        </Section>
+
+        {/* FAQS SECTION (#faqs) */}
+        <Section id="faqs" className="scroll-mt-24">
+          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.45fr] lg:gap-14">
+            <div className="lg:sticky lg:top-24 lg:self-start">
+              <Eyebrow>Les questions essentielles</Eyebrow>
+              <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Des réponses claires avant de commencer.
+              </h2>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                Les règles comptables britanniques peuvent sembler complexes
+                lorsqu’on vit à l’étranger. Ces réponses couvrent les questions
+                fréquentes sur les dépôts, forfaits, TVA, logiciels, fiscalité
+                personnelle et onboarding.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2 lg:flex-col lg:gap-2.5">
+                {FAQ_GROUPS.map((group) => (
+                  <a
+                    key={group.id}
+                    href={`#${group.id}`}
+                    className="inline-block rounded-full border border-gold/30 bg-gold/10 px-3.5 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/20 lg:border-0 lg:bg-transparent lg:p-0 lg:text-sm lg:hover:bg-transparent lg:hover:underline"
+                  >
+                    {group.navLabel}
+                  </a>
+                ))}
+              </div>
+              <p className="mt-5 text-xs text-muted-foreground">
+                Informations générales, ne constituant pas un conseil fiscal ou
+                juridique individuel.
+              </p>
+            </div>
+
+            <div className="space-y-9">
+              {FAQ_GROUPS.map((group) => (
+                <div key={group.id} id={group.id} className="scroll-mt-28">
+                  <h3 className="mb-3 font-display text-2xl font-bold text-foreground">
+                    {group.title}
+                  </h3>
+                  <div className="border-t border-border">
+                    {group.items.map(([question, answer]) => (
+                      <details
+                        key={question}
+                        className="group border-b border-border py-1"
+                      >
+                        <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-4 font-sans text-sm font-bold leading-snug text-foreground transition-colors hover:text-gold sm:text-base">
+                          <span>{question}</span>
+                          <span
+                            aria-hidden="true"
+                            className="shrink-0 text-xl leading-none text-gold transition-transform duration-200 group-open:rotate-45"
+                          >
+                            +
+                          </span>
+                        </summary>
+                        <p className="pb-5 max-w-3xl text-sm leading-7 text-muted-foreground">
+                          {answer}
+                        </p>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        {/* EXPERT GUIDANCE (#accounting-guides) */}
+        <Section
+          id="accounting-guides"
+          ariaLabelledBy="guide-title"
+          className="section-parchment border-t border-border py-12 sm:py-16"
+        >
+          <Eyebrow>Guides d’experts</Eyebrow>
+          <h2
+            id="guide-title"
+            className="mt-4 max-w-3xl font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
+          >
+            Vous explorez encore vos obligations comptables au Royaume-Uni ?
+          </h2>
+          <p className="mt-2 mb-6 text-sm text-muted-foreground">
+            Deux guides pratiques pour vous aider à prendre une décision
+            éclairée.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <Link
+              aria-label="Lire le guide des tarifs : Combien coûte un comptable pour une société UK Limited ?"
+              href="/blog/uk-ltd-accounting-cost"
+              className="flex flex-col justify-between gap-3 rounded-xl border border-border bg-background p-5 transition-all hover:-translate-y-0.5 hover:border-gold"
+            >
+              <span className="flex flex-col gap-1.5">
+                <strong className="font-display text-lg font-bold leading-snug text-foreground">
+                  Combien coûte un comptable pour une société UK Limited ?
+                </strong>
+                <span className="text-sm text-muted-foreground">
+                  Honoraires, comptes annuels, CT600 et tenue de livres.
+                </span>
+              </span>
+              <span className="text-sm font-bold text-gold">
+                Lire le guide des coûts ↗
+              </span>
+            </Link>
+
+            <Link
+              aria-label="Lire le guide non-résident : Ai-je besoin d'un comptable si je vis à l'étranger ?"
+              href="/blog/do-i-need-accountant-uk-company-non-resident"
+              className="flex flex-col justify-between gap-3 rounded-xl border border-border bg-background p-5 transition-all hover:-translate-y-0.5 hover:border-gold"
+            >
+              <span className="flex flex-col gap-1.5">
+                <strong className="font-display text-lg font-bold leading-snug text-foreground">
+                  Ai-je besoin d’un comptable si je vis à l’étranger ?
+                </strong>
+                <span className="text-sm text-muted-foreground">
+                  Vos obligations au Royaume-Uni et quand l’accompagnement
+                  professionnel est utile.
+                </span>
+              </span>
+              <span className="text-sm font-bold text-gold">
+                Lire le guide non-résident ↗
+              </span>
+            </Link>
+          </div>
+        </Section>
+
+        {/* FURTHER GUIDANCE */}
+        <Section className="section-parchment border-t border-border">
+          <div className="max-w-3xl">
+            <Eyebrow>Ressources officielles</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Comprenez les obligations avant de décider.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-muted-foreground">
+              Pour plus de détails sur vos obligations, consultez les guides
+              officiels britanniques ci-dessous. Notre équipe peut également
+              vous expliquer comment ces règles s’appliquent à votre société.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <a
+              href="https://www.gov.uk/annual-accounts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border border-border bg-background p-5 font-bold text-foreground transition-colors hover:border-gold hover:text-gold"
+            >
+              Comptes annuels d’une société UK ↗
+            </a>
+            <a
+              href="https://www.gov.uk/company-tax-returns"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border border-border bg-background p-5 font-bold text-foreground transition-colors hover:border-gold hover:text-gold"
+            >
+              Déclarations d’impôt sur les sociétés ↗
+            </a>
+            <a
+              href="https://www.gov.uk/running-a-limited-company"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border border-border bg-background p-5 font-bold text-foreground transition-colors hover:border-gold hover:text-gold"
+            >
+              Gérer une société UK Limited ↗
+            </a>
+          </div>
+        </Section>
+
+        {/* START WITH SEVEN OAK / LEAD FORM (#start) */}
+        <Section
+          id="start"
+          className="section-parchment border-y border-border scroll-mt-24"
+        >
+          <div className="grid gap-8 rounded-2xl border border-border bg-background p-6 shadow-lg sm:p-10 lg:grid-cols-2 lg:gap-14">
+            <div>
+              <Eyebrow>Démarrer avec Seven Oak</Eyebrow>
+              <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Parlez-nous de votre société britannique.
+              </h2>
+              <p className="mt-4 text-base leading-7 text-muted-foreground">
+                Partagez quelques informations pour démarrer votre demande. Nous
+                examinerons vos besoins, confirmerons le périmètre de service
+                approprié et vous expliquerons les contrôles AML/KYC requis
+                avant le début des travaux.
+              </p>
+              <div className="mt-6 space-y-2 text-sm font-bold text-gold">
+                <div>✓ Partenaire comptable accrédité ACCA</div>
+                <div>✓ Contrôles AML/KYC avant démarrage</div>
+                <div>✓ Accompagnement où que vous viviez</div>
+              </div>
+            </div>
+
+            <form
+              id="lead-form"
+              ref={formRef}
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSendEmail();
+              }}
+              className="grid gap-2.5"
+            >
+              <label
+                htmlFor="pkg"
+                className="text-xs font-extrabold uppercase tracking-wider text-foreground"
+              >
+                Forfait souhaité
+              </label>
+              <select
+                id="pkg"
+                required
+                value={selectedPackage}
+                onChange={(e) => setSelectedPackage(e.target.value)}
+                className="mb-2 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                <option value="Not sure yet">Pas encore sûr</option>
+                <option value="Essential Accounting">
+                  Essential Accounting
+                </option>
+                <option value="Managed Accounting">Managed Accounting</option>
+                <option value="Managed Plus">Managed Plus</option>
+                <option value="Help me choose">Aidez-moi à choisir</option>
+              </select>
+
+              <label
+                htmlFor="company"
+                className="text-xs font-extrabold uppercase tracking-wider text-foreground"
+              >
+                Nom de la société UK (optionnel)
+              </label>
+              <input
+                id="company"
+                type="text"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+                placeholder="Votre société UK Limited"
+                className="mb-2 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+
+              <label
+                htmlFor="country"
+                className="text-xs font-extrabold uppercase tracking-wider text-foreground"
+              >
+                Où résidez-vous ?
+              </label>
+              <input
+                id="country"
+                type="text"
+                required
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                placeholder="ex. France, Belgique, Suisse, Émirats"
+                className="mb-2 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+
+              <label
+                htmlFor="activity"
+                className="text-xs font-extrabold uppercase tracking-wider text-foreground"
+              >
+                Quelle est l’activité de votre société ?
+              </label>
+              <select
+                id="activity"
+                value={activity}
+                onChange={(e) => setActivity(e.target.value)}
+                className="mb-2 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                <option value="Trading / active business">
+                  Société commerciale / active
+                </option>
+                <option value="Newly incorporated">
+                  Récemment immatriculée
+                </option>
+                <option value="Dormant / no activity">
+                  Dormante / sans activité
+                </option>
+                <option value="E-commerce / Amazon">
+                  E-commerce / Amazon
+                </option>
+                <option value="Overdue filings">Déclarations en retard</option>
+                <option value="Other / not sure">Autre / pas sûr</option>
+              </select>
+
+              <label
+                htmlFor="note"
+                className="text-xs font-extrabold uppercase tracking-wider text-foreground"
+              >
+                Autre précision ? (optionnel)
+              </label>
+              <textarea
+                id="note"
+                rows={2}
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                placeholder="Par exemple : 20 transactions par mois, assujetti TVA, clôture proche"
+                className="mb-2 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+
+              <button
+                id="email-send"
+                type="button"
+                onClick={handleSendEmail}
+                className="btn-gold mt-1 w-full cursor-pointer text-center"
+              >
+                Envoyer ma demande par e-mail →
+              </button>
+
+              <p className="mt-1 text-xs leading-5 text-muted-foreground">
+                Veuillez ne pas inclure de numéros de passeport, pièces
+                d’identité ou documents financiers sensibles dans cette demande.
+                Les instructions sécurisées AML/KYC suivront séparément.
+              </p>
+            </form>
+          </div>
+        </Section>
+
+        {/* FINAL CTA SECTION */}
+        <section className="section-dark px-5 py-16 text-center sm:px-6 sm:py-24">
+          <div className="mx-auto max-w-4xl">
+            <p className="eyebrow">Prêt quand vous l’êtes</p>
+            <h2 className="mx-auto mt-5 max-w-3xl font-display text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+              Vous dirigez l’entreprise. Nous aidons à garder la comptabilité UK
+              organisée.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
+              Choisissez un forfait ou présentez-nous votre société. Nous
+              confirmerons l’éligibilité, réaliserons les contrôles AML/KYC et
+              vous expliquerons les prochaines étapes avant le début des travaux
+              comptables.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <a
+                href="#start"
+                onClick={() => handleStartCta("Not sure yet")}
+                className="btn-gold text-center"
+              >
+                Commencer →
+              </a>
+              <a
+                href="#start"
+                onClick={() => handleStartCta("Not sure yet")}
+                className="btn-ghost text-center"
+              >
+                Poser une question →
+              </a>
             </div>
           </div>
         </section>
 
-        {/* DISCLAIMER */}
-        <section className="border-t border-border bg-background px-5 py-10 sm:px-6">
-          <div className="mx-auto max-w-6xl text-xs leading-6 text-muted-foreground">
+        {/* LEGAL DISCLAIMER */}
+        <section className="border-t border-border bg-background px-5 py-8 sm:px-6">
+          <div className="mx-auto max-w-6xl space-y-3 text-xs leading-6 text-muted-foreground">
             <p>
-              Seven Oak Prestige Ltd fournit des services de création de société, de domiciliation, de coordination de conformité et de conseil d’entreprise. Les travaux comptables et fiscaux sont réalisés par nos partenaires comptables agréés ACCA, selon le périmètre convenu dans la lettre de mission.
+              <strong className="font-bold text-foreground">Important : </strong>
+              Les prix des forfaits sont basés sur des micro-entités éligibles
+              et sur le périmètre de service indiqué. Les déclarations de TVA,
+              abonnements logiciels, travaux de rattrapage historique, paie,
+              comptes de groupe et conseils fiscaux internationaux complexes ne
+              sont pas inclus sauf accord exprès. Tous les services sont soumis
+              aux contrôles d’éligibilité, d’identité et AML/KYC, à
+              l’acceptation professionnelle et à une lettre de mission écrite.
+              Les dirigeants demeurent responsables de leurs obligations
+              statutaires.
             </p>
-            <p className="mt-3">
-              Les informations présentées sur cette page sont fournies à titre indicatif et ne constituent pas un conseil juridique, fiscal personnel ou financier réglementé. Le traitement fiscal dépend de la société, de ses flux et de la situation individuelle de ses dirigeants et associés.
-            </p>
-            <p className="mt-3">
-              Les tarifs affichés et les frais légaux de greffe sont susceptibles d’évolution. Toute mission est soumise aux procédures d’onboarding, à la vérification d’identité client et à la confirmation écrite du périmètre d’intervention.
-            </p>
-            <p className="mt-3">
-              Seven Oak Prestige Ltd · Immatriculation n° 16903092 · Siège social : 124 City Road, Londres EC1V 2NX, Royaume-Uni.
+            <p>
+              Références réglementaires :{" "}
+              <a
+                href="https://www.gov.uk/running-a-limited-company"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-gold hover:underline"
+              >
+                GOV.UK
+              </a>{" "}
+              ·{" "}
+              <a
+                href="https://www.gov.uk/annual-accounts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-gold hover:underline"
+              >
+                Comptes annuels
+              </a>{" "}
+              ·{" "}
+              <a
+                href="https://www.gov.uk/running-a-limited-company/confirmation-statement"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-gold hover:underline"
+              >
+                Confirmation statements
+              </a>
             </p>
           </div>
         </section>
       </main>
 
       <Footer />
-      <StickyCta primaryLabel="Voir les forfaits" secondaryLabel="WhatsApp" primaryHref="#packages" />
+      <StickyCta
+        primaryLabel="Commencer"
+        secondaryLabel="WhatsApp"
+        primaryHref="#start"
+      />
     </div>
   );
 }
