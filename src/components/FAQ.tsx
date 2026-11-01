@@ -1,15 +1,31 @@
 "use client";
 
 import { useTranslation } from "@/i18n/TranslationContext";
-
 import { useState } from "react";
 
 export default function FAQ() {
     const { t } = useTranslation();
     const [open, setOpen] = useState<number | null>(0);
 
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: t.faq.items.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: f.a,
+            },
+        })),
+    };
+
     return (
         <section id="faq" className="section-parchment border-t border-border px-6 py-24 sm:py-32 scroll-mt-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
             <div className="mx-auto max-w-6xl">
                 <div className="grid gap-16 lg:grid-cols-[0.7fr_1.3fr]">
                     <div>

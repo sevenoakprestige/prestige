@@ -7,7 +7,7 @@ export default function TrustSection() {
 
     return (
         <div className="section-parchment border-y border-border px-6">
-            <dl className="mx-auto grid max-w-6xl sm:grid-cols-2 lg:grid-cols-4">
+            <dl className="mx-auto grid max-w-6xl sm:grid-cols-3">
                 {t.trust.map(([title, body]) => (
                     <div
                         key={title}

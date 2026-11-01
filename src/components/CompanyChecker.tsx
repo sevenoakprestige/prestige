@@ -15,8 +15,8 @@ interface CompanyResult {
 const COPY = {
   en: {
     title: "Company name check",
-    heading: "Is Your Company Name Available?",
-    description: "Search the live Companies House register before you begin.",
+    heading: "Check Your Proposed Company Name",
+    description: "Search the official Companies House register before you choose a package. Your adviser also checks the name before filing.",
     note: "An indication only — final approval rests with Companies House.",
     label: "Proposed company name",
     placeholder: "Your proposed company name",
@@ -35,8 +35,8 @@ const COPY = {
   },
   fr: {
     title: "Disponibilité du nom",
-    heading: "Votre nom de société est-il libre ?",
-    description: "Vérifiez la disponibilité en temps réel sur le registre britannique.",
+    heading: "Vérifiez le nom proposé pour votre société",
+    description: "Recherchez sur le registre officiel du Companies House avant de choisir une formule. Votre conseiller vérifie également le nom avant le dépôt.",
     note: "Indication uniquement — l'approbation finale appartient à Companies House.",
     label: "Nom de votre future société",
     placeholder: "Nom de votre future société",

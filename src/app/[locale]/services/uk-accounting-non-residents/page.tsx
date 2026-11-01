@@ -13,12 +13,12 @@ export async function generateMetadata({
   const isFr = locale === "fr";
 
   const title = isFr
-    ? "Services Comptables UK pour Dirigeants et Sociétés Non-Résidents | Seven Oak Prestige"
-    : "UK Accounting Services for Non-Residents & UK Directors | Seven Oak Prestige";
+    ? "Comptabilité de Société UK Limited pour Non-Résidents | Seven Oak Prestige"
+    : "UK Limited Company Accounting for Non-Residents | Seven Oak Prestige";
 
   const description = isFr
-    ? "Accompagnement comptable et fiscal britannique pour dirigeants non-résidents : comptes annuels, CT600, tenue de livres, TVA et paie. Forfaits à partir de £699."
-    : "UK accounting and compliance support for non-resident company directors, including annual accounts, CT600, bookkeeping, VAT and payroll. Packages from £699.";
+    ? "Comptabilité de société UK Limited pour dirigeants non-résidents. Comptes annuels, CT600, confirmation statements et tenue de livres mensuelle. Comparez nos forfaits à prix fixe dès £699/an."
+    : "UK limited company accounting for non-resident directors. Annual accounts, CT600, confirmation statements and monthly bookkeeping. Compare fixed-price packages from £699/year.";
 
   return {
     title,
