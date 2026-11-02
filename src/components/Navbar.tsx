@@ -93,7 +93,7 @@ export default function Navbar() {
                 { name: t.nav.shelfCompany, href: `${prefix}/services/buy-shelf-company-uk` },
                 { name: t.nav.nomineeDirector, href: `${prefix}/services/uk-nominee-director-service` },
                 { name: t.nav.accounting, href: `${prefix}/services/uk-accounting-non-residents` },
-                { name: t.nav.chVerification, href: `${prefix}/services/companies-house-verification` },
+                { name: t.nav.chVerification, href: `${prefix}/services/companies-house-identity-verification` },
                 { name: t.nav.vatRegistration, href: `${prefix}/services/vat-registration-uk` },
                 { name: t.nav.eoriRegistration, href: `${prefix}/services/eori-registration-uk` },
                 { name: t.nav.fintechGuidance, href: `${prefix}/services/fintech-banking-guidance` },

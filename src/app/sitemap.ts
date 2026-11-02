@@ -108,12 +108,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.90,
             lastModified: now,
         }),
-        ...entry('/services/companies-house-verification', {
-            frPath: '/fr/services/companies-house-verification',
-            changeFrequency: 'weekly',
-            priority: 0.85,
-            lastModified: now,
-        }),
         ...entry('/services/companies-house-identity-verification', {
             frPath: '/fr/services/companies-house-identity-verification',
             changeFrequency: 'weekly',

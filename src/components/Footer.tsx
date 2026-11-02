@@ -112,7 +112,7 @@ export default function Footer() {
                                 <Link href={`${prefix}/services/fintech-banking-guidance`} className="transition-colors hover:text-gold-soft">{t.nav.fintechGuidance}</Link>
                             </li>
                             <li>
-                                <Link href={`${prefix}/services/companies-house-verification`} className="transition-colors hover:text-gold-soft">{t.nav.chVerification}</Link>
+                                <Link href={`${prefix}/services/companies-house-identity-verification`} className="transition-colors hover:text-gold-soft">{t.nav.chVerification}</Link>
                             </li>
                             <li>
                                 <Link href={`${prefix}/services/vat-registration-uk`} className="transition-colors hover:text-gold-soft">{t.nav.vatRegistration}</Link>

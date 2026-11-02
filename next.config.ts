@@ -54,6 +54,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/services/companies-house-verification',
+        destination: '/services/companies-house-identity-verification',
+        permanent: true,
+      },
+      {
+        source: '/fr/services/companies-house-verification',
+        destination: '/fr/services/companies-house-identity-verification',
+        permanent: true,
+      },
+      {
         source: '/services/uk-accounting-services',
         destination: '/services/uk-accounting-non-residents',
         permanent: true,

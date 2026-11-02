@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import Footer from "@/components/Footer";
 
-const PAGE_URL = "https://www.sevenoakprestige.com/fr/services/companies-house-verification";
+const PAGE_URL = "https://www.sevenoakprestige.com/fr/services/companies-house-identity-verification";
 export const PRICE = "74 £";
 export const CHECKOUT = "https://buy.stripe.com/bJe8wHbwY5nv8gde3Ofw40h";
 const WHATSAPP =

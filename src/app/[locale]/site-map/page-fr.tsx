@@ -89,16 +89,10 @@ const sitemapSections = [
     description: "Restez en conformité avec la réglementation britannique",
     links: [
       {
-        name: "Vérification d'Identité",
-        href: "/fr/services/companies-house-verification",
-        description:
-          "Vérification d'identité Companies House & assistance code personnel (74 £)",
-      },
-      {
-        name: "Vérification d'Identité Companies House & Code Personnel",
+        name: "Vérification d'Identité (Code Personnel Companies House)",
         href: "/fr/services/companies-house-identity-verification",
         description:
-          "Accompagnement guidé pour les dirigeants UK, PSC et non-résidents (74 £)",
+          "Assistance guidée à la vérification d'identité Companies House & code personnel (74 £)",
       },
       {
         name: "Immatriculation TVA au Royaume-Uni",

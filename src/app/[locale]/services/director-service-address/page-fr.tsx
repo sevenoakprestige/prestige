@@ -804,7 +804,7 @@ export default function DirectorServiceAddressPageFr() {
                   confirmerons l’adresse et la gestion du courrier avant paiement.
                 </p>
                 <Link
-                  href="/fr/services/companies-house-verification"
+                  href="/fr/services/companies-house-identity-verification"
                   className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gold hover:underline"
                 >
                   <span>Assistance à la vérification d’identité</span>

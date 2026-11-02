@@ -945,7 +945,7 @@ export default function RegisteredOfficeServicePageFr() {
                 </li>
                 <li>
                   <Link
-                    href="/fr/services/companies-house-verification"
+                    href="/fr/services/companies-house-identity-verification"
                     className="inline-flex items-center gap-1.5 text-gold hover:underline"
                   >
                     <span>Vérification d’Identité Companies House</span>

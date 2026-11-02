@@ -88,16 +88,10 @@ const sitemapSections = [
     description: "Stay compliant with UK statutory and tax regulations",
     links: [
       {
-        name: "Identity Verification",
-        href: "/services/companies-house-verification",
-        description:
-          "Companies House identity verification & personal code assistance (£74)",
-      },
-      {
-        name: "Companies House Identity Verification & Personal Code",
+        name: "Identity Verification (Companies House Personal Code)",
         href: "/services/companies-house-identity-verification",
         description:
-          "Guided personal code assistance for UK directors, PSCs and non-residents (£74)",
+          "Guided Companies House identity verification & personal code assistance (£74)",
       },
       {
         name: "VAT Registration UK",

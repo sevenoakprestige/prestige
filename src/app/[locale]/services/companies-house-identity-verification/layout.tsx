@@ -7,7 +7,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const isFr = locale === "fr";
-  const path = "/services/companies-house-verification";
+  const path = "/services/companies-house-identity-verification";
   const canonical = isFr
     ? `https://www.sevenoakprestige.com/fr${path}`
     : `https://www.sevenoakprestige.com${path}`;
@@ -46,10 +46,11 @@ export async function generateMetadata({
   };
 }
 
-export default function CompaniesHouseVerificationLayout({
+export default function CompaniesHouseIdentityVerificationLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return <>{children}</>;
 }
+

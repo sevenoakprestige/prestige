@@ -295,7 +295,7 @@ export default function NomineeDirectorPageFr() {
                     La vérification d&apos;identité Companies House s&apos;applique à chaque dirigeant. L&apos;assistance administrative de Seven Oak est distincte de la vérification légale et ne remplace pas les contrôles AML obligatoires.
                   </p>
                   <Link
-                    href="/fr/services/companies-house-verification"
+                    href="/fr/services/companies-house-identity-verification"
                     className="mt-5 inline-block text-sm font-semibold text-[#8a6814] hover:underline"
                   >
                     Comprendre la vérification Companies House →
@@ -407,7 +407,7 @@ export default function NomineeDirectorPageFr() {
                   <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
                 </Link>
                 <Link
-                  href="/fr/services/companies-house-verification"
+                  href="/fr/services/companies-house-identity-verification"
                   className="inline-flex items-center gap-1.5 font-semibold text-[#8a6814] hover:underline"
                 >
                   Assistance vérification Companies House
