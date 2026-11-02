@@ -1,73 +1,75 @@
 import type { Metadata } from "next";
 
 export async function generateMetadata({
-    params,
+  params,
 }: {
-    params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-    const { locale } = await params;
-    const isFr = locale === "fr";
-    const path = "/services/uk-company-formation-for-non-residents";
-    const canonical = isFr ? `https://www.sevenoakprestige.com/fr${path}` : `https://www.sevenoakprestige.com${path}`;
+  const { locale } = await params;
 
+  if (locale === "fr") {
     return {
-        title: isFr
-            ? "Création de Société UK pour Non-Résidents | Seven Oak Prestige"
-            : "UK Company Formation for Non-Residents | Start a UK Company Remotely",
-        description: isFr
-            ? "Enregistrez une société UK Limited (LTD) depuis n'importe où dans le monde. Accompagnement complet pour fondateurs non-résidents avec adresses à Londres et support bancaire."
-            : "Register a UK Limited Company from anywhere in the world. Professional UK company formation services for non-residents with address solutions and expert support.",
-        keywords: [
-            "UK company formation for non-residents",
-            "start a UK company remotely",
-            "register UK company from abroad",
-            "UK LTD for foreigners",
-            "non-resident UK company formation",
-            "UK company formation UAE",
-            "UK company formation India",
-            "UK company formation Pakistan",
-            "UK company formation France",
-            "UK company formation Algeria",
-            "UK company formation Nigeria",
-            "international company formation UK",
-            "UK company formation online",
-            "UK limited company non-resident",
-        ],
-        openGraph: {
-            title: isFr
-                ? "Création de Société UK pour Non-Résidents | Seven Oak Prestige"
-                : "UK Company Formation for Non-Residents | Start a UK Company Remotely",
-            description: isFr
-                ? "Enregistrez une société UK Limited (LTD) depuis n'importe où dans le monde avec Seven Oak Prestige."
-                : "Register a UK Limited Company from anywhere in the world. Professional UK company formation services for non-residents with address solutions and expert support.",
-            url: canonical,
-            type: "website",
-            locale: isFr ? "fr_FR" : "en_GB",
+      title: "Forfaits de Création de Société UK (Ltd) pour Non-Résidents | Seven Oak Prestige",
+      description:
+        "Enregistrez une société Limited (Ltd) au Royaume-Uni depuis l'étranger avec Seven Oak Prestige. Immatriculation à distance, services d'adresse UK, assistance à la vérification d'identité et préparation bancaire. Forfaits dès 199 £.",
+      alternates: {
+        canonical:
+          "https://www.sevenoakprestige.com/fr/services/uk-company-formation-for-non-residents",
+        languages: {
+          en: "https://www.sevenoakprestige.com/services/uk-company-formation-for-non-residents",
+          fr: "https://www.sevenoakprestige.com/fr/services/uk-company-formation-for-non-residents",
         },
-        twitter: {
-            card: "summary_large_image",
-            title: isFr
-                ? "Création de Société UK pour Non-Résidents | Seven Oak Prestige"
-                : "UK Company Formation for Non-Residents | Seven Oak Prestige",
-            description: isFr
-                ? "Enregistrez une société UK Limited depuis l'étranger."
-                : "Register a UK Limited Company from anywhere in the world. Professional UK company formation services for non-residents.",
-        },
-        alternates: {
-            canonical,
-            languages: {
-                en: `https://www.sevenoakprestige.com${path}`,
-                fr: `https://www.sevenoakprestige.com/fr${path}`,
-                "x-default": `https://www.sevenoakprestige.com${path}`,
-            },
-        },
+      },
+      openGraph: {
+        title: "Forfaits de Création de Société UK (Ltd) pour Non-Résidents | Seven Oak Prestige",
+        description:
+          "Immatriculation de société UK à distance, services d'adresse professionnelle au Royaume-Uni, assistance à la vérification d'identité et accompagnement continu pour les fondateurs internationaux.",
+        url: "https://www.sevenoakprestige.com/fr/services/uk-company-formation-for-non-residents",
+        siteName: "Seven Oak Prestige",
+        type: "website",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Forfaits de Création de Société UK (Ltd) pour Non-Résidents | Seven Oak Prestige",
+        description:
+          "Immatriculation de société UK à distance, services d'adresse professionnelle au Royaume-Uni, assistance à la vérification d'identité et accompagnement continu pour les fondateurs internationaux.",
+      },
     };
+  }
+
+  return {
+    title: "UK Company Formation Packages for Non-Residents | Seven Oak Prestige",
+    description:
+      "Register a UK limited company from abroad with Seven Oak Prestige. Remote UK company registration, professional UK address services, identity-verification assistance and banking readiness. Packages from £199.",
+    alternates: {
+      canonical:
+        "https://www.sevenoakprestige.com/services/uk-company-formation-for-non-residents",
+      languages: {
+        en: "https://www.sevenoakprestige.com/services/uk-company-formation-for-non-residents",
+        fr: "https://www.sevenoakprestige.com/fr/services/uk-company-formation-for-non-residents",
+      },
+    },
+    openGraph: {
+      title: "UK Company Formation Packages for Non-Residents | Seven Oak Prestige",
+      description:
+        "Remote UK company registration, professional UK address services, identity-verification assistance and ongoing corporate support for international founders.",
+      url: "https://www.sevenoakprestige.com/services/uk-company-formation-for-non-residents",
+      siteName: "Seven Oak Prestige",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "UK Company Formation Packages for Non-Residents | Seven Oak Prestige",
+      description:
+        "Remote UK company registration, professional UK address services, identity-verification assistance and ongoing corporate support for international founders.",
+    },
+  };
 }
 
-export default function UKCompanyFormationLayout({
-    children,
+export default function NonResidentsFormationLayout({
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return <>{children}</>;
+  return <>{children}</>;
 }
