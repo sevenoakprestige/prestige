@@ -29,7 +29,7 @@ export const en = {
     
     // Service links
     nonResidentsPackage: 'Non-Residents Package',
-    chVerification: 'Companies House Verification',
+    chVerification: 'Identity Verification',
     vatRegistration: 'VAT Registration',
     eoriRegistration: 'EORI Registration',
     fintechGuidance: 'Fintech & Payment Guidance',

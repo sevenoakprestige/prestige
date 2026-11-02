@@ -1,5 +1,4 @@
-import { Metadata } from "next";
-import { getTranslations, Locale } from "@/i18n";
+import type { Metadata } from "next";
 import IdentityVerificationClient from "./IdentityVerificationClient";
 
 const PATH = "/services/companies-house-identity-verification";
@@ -10,24 +9,33 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = getTranslations(locale as Locale);
-  const meta = t.servicesPages.companiesHouseIdentityVerification.meta;
-  
-  const isFr = locale === 'fr';
-  const canonical = isFr ? `https://www.sevenoakprestige.com/fr${PATH}` : `https://www.sevenoakprestige.com${PATH}`;
+  const isFr = locale === "fr";
+  const canonical = isFr
+    ? `https://www.sevenoakprestige.com/fr${PATH}`
+    : `https://www.sevenoakprestige.com${PATH}`;
+
+  const title = isFr
+    ? "Vérification d'Identité Companies House & Code Personnel | 74 £"
+    : "Companies House Identity Verification & Personal Code | £74";
+
+  const description = isFr
+    ? "Besoin d'un code personnel Companies House ? Assistance à la vérification d'identité pour les dirigeants UK, PSC et non-résidents. Accompagnement guidé pour 74 £."
+    : "Need a Companies House personal code? Identity verification assistance for UK directors, PSCs and non-residents. Guided support for £74.";
 
   return {
-    title: meta.title,
-    description: meta.description,
+    title,
+    description,
     openGraph: {
-      title: meta.ogTitle,
-      description: meta.ogDescription,
+      title,
+      description,
       type: "website",
       url: canonical,
       locale: isFr ? "fr_FR" : "en_GB",
     },
     twitter: {
       card: "summary_large_image",
+      title,
+      description,
     },
     alternates: {
       canonical,
@@ -41,5 +49,5 @@ export async function generateMetadata({
 }
 
 export default function IdentityVerificationPage() {
-    return <IdentityVerificationClient />;
+  return <IdentityVerificationClient />;
 }

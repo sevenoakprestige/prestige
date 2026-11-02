@@ -29,7 +29,7 @@ export const fr: Translations = {
     
     // Service links
     nonResidentsPackage: 'Formule Non-Résidents',
-    chVerification: 'Vérification Companies House',
+    chVerification: 'Vérification d\'Identité',
     vatRegistration: 'Immatriculation TVA',
     eoriRegistration: 'Immatriculation EORI',
     fintechGuidance: 'Conseil Fintech & Paiements',
