@@ -9,6 +9,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import Footer from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { LangBanner } from "@/components/LangBanner";
+import { TawkChat } from "@/components/TawkChat";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-display" });
@@ -123,6 +124,7 @@ export default async function RootLayout({
                         <CookieConsent />
                         <JsonLd />
                         <WhatsAppFloat />
+                        <TawkChat locale={locale} />
                         <LangBanner />
                     </ThemeProvider>
                 </TranslationProvider>

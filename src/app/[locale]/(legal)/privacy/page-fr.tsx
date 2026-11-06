@@ -117,7 +117,7 @@ export default function PrivacyPolicyFr() {
                         <section className="group relative overflow-hidden rounded-2xl border border-border/30 bg-card/25 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/45 hover:shadow-[0_20px_50px_rgba(212,175,55,0.06)]">
                             <h2 className="mb-3 text-2xl font-bold text-foreground">10. Cookies</h2>
                             <p className="leading-relaxed text-foreground/80">
-                                Les cookies sont utilisés pour l'analyse et les fonctionnalités du site web.
+                                Les cookies sont utilisés pour l'analyse et les fonctionnalités du site web. Si vous acceptez les cookies, nous chargeons également le widget de chat en direct tawk.to, qui utilise des cookies et traite les messages que vous envoyez ainsi que des informations de base sur le visiteur (page consultée et langue) afin d'assurer l'assistance client. Si vous refusez les cookies, le widget de chat n'est pas chargé.
                             </p>
                         </section>
 
