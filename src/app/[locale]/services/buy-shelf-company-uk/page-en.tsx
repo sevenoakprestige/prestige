@@ -405,7 +405,7 @@ export default function ShelfCompanyPageEn() {
                   <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
                 </Link>
                 <Link
-                  href="/services/companies-house-verification"
+                  href="/services/companies-house-identity-verification"
                   className="inline-flex items-center gap-1.5 font-semibold text-[#8a6814] hover:underline"
                 >
                   Identity-verification assistance

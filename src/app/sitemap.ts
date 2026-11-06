@@ -3,7 +3,7 @@ import { client } from '@/sanity/client';
 import { defineQuery, type SanityDocument } from 'next-sanity';
 
 const SITEMAP_POSTS_QUERY = defineQuery(
-    `*[_type == "post" && defined(slug.current)]{ "slug": slug.current, _updatedAt }`
+    `*[_type == "post" && defined(slug.current) && slug.current != "uk-company-formation-from-abroad"]{ "slug": slug.current, _updatedAt }`
 );
 
 const BASE = 'https://www.sevenoakprestige.com';
@@ -106,12 +106,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             frPath: '/fr/services/eori-registration-uk',
             changeFrequency: 'weekly',
             priority: 0.90,
-            lastModified: now,
-        }),
-        ...entry('/services/companies-house-verification', {
-            frPath: '/fr/services/companies-house-verification',
-            changeFrequency: 'weekly',
-            priority: 0.85,
             lastModified: now,
         }),
         ...entry('/services/companies-house-identity-verification', {
@@ -234,16 +228,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.95,
             lastModified: now,
         }),
-        // France page lives exclusively under /fr/ — it IS the French content
+        // France page — French landing page at /countries/france/uk-company-formation
         {
-            url: `${BASE}/fr/countries/france/uk-company-formation`,
+            url: `${BASE}/countries/france/uk-company-formation`,
             lastModified: now,
             changeFrequency: 'weekly',
             priority: 0.95,
             alternates: {
                 languages: {
-                    'fr': `${BASE}/fr/countries/france/uk-company-formation`,
-                    'x-default': `${BASE}/fr/countries/france/uk-company-formation`,
+                    'fr': `${BASE}/countries/france/uk-company-formation`,
+                    'x-default': `${BASE}/countries/france/uk-company-formation`,
                 },
             },
         },

@@ -224,7 +224,7 @@ export default async function CountriesPage({
                                     ) : c === "France" ? (
                                         <li key={c}>
                                             <Link
-                                                href="/fr/countries/france/uk-company-formation"
+                                                href="/countries/france/uk-company-formation"
                                                 className="block border border-gold/50 px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-gold-soft transition-colors hover:bg-accent"
                                             >
                                                 France

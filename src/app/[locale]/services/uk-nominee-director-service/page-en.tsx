@@ -295,7 +295,7 @@ export default function NomineeDirectorPageEn() {
                     Companies House identity verification applies according to each person&apos;s role and current requirements. Seven Oak&apos;s administrative identity-verification assistance is separate from statutory verification and does not replace provider AML checks.
                   </p>
                   <Link
-                    href="/services/companies-house-verification"
+                    href="/services/companies-house-identity-verification"
                     className="mt-5 inline-block text-sm font-semibold text-[#8a6814] hover:underline"
                   >
                     Understand identity-verification assistance →
@@ -407,7 +407,7 @@ export default function NomineeDirectorPageEn() {
                   <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
                 </Link>
                 <Link
-                  href="/services/companies-house-verification"
+                  href="/services/companies-house-identity-verification"
                   className="inline-flex items-center gap-1.5 font-semibold text-[#8a6814] hover:underline"
                 >
                   Identity-verification assistance

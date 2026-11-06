@@ -939,7 +939,7 @@ export default function RegisteredOfficeServicePageEn() {
                 </li>
                 <li>
                   <Link
-                    href="/services/companies-house-verification"
+                    href="/services/companies-house-identity-verification"
                     className="inline-flex items-center gap-1.5 text-gold hover:underline"
                   >
                     <span>Companies House Identity Verification</span>

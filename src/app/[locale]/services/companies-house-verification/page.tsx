@@ -1,15 +1,13 @@
-"use client";
+import { redirect } from "next/navigation";
 
-import { useTranslation } from "@/i18n/TranslationContext";
-import CompaniesHouseVerificationPageEn from "./page-en";
-import CompaniesHouseVerificationPageFr from "./page-fr";
-
-export default function CompaniesHouseVerificationPage() {
-  const { locale } = useTranslation();
-
+export default async function CompaniesHouseVerificationRedirect({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   if (locale === "fr") {
-    return <CompaniesHouseVerificationPageFr />;
+    redirect("/fr/services/companies-house-identity-verification");
   }
-
-  return <CompaniesHouseVerificationPageEn />;
+  redirect("/services/companies-house-identity-verification");
 }

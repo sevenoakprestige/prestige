@@ -785,7 +785,7 @@ export default function VirtualBusinessAddressPageEn() {
                   and mail handling before you pay.
                 </p>
                 <Link
-                  href="/services/companies-house-verification"
+                  href="/services/companies-house-identity-verification"
                   className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gold hover:underline"
                 >
                   <span>Identity-verification assistance</span>

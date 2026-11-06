@@ -44,13 +44,48 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/countries/france/uk-company-formation',
-        destination: '/fr/countries/france/uk-company-formation',
+        source: '/fr/countries/france/uk-company-formation',
+        destination: '/countries/france/uk-company-formation',
+        permanent: true,
+      },
+      {
+        source: '/fr/countries/india/uk-company-formation',
+        destination: '/countries/india/uk-company-formation',
+        permanent: true,
+      },
+      {
+        source: '/fr/countries/germany/uk-company-formation',
+        destination: '/countries/germany/uk-company-formation',
+        permanent: true,
+      },
+      {
+        source: '/fr/countries/iraq/uk-company-formation',
+        destination: '/countries/iraq/uk-company-formation',
+        permanent: true,
+      },
+      {
+        source: '/blog/uk-company-formation-from-abroad',
+        destination: '/blog/uk-company-formation-for-non-residents',
+        permanent: true,
+      },
+      {
+        source: '/fr/blog/uk-company-formation-from-abroad',
+        destination: '/blog/uk-company-formation-for-non-residents',
         permanent: true,
       },
       {
         source: '/fr/blog/:path*',
         destination: '/blog/:path*',
+        permanent: true,
+      },
+      {
+        source: '/services/companies-house-verification',
+        destination: '/services/companies-house-identity-verification',
+        permanent: true,
+      },
+      {
+        source: '/fr/services/companies-house-verification',
+        destination: '/fr/services/companies-house-identity-verification',
         permanent: true,
       },
       {

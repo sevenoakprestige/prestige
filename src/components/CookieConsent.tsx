@@ -22,11 +22,13 @@ export default function CookieConsent() {
 
     const handleAccept = () => {
         localStorage.setItem('cookieConsent', 'accepted');
+        window.dispatchEvent(new Event('cookie-consent'));
         handleClose();
     };
 
     const handleReject = () => {
         localStorage.setItem('cookieConsent', 'rejected');
+        window.dispatchEvent(new Event('cookie-consent'));
         handleClose();
     };
 

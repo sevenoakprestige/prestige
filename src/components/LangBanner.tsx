@@ -23,8 +23,17 @@ export function LangBanner() {
   const [frPath, setFrPath] = useState('/fr');
 
   useEffect(() => {
-    // Don't show on French pages
-    if (pathname.startsWith('/fr')) return;
+    // Don't show on French pages or fixed-language country pages
+    if (
+      pathname.startsWith('/fr') ||
+      pathname.includes('/countries/india') ||
+      pathname.includes('/countries/germany') ||
+      pathname.includes('/countries/iraq') ||
+      pathname.includes('/countries/france')
+    ) {
+      setShow(false);
+      return;
+    }
 
     const suggestion = getCookie('LOCALE_SUGGESTION');
     const userChose = getCookie('NEXT_LOCALE');
