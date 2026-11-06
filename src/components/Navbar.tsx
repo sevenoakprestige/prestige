@@ -22,7 +22,18 @@ function LanguageSwitcher({ className }: { className?: string }) {
     const router = useRouter();
     const isFr = pathname.startsWith('/fr');
 
+    const isFixedLanguageCountryPage =
+        pathname.includes('/countries/india') ||
+        pathname.includes('/countries/germany') ||
+        pathname.includes('/countries/iraq') ||
+        pathname.includes('/countries/france');
+
     function switchLang() {
+        // Country-specific landing pages stay at /countries/<country>/uk-company-formation in their native language
+        if (isFixedLanguageCountryPage) {
+            return;
+        }
+
         // Set locale cookie
         const newLocale = isFr ? 'en' : 'fr';
         document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
@@ -115,10 +126,10 @@ export default function Navbar() {
         {
             title: t.nav.internationalFounders,
             links: [
-                { name: t.nav.france, href: `${prefix}/countries/france/uk-company-formation`, icon: "/assets/flags/fr.svg" },
-                { name: t.nav.germany, href: `${prefix}/countries/germany/uk-company-formation`, icon: "/assets/flags/de.svg" },
-                { name: t.nav.india, href: `${prefix}/countries/india/uk-company-formation`, icon: "/assets/flags/in.svg" },
-                { name: t.nav.iraq, href: `${prefix}/countries/iraq/uk-company-formation`, icon: "/assets/flags/iq.svg" },
+                { name: t.nav.france, href: `/countries/france/uk-company-formation`, icon: "/assets/flags/fr.svg" },
+                { name: t.nav.germany, href: `/countries/germany/uk-company-formation`, icon: "/assets/flags/de.svg" },
+                { name: t.nav.india, href: `/countries/india/uk-company-formation`, icon: "/assets/flags/in.svg" },
+                { name: t.nav.iraq, href: `/countries/iraq/uk-company-formation`, icon: "/assets/flags/iq.svg" },
             ]
         }
     ];
@@ -167,11 +178,10 @@ export default function Navbar() {
             const activeCountry = countryCategories
                 .flatMap(c => c.links)
                 .find(l => {
-                    const isFrance = l.href.includes('/countries/france');
-                    const isIndia = l.href.includes('/countries/india');
-                    
-                    if (isFrance && pathname.includes('/countries/france')) return true;
-                    if (isIndia && pathname.includes('/countries/india')) return true;
+                    if (l.href.includes('/countries/france') && pathname.includes('/countries/france')) return true;
+                    if (l.href.includes('/countries/germany') && pathname.includes('/countries/germany')) return true;
+                    if (l.href.includes('/countries/india') && pathname.includes('/countries/india')) return true;
+                    if (l.href.includes('/countries/iraq') && pathname.includes('/countries/iraq')) return true;
                     
                     return pathname.startsWith(l.href);
                 });

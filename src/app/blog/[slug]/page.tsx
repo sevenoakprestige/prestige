@@ -12,7 +12,7 @@ const POST_QUERY = defineQuery(
 );
 
 const POSTS_SLUG_QUERY = defineQuery(
-    `*[_type == "post" && defined(slug.current)]{ "slug": slug.current }`
+    `*[_type == "post" && defined(slug.current) && slug.current != "uk-company-formation-from-abroad"]{ "slug": slug.current }`
 );
 
 export async function generateStaticParams() {

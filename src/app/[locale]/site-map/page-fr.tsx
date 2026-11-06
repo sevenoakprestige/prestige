@@ -55,7 +55,7 @@ const sitemapSections = [
       },
       {
         name: "Création de Société au Royaume-Uni depuis la France",
-        href: "/fr/countries/france/uk-company-formation",
+        href: "/countries/france/uk-company-formation",
         description: "Créez une société britannique depuis la France",
       },
       {

@@ -54,7 +54,7 @@ const sitemapSections = [
       },
       {
         name: "UK Company Formation from France",
-        href: "/fr/countries/france/uk-company-formation",
+        href: "/countries/france/uk-company-formation",
         description: "Setup a UK company from France",
       },
       {
