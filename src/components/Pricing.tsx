@@ -186,7 +186,7 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                     {isFr ? (
                         <>
                             Les comptes annuels, l’impôt sur les sociétés et la TVA ne sont pas inclus dans les formules de création —{" "}
-                            <Link href={`${prefix}/services/uk-accounting-non-residents`} className="text-gold-soft underline-offset-4 hover:underline">
+                            <Link href={`${prefix}/services/uk-accounting-non-residents`} className="text-gold-soft underline underline-offset-4 hover:no-underline">
                                 un accompagnement comptable est disponible séparément après l’immatriculation
                             </Link>
                             .
@@ -194,7 +194,7 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                     ) : (
                         <>
                             Annual accounts, Corporation Tax and VAT are not included in formation packages —{" "}
-                            <Link href={`${prefix}/services/uk-accounting-non-residents`} className="text-gold-soft underline-offset-4 hover:underline">
+                            <Link href={`${prefix}/services/uk-accounting-non-residents`} className="text-gold-soft underline underline-offset-4 hover:no-underline">
                                 accounting support is available separately after incorporation
                             </Link>
                             .
@@ -205,8 +205,8 @@ export default function Pricing({ inrRate }: { inrRate?: number | null } = {}) {
                 <p className="mt-6 max-w-3xl text-xs leading-relaxed text-muted-foreground">
                     {t.pricing.financialDisclaimer}{" "}
                     {t.pricing.termsText}{" "}
-                    <Link href={`${prefix}/terms`} className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.terms}</Link> {t.pricing.and}{" "}
-                    <Link href={`${prefix}/refund`} className="text-gold-soft underline-offset-4 hover:underline">{t.pricing.refundPolicy}</Link>.
+                    <Link href={`${prefix}/terms`} className="text-gold-soft underline underline-offset-4 hover:no-underline">{t.pricing.terms}</Link> {t.pricing.and}{" "}
+                    <Link href={`${prefix}/refund`} className="text-gold-soft underline underline-offset-4 hover:no-underline">{t.pricing.refundPolicy}</Link>.
                 </p>
             </div>
         </section>

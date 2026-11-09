@@ -455,7 +455,7 @@ export default async function IndiaFormationPage() {
           </p>
           <p className="mt-3 max-w-4xl text-xs leading-relaxed text-muted-foreground">
             Packages are subject to eligibility, onboarding and compliance review. Companies House and financial
-            providers make their own decisions. See the <Link href="/terms" className="text-gold-soft underline-offset-4 hover:underline">Terms</Link> and <Link href="/refund" className="text-gold-soft underline-offset-4 hover:underline">Refund Policy</Link> before proceeding.
+            providers make their own decisions. See the <Link href="/terms" className="text-gold-soft underline underline-offset-4 hover:no-underline">Terms</Link> and <Link href="/refund" className="text-gold-soft underline underline-offset-4 hover:no-underline">Refund Policy</Link> before proceeding.
           </p>
         </Section>
 
@@ -502,7 +502,7 @@ export default async function IndiaFormationPage() {
             ))}
           </div>
           <p className="mt-7 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-            Prestige address renewal is £94/year. Elite address renewal is £244/year. Read the detailed <Link href={GUIDES.cost} className="text-gold-soft underline-offset-4 hover:underline">UK company formation cost guide for Indian founders</Link> for the complete cost picture.
+            Prestige address renewal is £94/year. Elite address renewal is £244/year. Read the detailed <Link href={GUIDES.cost} className="text-gold-soft underline underline-offset-4 hover:no-underline">UK company formation cost guide for Indian founders</Link> for the complete cost picture.
           </p>
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-border pt-7 text-sm text-muted-foreground">
             <span>VAT registration support: £144</span>
@@ -591,7 +591,7 @@ export default async function IndiaFormationPage() {
                 Eligibility may depend on residence, nationality where relevant, activity, ownership, target markets,
                 expected transactions, KYC, source of funds and the provider's current risk appetite.
               </p>
-              <Link href={GUIDES.banking} className="mt-7 inline-block text-sm font-semibold text-gold-soft underline-offset-4 hover:underline">
+              <Link href={GUIDES.banking} className="mt-7 inline-block text-sm font-semibold text-gold-soft underline underline-offset-4 hover:no-underline">
                 Read the banking guide for Indian residents
               </Link>
             </div>
@@ -608,7 +608,7 @@ export default async function IndiaFormationPage() {
                 Seven Oak supports the UK company side. India-specific legal, tax or FEMA advice should be obtained from
                 an appropriately qualified Indian professional where required.
               </p>
-              <Link href={GUIDES.fema} className="mt-7 inline-block text-sm font-semibold text-gold-soft underline-offset-4 hover:underline">
+              <Link href={GUIDES.fema} className="mt-7 inline-block text-sm font-semibold text-gold-soft underline underline-offset-4 hover:no-underline">
                 Read the FEMA and RBI guide
               </Link>
             </div>

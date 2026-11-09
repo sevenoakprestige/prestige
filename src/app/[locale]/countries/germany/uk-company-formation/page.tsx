@@ -288,7 +288,7 @@ export default function GermanyPage() {
           </div>
           <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">
             Buchhaltung, Corporation Tax, VAT und Confirmation Statements sind nicht enthalten und werden separat vereinbart – siehe{" "}
-            <Link href="/services/uk-accounting-non-residents" className="text-gold-soft underline-offset-4 hover:underline">
+            <Link href="/services/uk-accounting-non-residents" className="text-gold-soft underline underline-offset-4 hover:no-underline">
               Buchhaltung für UK-Gesellschaften
             </Link>.
           </p>
@@ -349,7 +349,7 @@ export default function GermanyPage() {
           <p className="mt-8 border-l-2 border-gold pl-4 text-sm leading-relaxed text-muted-foreground">
             Seven Oak Prestige übernimmt die Gründung und Verwaltung in Großbritannien und erteilt keine deutsche Steuer- oder Rechtsberatung.
             Wir empfehlen, Ihre Struktur vor der Gründung von einem qualifizierten deutschen Steuerberater oder Rechtsanwalt prüfen zu lassen.
-            Mehr dazu in unserem <Link href={BLOG_GERMANY} className="text-gold-soft underline-offset-4 hover:underline">Ratgeber: UK-Firma aus Deutschland</Link>.
+            Mehr dazu in unserem <Link href={BLOG_GERMANY} className="text-gold-soft underline underline-offset-4 hover:no-underline">Ratgeber: UK-Firma aus Deutschland</Link>.
           </p>
         </div>
       </section>
