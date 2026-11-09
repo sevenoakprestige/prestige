@@ -120,7 +120,7 @@ function SectionHeading({ eyebrow, children }: { eyebrow: string; children: Reac
 
 function Stars() {
   return (
-    <div className="flex gap-1 text-gold" aria-label="Rated 5 out of 5">
+    <div className="flex gap-1 text-gold" role="img" aria-label="Rated 5 out of 5">
       {Array.from({ length: 5 }).map((_, index) => (
         <svg key={index} viewBox="0 0 20 20" className="h-3.5 w-3.5 fill-current" aria-hidden="true">
           <path d="M10 1.5l2.47 5.27 5.53.72-4.06 3.9 1.03 5.61L10 14.35 5.03 17l1.03-5.61L2 7.49l5.53-.72L10 1.5z" />

@@ -73,7 +73,7 @@ export default function CookieConsent() {
                                             href="/privacy"
                                             className="ml-1 underline hover:text-[#d4af37] transition-colors"
                                         >
-                                            Learn more
+                                            Read our Privacy Policy
                                         </a>
                                     </p>
                                 </div>

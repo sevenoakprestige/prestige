@@ -204,7 +204,7 @@ function Timeline() {
   );
 }
 
-const linkCls = "text-gold-soft underline-offset-4 hover:underline hover:text-gold transition-colors";
+const linkCls = "text-gold-soft underline underline-offset-4 hover:no-underline hover:text-gold transition-colors";
 
 export default function CompaniesHouseVerificationPageFr() {
   const jsonLd = {
