@@ -48,7 +48,7 @@ const OVERALL_RATING = "5.0";
 
 function Stars({ n }: { n: number }) {
     return (
-        <div className="flex gap-1.5 text-gold" aria-label={`Rated ${n} out of 5`}>
+        <div className="flex gap-1.5 text-gold" role="img" aria-label={`Rated ${n} out of 5`}>
             {Array.from({ length: n }).map((_, i) => (
                 <svg key={i} viewBox="0 0 20 20" className="h-5 w-5 fill-current" aria-hidden="true">
                     <path d="M10 1.5l2.47 5.27 5.53.72-4.06 3.9 1.03 5.61L10 14.35 5.03 17l1.03-5.61L2 7.49l5.53-.72L10 1.5z" />

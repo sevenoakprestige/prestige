@@ -80,7 +80,7 @@ export default function IndiaHero() {
                             <h3 className="text-2xl font-bold text-gray-900 mb-6">Check Your UK Company Setup</h3>
                             <LeadForm source="India UK Company Formation Landing Page" buttonText="Check My Setup">
                                 <div>
-                                    <select name="businessActivity" defaultValue="" className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 placeholder-gray-500 appearance-none">
+                                    <select name="businessActivity" aria-label="Business activity" defaultValue="" className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#001328] focus:border-transparent text-gray-900 placeholder-gray-500 appearance-none">
                                         <option value="" disabled>Business activity</option>
                                         <option value="saas">SaaS & Technology</option>
                                         <option value="services">IT Services & Agency</option>

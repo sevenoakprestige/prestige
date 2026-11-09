@@ -538,6 +538,7 @@ export default function CompanyChecker({
                                 <div className="absolute right-0 top-0 bottom-0 w-[85px] border-l border-border flex items-center justify-center">
                                     <select
                                         value={suffix}
+                                        aria-label="Company name suffix"
                                         onChange={(e) => setSuffix(e.target.value)}
                                         className="appearance-none bg-transparent h-full w-full px-3 text-sm font-medium text-foreground outline-none cursor-pointer hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                                         disabled={isLoading}
