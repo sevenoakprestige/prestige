@@ -29,7 +29,7 @@ export default function Home() {
             <Pricing />
             <Renewals />
             <AfterPayment />
-            <CompanyChecker />
+            <CompanyChecker variant="rings" />
             <Testimonials />
             <WhyChooseUs />
             <HowItWorks />
