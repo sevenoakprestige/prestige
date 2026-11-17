@@ -77,12 +77,112 @@ const COPY = {
 
 import { useTranslation } from "@/i18n/TranslationContext";
 
+type PlanName = 'Starter' | 'Prestige' | 'Elite';
+
+const PLAN_DATA: Record<PlanName, { tier: number; price: number; href: string }> = {
+  Starter: { tier: 0, price: 199, href: "https://buy.stripe.com/9B65kvcB217f3ZX2l6fw40i" },
+  Prestige: { tier: 1, price: 299, href: "https://buy.stripe.com/aFa6ozbwY5nv3ZX8Jufw40a" },
+  Elite: { tier: 2, price: 399, href: "https://buy.stripe.com/9B6fZ958AbLT5417Fqfw402" },
+};
+
+const RINGS_COPY = {
+  en: {
+    eyebrow: "Explore what your company receives",
+    title: "Your company, ring by ring.",
+    intro: "Enter a proposed name and choose Starter, Prestige or Elite. Each gold ring represents a service included in your chosen package.",
+    sideNote: "A clearer way to compare your first-year setup.",
+    sideNoteStrong: "Prices include the £100 Companies House filing fee.",
+    svgTitle: "Interactive company formation inclusions",
+    svgDesc: "Concentric rings show which services are included in the selected formation package.",
+    defaultName: "YOUR COMPANY",
+    keyActive: "Included in this package",
+    keyInactive: "Available in a higher package",
+    caption: "Gold rings show package inclusions, not Companies House name availability.",
+    nameLabel: "Your proposed company name",
+    suffixLabel: "Company suffix",
+    choosePackage: "Choose your formation package",
+    packageGroup: "Select company formation package",
+    included: "What is included",
+    countText: (n: number, total: number) => `${n} of ${total} services included`,
+    availableWith: (tier: number) => `Available with ${tier === 1 ? "Prestige or Elite" : "Elite"}`,
+    feedbackIdle: (plan: string, n: number, total: number) =>
+      `${plan} selected: ${n} services highlighted in gold.${n < total ? " The remaining services are available in higher packages." : " Every service is included."}`,
+    choose: (plan: string, price: number) => `Choose ${plan} — £${price} →`,
+    ask: "Ask an adviser on WhatsApp",
+    askMessage: "Hello Seven Oak Prestige, I would like help choosing a company formation package.",
+    renewal: "Clear year-two address pricing:",
+    renewalText: "Registered Office £59/year · Director Service Address £35/year · Virtual Business Address £150/year. Accounting and statutory filings are separate unless expressly included.",
+    descriptions: {
+      Starter: "For founders with their own eligible UK statutory address arrangements.",
+      Prestige: "Includes a London registered office and director service address for 12 months.",
+      Elite: "Our most comprehensive package: London address services, virtual business address, identity-verification assistance and banking application preparation.",
+    } as Record<PlanName, string>,
+    services: [
+      ["Company name review", "Before filing", 0],
+      ["UK company formation and Companies House filing", "£100 digital filing fee included", 0],
+      ["Digital company documents", "Following incorporation", 0],
+      ["Key compliance reminders", "Throughout the year", 0],
+      ["London Registered Office", "First 12 months", 1],
+      ["Director Service Address", "First 12 months", 1],
+      ["Virtual Business Address", "First 12 months", 2],
+      ["Identity-verification assistance", "One director included", 2],
+      ["Banking and EMI readiness", "Application preparation; providers decide independently", 2],
+    ] as Array<[string, string, number]>,
+  },
+  fr: {
+    eyebrow: "Découvrez ce que reçoit votre société",
+    title: "Votre société, anneau par anneau.",
+    intro: "Saisissez un nom et choisissez Starter, Prestige ou Elite. Chaque anneau doré représente un service inclus dans la formule choisie.",
+    sideNote: "Une façon plus claire de comparer votre première année.",
+    sideNoteStrong: "Les prix incluent les 100 £ de frais de dépôt Companies House.",
+    svgTitle: "Services inclus dans la création de société",
+    svgDesc: "Des anneaux concentriques montrent les services inclus dans la formule sélectionnée.",
+    defaultName: "VOTRE SOCIÉTÉ",
+    keyActive: "Inclus dans cette formule",
+    keyInactive: "Disponible dans une formule supérieure",
+    caption: "Les anneaux dorés indiquent le contenu de la formule, pas la disponibilité du nom auprès de Companies House.",
+    nameLabel: "Nom proposé pour votre société",
+    suffixLabel: "Suffixe de la société",
+    choosePackage: "Choisissez votre formule",
+    packageGroup: "Sélectionner la formule de création de société",
+    included: "Ce qui est inclus",
+    countText: (n: number, total: number) => `${n} services inclus sur ${total}`,
+    availableWith: (tier: number) => `Disponible avec ${tier === 1 ? "Prestige ou Elite" : "Elite"}`,
+    feedbackIdle: (plan: string, n: number, total: number) =>
+      `${plan} sélectionnée : ${n} services en doré.${n < total ? " Les autres services sont disponibles dans les formules supérieures." : " Tous les services sont inclus."}`,
+    choose: (plan: string, price: number) => `Choisir ${plan} — ${price} £ →`,
+    ask: "Poser une question à un conseiller sur WhatsApp",
+    askMessage: "Bonjour Seven Oak Prestige, j'aimerais de l'aide pour choisir une formule de création de société.",
+    renewal: "Tarifs d'adresse de l'année 2 :",
+    renewalText: "Siège social 59 £/an · Adresse de service du dirigeant 35 £/an · Adresse commerciale virtuelle 150 £/an. La comptabilité et les formalités légales sont facturées séparément, sauf mention expresse.",
+    descriptions: {
+      Starter: "Pour les fondateurs disposant déjà d'une adresse légale britannique éligible.",
+      Prestige: "Comprend un siège social à Londres et une adresse de service du dirigeant pendant 12 mois.",
+      Elite: "Notre formule la plus complète : adresses à Londres, adresse commerciale virtuelle, aide à la vérification d'identité et préparation de la demande bancaire.",
+    } as Record<PlanName, string>,
+    services: [
+      ["Vérification du nom de la société", "Avant le dépôt", 0],
+      ["Création de société au Royaume-Uni et dépôt Companies House", "Frais de dépôt numérique de 100 £ inclus", 0],
+      ["Documents numériques de la société", "Après l'immatriculation", 0],
+      ["Rappels de conformité essentiels", "Tout au long de l'année", 0],
+      ["Siège social à Londres", "12 premiers mois", 1],
+      ["Adresse de service du dirigeant", "12 premiers mois", 1],
+      ["Adresse commerciale virtuelle", "12 premiers mois", 2],
+      ["Aide à la vérification d'identité", "Un dirigeant inclus", 2],
+      ["Préparation bancaire et EMI", "Préparation du dossier ; chaque prestataire décide indépendamment", 2],
+    ] as Array<[string, string, number]>,
+  },
+};
+
 export default function CompanyChecker({
     lang,
     targetHref = "#pricing",
+    variant = "classic",
 }: {
     lang?: "en" | "fr" | "de";
     targetHref?: string;
+    /** "rings" renders the "Your company, ring by ring" layout (EN/FR). */
+    variant?: "classic" | "rings";
 } = {}) {
     const { locale } = useTranslation();
     const activeLang = lang || (locale in COPY ? locale : 'en');
@@ -96,6 +196,7 @@ export default function CompanyChecker({
     }>({ type: null, message: '' });
     const [isLoading, setIsLoading] = useState(false);
     const [suffix, setSuffix] = useState('LTD');
+    const [plan, setPlan] = useState<PlanName>('Prestige');
 
     // Enhanced normalization - removes all legal entity indicators
     function normalizeCompanyName(name: string): string {
@@ -495,6 +596,282 @@ export default function CompanyChecker({
         }
     };
 
+    const resultsBlock = result.type && (
+                            <div className="mt-8 border-t border-border pt-6">
+                                <p className={`font-sans text-base font-semibold ${result.type === 'success' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                                    {result.message}
+                                </p>
+                                
+                                <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                                    {result.type === 'success' 
+                                        ? t.freeHelp
+                                        : t.takenHelp}
+                                </p>
+
+                                {result.companies && result.companies.length > 0 && (
+                                    <div className="mt-6">
+                                        <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-gold">
+                                            {t.similarNames}
+                                        </p>
+                                        <ul className="mt-4 divide-y divide-border border-y border-border">
+                                            {result.companies.map((c, i) => (
+                                                <li key={i} className="flex flex-wrap items-baseline justify-between gap-2 py-3">
+                                                    <a
+                                                        href={`https://find-and-update.company-information.service.gov.uk/company/${c.company_number}`}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="text-sm font-medium transition-colors hover:text-gold-soft"
+                                                    >
+                                                        {c.title}
+                                                    </a>
+                                                    <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+                                                        {c.company_number}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                <Button asChild variant="ghost" className="mt-8">
+                                    <a href={targetHref}>{t.cta}</a>
+                                </Button>
+                            </div>
+    );
+
+    if (variant === 'rings') {
+        const rc = activeLang === 'fr' ? RINGS_COPY.fr : RINGS_COPY.en;
+        const services = rc.services;
+        const tier = PLAN_DATA[plan].tier;
+        const includedCount = services.filter((s) => s[2] <= tier).length;
+        const trimmed = companyName.trim().replace(/\s+/g, ' ').slice(0, 35);
+        const nameFont = trimmed.length > 22 ? 10 : trimmed.length > 15 ? 12 : 15;
+        const whatsappHref = `https://wa.me/447447488755?text=${encodeURIComponent(rc.askMessage)}`;
+
+        return (
+            <section id="name-check" className="section-dark px-6 py-16 sm:py-24 scroll-mt-20">
+                <div className="mx-auto max-w-6xl">
+                    <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                        <div className="max-w-2xl">
+                            <p className="eyebrow">{rc.eyebrow}</p>
+                            <div className="mt-4 h-px w-16 rule-gold" />
+                            <h2 className="font-display mt-4 mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
+                                {rc.title}
+                            </h2>
+                            <p className="max-w-xl leading-relaxed text-muted-foreground">{rc.intro}</p>
+                        </div>
+                        <p className="max-w-[17rem] text-sm text-muted-foreground">
+                            {rc.sideNote}
+                            <br />
+                            <strong className="text-gold-soft">{rc.sideNoteStrong}</strong>
+                        </p>
+                    </div>
+
+                    <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                        {/* Ring visual */}
+                        <div className="rounded-xl border border-border bg-card p-4 sm:p-6 lg:sticky lg:top-28">
+                            <div className="mx-auto max-w-[500px]">
+                                <svg
+                                    viewBox="0 0 420 420"
+                                    role="img"
+                                    aria-labelledby="oakSvgTitle oakSvgDesc"
+                                    className="block h-auto w-full"
+                                >
+                                    <title id="oakSvgTitle">{rc.svgTitle}</title>
+                                    <desc id="oakSvgDesc">{rc.svgDesc}</desc>
+                                    <g>
+                                        {services.map((s, i) => {
+                                            const active = s[2] <= tier;
+                                            return (
+                                                <circle
+                                                    key={i}
+                                                    cx={210}
+                                                    cy={210}
+                                                    r={62 + i * 17}
+                                                    fill="none"
+                                                    stroke={active ? '#e2bb53' : '#43536a'}
+                                                    strokeWidth={active ? 3 : 1.5}
+                                                    opacity={active ? 1 : 0.2}
+                                                    style={{ transition: 'stroke .25s ease, opacity .25s ease, stroke-width .25s ease' }}
+                                                />
+                                            );
+                                        })}
+                                    </g>
+                                    <text
+                                        x={210}
+                                        y={207}
+                                        textAnchor="middle"
+                                        fill="#fff"
+                                        fontFamily="Georgia, serif"
+                                        fontSize={nameFont}
+                                    >
+                                        {(trimmed || rc.defaultName).toUpperCase()}
+                                    </text>
+                                    <text x={210} y={228} textAnchor="middle" fill="#D7B65F" fontSize={11} letterSpacing={3}>
+                                        {suffix.toUpperCase()}
+                                    </text>
+                                </svg>
+                            </div>
+                            <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+                                <span className="inline-flex items-center gap-2">
+                                    <span className="inline-block h-0.5 w-5" style={{ background: '#e2bb53' }} /> {rc.keyActive}
+                                </span>
+                                <span className="inline-flex items-center gap-2">
+                                    <span className="inline-block h-0.5 w-5 opacity-40" style={{ background: '#43536a' }} /> {rc.keyInactive}
+                                </span>
+                            </div>
+                            <p className="mt-3 text-center text-xs text-muted-foreground">{rc.caption}</p>
+                        </div>
+
+                        {/* Controls */}
+                        <div className="section-parchment rounded-xl bg-background p-5 text-foreground sm:p-8">
+                            <label htmlFor="company-name" className="mb-2 block text-sm font-bold">
+                                {rc.nameLabel}
+                            </label>
+                            <div className="flex flex-col gap-3 sm:flex-row">
+                                <div className="relative flex flex-1">
+                                    <input
+                                        id="company-name"
+                                        type="text"
+                                        maxLength={65}
+                                        value={companyName}
+                                        onChange={(e) => {
+                                            setCompanyName(e.target.value);
+                                            if (result.type) setResult({ type: null, message: '' });
+                                        }}
+                                        onKeyDown={(e) => e.key === 'Enter' && !isLoading && handleCheckAvailability()}
+                                        disabled={isLoading}
+                                        placeholder={t.placeholder}
+                                        autoComplete="organization"
+                                        className="w-full border border-border bg-background px-4 py-3.5 pr-[85px] text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-gold"
+                                    />
+                                    <div className="absolute bottom-0 right-0 top-0 flex w-[85px] items-center justify-center border-l border-border">
+                                        <select
+                                            value={suffix}
+                                            aria-label={rc.suffixLabel}
+                                            onChange={(e) => setSuffix(e.target.value)}
+                                            className="h-full w-full cursor-pointer appearance-none bg-transparent px-3 text-sm font-medium text-foreground outline-none transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+                                            disabled={isLoading}
+                                        >
+                                            <option value="LTD" className="bg-background text-foreground">LTD</option>
+                                            <option value="Limited" className="bg-background text-foreground">Limited</option>
+                                            <option value="PLC" className="bg-background text-foreground">PLC</option>
+                                        </select>
+                                        <div className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground">
+                                            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <Button onClick={handleCheckAvailability} className="shrink-0" disabled={isLoading}>
+                                    {isLoading ? t.loading : t.submit}
+                                </Button>
+                            </div>
+                            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t.searchNote}</p>
+
+                            {resultsBlock}
+
+                            <div className="mb-2 mt-7 text-sm font-bold">{rc.choosePackage}</div>
+                            <div role="group" aria-label={rc.packageGroup} className="grid grid-cols-3 gap-2">
+                                {(Object.keys(PLAN_DATA) as PlanName[]).map((name) => {
+                                    const selected = name === plan;
+                                    return (
+                                        <button
+                                            key={name}
+                                            type="button"
+                                            aria-pressed={selected}
+                                            onClick={() => setPlan(name)}
+                                            className={`rounded-md border px-1 py-3 text-xs font-bold transition-colors sm:text-sm ${
+                                                selected
+                                                    ? 'border-[#d9b64e] text-[#102037] shadow-[0_0_0_2px_#d9b64e55]'
+                                                    : 'border-border bg-background text-foreground hover:border-gold'
+                                            }`}
+                                            style={selected ? { background: '#d9b64e' } : undefined}
+                                        >
+                                            {name}
+                                            <strong className="mt-0.5 block text-base sm:text-xl">£{PLAN_DATA[name].price}</strong>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+
+                            <p
+                                aria-live="polite"
+                                className="min-h-[4.5rem] border-b border-border py-4 text-sm text-muted-foreground"
+                            >
+                                {rc.descriptions[plan]}
+                            </p>
+
+                            <div className="mb-1 mt-4 flex items-baseline justify-between gap-2">
+                                <h3 className="text-lg font-semibold">{rc.included}</h3>
+                                <span aria-live="polite" className="text-xs text-muted-foreground">
+                                    {rc.countText(includedCount, services.length)}
+                                </span>
+                            </div>
+                            <div>
+                                {services.map((s, i) => {
+                                    const active = s[2] <= tier;
+                                    return (
+                                        <div
+                                            key={i}
+                                            className={`flex items-start gap-3 border-b border-border/60 py-3 text-sm transition-opacity ${
+                                                active ? '' : 'opacity-40'
+                                            }`}
+                                        >
+                                            <span
+                                                className={`w-[18px] flex-none font-black ${
+                                                    active ? 'text-green-700 dark:text-green-400' : 'text-muted-foreground'
+                                                }`}
+                                            >
+                                                {active ? '✓' : '○'}
+                                            </span>
+                                            <span className="flex-1">
+                                                <strong className="block font-semibold leading-snug">{s[0]}</strong>
+                                                <small className="mt-0.5 block text-muted-foreground">
+                                                    {active ? s[1] : rc.availableWith(s[2])}
+                                                </small>
+                                            </span>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+
+                            <div
+                                role="status"
+                                aria-live="polite"
+                                className="mt-4 border-l-[3px] bg-card px-4 py-2.5 text-sm text-muted-foreground"
+                                style={{ borderColor: '#d9b64e' }}
+                            >
+                                {rc.feedbackIdle(plan, includedCount, services.length)}
+                            </div>
+
+                            <div className="mt-6 flex flex-wrap items-center gap-3">
+                                <Button asChild className="flex-1">
+                                    <a href={PLAN_DATA[plan].href} target="_blank" rel="noopener noreferrer">
+                                        {rc.choose(plan, PLAN_DATA[plan].price)}
+                                    </a>
+                                </Button>
+                                <a
+                                    href={whatsappHref}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm font-bold text-gold-soft underline underline-offset-4 hover:no-underline"
+                                >
+                                    {rc.ask}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p className="mt-8 border-t border-border pt-5 text-sm text-muted-foreground">
+                        <strong className="text-gold-soft">{rc.renewal}</strong> {rc.renewalText}
+                    </p>
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section id="name-check" className="px-6 py-24 sm:py-32 scroll-mt-20">
             <div className="mx-auto max-w-6xl">
@@ -568,48 +945,7 @@ export default function CompanyChecker({
                             {t.searchNote}
                         </p>
 
-                        {result.type && (
-                            <div className="mt-8 border-t border-border pt-6">
-                                <p className={`font-sans text-base font-semibold ${result.type === 'success' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
-                                    {result.message}
-                                </p>
-                                
-                                <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                                    {result.type === 'success' 
-                                        ? t.freeHelp
-                                        : t.takenHelp}
-                                </p>
-
-                                {result.companies && result.companies.length > 0 && (
-                                    <div className="mt-6">
-                                        <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-gold">
-                                            {t.similarNames}
-                                        </p>
-                                        <ul className="mt-4 divide-y divide-border border-y border-border">
-                                            {result.companies.map((c, i) => (
-                                                <li key={i} className="flex flex-wrap items-baseline justify-between gap-2 py-3">
-                                                    <a
-                                                        href={`https://find-and-update.company-information.service.gov.uk/company/${c.company_number}`}
-                                                        target="_blank"
-                                                        rel="noreferrer"
-                                                        className="text-sm font-medium transition-colors hover:text-gold-soft"
-                                                    >
-                                                        {c.title}
-                                                    </a>
-                                                    <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
-                                                        {c.company_number}
-                                                    </span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
-
-                                <Button asChild variant="ghost" className="mt-8">
-                                    <a href={targetHref}>{t.cta}</a>
-                                </Button>
-                            </div>
-                        )}
+                        {resultsBlock}
                     </div>
                 </div>
             </div>
